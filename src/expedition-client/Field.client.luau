@@ -109,6 +109,7 @@ local actions = {
     Reload = Enum.KeyCode.R,
     Resonance = Enum.KeyCode.Q,
     Heal = Enum.KeyCode.F,
+    Revive = Enum.KeyCode.T,
     Map = Enum.KeyCode.M,
     Sprint = Enum.KeyCode.LeftShift,
     Crouch = Enum.KeyCode.LeftControl,

@@ -22,6 +22,7 @@ type Hunter = {
     life: number,
     phase: string,
     downedUntil: number,
+    rescueMarker: BasePart?,
     exitAt: number?,
     resonanceUntil: number,
     medkits: number,
@@ -254,6 +255,46 @@ local function settle(session: Session, player: Player, name: string, escaped: b
     end)
 end
 
+local function revive(session: Session, helper: Player, fallen: Player): boolean
+    local ally = session.players[helper]
+    local hunter = session.players[fallen]
+    local helperRoot = charParts(helper)
+    local root, humanoid = charParts(fallen)
+    if
+        not ally
+        or not hunter
+        or ally.phase ~= "Alive"
+        or hunter.phase ~= "Downed"
+        or ally.team ~= hunter.team
+        or not helperRoot
+        or not root
+        or not humanoid
+        or (helperRoot.Position - root.Position).Magnitude > 7
+        or os.clock() >= hunter.downedUntil
+        or not sight(
+            helperRoot.Position,
+            root.Position,
+            helper.Character :: Model,
+            fallen.Character
+        )
+    then
+        return false
+    end
+    hunter.phase = "Alive"
+    humanoid.Health = 45
+    humanoid.WalkSpeed = 13
+    humanoid.JumpHeight = 5
+    humanoid.JumpPower = 40
+    fallen:SetAttribute("RaidPhase", "Alive")
+    message(fallen, "Вы снова на ногах.")
+    message(helper, "Товарищ снова на ногах.")
+    if hunter.rescueMarker then
+        hunter.rescueMarker:Destroy()
+    end
+    hunter.rescueMarker = nil
+    return true
+end
+
 local function hurt(session: Session, player: Player, damage: number)
     local hunter = session.players[player]
     local root, humanoid = charParts(player)
@@ -279,28 +320,15 @@ local function hurt(session: Session, player: Player, damage: number)
     player:SetAttribute("RaidPhase", "Downed")
     player:SetAttribute("RaidExitAt", nil)
     message(player, "Нокдаун. Товарищ может поднять вас.")
-    local marker =
-        objective(session.world, "Товарищ", root.Position, Color3.fromRGB(214, 117, 71))
+    local marker = objective(
+        session.world,
+        "Товарищ",
+        root.Position + Vector3.new(0, 2.7, 0),
+        Color3.fromRGB(214, 117, 71)
+    )
+    hunter.rescueMarker = marker
     prompt(marker, "Поднять", function(helper)
-        local ally = session.players[helper]
-        if
-            not ally
-            or ally.phase ~= "Alive"
-            or ally.team ~= hunter.team
-            or (hunter.phase :: string) ~= "Downed"
-            or session.players[player] ~= hunter
-            or not near(player, marker, 4)
-        then
-            return
-        end
-        hunter.phase = "Alive"
-        humanoid.Health = 45
-        humanoid.WalkSpeed = 13
-        humanoid.JumpHeight = 5
-        humanoid.JumpPower = 40
-        player:SetAttribute("RaidPhase", "Alive")
-        message(player, "Вы снова на ногах.")
-        marker:Destroy()
+        revive(session, helper, player)
     end)
     task.delay(20, function()
         marker:Destroy()
@@ -673,6 +701,14 @@ Remotes.combat.OnServerEvent:Connect(function(player: Player, action: unknown, d
     end
     local now = os.clock()
     if not studio and (root.Position - hunter.lastPosition).Magnitude > 17 then
+        return
+    end
+    if action == "Revive" then
+        for target, other in session.players do
+            if other.phase == "Downed" and revive(session, player, target) then
+                return
+            end
+        end
         return
     end
     if action == "Heal" then

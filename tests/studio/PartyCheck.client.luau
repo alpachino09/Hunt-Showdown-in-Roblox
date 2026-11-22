@@ -16,6 +16,8 @@ local function step()
     task.wait(0.35)
     if stage == "fire" then
         combat:FireServer("Fire", -Vector3.zAxis)
+    elseif stage == "rescue" then
+        combat:FireServer("Revive")
     elseif actions[stage] then
         lobby:FireServer(actions[stage])
     end

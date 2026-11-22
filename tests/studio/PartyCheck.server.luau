@@ -8,7 +8,7 @@ end
 
 local Players = game:GetService("Players")
 local function waitFor(description, check)
-    local deadline = os.clock() + 24
+    local deadline = os.clock() + 40
     repeat
         if check() then
             return
@@ -55,6 +55,23 @@ local ok, result = pcall(function()
         return leader:GetAttribute("RaidAmmo") == 5
     end)
     assert(member:GetAttribute("RaidAmmo") == 6, "ammunition leaked across players")
-    return "PASS: two clients grouped, readied, deployed and used independent ammunition"
+    local world = workspace.ActiveRaid
+    local warden = world:FindFirstChild("Смотритель")
+    local humanoid = leader.Character:FindFirstChildOfClass("Humanoid")
+    humanoid.Health = 6
+    local attack = warden.Position + Vector3.new(0, 0.8, 2.5)
+    leader.Character:PivotTo(CFrame.new(attack))
+    waitFor("elite did not down leader", function()
+        return leader:GetAttribute("RaidPhase") == "Downed"
+    end)
+    local marker = world:FindFirstChild("Товарищ")
+    local rescue = marker.Position + Vector3.new(0, -2.7, 3)
+    member.Character:PivotTo(CFrame.lookAt(rescue, marker.Position))
+    member:SetAttribute("FixtureStage", "rescue")
+    waitFor("teammate did not revive leader", function()
+        return leader:GetAttribute("RaidPhase") == "Alive"
+    end)
+    assert(humanoid.Health > 1, "revived hunter did not receive health")
+    return "PASS: two clients grouped, deployed, used independent ammunition and revived a teammate"
 end)
 studio:EndTest(if ok then result else tostring(result))
