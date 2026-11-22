@@ -121,7 +121,7 @@ Remotes.lobby.OnServerEvent:Connect(function(player: Player, action: unknown, va
     elseif action == "LeaveParty" then
         Parties.leave(player)
         Parties.join(player)
-    elseif action == "Start" then
+    elseif action == "Start" or action == "StartRush" then
         local roster = Parties.roster(player)
         if not roster then
             errorText =
@@ -139,9 +139,11 @@ Remotes.lobby.OnServerEvent:Connect(function(player: Player, action: unknown, va
                 end
                 table.insert(entries, { player = member, team = tostring(player.UserId) })
             end
-            if not errorText and not Raid.start(entries, finish) then
+            if not errorText and not Raid.start(entries, finish, action == "StartRush") then
                 errorText = "Экспедиция занята или ещё не готова."
             end
+        elseif action == "StartRush" then
+            errorText = "Быстрый контракт пока доступен в Studio."
         else
             local queueReady = true
             for _, member in roster do

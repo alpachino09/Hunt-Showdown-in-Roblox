@@ -147,8 +147,11 @@ local function redraw()
         return
     end
     status.Text = string.format(
-        "КЕДРОВЫЙ ПЕРЕГОН   /   СЛЕДЫ %s / 3\n%s",
-        tostring(Player:GetAttribute("RaidClues") or 0),
+        "%s   /   %s\n%s",
+        tostring(Player:GetAttribute("RaidMode") or "Экспедиция"),
+        if Player:GetAttribute("RaidSearch")
+            then string.format("Следы %s / 3", tostring(Player:GetAttribute("RaidClues") or 0))
+            else "Контракт",
         tostring(
             Player:GetAttribute("RaidMessage") or "Подготовка экспедиции…"
         )

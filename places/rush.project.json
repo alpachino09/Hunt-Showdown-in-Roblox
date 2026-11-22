@@ -19,8 +19,8 @@
     },
     "ServerStorage": {
       "$className": "ServerStorage",
-      "ExpeditionMap": {
-        "$path": "../build/generated/ExpeditionMap.rbxmx"
+      "RushMap": {
+        "$path": "../build/generated/RushMap.rbxmx"
       }
     },
     "StarterPlayer": {

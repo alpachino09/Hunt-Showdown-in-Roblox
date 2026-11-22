@@ -31,7 +31,30 @@ type Creature = {
     boss: boolean,
     lastAttack: number,
 }
+type Mode = {
+    label: string,
+    seconds: number,
+    sealSeconds: number,
+    exitSeconds: number,
+    search: boolean,
+}
+local hunt: Mode = {
+    label = "Кедровый перегон",
+    seconds = Policy.sessionSeconds,
+    sealSeconds = Policy.sealSeconds,
+    exitSeconds = Policy.escapeSeconds,
+    search = true,
+}
+local rush: Mode = {
+    label = "Ночная смена",
+    seconds = 600,
+    sealSeconds = 8,
+    exitSeconds = 5,
+    search = false,
+}
+
 type Session = {
+    mode: Mode,
     id: string,
     world: Model,
     markers: Folder,
@@ -352,10 +375,10 @@ local function tick(session: Session)
                         end
                     end
                     if contested then
-                        hunter.exitAt = now + Policy.escapeSeconds
+                        hunter.exitAt = now + session.mode.exitSeconds
                         player:SetAttribute(
                             "RaidExitAt",
-                            Workspace:GetServerTimeNow() + Policy.escapeSeconds
+                            Workspace:GetServerTimeNow() + session.mode.exitSeconds
                         )
                         message(player, "Выход блокируют соперники.")
                     elseif now >= hunter.exitAt then
@@ -388,7 +411,8 @@ end
 
 function Raid.start(
     roster: { { player: Player, team: string } },
-    onFinish: (Player, string, boolean) -> ()
+    onFinish: (Player, string, boolean) -> (),
+    fast: boolean?
 ): boolean
     if current or #roster == 0 or #roster > Policy.playerLimit then
         return false
@@ -399,24 +423,30 @@ function Raid.start(
         end
     end
 
-    local world = ServerStorage.ExpeditionMap:Clone() :: Model
+    local mode = if fast then rush else hunt
+    local map = ServerStorage:FindFirstChild(if fast then "RushMap" else "ExpeditionMap")
+    if not map then
+        return false
+    end
+    local world = map:Clone() :: Model
     world.Name = "ActiveRaid"
     local markers = world:FindFirstChild("Markers") :: Folder
     local session: Session = {
+        mode = mode,
         id = HttpService:GenerateGUID(false),
         world = world,
         markers = markers,
         players = {},
         clues = {},
         creatures = {},
-        deadline = os.clock() + Policy.sessionSeconds,
+        deadline = os.clock() + mode.seconds,
         escaped = 0,
         onFinish = onFinish,
     }
     current = session
     world.Parent = Workspace
 
-    for i = 1, 3 do
+    for i = 1, (if mode.search then 3 else 0) do
         local key = "Clue" .. i
         local marker = markers:FindFirstChild(key) :: BasePart
         local clue =
@@ -459,19 +489,33 @@ function Raid.start(
         if not hunter or hunter.phase ~= "Alive" or hunter.exitAt then
             return
         end
-        hunter.exitAt = os.clock() + Policy.escapeSeconds
-        player:SetAttribute("RaidExitAt", Workspace:GetServerTimeNow() + Policy.escapeSeconds)
+        hunter.exitAt = os.clock() + session.mode.exitSeconds
+        player:SetAttribute("RaidExitAt", Workspace:GetServerTimeNow() + session.mode.exitSeconds)
         message(player, "Оставайтесь у выхода.")
     end)
     spawnCreature(session, (markers:FindFirstChild("Warden") :: BasePart).Position, true)
-    spawnCreature(session, (markers:FindFirstChild("Drifter") :: BasePart).Position, false)
+    if mode.search then
+        spawnCreature(session, (markers:FindFirstChild("Drifter") :: BasePart).Position, false)
+    end
 
     local waiting = #roster
-    for index, entry in roster do
+    local teamIndices: { [string]: number } = {}
+    local teamSizes: { [string]: number } = {}
+    local teamCount = 0
+    for _, entry in roster do
+        if not teamIndices[entry.team] then
+            teamCount += 1
+            teamIndices[entry.team] = teamCount
+        end
+        local teamIndex = teamIndices[entry.team]
+        local offset = teamSizes[entry.team] or 0
+        teamSizes[entry.team] = offset + 1
         local player = entry.player
         local data = Profiles.get(player) :: Profiles.Profile
         local weapon = Catalog.weapon(data.weapon) or Catalog.weapons[1]
         session.clues[entry.team] = {}
+        player:SetAttribute("RaidMode", mode.label)
+        player:SetAttribute("RaidSearch", mode.search)
         player:SetAttribute("RaidPhase", "Deploying")
         task.spawn(function()
             local ok = pcall(function()
@@ -480,7 +524,16 @@ function Raid.start(
             local root, humanoid = charParts(player)
             if ok and root and humanoid and player.Parent then
                 local spawn = (markers:FindFirstChild("Spawn") :: BasePart).Position
-                    + Vector3.new((index - 1) * 4, 0, 0)
+                    + Vector3.new(offset * 3.3, 0, 0)
+                if teamIndex > 1 then
+                    local angle = (teamIndex - 2) * math.pi / 5
+                    local radius = if fast then 27 else 47
+                    spawn = Vector3.new(
+                        220 + math.cos(angle) * radius + offset * 2,
+                        3.5,
+                        math.sin(angle) * radius - (if fast then 8 else 17)
+                    )
+                end
                 local character = player.Character :: Model
                 character:PivotTo(CFrame.lookAt(spawn, spawn - Vector3.zAxis))
                 humanoid.WalkSpeed = 13
@@ -507,7 +560,9 @@ function Raid.start(
                 updateAmmo(player, hunter)
                 message(
                     player,
-                    "Исследуйте следы вдоль перегона. Клавиша Q показывает ближайшие следы."
+                    if mode.search
+                        then "Исследуйте следы вдоль перегона. Клавиша Q показывает ближайшие следы."
+                        else "Смотритель в конторе шахты. Заберите свидетельство и возвращайтесь."
                 )
                 player:SetAttribute("RaidPhase", "Alive")
             else
@@ -543,14 +598,14 @@ local function endCreature(session: Session, creature: Creature)
         if not hunter or hunter.phase ~= "Alive" or session.sealAt then
             return
         end
-        session.sealAt = os.clock() + Policy.sealSeconds
+        session.sealAt = os.clock() + session.mode.sealSeconds
         altar:Destroy()
         for member in session.players do
             message(
                 member,
                 string.format(
                     "Печать в конторе шахты замкнётся через %d с.",
-                    Policy.sealSeconds
+                    session.mode.sealSeconds
                 )
             )
         end
@@ -581,7 +636,7 @@ Remotes.combat.OnServerEvent:Connect(function(player: Player, action: unknown, d
         return
     end
     local now = os.clock()
-    if action == "Resonance" and now >= hunter.resonanceUntil then
+    if action == "Resonance" and session.mode.search and now >= hunter.resonanceUntil then
         hunter.resonanceUntil = now + 8
         local positions = {}
         for i = 1, 3 do

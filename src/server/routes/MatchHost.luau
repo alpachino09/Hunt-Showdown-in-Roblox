@@ -10,7 +10,7 @@ local Policy = require(script.Parent.MatchPolicy)
 local Remotes = require(script.Parent.Parent.Remotes)
 local MatchHost = {}
 
-function MatchHost.start()
+function MatchHost.start(fast: boolean?)
     Players.CharacterAutoLoads = false
     local roster: { { player: Player, team: string } } = {}
     local started = false
@@ -61,7 +61,7 @@ function MatchHost.start()
                     player:SetAttribute("RaidMessage", result)
                     task.delay(3, returnToLobby, player)
                 end
-            end)
+            end, fast)
         end
     end
 

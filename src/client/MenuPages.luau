@@ -1,6 +1,7 @@
 --!strict
 
 local Catalog = require(game:GetService("ReplicatedStorage").Shared.Catalog)
+local studio = game:GetService("RunService"):IsStudio()
 
 type Action = { label: string, command: string, value: string? }
 export type Page = { heading: string, summary: string, primary: Action?, secondary: Action? }
@@ -21,6 +22,9 @@ local function get(player: Player, key: string): Page?
             primary = if player:GetAttribute("QueueId")
                 then action("Отменить поиск", "Cancel")
                 else action("Начать экспедицию", "Start"),
+            secondary = if studio
+                then action("Быстрый контракт", "StartRush")
+                else nil,
         }
     elseif key == "Hunter" or key == "Recruitment" then
         local index = table.find(Catalog.hunters, hunter) or 1

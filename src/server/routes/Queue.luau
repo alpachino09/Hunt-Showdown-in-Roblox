@@ -3,6 +3,7 @@
 local HttpService = game:GetService("HttpService")
 local MemoryStoreService = game:GetService("MemoryStoreService")
 local TeleportService = game:GetService("TeleportService")
+local RunService = game:GetService("RunService")
 local Policy = require(script.Parent.MatchPolicy)
 
 type Ticket = {
@@ -16,12 +17,19 @@ type Ticket = {
 }
 type Pool = { tickets: { [string]: Ticket }, claim: string?, claimUntil: number? }
 local Queue = {}
-local requests = MemoryStoreService:GetHashMap("GreyOutpostLobbyQueueV1")
-local admissions = MemoryStoreService:GetHashMap("GreyOutpostAdmissionsV1")
+local requests = if RunService:IsStudio()
+    then nil
+    else MemoryStoreService:GetHashMap("GreyOutpostLobbyQueueV1")
+local admissions = if RunService:IsStudio()
+    then nil
+    else MemoryStoreService:GetHashMap("GreyOutpostAdmissionsV1")
 local polling = false
 local pending: { [string]: { Player } } = {}
 
 local function update(transform: (Pool, number) -> boolean): Pool?
+    if not requests then
+        return nil
+    end
     local now = os.time()
     local ok, result = pcall(function()
         return requests:UpdateAsync("Expedition", function(raw): Pool?
@@ -60,6 +68,9 @@ local function dispatch(ticket: Ticket, group: { Player })
 end
 
 local function form()
+    if not admissions then
+        return
+    end
     local claim = HttpService:GenerateGUID(false)
     local pool = update(function(current, now)
         if current.claim and (current.claimUntil or 0) > now then
@@ -135,7 +146,7 @@ local function form()
 end
 
 local function beginPolling()
-    if polling then
+    if not requests or polling then
         return
     end
     polling = true
@@ -243,6 +254,9 @@ function Queue.cancel(player: Player): boolean
 end
 
 function Queue.admission(player: Player): (string?, number?)
+    if not admissions then
+        return nil
+    end
     local join = player:GetJoinData()
     local raw: any = join.TeleportData
     if

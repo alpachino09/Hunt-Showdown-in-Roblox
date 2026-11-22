@@ -258,8 +258,8 @@ def build(name, author):
     xml.ElementTree(root).write(OUTPUT / f"{name}.rbxmx", encoding="utf-8", xml_declaration=True)
 
 
-def expedition(root):
-    world = item(root, "Model", "ExpeditionMap")
+def expedition(root, fast=False):
+    world = item(root, "Model", "RushMap" if fast else "ExpeditionMap")
     x = 220
     rng = Random(1896)
     earth, wood, rock = (65, 66, 50), (73, 53, 40), (53, 57, 59)
@@ -270,15 +270,16 @@ def expedition(root):
             node.find(f"./Properties/bool[@name='{key}']").text = "true"
         return node
 
-    solid(world, "Ground", (128, 2, 164), (0, -1, 0), earth, 1280)
-    for px in (-65, 65):
-        solid(world, "Ridge", (5, 10, 169), (px, 4, 0), rock, 896)
-    for pz in (-84, 84):
-        solid(world, "Ridge", (135, 10, 5), (0, 4, pz), rock, 896)
+    half_x, half_z = (36, 57) if fast else (64, 82)
+    solid(world, "Ground", (2*half_x, 2, 2*half_z), (0, -1, 0), earth, 1280)
+    for px in (-half_x-1, half_x+1):
+        solid(world, "Ridge", (5, 10, 2*half_z+5), (px, 4, 0), rock, 896)
+    for pz in (-half_z-2, half_z+2):
+        solid(world, "Ridge", (2*half_x+7, 10, 5), (0, 4, pz), rock, 896)
 
-    for i in range(34):
-        px = rng.choice((-1, 1)) * rng.uniform(15, 59)
-        pz = rng.uniform(-78, 77)
+    for i in range(17 if fast else 34):
+        px = rng.choice((-1, 1)) * rng.uniform(15, half_x-5)
+        pz = rng.uniform(-half_z+4, half_z-5)
         height = rng.uniform(6.5, 11.5)
         solid(world, "PineTrunk", (.52, height, .54), (px, height / 2, pz), wood, 528)
         for j in range(3):
@@ -291,11 +292,11 @@ def expedition(root):
             prop(crown, "bool", "CanCollide", "false")
             prop(crown, "bool", "CanQuery", "false")
 
-    for i in range(20):
+    for i in range(11 if fast else 20):
         z = 15 + i * 3.5
         solid(world, "Sleeper", (5, .18, .64), (-2, .08, z), wood, 528)
     for px in (-3.2, -.8):
-        solid(world, "Track", (.16, .22, 75), (px, .24, 48), (70, 73, 70), 1088)
+        solid(world, "Track", (.16, .22, 42 if fast else 75), (px, .24, 33 if fast else 48), (70, 73, 70), 1088)
 
     shed = item(world, "Model", "MineOffice")
     solid(shed, "Back", (28, 8, .6), (0, 4, -52), wood, 528)
@@ -307,13 +308,14 @@ def expedition(root):
     for px, pz, angle in ((-11, 23, 19), (8, 9, -24), (-5, -18, 6), (17, -22, 35), (5, -48, 21)):
         solid(world, "Cover", (3.8, 2.4, 2.3), (px, 1.2, pz), wood, 528, angle)
     lantern(world, "OfficeLamp", x - 8, 1.6, -36, 19)
-    lantern(world, "ExitLamp", x - 3, 1.6, 68, 20)
+    escape_z = 39 if fast else 68
+    lantern(world, "ExitLamp", x - 3, 1.6, escape_z, 20)
 
     markers = item(world, "Folder", "Markers")
     fields = {
-        "Spawn": (0, 3.5, 53), "Clue1": (-8, 1.1, 24), "Clue2": (11, 1.1, 9),
+        "Spawn": (0, 3.5, 27 if fast else 53), "Clue1": (-8, 1.1, 24), "Clue2": (11, 1.1, 9),
         "Clue3": (-3, 1.1, -16), "Warden": (0, 2, -44),
-        "Drifter": (9, 2, -11), "Escape": (-3, 1.25, 68),
+        "Drifter": (9, 2, -11), "Escape": (-3, 1.25, escape_z),
     }
     for name, (px, py, pz) in fields.items():
         part(markers, name, (.4, .4, .4), (x+px, py, pz), rock, transparency=1)
@@ -324,3 +326,4 @@ if __name__ == "__main__":
     build("Station", station)
     build("Lobby", lobby)
     build("ExpeditionMap", expedition)
+    build("RushMap", lambda root: expedition(root, fast=True))
