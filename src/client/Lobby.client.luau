@@ -3,8 +3,14 @@
 local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local GuiService = game:GetService("GuiService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace = game:GetService("Workspace")
+local Catalog = require(ReplicatedStorage.Shared.Catalog)
+local player = Players.LocalPlayer
+local remote =
+    ReplicatedStorage:WaitForChild("GreyOutpostRemotes"):WaitForChild("Lobby") :: RemoteEvent
 
-local pages = require(script.Parent.MenuPages)
+local MenuPages = require(script.Parent.MenuPages)
 local setMovement = require(script.Parent.StationView).start()
 
 local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -21,7 +27,11 @@ StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
 StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
 StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Health, false)
 
+local primary = details:WaitForChild("Primary") :: TextButton
+local secondary = details:WaitForChild("Secondary") :: TextButton
+local footer = menu:WaitForChild("Footer") :: TextLabel
 local active = "Briefing"
+local selectedPage: MenuPages.Page? = nil
 local motion = not GuiService.ReducedMotionEnabled
 local buttons: { [string]: TextButton } = {}
 
@@ -33,12 +43,13 @@ local function drawMotion()
 end
 
 local function selectPage(key: string)
-    local page = pages[key]
+    local page = MenuPages(player, key)
     if not page then
         return
     end
 
     active = key
+    selectedPage = page
     for id, button in buttons do
         local selected = id == active
         button.BackgroundColor3 = if selected
@@ -51,6 +62,10 @@ local function selectPage(key: string)
     heading.Text = page.heading
     summary.Text = page.summary
     toggle.Visible = key == "Settings"
+    primary.Visible = page.primary ~= nil
+    secondary.Visible = page.secondary ~= nil
+    primary.Text = if page.primary then "   " .. page.primary.label else ""
+    secondary.Text = if page.secondary then "   " .. page.secondary.label else ""
     screen:SetAttribute("ActiveSection", key)
 end
 
@@ -61,7 +76,7 @@ local function resize()
 end
 
 for _, child in tabs:GetChildren() do
-    if child:IsA("TextButton") and pages[child.Name] then
+    if child:IsA("TextButton") and MenuPages(player, child.Name) then
         buttons[child.Name] = child
         child.Activated:Connect(function()
             selectPage(child.Name)
@@ -78,3 +93,75 @@ screen:GetPropertyChangedSignal("AbsoluteSize"):Connect(resize)
 resize()
 drawMotion()
 selectPage(active)
+
+primary.Activated:Connect(function()
+    local action = selectedPage and selectedPage.primary
+    if action then
+        remote:FireServer(action.command, action.value)
+    end
+end)
+
+secondary.Activated:Connect(function()
+    local action = selectedPage and selectedPage.secondary
+    if action then
+        remote:FireServer(action.command, action.value)
+    end
+end)
+
+for _, attr in
+    {
+        "HunterId",
+        "WeaponId",
+        "Credits",
+        "Experience",
+        "OwnsCarbine",
+        "PartyReady",
+        "PartySummary",
+        "QueueId",
+    }
+do
+    player:GetAttributeChangedSignal(attr):Connect(function()
+        selectPage(active)
+    end)
+end
+
+player:GetAttributeChangedSignal("LobbyMessage"):Connect(function()
+    footer.Text =
+        tostring(player:GetAttribute("LobbyMessage") or "ЖЕЛЕЗНОДОРОЖНЫЙ ПОСТ")
+end)
+
+local function showHunter()
+    local hunter = Catalog.hunter(player:GetAttribute("HunterId"))
+    local upper =
+        Workspace:WaitForChild("Station"):WaitForChild("DisplayHunter"):WaitForChild("UpperBody")
+    if hunter then
+        for _, obj in upper:GetDescendants() do
+            if
+                obj:IsA("BasePart")
+                and (obj.Name == "LongCoat" or obj.Name == "Shoulders" or obj.Name == "CoatSleeve")
+            then
+                obj.Color = hunter.color
+            end
+        end
+    end
+end
+player:GetAttributeChangedSignal("HunterId"):Connect(showHunter)
+showHunter()
+
+local function changePhase()
+    local phase = player:GetAttribute("RaidPhase")
+    screen.Enabled = phase == nil
+    player.CameraMode = if phase == "Alive" or phase == "Downed"
+        then Enum.CameraMode.LockFirstPerson
+        else Enum.CameraMode.Classic
+    local camera = Workspace.CurrentCamera
+    if phase == "Alive" and camera then
+        camera.CameraType = Enum.CameraType.Custom
+        local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            camera.CameraSubject = humanoid
+        end
+    end
+end
+player:GetAttributeChangedSignal("RaidPhase"):Connect(changePhase)
+changePhase()

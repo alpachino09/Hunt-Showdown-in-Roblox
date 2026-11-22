@@ -24,13 +24,14 @@ function StationView.start()
     local rightRest = rest:ToObjectSpace(right:GetPivot())
 
     local started = os.clock()
+    local player = game:GetService("Players").LocalPlayer
     local movementEnabled = true
     local wasAnimated = false
     local home = CFrame.lookAt(eye.Position, focus.Position)
 
     RunService:BindToRenderStep(CAMERA_STEP, Enum.RenderPriority.Camera.Value + 1, function()
         local camera = Workspace.CurrentCamera
-        if not camera then
+        if not camera or player:GetAttribute("RaidPhase") ~= nil then
             return
         end
 

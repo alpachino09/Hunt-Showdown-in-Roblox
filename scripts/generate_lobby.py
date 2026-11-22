@@ -241,7 +241,12 @@ def lobby(root):
     prop(toggle, "Color3", "BackgroundColor3", rgb((72, 51, 32)))
     prop(toggle, "float", "BackgroundTransparency", .08)
     prop(toggle, "bool", "Visible", "false")
-    label(body, "Footer", "ЖЕЛЕЗНОДОРОЖНЫЙ ПОСТ  /  ЛОКАЛЬНАЯ СБОРКА", 0, 539, 411, 22, 14, muted)
+    for name, y in (("Primary", 144), ("Secondary", 181)):
+        action = label(details, name, "", 0, y, 375, 33, 19, pale, button=True)
+        prop(action, "Color3", "BackgroundColor3", rgb((72, 51, 32)))
+        prop(action, "float", "BackgroundTransparency", .08)
+        prop(action, "bool", "Visible", "false")
+    label(body, "Footer", "ЖЕЛЕЗНОДОРОЖНЫЙ ПОСТ", 0, 539, 411, 38, 15, gold, wrap=True)
 
 
 def build(name, author):
@@ -253,7 +258,69 @@ def build(name, author):
     xml.ElementTree(root).write(OUTPUT / f"{name}.rbxmx", encoding="utf-8", xml_declaration=True)
 
 
+def expedition(root):
+    world = item(root, "Model", "ExpeditionMap")
+    x = 220
+    rng = Random(1896)
+    earth, wood, rock = (65, 66, 50), (73, 53, 40), (53, 57, 59)
+
+    def solid(parent, name, size, pos, shade, material=512, yaw=0):
+        node = part(parent, name, size, (x + pos[0], pos[1], pos[2]), shade, material, yaw)
+        for key in ("CanQuery", "CanCollide"):
+            node.find(f"./Properties/bool[@name='{key}']").text = "true"
+        return node
+
+    solid(world, "Ground", (128, 2, 164), (0, -1, 0), earth, 1280)
+    for px in (-65, 65):
+        solid(world, "Ridge", (5, 10, 169), (px, 4, 0), rock, 896)
+    for pz in (-84, 84):
+        solid(world, "Ridge", (135, 10, 5), (0, 4, pz), rock, 896)
+
+    for i in range(34):
+        px = rng.choice((-1, 1)) * rng.uniform(15, 59)
+        pz = rng.uniform(-78, 77)
+        height = rng.uniform(6.5, 11.5)
+        solid(world, "PineTrunk", (.52, height, .54), (px, height / 2, pz), wood, 528)
+        for j in range(3):
+            crown = item(world, "WedgePart", "PineCrown")
+            spread = 4.7 - j * .8
+            prop(crown, "Vector3", "Size", vec((spread, 4.6, spread)))
+            prop(crown, "Vector3", "Position", vec((x + px, height - 1 + j * 1.55, pz)))
+            prop(crown, "Color3uint8", "Color3uint8", 4281155635)
+            prop(crown, "bool", "Anchored", "true")
+            prop(crown, "bool", "CanCollide", "false")
+            prop(crown, "bool", "CanQuery", "false")
+
+    for i in range(20):
+        z = 15 + i * 3.5
+        solid(world, "Sleeper", (5, .18, .64), (-2, .08, z), wood, 528)
+    for px in (-3.2, -.8):
+        solid(world, "Track", (.16, .22, 75), (px, .24, 48), (70, 73, 70), 1088)
+
+    shed = item(world, "Model", "MineOffice")
+    solid(shed, "Back", (28, 8, .6), (0, 4, -52), wood, 528)
+    solid(shed, "Roof", (30, .55, 21), (0, 8.3, -42), rock, 1088)
+    for px in (-14, 14):
+        solid(shed, "Side", (.6, 8, 20), (px, 4, -42), wood, 528)
+    for px in (-9, 9):
+        solid(shed, "Front", (10, 8, .6), (px, 4, -32), wood, 528)
+    for px, pz, angle in ((-11, 23, 19), (8, 9, -24), (-5, -18, 6), (17, -22, 35), (5, -48, 21)):
+        solid(world, "Cover", (3.8, 2.4, 2.3), (px, 1.2, pz), wood, 528, angle)
+    lantern(world, "OfficeLamp", x - 8, 1.6, -36, 19)
+    lantern(world, "ExitLamp", x - 3, 1.6, 68, 20)
+
+    markers = item(world, "Folder", "Markers")
+    fields = {
+        "Spawn": (0, 3.5, 53), "Clue1": (-8, 1.1, 24), "Clue2": (11, 1.1, 9),
+        "Clue3": (-3, 1.1, -16), "Warden": (0, 2, -44),
+        "Drifter": (9, 2, -11), "Escape": (-3, 1.25, 68),
+    }
+    for name, (px, py, pz) in fields.items():
+        part(markers, name, (.4, .4, .4), (x+px, py, pz), rock, transparency=1)
+
+
 if __name__ == "__main__":
     OUTPUT.mkdir(parents=True, exist_ok=True)
     build("Station", station)
     build("Lobby", lobby)
+    build("ExpeditionMap", expedition)

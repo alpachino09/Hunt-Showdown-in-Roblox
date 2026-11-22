@@ -18,12 +18,18 @@
       }
     },
     "ServerStorage": {
-      "$className": "ServerStorage"
+      "$className": "ServerStorage",
+      "ExpeditionMap": {
+        "$path": "../build/generated/ExpeditionMap.rbxmx"
+      }
     },
     "StarterPlayer": {
       "$className": "StarterPlayer",
       "StarterPlayerScripts": {
-        "$className": "StarterPlayerScripts"
+        "$className": "StarterPlayerScripts",
+        "ExpeditionClient": {
+          "$path": "../src/expedition-client"
+        }
       }
     },
     "StarterGui": {
