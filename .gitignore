@@ -8,3 +8,6 @@ Packages/
 .env.*
 .idea/
 .vscode/
+
+/.tools/
+/build/
