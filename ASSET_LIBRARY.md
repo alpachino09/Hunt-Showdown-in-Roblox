@@ -22,3 +22,6 @@
 | SnagBranches | [Dead Quiver Branch 01](https://polyhaven.com/a/dead_quiver_branch_01), Greg Zaal и Jenelle van Heerden | 1400 |
 | FreightCrate | [Wooden Crate 01](https://polyhaven.com/a/wooden_crate_01), James Ray Cock | 2600 |
 | MuddyTrail | Авторский рельеф, материал [Brown Mud Leaves 01](https://polyhaven.com/a/brown_mud_leaves_01), Rob Tuytel | 7938 |
+| ForestTree1, ForestTree2 | [Tree Small 02](https://polyhaven.com/a/tree_small_02), Rico Cilliers, CC0 | 4249 + 4250 |
+
+`ForestTree.glb` сохраняет ствол и ветви с картами материалов. Листва исключена для силуэта сухостоя. Связь между деталями и их Roblox ID хранится в `tree-assets.json`.

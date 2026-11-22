@@ -1,0 +1,36 @@
+{
+  "ForestTree1": {
+    "mesh": "rbxassetid://87203869490524",
+    "size": [
+      1.6958,
+      3.68902,
+      2.31864
+    ],
+    "offset": [
+      0.07935,
+      -0.36406,
+      0.00033
+    ],
+    "ColorMap": "rbxassetid://125266956717425",
+    "NormalMap": "rbxassetid://132046963405864",
+    "RoughnessMap": "rbxassetid://136759626343796",
+    "MetalnessMap": "rbxassetid://117053550390437"
+  },
+  "ForestTree2": {
+    "mesh": "rbxassetid://132842316452755",
+    "size": [
+      2.22579,
+      2.68793,
+      3.92991
+    ],
+    "offset": [
+      -0.08315,
+      0.84074,
+      0.02012
+    ],
+    "ColorMap": "rbxassetid://102735210204040",
+    "NormalMap": "rbxassetid://118686423134795",
+    "RoughnessMap": "rbxassetid://110391246031775",
+    "MetalnessMap": "rbxassetid://73617212976461"
+  }
+}

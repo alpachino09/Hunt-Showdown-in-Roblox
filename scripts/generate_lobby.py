@@ -57,6 +57,23 @@ def part(parent, name, size, pos, color, material=512, yaw=0, tilt=0,
     return obj
 
 
+def mesh_part(group, name, source, size, pos, tint, material=512, yaw=0, lean=0, double_sided=False):
+    obj = part(group, name, size, pos, tint, material, yaw=yaw, tilt=lean)
+    obj.set("class", "MeshPart")
+    prop(obj, "ContentId", "MeshId", {"url": source["mesh"]})
+    prop(obj, "Vector3", "InitialSize", vec(source["size"]))
+    prop(obj, "token", "CollisionFidelity", 2)
+    if double_sided:
+        prop(obj, "bool", "DoubleSided", "true")
+    if "ColorMap" in source:
+        surface = item(obj, "SurfaceAppearance", "ScannedMaterial")
+        for map_name in ("ColorMap", "NormalMap", "RoughnessMap", "MetalnessMap"):
+            if map_name in source:
+                prop(surface, "ContentId", map_name, {"url": source[map_name]})
+        prop(surface, "Color3", "Color", rgb(tint))
+    return obj
+
+
 def light(parent, color, brightness, reach, shadows=True):
     lamp = item(parent, "PointLight", "Light")
     prop(lamp, "Color3", "Color", rgb(color))
@@ -82,7 +99,7 @@ def station(root):
     stage = item(root, "Model", "Station")
     from lobby_environment import render_forest
 
-    render_forest(stage, item, part, prop, lantern, rgb)
+    render_forest(stage, item, part, prop, lantern, rgb, mesh_part)
     markers = item(stage, "Folder", "CameraMarkers")
     iron = (38, 43, 46)
     part(markers, "Eye", (1, 1, 1), (.25, 2.9, 9.0), iron, transparency=1)

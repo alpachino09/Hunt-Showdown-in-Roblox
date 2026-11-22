@@ -3,6 +3,7 @@
 Usage: blender -b --factory-startup --python-exit-code 1 -P scripts/prepare_lobby_assets.py -- SOURCE_DIR
 SOURCE_DIR contains each original glTF under <Poly Haven slug>/source.gltf.
 """
+import json
 import math
 from pathlib import Path
 import sys
@@ -28,9 +29,19 @@ def reset():
         bpy.data.objects.remove(obj, do_unlink=True)
 
 
-def import_parts(slug):
+def import_parts(slug, omit_alpha=False):
     before = set(bpy.context.scene.objects)
-    result = bpy.ops.import_scene.gltf(filepath=str(SOURCES / slug / "source.gltf"))
+    path = SOURCES / slug / "source.gltf"
+    if omit_alpha:
+        document = json.loads(path.read_text())
+        for mesh in document["meshes"]:
+            mesh["primitives"] = [
+                primitive for primitive in mesh["primitives"]
+                if document["materials"][primitive["material"]].get("alphaMode", "OPAQUE") == "OPAQUE"
+            ]
+        path = path.with_name("opaque.gltf")
+        path.write_text(json.dumps(document))
+    result = bpy.ops.import_scene.gltf(filepath=str(path))
     assert result == {"FINISHED"}, (slug, result)
     return [obj for obj in set(bpy.context.scene.objects) - before if obj.type == "MESH"]
 
@@ -55,6 +66,7 @@ def prepare_objects(parts, name, limit):
     center = Vector([(min(v[i] for v in vertices) + max(v[i] for v in vertices)) * .5 for i in range(3)])
     for index, piece in enumerate(pieces):
         piece.name = name if len(pieces) == 1 else f"{name}{index + 1}"
+        piece.data.name = piece.name
         for vertex in piece.data.vertices:
             vertex.co -= center
         bpy.context.view_layer.objects.active = piece
@@ -100,6 +112,24 @@ def make_ground(material):
     return obj
 
 
+def export_pack(name, objects):
+    bpy.ops.object.select_all(action="DESELECT")
+    for obj in objects:
+        obj.select_set(True)
+    DESTINATION.mkdir(parents=True, exist_ok=True)
+    bpy.ops.export_scene.gltf(
+        filepath=str(DESTINATION / f"{name}.glb"),
+        export_format="GLB", use_selection=True, export_yup=True,
+    )
+
+
+def export_tree():
+    reset()
+    parts = import_parts("tree_small_02", omit_alpha=True)
+    pieces = prepare_objects(parts, "ForestTree", 8500)
+    export_pack("ForestTree", pieces)
+
+
 def main():
     reset()
     base = []
@@ -122,17 +152,14 @@ def main():
     source = import_parts("brown_mud_leaves_01")[0]
     base.append(make_ground(source.data.materials[0]))
     bpy.data.objects.remove(source, do_unlink=True)
-    bpy.ops.object.select_all(action="DESELECT")
     for index, obj in enumerate(base):
         # Use a deliberate gallery layout for the importer. The Rojo scene owns final placement.
         obj.location = (index * 8, 0, 0)
-        obj.select_set(True)
-    DESTINATION.mkdir(parents=True, exist_ok=True)
-    bpy.ops.export_scene.gltf(
-        filepath=str(DESTINATION / "ForestSet.glb"),
-        export_format="GLB", use_selection=True, export_yup=True,
-    )
+    export_pack("ForestSet", base)
 
 
 if __name__ == "__main__":
-    main()
+    if "--tree" in sys.argv:
+        export_tree()
+    else:
+        main()

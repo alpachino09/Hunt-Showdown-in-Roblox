@@ -1,30 +1,22 @@
 """Construct the forest outpost from reusable meshes and authored timberwork."""
 import json
-from math import atan2, degrees, sqrt
+from math import atan2, cos, degrees, radians, sin, sqrt
 from pathlib import Path
 from random import Random
 
 
-ASSETS = json.loads((Path(__file__).resolve().parents[1] /
-                     "assets/lobby/forest-assets.json").read_text())
+ASSET_ROOT = Path(__file__).resolve().parents[1] / "assets" / "lobby"
+ASSETS = json.loads((ASSET_ROOT / "forest-assets.json").read_text())
+TREES = json.loads((ASSET_ROOT / "tree-assets.json").read_text())
 
 
-def render_forest(stage, item, part, prop, lantern, rgb):
-    def mesh(group, asset, name, position, scale=1, yaw=0, lean=0, tint=(255, 255, 255)):
+def render_forest(stage, item, part, prop, lantern, rgb, mesh_part):
+    def mesh(group, asset, name, position, scale=1, yaw=0, tint=(255, 255, 255)):
         source = ASSETS[asset]
         if isinstance(scale, (int, float)):
             scale = (scale,) * 3
         size = tuple(d * s for d, s in zip(source["size"], scale))
-        obj = part(group, name, size, position, tint, yaw=yaw, tilt=lean)
-        obj.set("class", "MeshPart")
-        prop(obj, "ContentId", "MeshId", {"url": source["mesh"]})
-        prop(obj, "token", "CollisionFidelity", 2)
-        surface = item(obj, "SurfaceAppearance", "ScannedMaterial")
-        for key in ("ColorMap", "NormalMap", "RoughnessMap", "MetalnessMap"):
-            if key in source:
-                prop(surface, "ContentId", key, {"url": source[key]})
-        prop(surface, "Color3", "Color", rgb(tint))
-        return obj
+        return mesh_part(group, name, source, size, position, tint, yaw=yaw)
 
     def beam(parent, name, a, b, width, color, material=528, cylinder=False):
         vx, vy, vz = (b[i] - a[i] for i in range(3))
@@ -119,31 +111,31 @@ def render_forest(stage, item, part, prop, lantern, rgb):
         previous = (px, pz)
 
     forest = item(environment, "Model", "Forest")
-    trees = [(-8, -5, 15), (9, -6, 14), (13.4, -7, 18), (-10.7, -16, 18), (6.9, -15, 17),
-             (-1.7, -17, 14), (18.7, -16, 20), (-18, -15, 21), (4, -27, 23)]
-    for _ in range(47):
-        trees.append((rng.uniform(-55, 54), rng.uniform(-108, -25), rng.uniform(9, 26)))
-    for i, (tx, tz, height) in enumerate(trees):
-        close = i < 15
-        y = .2 if tz > -69 else -.65
-        drift_x, drift_z = rng.uniform(-1.3, 1.3), rng.uniform(-.7, .7)
-        bark = shade((61, 56, 47), rng.randint(-12, 13))
-        trunk = item(forest, "Model", f"Snag{i + 1:02d}")
-        waist = (tx + drift_x * .42, y + height * .45, tz)
-        apex = (tx + drift_x, y + height, tz + drift_z)
-        beam(trunk, "TrunkBase", (tx, y, tz), waist, .055 * height, bark, 1296, True)
-        beam(trunk, "TaperedTrunk", waist, apex, .038 * height, bark, 1296, True)
-        for s in (-1, 1):
-            factor = rng.uniform(.56, .76)
-            source = (tx + drift_x * factor, y + height * factor, tz + drift_z * .46)
-            end = (source[0] + s * height * .20, source[1] + height * .17, tz + rng.uniform(-2, 2))
-            beam(trunk, "BrokenLimb", source, end, height * .017, bark, 1296, True)
-            if close:
-                mesh(trunk, "SnagBranches", "ForkedBough", end,
-                     (height * .59, height * .50, height * .45), -s * 33, -s * 24,
-                     shade((120, 116, 101), rng.randint(-7, 8)))
-                beam(trunk, "ExposedRoot", (tx, y + .6, tz), (tx + s * 1.9, y, tz + s), .27,
-                     bark, 1296, True)
+    trees = [
+        (-7.5, -4, 2.9), (9.4, -5.8, 3.1), (14.9, -7.4, 2.85), (-10.7, -16, 2.6),
+        (7.0, -17, 2.9), (-1.4, -19, 2.3), (18.7, -16, 3.2), (-18, -15, 2.5),
+        (3.1, -31, 2.85), (21.5, -28, 3.3), (-14.5, -29, 2.5),
+    ]
+    for i in range(23):
+        band, index = divmod(i, 8)
+        trees.append((-39 + index * 10 + rng.uniform(-4, 5) + band*3,
+                      -37 - band * 19 + rng.uniform(-7, 5), rng.uniform(2.3, 3.55)))
+    for i, (tx, tz, scale) in enumerate(trees):
+        trunk = item(forest, "Model", f"WeatheredTree{i + 1:02d}")
+        yaw = rng.uniform(-180, 180)
+        c, s = cos(radians(yaw)), sin(radians(yaw))
+        bark = shade((146, 137, 116), rng.randint(-13, 10) + min(12, i))
+        for name, source in TREES.items():
+            dx, dy, dz = (v * scale for v in source["offset"])
+            x, z = tx + c*dx + s*dz, tz - s*dx + c*dz
+            size = tuple(v * scale for v in source["size"])
+            obj = mesh_part(trunk, name, source, size,
+                            (x, .10 + 2.14 * scale + dy, z), bark, yaw=yaw)
+            if i >= 11:
+                prop(obj, "bool", "CastShadow", "false")
+        if i < 7:
+            mesh(trunk, "SnagBranches", "GroundTwigs", (tx + .4, .67, tz + .45),
+                 3.1, yaw, tint=bark)
 
     distant = item(environment, "Model", "BackgroundRidge")
     for i in range(9):
