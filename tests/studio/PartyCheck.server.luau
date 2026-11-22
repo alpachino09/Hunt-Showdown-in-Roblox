@@ -42,9 +42,13 @@ local ok, result = pcall(function()
             and member:GetAttribute("RaidPhase") == "Alive"
     end)
     assert(
-        (leader.Character:GetPivot().Position - member.Character:GetPivot().Position).Magnitude < 12
+        (leader.Character:GetPivot().Position - member.Character:GetPivot().Position).Magnitude < 12,
+        "party members did not spawn together"
     )
-    assert(leader:GetAttribute("RaidAmmo") == 6 and member:GetAttribute("RaidAmmo") == 6)
+    assert(
+        leader:GetAttribute("RaidAmmo") == 6 and member:GetAttribute("RaidAmmo") == 6,
+        "both clients should begin with six rounds"
+    )
 
     leader:SetAttribute("FixtureStage", "fire")
     waitFor("leader shot did not consume ammunition", function()
