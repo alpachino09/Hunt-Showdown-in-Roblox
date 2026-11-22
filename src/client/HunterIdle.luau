@@ -23,6 +23,7 @@ function HunterIdle.create(upper: Model, head: Model, grip: Model)
                 upper:PivotTo(rest)
                 head:PivotTo(rest * headRest)
                 grip:PivotTo(rest * gripRest)
+                gestureStart = time + SECONDS_TO_FIRST_GESTURE
                 active = false
             end
             return

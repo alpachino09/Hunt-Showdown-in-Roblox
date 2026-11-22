@@ -102,8 +102,8 @@ def station(root):
     render_forest(stage, item, part, prop, lantern, rgb, mesh_part)
     markers = item(stage, "Folder", "CameraMarkers")
     iron = (38, 43, 46)
-    part(markers, "Eye", (1, 1, 1), (.25, 2.9, 9.0), iron, transparency=1)
-    part(markers, "Focus", (1, 1, 1), (.62, 2.35, -.25), iron, transparency=1)
+    part(markers, "Eye", (1, 1, 1), (.45, 2.95, 8.95), iron, transparency=1)
+    part(markers, "Focus", (1, 1, 1), (3.65, 2.36, -.38), iron, transparency=1)
 
     from lobby_hunter import render_hunter
 
