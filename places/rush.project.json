@@ -1,0 +1,45 @@
+{
+  "name": "GreyOutpost-Rush",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": {
+        "$path": "../src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "SharedServer": {
+        "$path": "../src/server"
+      },
+      "RushServer": {
+        "$path": "../places/rush/server"
+      }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage"
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts"
+      }
+    },
+    "StarterGui": {
+      "$className": "StarterGui"
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "StreamingEnabled": true
+      }
+    },
+    "SoundService": {
+      "$className": "SoundService"
+    },
+    "Lighting": {
+      "$className": "Lighting"
+    }
+  }
+}

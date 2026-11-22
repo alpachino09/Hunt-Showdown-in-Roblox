@@ -1,20 +1,68 @@
 {
-  "name": "HuntShowdownRoblox",
+  "name": "GreyOutpost-Lobby",
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-      "Shared": { "$path": "src/shared" }
+      "Shared": {
+        "$path": "src/shared"
+      }
     },
     "ServerScriptService": {
       "$className": "ServerScriptService",
-      "GameServer": { "$path": "src/server" }
+      "SharedServer": {
+        "$path": "src/server"
+      },
+      "LobbyServer": {
+        "$path": "places/lobby/server"
+      }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage"
     },
     "StarterPlayer": {
       "$className": "StarterPlayer",
       "StarterPlayerScripts": {
         "$className": "StarterPlayerScripts",
-        "GameClient": { "$path": "src/client" }
+        "LobbyClient": {
+          "$path": "src/client"
+        }
+      }
+    },
+    "StarterGui": {
+      "$className": "StarterGui",
+      "Lobby": {
+        "$path": "build/generated/Lobby.rbxmx"
+      }
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "StreamingEnabled": false
+      },
+      "Station": {
+        "$path": "build/generated/Station.rbxmx"
+      }
+    },
+    "SoundService": {
+      "$className": "SoundService"
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "Ambient": [
+          0.21,
+          0.17,
+          0.15
+        ],
+        "OutdoorAmbient": [
+          0.11,
+          0.13,
+          0.15
+        ],
+        "Brightness": 1.05,
+        "ClockTime": 19.5,
+        "GlobalShadows": true
       }
     }
   }
