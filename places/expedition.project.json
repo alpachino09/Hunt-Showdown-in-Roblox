@@ -1,0 +1,51 @@
+{
+  "name": "GreyOutpost-Expedition",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": {
+        "$path": "../src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "SharedServer": {
+        "$path": "../src/server"
+      },
+      "ExpeditionServer": {
+        "$path": "../places/expedition/server"
+      }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "ExpeditionMap": {
+        "$path": "../build/generated/ExpeditionMap.rbxmx"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "ExpeditionClient": {
+          "$path": "../src/expedition-client"
+        }
+      }
+    },
+    "StarterGui": {
+      "$className": "StarterGui"
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "StreamingEnabled": true
+      }
+    },
+    "SoundService": {
+      "$className": "SoundService"
+    },
+    "Lighting": {
+      "$className": "Lighting"
+    }
+  }
+}
