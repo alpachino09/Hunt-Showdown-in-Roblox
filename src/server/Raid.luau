@@ -1,6 +1,7 @@
 --!strict
 
 local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 local ServerStorage = game:GetService("ServerStorage")
 local Workspace = game:GetService("Workspace")
 local HttpService = game:GetService("HttpService")
@@ -23,6 +24,11 @@ type Hunter = {
     downedUntil: number,
     exitAt: number?,
     resonanceUntil: number,
+    medkits: number,
+    healUntil: number,
+    lastPosition: Vector3,
+    sampledAt: number,
+    moveBudget: number,
 }
 type Creature = {
     body: BasePart,
@@ -70,6 +76,7 @@ type Session = {
 }
 local Raid = {}
 local current: Session? = nil
+local studio = RunService:IsStudio()
 
 local function charParts(player: Player): (BasePart?, Humanoid?)
     local char = player.Character
@@ -339,6 +346,25 @@ local function creatureBeat(session: Session, creature: Creature, now: number)
     end
 end
 
+local function samplePosition(player: Player, hunter: Hunter, root: BasePart, now: number): boolean
+    local moved = root.Position - hunter.lastPosition
+    local elapsed = math.clamp(now - hunter.sampledAt, 0, 1)
+    hunter.moveBudget = math.min(12, hunter.moveBudget + 28 * elapsed)
+    local distance = Vector3.new(moved.X, 0, moved.Z).Magnitude
+    hunter.sampledAt = now
+    if not studio and (distance > hunter.moveBudget or math.abs(moved.Y) > 14 + 48 * elapsed) then
+        local character = player.Character
+        if character then
+            character:PivotTo(CFrame.new(hunter.lastPosition) * root.CFrame.Rotation)
+        end
+        root.AssemblyLinearVelocity = Vector3.zero
+        return false
+    end
+    hunter.lastPosition = root.Position
+    hunter.moveBudget = math.max(0, hunter.moveBudget - distance)
+    return true
+end
+
 local function tick(session: Session)
     local now = os.clock()
     for player, hunter in session.players do
@@ -349,9 +375,12 @@ local function tick(session: Session)
         elseif hunter.phase == "Downed" and now >= hunter.downedUntil then
             settle(session, player, "Помощь не успела.", false)
         elseif hunter.phase == "Alive" then
-            local _, humanoid = charParts(player)
-            if not humanoid or humanoid.Health <= 0 then
+            local root, humanoid = charParts(player)
+            if not root or not humanoid or humanoid.Health <= 0 then
                 settle(session, player, "Охотник погиб.", false)
+            elseif not samplePosition(player, hunter, root, now) then
+                hunter.exitAt = nil
+                player:SetAttribute("RaidExitAt", nil)
             elseif hunter.exitAt then
                 local exit = session.markers:FindFirstChild("Escape") :: BasePart
                 if not near(player, exit, 10) then
@@ -549,10 +578,17 @@ function Raid.start(
                     phase = "Alive",
                     downedUntil = 0,
                     resonanceUntil = 0,
+                    medkits = if data.xp >= 300 then 2 else 1,
+                    healUntil = 0,
+                    lastPosition = root.Position,
+                    sampledAt = os.clock(),
+                    moveBudget = 12,
                 }
                 session.players[player] = hunter
                 player:SetAttribute("RaidWeapon", weapon.name)
                 player:SetAttribute("RaidClues", 0)
+                player:SetAttribute("RaidMedkits", hunter.medkits)
+                player:SetAttribute("RaidHealing", false)
                 player:SetAttribute(
                     "RaidDeadline",
                     Workspace:GetServerTimeNow() + math.max(0, session.deadline - os.clock())
@@ -636,6 +672,40 @@ Remotes.combat.OnServerEvent:Connect(function(player: Player, action: unknown, d
         return
     end
     local now = os.clock()
+    if not studio and (root.Position - hunter.lastPosition).Magnitude > 17 then
+        return
+    end
+    if action == "Heal" then
+        if
+            hunter.medkits == 0
+            or humanoid.Health >= humanoid.MaxHealth
+            or now < hunter.healUntil
+        then
+            return
+        end
+        hunter.healUntil = now + 2
+        local began = root.Position
+        player:SetAttribute("RaidHealing", true)
+        task.delay(2, function()
+            if player.Parent then
+                player:SetAttribute("RaidHealing", false)
+            end
+            if
+                current ~= session
+                or session.players[player] ~= hunter
+                or hunter.phase ~= "Alive"
+                or not root.Parent
+                or (root.Position - began).Magnitude > 5
+                or humanoid.Health >= humanoid.MaxHealth
+            then
+                return
+            end
+            hunter.medkits -= 1
+            humanoid.Health = math.min(humanoid.MaxHealth, humanoid.Health + 38)
+            player:SetAttribute("RaidMedkits", hunter.medkits)
+        end)
+        return
+    end
     if action == "Resonance" and session.mode.search and now >= hunter.resonanceUntil then
         hunter.resonanceUntil = now + 8
         local positions = {}
@@ -683,6 +753,7 @@ Remotes.combat.OnServerEvent:Connect(function(player: Player, action: unknown, d
         or hunter.ammo <= 0
         or now - hunter.lastFire < weapon.delay
         or now < hunter.reloadingUntil
+        or now < hunter.healUntil
     then
         return
     end

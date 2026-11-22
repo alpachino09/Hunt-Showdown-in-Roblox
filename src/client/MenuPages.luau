@@ -14,6 +14,7 @@ local function get(player: Player, key: string): Page?
     local hunter = Catalog.hunter(player:GetAttribute("HunterId")) or Catalog.hunters[1]
     local weapon = Catalog.weapon(player:GetAttribute("WeaponId")) or Catalog.weapons[1]
     local credits = player:GetAttribute("Credits") or 0
+    local xp = tonumber(player:GetAttribute("Experience")) or 0
     local ready = player:GetAttribute("PartyReady") == true
     if key == "Briefing" then
         return {
@@ -66,9 +67,15 @@ local function get(player: Player, key: string): Page?
         return {
             heading = "Полевой журнал",
             summary = "Опыт: "
-                .. tostring(player:GetAttribute("Experience") or 0)
+                .. tostring(xp)
                 .. "\nМонеты: "
-                .. tostring(credits),
+                .. tostring(credits)
+                .. "\nПолевой медик: "
+                .. (
+                    if xp >= 300
+                        then "открыт · две аптечки"
+                        else tostring(xp) .. " / 300 опыта"
+                ),
         }
     elseif key == "Store" then
         return {

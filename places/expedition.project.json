@@ -30,6 +30,10 @@
         "ExpeditionClient": {
           "$path": "../src/expedition-client"
         }
+      },
+      "StarterCharacterScripts": {
+        "$className": "StarterCharacterScripts",
+        "$path": "../src/characters"
       }
     },
     "StarterGui": {

@@ -69,9 +69,19 @@ local exit = textLabel(
     Vector2.new(0.5, 0.5),
     20
 )
+local map, showMap, updateMap = require(script.Parent.AreaMap).mount(hud)
 hud.Parent = Player:WaitForChild("PlayerGui")
 
 local function act(name: string, state: Enum.UserInputState)
+    if name == "Map" then
+        if state == Enum.UserInputState.Begin then
+            showMap(not map.Visible)
+        end
+        return Enum.ContextActionResult.Sink
+    end
+    if map.Visible and state == Enum.UserInputState.Begin then
+        return Enum.ContextActionResult.Sink
+    end
     if name == "Sprint" or name == "Crouch" then
         if state == Enum.UserInputState.Begin or state == Enum.UserInputState.End then
             remote:FireServer(if state == Enum.UserInputState.Begin then name else "Walk")
@@ -98,6 +108,8 @@ local actions = {
     Fire = Enum.UserInputType.MouseButton1,
     Reload = Enum.KeyCode.R,
     Resonance = Enum.KeyCode.Q,
+    Heal = Enum.KeyCode.F,
+    Map = Enum.KeyCode.M,
     Sprint = Enum.KeyCode.LeftShift,
     Crouch = Enum.KeyCode.LeftControl,
 }
@@ -111,6 +123,7 @@ local stationLighting = {
 local function phase()
     local state = Player:GetAttribute("RaidPhase")
     hud.Enabled = state ~= nil
+    showMap(false)
     Lighting.ClockTime = if hud.Enabled then 6.35 else stationLighting.clock
     Lighting.FogEnd = if hud.Enabled then 235 else stationLighting.fog
     Lighting.FogColor = if hud.Enabled
@@ -158,15 +171,18 @@ local function redraw()
     )
     local humanoid = Player.Character and Player.Character:FindFirstChildOfClass("Humanoid")
     local health = if humanoid then math.ceil(humanoid.Health) else 0
+    local medical = tostring(Player:GetAttribute("RaidMedkits") or 0)
     loadout.Text = string.format(
-        "%s     %s / %s\nЗдоровье %d  ·  %s",
+        "%s     %s / %s\nЗдоровье %d  ·  Аптечки %s   ·   %s",
         tostring(Player:GetAttribute("RaidWeapon") or ""),
         tostring(Player:GetAttribute("RaidAmmo") or "–"),
         tostring(Player:GetAttribute("RaidReserve") or "–"),
         health,
+        medical,
         if Player:GetAttribute("RaidReloading")
             then "Перезарядка"
-            else "R · зарядить    Q · резонанс"
+            elseif Player:GetAttribute("RaidHealing") then "Лечение"
+            else "F · лечить   M · карта"
     )
     local untilTime = Player:GetAttribute("RaidExitAt")
     local deadline = Player:GetAttribute("RaidDeadline")
@@ -190,6 +206,7 @@ RunService.RenderStepped:Connect(function(dt)
     if accumulator >= 0.1 then
         accumulator = 0
         redraw()
+        updateMap()
     end
 end)
 
