@@ -116,15 +116,37 @@ local actions = {
 }
 local stationLighting = {
     clock = Lighting.ClockTime,
+    exposure = Lighting.ExposureCompensation,
+    brightness = Lighting.Brightness,
     ambient = Lighting.Ambient,
     outdoors = Lighting.OutdoorAmbient,
     fog = Lighting.FogEnd,
     fogColor = Lighting.FogColor,
 }
+local lobbyEffects: { Instance } = {}
+for _, name in { "OutpostHaze", "OutpostGrade", "LanternHalation" } do
+    local effect = Lighting:FindFirstChild(name)
+    if effect then
+        table.insert(lobbyEffects, effect)
+    end
+end
+
+local lobbyClouds = Workspace.Terrain:FindFirstChild("OutpostClouds")
+
 local function phase()
     local state = Player:GetAttribute("RaidPhase")
     hud.Enabled = state ~= nil
     showMap(false)
+    for _, effect in lobbyEffects do
+        effect.Parent = if hud.Enabled then nil else Lighting
+    end
+    if lobbyClouds and lobbyClouds:IsA("Clouds") then
+        lobbyClouds.Enabled = not hud.Enabled
+    end
+    if #lobbyEffects > 0 then
+        Lighting.ExposureCompensation = if hud.Enabled then 0 else stationLighting.exposure
+        Lighting.Brightness = if hud.Enabled then 1.05 else stationLighting.brightness
+    end
     Lighting.ClockTime = if hud.Enabled then 6.35 else stationLighting.clock
     Lighting.FogEnd = if hud.Enabled then 235 else stationLighting.fog
     Lighting.FogColor = if hud.Enabled

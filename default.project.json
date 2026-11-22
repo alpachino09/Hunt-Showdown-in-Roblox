@@ -55,6 +55,21 @@
       },
       "Station": {
         "$path": "build/generated/Station.rbxmx"
+      },
+      "Terrain": {
+        "$className": "Terrain",
+        "OutpostClouds": {
+          "$className": "Clouds",
+          "$properties": {
+            "Color": [
+              0.59608,
+              0.59608,
+              0.56863
+            ],
+            "Cover": 0.96,
+            "Density": 0.65
+          }
+        }
       }
     },
     "SoundService": {
@@ -64,18 +79,65 @@
       "$className": "Lighting",
       "$properties": {
         "Ambient": [
-          0.21,
-          0.17,
-          0.15
+          0.4549,
+          0.42353,
+          0.41569
         ],
         "OutdoorAmbient": [
-          0.11,
-          0.13,
-          0.15
+          0.42745,
+          0.46667,
+          0.47451
         ],
-        "Brightness": 1.05,
-        "ClockTime": 19.5,
-        "GlobalShadows": true
+        "Brightness": 1.75,
+        "ClockTime": 16.55,
+        "GlobalShadows": true,
+        "LightingStyle": "Realistic",
+        "PrioritizeLightingQuality": true,
+        "GeographicLatitude": 27,
+        "EnvironmentDiffuseScale": 0.35,
+        "EnvironmentSpecularScale": 0.45,
+        "ShadowSoftness": 0.4,
+        "ExposureCompensation": -0.31
+      },
+      "OutpostHaze": {
+        "$className": "Atmosphere",
+        "$properties": {
+          "Color": [
+            0.68627,
+            0.70196,
+            0.67059
+          ],
+          "Decay": [
+            0.38824,
+            0.41176,
+            0.42745
+          ],
+          "Density": 0.37,
+          "Offset": 0.08,
+          "Haze": 2.8,
+          "Glare": 0
+        }
+      },
+      "OutpostGrade": {
+        "$className": "ColorCorrectionEffect",
+        "$properties": {
+          "Brightness": -0.007,
+          "Contrast": 0.065,
+          "Saturation": -0.4,
+          "TintColor": [
+            0.96863,
+            0.95294,
+            0.92549
+          ]
+        }
+      },
+      "LanternHalation": {
+        "$className": "BloomEffect",
+        "$properties": {
+          "Intensity": 0.13,
+          "Size": 19,
+          "Threshold": 1.48
+        }
       }
     }
   }

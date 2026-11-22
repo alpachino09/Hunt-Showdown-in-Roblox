@@ -58,6 +58,17 @@ def render_forest(stage, item, part, prop, lantern, rgb):
                                  (10.1, 1.95, -11.3, 2.55, 10)]:
         mesh(props, "FreightCrate", "SignalFreight", (x, y, z), scale, yaw, tint=(147, 129, 109))
     lantern(props, "SignalLamp", 8.0, 1.1, -8.7, 14)
+    lantern(props, "GateLamp", 7.5, 1.6, 3.6, 11)
+    part(props, "GateLampPedestal", (.52, 1.28, .60), (7.5, .95, 3.6), (68, 55, 42), 528)
+    part(props, "SignalLampPost", (.36, .93, .41), (8.0, .62, -8.7), (62, 52, 41), 528)
+    helpers = item(stage, "Model", "LightingHelpers")
+    bounce = part(helpers, "CloudBounce", (1, 1, 1), (1.1, 4.7, 6.6),
+                  (100, 107, 106), transparency=1)
+    reflection = item(bounce, "PointLight", "SoftFill")
+    prop(reflection, "Color3", "Color", rgb((186, 199, 209)))
+    prop(reflection, "float", "Brightness", .79)
+    prop(reflection, "float", "Range", 13)
+    prop(reflection, "bool", "Shadows", "false")
     for _ in range(47):
         depth = rng.uniform(-38, 4)
         side = rng.choice((-1, 1))
