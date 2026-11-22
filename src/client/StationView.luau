@@ -15,13 +15,11 @@ function StationView.start()
     local hunter = station:WaitForChild("DisplayHunter")
     local upper = hunter:WaitForChild("UpperBody") :: Model
     local head = upper:WaitForChild("Head") :: Model
-    local left = upper:WaitForChild("LeftSleeve") :: Model
-    local right = upper:WaitForChild("RightSleeve") :: Model
+    local grip = upper:WaitForChild("Grip") :: Model
 
     local rest = upper:GetPivot()
     local headRest = rest:ToObjectSpace(head:GetPivot())
-    local leftRest = rest:ToObjectSpace(left:GetPivot())
-    local rightRest = rest:ToObjectSpace(right:GetPivot())
+    local gripRest = rest:ToObjectSpace(grip:GetPivot())
 
     local started = os.clock()
     local player = game:GetService("Players").LocalPlayer
@@ -49,14 +47,12 @@ function StationView.start()
                 * CFrame.Angles(0, math.rad(2 * glance), math.rad(1.2 * breath))
             upper:PivotTo(posture)
             head:PivotTo(posture * headRest * CFrame.Angles(0, math.rad(11 * glance), 0))
-            left:PivotTo(posture * leftRest * CFrame.Angles(math.rad(3 * breath), 0, 0))
-            right:PivotTo(posture * rightRest * CFrame.Angles(math.rad(-4 * breath), 0, 0))
+            grip:PivotTo(posture * gripRest * CFrame.Angles(math.rad(1.1 * breath), 0, 0))
             wasAnimated = true
         elseif wasAnimated then
             upper:PivotTo(rest)
             head:PivotTo(rest * headRest)
-            left:PivotTo(rest * leftRest)
-            right:PivotTo(rest * rightRest)
+            grip:PivotTo(rest * gripRest)
             wasAnimated = false
         end
     end)

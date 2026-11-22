@@ -105,40 +105,9 @@ def station(root):
     part(markers, "Eye", (1, 1, 1), (.25, 2.9, 9.0), iron, transparency=1)
     part(markers, "Focus", (1, 1, 1), (.62, 2.35, -.25), iron, transparency=1)
 
-    hunter = item(stage, "Model", "DisplayHunter")
-    x, z = 3.75, -.35
-    coat, leather, skin, fabric = (61, 57, 49), (65, 42, 32), (128, 102, 83), (57, 57, 57)
-    for side in (-1, 1):
-        dx = x+side*.32
-        part(hunter, "Trousers", (.52, 1.55, .55), (dx, 1.03, z), fabric, tilt=side*4, shape=0)
-        part(hunter, "BootShaft", (.42, .79, .47), (dx, .56, z), leather, shape=0)
-        part(hunter, "Boot", (.44, .35, .76), (dx, .19, z+.10), leather, shape=0)
-    upper = item(hunter, "Model", "UpperBody")
-    part(upper, "LongCoat", (1.38, 2.05, .89), (x, 2.18, z), coat, shape=0)
-    part(upper, "Shoulders", (1.73, .98, .84), (x, 2.91, z), coat, shape=0)
-    part(upper, "Vest", (.59, 1.18, .32), (x, 2.64, z+.29), (79, 74, 62), shape=0)
-    for i in range(4):
-        part(upper, "BrassButton", (.065, .065, .045), (x, 2.34+i*.2, z+.45), (138, 105, 60), 1088, shape=0)
-    for side in (-1, 1):
-        part(upper, "Lapel", (.21, .68, .11), (x+side*.36, 2.9, z+.34), leather, tilt=-side*19, shape=0)
-    part(upper, "Belt", (1.15, .17, .62), (x, 2.03, z), leather)
-    part(upper, "Buckle", (.25, .16, .061), (x, 2.03, z+.34), (143, 112, 75), 1088)
-    for side, name in ((-1, "LeftSleeve"), (1, "RightSleeve")):
-        arm = item(upper, "Model", name)
-        dx = x+side*.78
-        part(arm, "CoatSleeve", (.47, 1.24, .51), (dx, 2.42, z), coat, tilt=side*9, shape=0)
-        part(arm, "Cuff", (.35, .22, .34), (dx+side*.07, 1.94, z+.07), leather, shape=0)
-        part(arm, "Glove", (.32, .42, .36), (dx+side*.08, 1.72, z+.07), (82, 62, 49), shape=0)
-    head = item(upper, "Model", "Head")
-    part(head, "Scarf", (.75, .38, .71), (x, 3.40, z+.07), (105, 49, 42), shape=0)
-    part(head, "Face", (.69, .85, .67), (x, 3.72, z+.03), skin, shape=0)
-    part(head, "Nose", (.17, .24, .23), (x, 3.68, z+.36), skin, shape=0)
-    part(head, "Beard", (.59, .31, .48), (x, 3.48, z+.13), (67, 43, 36), shape=0)
-    for side in (-1, 1):
-        part(head, "EyeShadow", (.13, .047, .064), (x+side*.155, 3.77, z+.309), (53, 41, 37), shape=0)
-    part(head, "HatBrim", (.12, 1.21, 1.33), (x, 4.03, z+.01), (56, 44, 38), tilt=90, shape=2)
-    part(head, "HatCrown", (.44, .81, .88), (x, 4.245, z-.01), (57, 44, 37), tilt=90, shape=2)
-    part(head, "HatBand", (.105, .83, .90), (x, 4.135, z-.01), (118, 80, 58), tilt=90, shape=2)
+    from lobby_hunter import render_hunter
+
+    render_hunter(stage, item, mesh_part)
 
 
 def dim2(x_scale, x_offset, y_scale, y_offset):

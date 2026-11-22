@@ -25,3 +25,7 @@
 | ForestTree1, ForestTree2 | [Tree Small 02](https://polyhaven.com/a/tree_small_02), Rico Cilliers, CC0 | 4249 + 4250 |
 
 `ForestTree.glb` сохраняет ствол и ветви с картами материалов. Листва исключена для силуэта сухостоя. Связь между деталями и их Roblox ID хранится в `tree-assets.json`.
+
+## Витрина Элиаса Рида
+
+Анатомическая сетка лица адаптирована из [MakeHuman HM08](https://github.com/makehumancommunity/makehuman/blob/master/makehuman/data/3dobjs/base.obj), [CC0](https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md). Пальто, жилет, ремни, сапоги, головной убор и сценический реквизит смоделированы для «Серой заставы». В `HunterSet.glb` 32 меша, 13 440 треугольников. Отдельные Roblox ID хранятся в `hunter-assets.json`. Основные поверхности в Studio используют встроенные материалы Roblox.

@@ -130,16 +130,23 @@ player:GetAttributeChangedSignal("LobbyMessage"):Connect(function()
         tostring(player:GetAttribute("LobbyMessage") or "ЖЕЛЕЗНОДОРОЖНЫЙ ПОСТ")
 end)
 
+local coatColors = {
+    LongCoat = true,
+    CoatLapels = true,
+    LeftCoatTail = true,
+    RightCoatTail = true,
+    PocketFlaps = true,
+    LeftArm = true,
+    RightArm = true,
+}
+
 local function showHunter()
     local hunter = Catalog.hunter(player:GetAttribute("HunterId"))
     local upper =
         Workspace:WaitForChild("Station"):WaitForChild("DisplayHunter"):WaitForChild("UpperBody")
     if hunter then
         for _, obj in upper:GetDescendants() do
-            if
-                obj:IsA("BasePart")
-                and (obj.Name == "LongCoat" or obj.Name == "Shoulders" or obj.Name == "CoatSleeve")
-            then
+            if obj:IsA("BasePart") and coatColors[obj.Name] then
                 obj.Color = hunter.color
             end
         end
