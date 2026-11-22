@@ -26,7 +26,7 @@
     ]
   },
   "RightTrousers": {
-    "mesh": "rbxassetid://108890249529980",
+    "mesh": "rbxassetid://73598962177914",
     "size": [
       0.56505,
       1.76,
@@ -36,7 +36,11 @@
       -0.23403,
       1.39,
       0.01522
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "RightGlove": {
     "mesh": "rbxassetid://101165623751026",
@@ -52,7 +56,7 @@
     ]
   },
   "RightCoatTail": {
-    "mesh": "rbxassetid://83145832587534",
+    "mesh": "rbxassetid://113027556230999",
     "size": [
       0.59011,
       1.32425,
@@ -62,10 +66,14 @@
       -0.28332,
       1.60787,
       0.07159
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "RightArm": {
-    "mesh": "rbxassetid://108568332529877",
+    "mesh": "rbxassetid://89363775001618",
     "size": [
       0.58348,
       1.37,
@@ -75,10 +83,14 @@
       -0.58644,
       2.865,
       -0.19874
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "LongCoat": {
-    "mesh": "rbxassetid://71852838481259",
+    "mesh": "rbxassetid://135407805737379",
     "size": [
       1.25872,
       1.685,
@@ -88,7 +100,11 @@
       -0.00402,
       2.8325,
       0.01596
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "LeftGlove": {
     "mesh": "rbxassetid://88962498367880",
@@ -117,7 +133,7 @@
     ]
   },
   "LeftArm": {
-    "mesh": "rbxassetid://85624499186519",
+    "mesh": "rbxassetid://108686788606831",
     "size": [
       0.77138,
       0.83,
@@ -127,10 +143,14 @@
       0.48762,
       3.135,
       -0.25807
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "HatBrim": {
-    "mesh": "rbxassetid://82731757052276",
+    "mesh": "rbxassetid://115402760969616",
     "size": [
       1.13,
       0.20848,
@@ -140,10 +160,14 @@
       0,
       4.40124,
       -0.03
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "LeftTrousers": {
-    "mesh": "rbxassetid://77560683211060",
+    "mesh": "rbxassetid://137359042675895",
     "size": [
       0.57929,
       1.76,
@@ -153,7 +177,11 @@
       0.21309,
       1.39,
       -0.03764
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "HatBand": {
     "mesh": "rbxassetid://118972944840908",
@@ -169,7 +197,7 @@
     ]
   },
   "HatCrown": {
-    "mesh": "rbxassetid://81144605423168",
+    "mesh": "rbxassetid://117173200817328",
     "size": [
       0.68823,
       0.302,
@@ -179,10 +207,14 @@
       0.00964,
       4.541,
       -0.01175
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "Waistcoat": {
-    "mesh": "rbxassetid://128007800191486",
+    "mesh": "rbxassetid://123210196390425",
     "size": [
       0.63,
       1.33,
@@ -192,7 +224,11 @@
       -0.005,
       2.785,
       -0.2965
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "Forewood": {
     "mesh": "rbxassetid://123267629448251",
@@ -208,7 +244,7 @@
     ]
   },
   "PocketFlaps": {
-    "mesh": "rbxassetid://97609821589216",
+    "mesh": "rbxassetid://104316401933815",
     "size": [
       1.04,
       0.18,
@@ -218,10 +254,14 @@
       0,
       2.2,
       -0.2195
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "Brow": {
-    "mesh": "rbxassetid://85425160849430",
+    "mesh": "rbxassetid://99365051693853",
     "size": [
       0.36858,
       0.03683,
@@ -231,7 +271,11 @@
       0,
       4.22852,
       -0.25899
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "BeltStuds": {
     "mesh": "rbxassetid://80728781657277",
@@ -260,7 +304,7 @@
     ]
   },
   "Face": {
-    "mesh": "rbxassetid://74515196856821",
+    "mesh": "rbxassetid://118674401613797",
     "size": [
       0.66299,
       0.69776,
@@ -270,7 +314,8 @@
       0,
       4.19939,
       -0.07971
-    ]
+    ],
+    "ColorMap": "rbxassetid://87442908852933"
   },
   "Buckle": {
     "mesh": "rbxassetid://140669310358834",
@@ -312,7 +357,7 @@
     ]
   },
   "LeftCoatTail": {
-    "mesh": "rbxassetid://120571077619466",
+    "mesh": "rbxassetid://88285409667557",
     "size": [
       0.59011,
       1.32425,
@@ -322,7 +367,11 @@
       0.28332,
       1.60787,
       0.07159
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "DarkSpine": {
     "mesh": "rbxassetid://91916797471620",
@@ -338,7 +387,7 @@
     ]
   },
   "ShirtOpening": {
-    "mesh": "rbxassetid://86306132983430",
+    "mesh": "rbxassetid://103016568266774",
     "size": [
       0.4,
       0.54,
@@ -348,7 +397,11 @@
       0.01,
       3.38,
       -0.2655
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "Binding": {
     "mesh": "rbxassetid://93854576255050",
@@ -377,7 +430,7 @@
     ]
   },
   "CoatLapels": {
-    "mesh": "rbxassetid://72535362130466",
+    "mesh": "rbxassetid://131458921805558",
     "size": [
       0.878,
       0.89,
@@ -387,10 +440,14 @@
       0,
       3.215,
       -0.2695
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "Scarf": {
-    "mesh": "rbxassetid://123060854933771",
+    "mesh": "rbxassetid://72041477051383",
     "size": [
       0.65354,
       0.335,
@@ -400,7 +457,11 @@
       -0.00548,
       3.8075,
       -0.06765
-    ]
+    ],
+    "MetalnessMap": "rbxassetid://83695694267510",
+    "NormalMap": "rbxassetid://102724547129860",
+    "RoughnessMap": "rbxassetid://94581649400535",
+    "ColorMap": "rbxassetid://90856803151803"
   },
   "LeftBoot": {
     "mesh": "rbxassetid://78320566529059",

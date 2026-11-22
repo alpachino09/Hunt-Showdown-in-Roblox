@@ -1,15 +1,18 @@
 """Build Elias Reed's original showcase geometry around the CC0 MakeHuman HM08 head.
 
-Run Blender headless with this script and pass the path to the MakeHuman base.obj after --.
+Pass the MakeHuman base.obj and the prepared texture directory after Blender’s -- separator.
 Coordinates in this file are the authored Roblox rest pose in studs.
 """
 from collections import defaultdict
-from math import cos, pi, sin, tau
+from math import atan2, cos, pi, sin, tau
 from pathlib import Path
 import sys
 
 import bpy
 from mathutils import Vector
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from lobby_head import read_head
 
 OUTPUT = Path(__file__).resolve().parents[1] / "assets" / "lobby" / "HunterSet.glb"
 PALETTE = {
@@ -19,6 +22,7 @@ PALETTE = {
     "Brass": (137, 109, 69), "Eyes": (57, 47, 41), "Linen": (156, 145, 124),
 }
 GEOMETRY = defaultdict(lambda: ([], []))
+CLOTH = {"Wool", "Vest", "Twill", "Felt", "Scarf", "Linen"}
 
 
 def add(name, material, vertices, faces):
@@ -76,28 +80,8 @@ def plate(name, material, outline, thickness=.035):
     add(name, material, points, surfaces)
 
 
-def head_geometry(base):
-    vertices, faces = [], []
-    body = False
-    for line in base.read_text().splitlines():
-        fields = line.split()
-        if not fields:
-            continue
-        if fields[0] == "v":
-            vertices.append(tuple(map(float, fields[1:4])))
-        elif fields[0] == "g":
-            body = fields[1] == "body"
-        elif fields[0] == "f" and body:
-            face = [int(part.split("/")[0]) - 1 for part in fields[1:]]
-            if min(vertices[i][1] for i in face) >= 6.71:
-                faces.append(face)
-    ids = sorted({i for face in faces for i in face})
-    remap = {old: i for i, old in enumerate(ids)}
-    points = []
-    for i in ids:
-        x, y, z = vertices[i]
-        points.append((x * .377, 3.85 + (y - 6.71) * .392, (z - .48) * .375 + .018))
-    add("Face", "Skin", points, [tuple(remap[i] for i in face) for face in faces])
+def head_geometry(points, faces):
+    add("Face", "Skin", points, faces)
     for sign in (-1, 1):
         x = sign * .125
         rings("Eyes", "Eyes", [
@@ -233,7 +217,40 @@ def prop_silhouette():
     tube("HeelCap", "Steel", (.937, 1.953, .571), (.867, 2.116, .588), .046, .036)
 
 
-def export():
+def add_map(material, path, socket, color_data=False):
+    nodes = material.node_tree.nodes
+    shader = next(node for node in nodes if node.type == "BSDF_PRINCIPLED")
+    texture = nodes.new("ShaderNodeTexImage")
+    texture.image = bpy.data.images.load(str(path), check_existing=True)
+    texture.image.colorspace_settings.name = "sRGB" if color_data else "Non-Color"
+    if socket == "Normal":
+        normal = nodes.new("ShaderNodeNormalMap")
+        material.node_tree.links.new(texture.outputs["Color"], normal.inputs["Color"])
+        material.node_tree.links.new(normal.outputs["Normal"], shader.inputs[socket])
+    else:
+        material.node_tree.links.new(texture.outputs["Color"], shader.inputs[socket])
+
+
+def unwrap_cloth(mesh, model_name, vertices):
+    uv = mesh.uv_layers.new(name="Cloth")
+    min_x, max_x = min(p[0] for p in vertices), max(p[0] for p in vertices)
+    min_z, max_z = min(p[2] for p in vertices), max(p[2] for p in vertices)
+    center_x, center_z = (min_x + max_x) * .5, (min_z + max_z) * .5
+    for polygon in mesh.polygons:
+        corners = [vertices[mesh.loops[index].vertex_index] for index in polygon.loop_indices]
+        if model_name in {"Waistcoat", "ShirtOpening", "CoatLapels", "PocketFlaps", "Brow"}:
+            coords = [(x * 1.9, y * 1.9) for x, y, _ in corners]
+        else:
+            angles = [atan2(x - center_x, z - center_z) / tau for x, _, z in corners]
+            if max(angles) - min(angles) > .5:
+                angles = [angle + (1 if angle < 0 else 0) for angle in angles]
+            repeat = max(1, max_x - min_x + max_z - min_z)
+            coords = [(angle * repeat, y * 1.48) for angle, (_, y, _) in zip(angles, corners)]
+        for index, coord in zip(polygon.loop_indices, coords):
+            uv.uv[index].vector = coord
+
+
+def export(texture_directory, face_uvs):
     for obj in list(bpy.context.scene.objects):
         bpy.data.objects.remove(obj, do_unlink=True)
     materials = {}
@@ -244,12 +261,25 @@ def export():
         shader = next(node for node in material.node_tree.nodes if node.type == "BSDF_PRINCIPLED")
         shader.inputs["Base Color"].default_value = material.diffuse_color
         shader.inputs["Roughness"].default_value = .88 if key in ("Wool", "Twill", "Felt", "Linen") else .64
+        if key == "Skin":
+            add_map(material, texture_directory / "OutpostFace.jpg", "Base Color", color_data=True)
+        elif key in CLOTH:
+            add_map(material, texture_directory / "OutpostCloth.jpg", "Base Color", color_data=True)
+            add_map(material, texture_directory / "Fabric012_1K-JPG_NormalGL.jpg", "Normal")
+            add_map(material, texture_directory / "Fabric012_1K-JPG_Roughness.jpg", "Roughness")
         materials[key] = material
     for (name, key), (vertices, faces) in GEOMETRY.items():
         mesh = bpy.data.meshes.new(name)
         mesh.from_pydata([(x, -z, y) for x, y, z in vertices], [], faces)
         mesh.validate()
         mesh.update()
+        if name == "Face":
+            uv = mesh.uv_layers.new(name="MakeHuman")
+            for polygon, coordinates in zip(mesh.polygons, face_uvs):
+                for index, coord in zip(polygon.loop_indices, coordinates):
+                    uv.uv[index].vector = coord
+        elif key in CLOTH:
+            unwrap_cloth(mesh, name, vertices)
         import bmesh
         editing = bmesh.new()
         editing.from_mesh(mesh)
@@ -265,10 +295,19 @@ def export():
         print(name, len(mesh.loop_triangles), "triangles")
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.export_scene.gltf(filepath=str(OUTPUT), export_format="GLB", export_yup=True)
+    # Reimport only pieces whose UV or PBR data changed.
+    bpy.ops.object.select_all(action="DESELECT")
+    for (name, key) in GEOMETRY:
+        if key in CLOTH or name == "Face":
+            bpy.data.objects[name].select_set(True)
+    bpy.ops.export_scene.gltf(filepath=str(OUTPUT.parents[2] / "build" / "HunterMaterials.glb"),
+                              export_format="GLB", export_yup=True, use_selection=True)
 
 
 if __name__ == "__main__":
-    head_geometry(Path(sys.argv[sys.argv.index("--") + 1]))
+    base, textures = (Path(p) for p in sys.argv[sys.argv.index("--") + 1:])
+    points, faces, face_uvs = read_head(base)
+    head_geometry(points, faces)
     wardrobe()
     prop_silhouette()
-    export()
+    export(textures, face_uvs)

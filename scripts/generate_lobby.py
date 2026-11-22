@@ -143,6 +143,7 @@ def label(parent, name, value, x, y, w, h, size, color, font=3, wrap=False, butt
 def lobby(root):
     ui = item(root, "ScreenGui", "Lobby")
     prop(ui, "bool", "ResetOnSpawn", "false")
+    prop(ui, "bool", "IgnoreGuiInset", "true")
     prop(ui, "int", "DisplayOrder", 1)
     shade = frame(ui, "Frame", "Shade", (.7, 0, 1, 0), (0, 0, 0, 0), (13, 12, 11), .06)
     gradient = item(shade, "UIGradient", "Fade")

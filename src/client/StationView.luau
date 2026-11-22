@@ -34,7 +34,7 @@ function StationView.start()
     local time = 0
     local controlledCamera: Camera? = nil
     local priorFov = 70
-    local lastSize = Vector2.zero
+    local lastSize: Vector2? = nil
     local home = CFrame.identity
     local fov = priorFov
 
@@ -56,7 +56,7 @@ function StationView.start()
             if controlledCamera ~= camera then
                 controlledCamera = camera
                 priorFov = camera.FieldOfView
-                lastSize = Vector2.zero
+                lastSize = nil
             end
             local size = camera.ViewportSize
             if size ~= lastSize then

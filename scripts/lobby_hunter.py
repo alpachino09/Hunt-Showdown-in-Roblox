@@ -8,13 +8,13 @@ ASSETS = json.loads((Path(__file__).resolve().parents[1] /
 # Local coordinates are from the imported scene transform, with the root at the boots.
 POSITION = (3.65, .06, -.38)
 MATERIALS = {
-    "Wool": ((73, 66, 55), 1312),
-    "Vest": ((102, 90, 66), 1312),
-    "Twill": ((61, 61, 55), 1312),
+    "Wool": ((118, 107, 90), 1312),
+    "Vest": ((136, 114, 80), 1312),
+    "Twill": ((90, 91, 82), 1312),
     "Leather": ((69, 49, 37), 2309),
-    "Felt": ((59, 51, 43), 1312),
-    "Scarf": ((106, 56, 50), 1312),
-    "Skin": ((169, 126, 102), 272),
+    "Felt": ((76, 65, 53), 1312),
+    "Scarf": ((112, 60, 49), 1312),
+    "Skin": ((237, 223, 209), 272),
     "Steel": ((68, 73, 74), 1088),
     "Walnut": ((89, 54, 37), 512),
     "Brass": ((131, 107, 64), 1088),
@@ -29,10 +29,14 @@ def render_hunter(stage, item, mesh_part):
     def add_parts(parent, mapping):
         for name, material in mapping.items():
             asset = ASSETS[name]
-            position = tuple(a + b for a, b in zip(POSITION, asset["offset"]))
+            # Studio's glTF importer turns both horizontal axes around Y.
+            x, y, z = asset["offset"]
+            position = (POSITION[0] - x, POSITION[1] + y, POSITION[2] - z)
+            if name in ("Eyes", "Brow"):
+                position = (position[0], position[1], position[2] + .073)
             tint, surface = MATERIALS[material]
-            mesh_part(parent, name, asset, asset["size"], position, tint,
-                      material=surface, double_sided=name.endswith("CoatTail"))
+            mesh_part(parent, name, asset, asset["size"], position, tint, material=surface,
+                      yaw=180, double_sided=name.endswith("CoatTail"))
 
     add_parts(display, {"LeftBoot": "Leather", "RightBoot": "Leather",
                         "LeftTrousers": "Twill", "RightTrousers": "Twill"})
