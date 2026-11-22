@@ -11,3 +11,5 @@ Packages/
 
 /.tools/
 /build/
+
+__pycache__/

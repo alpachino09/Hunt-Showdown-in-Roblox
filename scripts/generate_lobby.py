@@ -80,66 +80,13 @@ def lantern(parent, name, x, y, z, reach):
 
 def station(root):
     stage = item(root, "Model", "Station")
-    room = item(stage, "Model", "RailwayOffice")
-    rng = Random(301)
-    wood = (55, 40, 33)
-    iron = (38, 43, 46)
-    for i in range(30):
-        shade = rng.randrange(-9, 9)
-        part(room, "Floorboard", (.72, .24, 21), (-10.8+i*.74, -.12, 0),
-             tuple(v+shade for v in (75, 56, 44)), 528)
-    # Separate framing leaves an actual window opening at the right of the back wall.
-    for center, width, bottom, top in ((-3, 16, 0, 9), (9, 4, 0, 9),
-                                       (6, 2, 0, 3.2), (6, 2, 6.7, 9)):
-        for row in range(round((top-bottom)/.38)):
-            shade = rng.randrange(-6, 6)
-            part(room, "Wallboard", (width, .36, .27), (center, bottom+row*.38+.18, -6.8),
-                 tuple(v+shade for v in wood), 528)
-    for x in (-10.7, -5.3, -.25, 5, 7, 10.7):
-        part(room, "WallPost", (.38, 8.8, .5), (x, 4.4, -6.5), (83, 61, 44), 528)
-    for x in (-11, 11):
-        part(room, "SideWall", (.32, 9, 19), (x, 4.5, 1.8), wood, 528)
-    part(room, "Ceiling", (22, .3, 19), (0, 9, 1.8), (37, 29, 24), 528)
-    for z in (-6, -2, 2, 6):
-        part(room, "Rafter", (22, .37, .55), (0, 8.71, z), (83, 61, 44), 528)
+    from lobby_environment import render_forest
 
-    window = item(room, "Model", "SignalWindow")
-    for y in (3.22, 5, 6.7):
-        part(window, "Sash", (2.22, .14, .4), (6, y, -6.58), wood, 528)
-    for x in (5, 6, 7):
-        part(window, "Mullion", (.12, 3.45, .37), (x, 4.96, -6.55), wood, 528)
-    through = part(window, "Moonlight", (1, 1, 1), (6, 5.9, -6.2), iron, transparency=1)
-    light(through, (121, 177, 196), 1.55, 24)
-    part(room, "NightSkyBackdrop", (27, 12, .2), (0, 6, -13.9), (27, 46, 61), 288)
-    for i in range(12):
-        x, z = rng.uniform(1, 10), rng.uniform(-13.4, -9)
-        part(room, "TreeTrunk", (.16, 9, .16), (x, 3, z), (18, 25, 31), 512)
-        for y, w in ((4.0, 1.3), (5.1, 1.12), (6.0, .8)):
-            part(room, "PineSilhouette", (w, 2.15, .28), (x, y, z), (18, 25, 31), tilt=-15)
-
-    props = item(stage, "Model", "StationFurnishings")
-    part(props, "DispatchDesk", (5.7, .24, 1.65), (-2.5, 2.75, -4.45), (104, 75, 55), 528)
-    for x in (-5.15, .15):
-        part(props, "DeskPedestal", (.38, 2.64, 1.5), (x, 1.32, -4.45), wood, 528)
-    for x, z, angle in [(-3.95, -4.7, 12), (-2.55, -4.6, 75), (-1.45, -4.2, 8)]:
-        part(props, "DispatchSheet", (.62, .027, .41), (x, 2.89, z), (191, 156, 107), yaw=angle)
-    for x, y, z in [(7.6, .61, -4), (9.16, .49, -5.1), (8.03, 1.65, -4.25)]:
-        part(props, "FreightCrate", (1.6, 1.02, 1.25), (x, y, z), (83, 63, 46), 528)
-        for dx in (-.61, .61):
-            part(props, "CrateBrace", (.15, 1.05, 1.3), (x+dx, y, z), (113, 88, 59), 528)
-    for y in (3.15, 3.9, 4.65):
-        part(props, "DispatchShelf", (3.6, .13, .72), (-2.6, y, -6.19), wood, 528)
-        for i in range(7):
-            part(props, "Logbook", (.18, .36+rng.random()*.11, .28), (-3.88+i*.29, y+.27, -6.01),
-                 rng.choice(((85, 68, 44), (92, 39, 34), (67, 74, 63))), tilt=rng.randint(-8, 8))
-    lantern(props, "DeskLantern", -.13, 2.88, -4.16, 14)
-    lantern(props, "FreightLantern", 8.18, 2.2, -4.21, 15)
-    fill = part(props, "CameraFill", (1, 1, 1), (3.5, 5.5, 3.7), iron, transparency=1)
-    light(fill, (255, 213, 177), .82, 17, shadows=False)
-
+    render_forest(stage, item, part, prop, lantern, rgb)
     markers = item(stage, "Folder", "CameraMarkers")
-    part(markers, "Eye", (1, 1, 1), (.0, 4.25, 9.9), iron, transparency=1)
-    part(markers, "Focus", (1, 1, 1), (.85, 3.3, -.25), iron, transparency=1)
+    iron = (38, 43, 46)
+    part(markers, "Eye", (1, 1, 1), (.25, 2.9, 9.0), iron, transparency=1)
+    part(markers, "Focus", (1, 1, 1), (.62, 2.35, -.25), iron, transparency=1)
 
     hunter = item(stage, "Model", "DisplayHunter")
     x, z = 3.75, -.35
