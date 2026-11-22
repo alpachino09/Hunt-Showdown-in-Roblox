@@ -1,0 +1,10 @@
+.DS_Store
+*.rbxl.lock
+*.rbxlx.lock
+sourcemap.json
+Packages/
+*.log
+.env
+.env.*
+.idea/
+.vscode/
