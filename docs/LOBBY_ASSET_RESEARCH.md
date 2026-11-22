@@ -15,3 +15,5 @@
 | Лампа | [Wooden Lantern 01](https://polyhaven.com/a/wooden_lantern_01) | 6 | Деревянная рама хуже читается в сумраке. Сохранить металлическую сигнальную лампу поста |
 | Персонаж | [MakeHuman HM08](https://github.com/makehumancommunity/makehuman/tree/master/makehuman/data/3dobjs) | 8 | Анатомическая основа, собственные ткани и головной убор. Лицензия базовой сетки [CC0](https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md) |
 | Оружие | [Поиск Winchester 1873 на Sketchfab](https://sketchfab.com/search?q=winchester+1873&type=models) | — | Для готовой загружаемой модели не установлен весь набор прав и свободно доступных файлов. Создать собственный внешний силуэт реквизита |
+
+При подготовке `Pine Tree 01` оказался набором почти на гигабайт с миллионами треугольников на одной группе ветвей. Для силуэтов выбран компактный [Dead Quiver Branch 01](https://polyhaven.com/a/dead_quiver_branch_01), 8/10 после адаптации масштаба. Тестовая трава рассмотрена отдельно. Для кадра выбраны сухие ветки и низкие группы растительности.
