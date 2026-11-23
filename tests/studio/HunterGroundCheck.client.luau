@@ -46,6 +46,7 @@ local function route(position: Vector3, direction: Vector3, duration: number)
     local supportedSpeeds: { number } = {}
     local contact: { [number]: Vector2 } = {}
     local supports: { [number]: Vector2 } = {}
+    local supportSurfaces: { [number]: Instance } = {}
     local mats: { [string]: boolean } = {}
 
     while elapsed < duration do
@@ -76,16 +77,19 @@ local function route(position: Vector3, direction: Vector3, duration: number)
                     if character:GetAttribute(name) then
                         local planar = Vector2.new(point.X, point.Z)
                         local before = supports[index]
-                        if before and step > 0 then
+                        if before and supportSurfaces[index] == hit.Instance and step > 0 then
                             table.insert(supportedSpeeds, (planar - before).Magnitude / step)
                         end
                         supports[index] = planar
+                        supportSurfaces[index] = hit.Instance
                     else
                         supports[index] = nil
+                        supportSurfaces[index] = nil
                     end
                 else
                     contact[index] = nil
                     supports[index] = nil
+                    supportSurfaces[index] = nil
                 end
             end
         end

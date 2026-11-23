@@ -196,6 +196,9 @@ function FootPlant.bind(character: Model, root: BasePart, motors: { [string]: Mo
             local intent = if leg.planting then math.clamp((confidence - 0.10) / 0.48, 0, 1) else 0
             local blend = if leg.planting then alpha else 1 - math.exp(-math.max(delta, 0) * 35)
             leg.strength += (intent - leg.strength) * blend
+            if leg.planting and confidence >= 0.9 and leg.strength >= 0.9 then
+                leg.strength = 1
+            end
             if anchor then
                 local hipOffset = hip - ankleAbove(leg, anchor, floorFrame(leg))
                 local stride = Vector2.new(hipOffset.X, hipOffset.Z).Magnitude

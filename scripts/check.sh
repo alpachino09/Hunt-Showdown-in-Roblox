@@ -5,6 +5,7 @@ export PATH="$HOME/.rokit/bin:$PATH"
 
 stylua --check src places tests
 selene src places tests
+lune run tests/unit/FootPlantContact.luau
 ./scripts/build.sh
 
 if [ ! -s build/roblox.d.luau ]; then
