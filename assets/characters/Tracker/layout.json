@@ -1,0 +1,401 @@
+{
+  "Head": {
+    "position": [
+      0.0,
+      4.915,
+      0.01326
+    ],
+    "size": [
+      1.178,
+      1.25,
+      0.84472
+    ],
+    "surface": "ValeSkin",
+    "color": [
+      166,
+      122,
+      96
+    ],
+    "triangles": 476
+  },
+  "Ears": {
+    "position": [
+      0.0,
+      4.865,
+      0.04025
+    ],
+    "size": [
+      1.3414,
+      0.27,
+      0.24717
+    ],
+    "surface": "ValeSkin",
+    "color": [
+      166,
+      122,
+      96
+    ],
+    "triangles": 248
+  },
+  "EyeSockets": {
+    "position": [
+      -0.00332,
+      4.911,
+      -0.34992
+    ],
+    "size": [
+      0.69255,
+      0.106,
+      0.09754
+    ],
+    "surface": "EyeShade",
+    "color": [
+      127,
+      84,
+      60
+    ],
+    "triangles": 40
+  },
+  "Eyes": {
+    "position": [
+      0.0,
+      4.914,
+      -0.40626
+    ],
+    "size": [
+      0.64846,
+      0.048,
+      0.07008
+    ],
+    "surface": "EyeWhite",
+    "color": [
+      203,
+      188,
+      159
+    ],
+    "triangles": 184
+  },
+  "Irises": {
+    "position": [
+      -0.01224,
+      4.9135,
+      -0.44035
+    ],
+    "size": [
+      0.49165,
+      0.047,
+      0.02224
+    ],
+    "surface": "ValeEye",
+    "color": [
+      66,
+      76,
+      55
+    ],
+    "triangles": 160
+  },
+  "Brow": {
+    "position": [
+      -0.00237,
+      4.98429,
+      -0.36033
+    ],
+    "size": [
+      0.71345,
+      0.06914,
+      0.06534
+    ],
+    "surface": "ValeBrow",
+    "color": [
+      72,
+      44,
+      34
+    ],
+    "triangles": 32
+  },
+  "Nose": {
+    "position": [
+      0.0,
+      4.853,
+      -0.42494
+    ],
+    "size": [
+      0.14511,
+      0.304,
+      0.19003
+    ],
+    "surface": "ValeSkin",
+    "color": [
+      166,
+      122,
+      96
+    ],
+    "triangles": 136
+  },
+  "Mouth": {
+    "position": [
+      0.00585,
+      4.6335,
+      -0.43136
+    ],
+    "size": [
+      0.25759,
+      0.035,
+      0.03504
+    ],
+    "surface": "Lips",
+    "color": [
+      98,
+      59,
+      50
+    ],
+    "triangles": 16
+  },
+  "TrackHair": {
+    "position": [
+      -1e-05,
+      5.072,
+      0.20422
+    ],
+    "size": [
+      1.22442,
+      0.688,
+      0.53955
+    ],
+    "surface": "ValeHair",
+    "color": [
+      69,
+      42,
+      31
+    ],
+    "triangles": 1472
+  },
+  "TrackPlait": {
+    "position": [
+      0.1525,
+      4.436,
+      0.42039
+    ],
+    "size": [
+      0.38831,
+      0.668,
+      0.32418
+    ],
+    "surface": "ValeHair",
+    "color": [
+      69,
+      42,
+      31
+    ],
+    "triangles": 284
+  },
+  "TrackHairTie": {
+    "position": [
+      0.25309,
+      4.2025,
+      0.47907
+    ],
+    "size": [
+      0.202,
+      0.065,
+      0.148
+    ],
+    "surface": "ScoutCanvas",
+    "color": [
+      171,
+      155,
+      111
+    ],
+    "triangles": 92
+  },
+  "ScoutCap": {
+    "position": [
+      -0.02117,
+      5.505,
+      0.05423
+    ],
+    "size": [
+      1.20494,
+      0.32,
+      0.91124
+    ],
+    "surface": "ScoutFelt",
+    "color": [
+      75,
+      80,
+      61
+    ],
+    "triangles": 428
+  },
+  "ScoutVisor": {
+    "position": [
+      -0.0205,
+      5.345,
+      -0.461
+    ],
+    "size": [
+      0.999,
+      0.11,
+      0.432
+    ],
+    "surface": "ScoutLeather",
+    "color": [
+      52,
+      45,
+      40
+    ],
+    "triangles": 24
+  },
+  "LeftCoatTail": {
+    "position": [
+      -0.49479,
+      2.87204,
+      0.04283
+    ],
+    "size": [
+      0.99457,
+      0.41377,
+      1.16912
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "LeftCoatTailStitch": {
+    "position": [
+      -0.47187,
+      2.85596,
+      -0.53839
+    ],
+    "size": [
+      0.13595,
+      0.28771,
+      0.04196
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "RightCoatTail": {
+    "position": [
+      0.49479,
+      2.85989,
+      0.04283
+    ],
+    "size": [
+      0.99457,
+      0.43807,
+      1.16912
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "RightCoatTailStitch": {
+    "position": [
+      0.47187,
+      2.84786,
+      -0.53839
+    ],
+    "size": [
+      0.13595,
+      0.30391,
+      0.04196
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "MapPocket": {
+    "position": [
+      -0.66027,
+      2.8515,
+      -0.25216
+    ],
+    "size": [
+      0.40413,
+      0.343,
+      0.26664
+    ],
+    "surface": "ScoutLeather",
+    "color": [
+      52,
+      45,
+      40
+    ],
+    "triangles": 188
+  },
+  "FieldMap": {
+    "position": [
+      -0.75514,
+      3.0355,
+      -0.29543
+    ],
+    "size": [
+      0.18335,
+      0.469,
+      0.15767
+    ],
+    "surface": "MapPaper",
+    "color": [
+      167,
+      145,
+      99
+    ],
+    "triangles": 188
+  },
+  "FieldMapThread": {
+    "position": [
+      -0.7595,
+      3.101,
+      -0.3065
+    ],
+    "size": [
+      0.169,
+      0.05,
+      0.137
+    ],
+    "surface": "MapWax",
+    "color": [
+      107,
+      51,
+      34
+    ],
+    "triangles": 92
+  },
+  "ScoutPin": {
+    "position": [
+      0.4165,
+      4.051,
+      -0.4535
+    ],
+    "size": [
+      0.095,
+      0.098,
+      0.063
+    ],
+    "surface": "DullIron",
+    "color": [
+      76,
+      79,
+      76
+    ],
+    "triangles": 12
+  }
+}

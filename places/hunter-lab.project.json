@@ -12,12 +12,15 @@
       },
       "HunterProps": {
         "$path": "../build/generated/HunterProps.rbxmx"
+      },
+      "HunterLabSelect": {
+        "$className": "RemoteEvent"
       }
     },
     "ServerStorage": {
       "$className": "ServerStorage",
-      "Veteran": {
-        "$path": "../build/generated/Veteran.rbxmx"
+      "HunterRoster": {
+        "$path": "../build/generated/HunterRoster.rbxmx"
       }
     },
     "ServerScriptService": {

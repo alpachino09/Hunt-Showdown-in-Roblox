@@ -6,7 +6,8 @@ from pathlib import Path
 from generate_lobby import build, item, mesh_part, part, prop, rgb, vec
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "assets" / "characters" / "Veteran"
+CHARACTERS = ROOT / "assets" / "characters"
+ASSETS = CHARACTERS / "Veteran"
 KIT = json.loads((ASSETS / "kit-layout.json").read_text())
 STUDIO = json.loads((ASSETS / "roblox-assets.json").read_text())
 for removed in ("Beard", "TempleHair"):
@@ -74,47 +75,65 @@ def set_bool(node, name, value):
         flag.text = str(value).lower()
 
 
-def rig(root):
-    model = item(root, "Model", "Veteran")
+def rig(root, name="Veteran", profile=None):
+    profile = profile or {}
+    if profile:
+        folder = CHARACTERS / name
+        layout = json.loads((folder / "layout.json").read_text())
+        custom = json.loads((folder / "roblox-assets.json").read_text())
+    else:
+        layout, custom = {}, {}
+    width = profile.get("width", 1)
+    omitted = set(profile.get("omit", []))
+    kit = {key: data for key, data in (KIT | layout).items() if key not in omitted}
+    textures = STUDIO["parts"] | custom
+    palette = profile.get("palette", {})
+    anchors = ACCESSORIES | profile.get("anchors", {})
+
+    def scaled(values):
+        return (values[0]*width, values[1], values[2])
+
+    model = item(root, "Model", name)
     costume = item(model, "Folder", "Costume")
     body_names = {end for _,end,_ in REST["joints"].values()}
     items = {}
-    centers = {name: mesh["position"] for name, mesh in KIT.items()}
+    centers = {mesh_name: mesh["position"] for mesh_name, mesh in kit.items()}
 
     root_name = "HumanoidRootPart"
     centers[root_name] = REST["root"]
-    root_part = part(model, root_name, (1.82, 2, .96), REST["root"], (130,128,116), transparency=1)
+    root_part = part(model, root_name, scaled((1.82, 2, .96)), REST["root"], (130,128,116), transparency=1)
     items[root_name] = root_part
-    root_part.set("referent", "VeteranRoot")
-    prop(model, "Ref", "PrimaryPart", "VeteranRoot")
+    root_part.set("referent", name + "Root")
+    prop(model, "Ref", "PrimaryPart", root_part.get("referent"))
     set_bool(root_part, "Anchored", False)
     set_bool(root_part, "CanCollide", True)
     set_bool(root_part, "CanQuery", True)
     set_bool(root_part, "CastShadow", False)
 
-    for name, mesh in KIT.items():
-        reference = STUDIO["parts"][name]
+    for mesh_name, mesh in kit.items():
+        reference = textures[mesh_name]
         source = {"mesh": reference["mesh"], "size": mesh["size"]}
         if "textureSet" in reference:
             source.update(STUDIO["maps"][reference["textureSet"]])
         if "ColorMap" in reference:
             source["ColorMap"] = reference["ColorMap"]
         material = MATERIAL_CODES.get(mesh["surface"], 272)
-        is_body = name in body_names
-        tint = mesh["color"]
+        is_body = mesh_name in body_names
+        tint = palette.get(mesh_name, palette.get(mesh["surface"], mesh["color"]))
         if reference.get("textureSet") == "Fabric":
             tint = tuple(round(v*.81+38) for v in tint)
         elif reference.get("textureSet") == "Leather":
-            tint = tuple(round(v*.40+158) for v in tint)
-        node = mesh_part(model if is_body else costume, name, source, mesh["size"], mesh["position"],
+            gain, lift = profile.get("leatherTint", (.40, 158))
+            tint = tuple(round(v*gain+lift) for v in tint)
+        node = mesh_part(model if is_body else costume, mesh_name, source, scaled(mesh["size"]), scaled(mesh["position"]),
                          tint, material=material, yaw=180)
-        node.set("referent", "Veteran_" + name)
-        items[name] = node
+        node.set("referent", name + "_" + mesh_name)
+        items[mesh_name] = node
         set_bool(node, "Anchored", False)
         set_bool(node, "Massless", True)
         if is_body:
             set_bool(node, "CanQuery", True)
-        if name.endswith(("UpperLeg", "LowerLeg")):
+        if mesh_name.endswith(("UpperLeg", "LowerLeg")):
             node.find("./Properties/float[@name='Transparency']").text = "1"
 
     def local_frame(name, point):
@@ -123,7 +142,7 @@ def rig(root):
         if turned:
             delta[0] *= -1
             delta[2] *= -1
-        return cf(delta, turned)
+        return cf(scaled(delta), turned)
 
     def socket(parent, name, point):
         marker = item(items[parent], "Attachment", name)
@@ -144,8 +163,11 @@ def rig(root):
     for joint, (parent, child, point) in REST["joints"].items():
         motor(joint, parent, child, point, attachments=True)
     for side, sign in (("Left", -1), ("Right", 1)):
-        motor(side + "Hem", "LowerTorso", side + "CoatTail", (sign*.50,3.00,.077))
-    for child, parent in ACCESSORIES.items():
+        if side + "CoatTail" in items:
+            motor(side + "Hem", "LowerTorso", side + "CoatTail", (sign*.50,3.00,.077))
+    for child, parent in anchors.items():
+        if child not in items:
+            continue
         weld = item(items[child], "Weld", child + "Mount")
         refs(weld, parent, child)
         prop(weld, "CoordinateFrame", "C0", local_frame(parent, centers[child]))
@@ -156,25 +178,27 @@ def rig(root):
 
     for side in ("Left", "Right"):
         for joint in ("Knee", "Elbow"):
-            name = side + joint + "Cloth"
-            kind = name if joint == "Knee" else "ElbowCloth"
+            mesh_name = side + joint + "Cloth"
+            kind = mesh_name if joint == "Knee" else "ElbowCloth"
             parent, _, pivot = REST["joints"][side + joint]
             source = SEAMS[kind] | STUDIO["maps"]["Fabric"]
             dx, dy, dz = source["center"]
             center = (pivot[0]-dx, pivot[1]+dy, pivot[2]-dz)
-            tint = tuple(round(v*.81+38) for v in SEAM_LAYOUT[kind]["color"])
-            wrap = mesh_part(costume, name, source, source["size"], center, tint, material=272, yaw=180)
-            wrap.set("referent", "Veteran_" + name)
-            items[name] = wrap
+            surface = SEAM_LAYOUT[kind]
+            tint = palette.get(surface["surface"], surface["color"])
+            tint = tuple(round(v*.81+38) for v in tint)
+            wrap = mesh_part(costume, mesh_name, source, scaled(source["size"]), scaled(center), tint, material=272, yaw=180)
+            wrap.set("referent", name + "_" + mesh_name)
+            items[mesh_name] = wrap
             set_bool(wrap, "Anchored", False)
             set_bool(wrap, "Massless", True)
             set_bool(wrap, "HasSkinnedMesh", True)
             weld = item(wrap, "Weld", "ClothMount")
-            refs(weld, parent, name)
+            refs(weld, parent, mesh_name)
             prop(weld, "CoordinateFrame", "C0", local_frame(parent, center))
             prop(weld, "CoordinateFrame", "C1", cf((0,0,0), True))
             anchor = item(wrap, "Bone", kind + "Parent")
-            prop(anchor, "CoordinateFrame", "CFrame", cf((-dx,-dy,-dz)))
+            prop(anchor, "CoordinateFrame", "CFrame", cf(scaled((-dx,-dy,-dz))))
             for label in ("Bend", "Fold"):
                 bone = item(anchor, "Bone", kind + label)
                 x, y, z, *matrix = source[label.lower()]
@@ -188,6 +212,14 @@ def rig(root):
     prop(humanoid, "float", "WalkSpeed", 13)
     prop(humanoid, "bool", "BreakJointsOnDeath", "false")
     item(humanoid, "Animator", "Animator")
+
+
+def roster(root):
+    folder = item(root, "Folder", "HunterRoster")
+    rig(folder)
+    for profile_path in sorted(CHARACTERS.glob("*/profile.json")):
+        profile = json.loads(profile_path.read_text())
+        rig(folder, profile_path.parent.name, profile)
 
 
 def arena(root):
@@ -299,7 +331,7 @@ def props(root):
 
 
 if __name__ == "__main__":
-    build("Veteran", rig)
+    build("HunterRoster", roster)
     build("HunterLab", arena)
     build("VeteranMotion", motion)
     build("HunterProps", props)

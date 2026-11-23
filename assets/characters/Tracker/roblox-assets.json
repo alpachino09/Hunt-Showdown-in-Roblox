@@ -1,0 +1,71 @@
+{
+  "TrackHair": {
+    "mesh": "rbxassetid://119988443011269"
+  },
+  "Nose": {
+    "mesh": "rbxassetid://76279918520132"
+  },
+  "Mouth": {
+    "mesh": "rbxassetid://109569728690215"
+  },
+  "ScoutVisor": {
+    "mesh": "rbxassetid://96810733599028",
+    "textureSet": "Leather"
+  },
+  "Eyes": {
+    "mesh": "rbxassetid://111609625559461"
+  },
+  "TrackPlait": {
+    "mesh": "rbxassetid://84086253315886"
+  },
+  "EyeSockets": {
+    "mesh": "rbxassetid://91875675577884"
+  },
+  "RightCoatTail": {
+    "mesh": "rbxassetid://93769193064078",
+    "textureSet": "Fabric"
+  },
+  "Head": {
+    "mesh": "rbxassetid://82573218600502"
+  },
+  "FieldMap": {
+    "mesh": "rbxassetid://123036145276062"
+  },
+  "MapPocket": {
+    "mesh": "rbxassetid://126104407771009",
+    "textureSet": "Leather"
+  },
+  "ScoutPin": {
+    "mesh": "rbxassetid://84265858479875"
+  },
+  "TrackHairTie": {
+    "mesh": "rbxassetid://106501508666655",
+    "textureSet": "Fabric"
+  },
+  "FieldMapThread": {
+    "mesh": "rbxassetid://139163912979487"
+  },
+  "Ears": {
+    "mesh": "rbxassetid://93337115742612"
+  },
+  "Brow": {
+    "mesh": "rbxassetid://138203333799725"
+  },
+  "Irises": {
+    "mesh": "rbxassetid://83622106454986"
+  },
+  "ScoutCap": {
+    "mesh": "rbxassetid://79669937011175",
+    "textureSet": "Fabric"
+  },
+  "RightCoatTailStitch": {
+    "mesh": "rbxassetid://120732982621361"
+  },
+  "LeftCoatTail": {
+    "mesh": "rbxassetid://100236810096824",
+    "textureSet": "Fabric"
+  },
+  "LeftCoatTailStitch": {
+    "mesh": "rbxassetid://125058642886687"
+  }
+}

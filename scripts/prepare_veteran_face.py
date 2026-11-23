@@ -60,7 +60,7 @@ def beard(surface):
         shell("ReedBeard", "Beard", points, 15, .014)
 
 
-def hair(surface):
+def hair(surface, name="ReedHair", material="Brow"):
     points = Samples()
     columns = 41
     for row in range(9):
@@ -72,7 +72,7 @@ def hair(surface):
             direction = Vector((cos(angle),0,sin(angle)))
             origin = 1.4*direction + Vector((0,y,.032))
             points.offset(surface, origin, -direction, .024 + .017*sin(t*pi)*sin(row*pi/8))
-    shell("ReedHair", "Brow", points, columns, .025)
+    shell(name, material, points, columns, .025)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,17 @@
+{
+  "width": 0.91,
+  "leatherTint": [0.63, 77],
+  "omit": ["ReedBeard", "ReedHair", "HatCrown", "HatBand", "HatBrim", "HatClasp", "DispatchPouch", "PouchFlap", "PouchClasp", "StrapKeepers", "StrapStitches"],
+  "palette": {
+    "Wool": [82, 91, 68], "Twill": [66, 68, 56],
+    "LapelCloth": [68, 77, 58], "Lining": [83, 89, 70],
+    "Vest": [110, 98, 73], "Canvas": [184, 165, 125],
+    "DarkLeather": [45, 40, 35], "LeatherEdge": [62, 55, 45],
+    "BootLeather": [57, 49, 40], "GloveLeather": [42, 39, 35]
+  },
+  "anchors": {
+    "ScoutCap": "Head", "ScoutVisor": "Head", "TrackHair": "Head", "TrackPlait": "Head",
+    "TrackHairTie": "Head", "ScoutPin": "UpperTorso",
+    "MapPocket": "LowerTorso", "FieldMap": "LowerTorso", "FieldMapThread": "LowerTorso"
+  }
+}

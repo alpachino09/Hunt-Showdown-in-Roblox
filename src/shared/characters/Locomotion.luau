@@ -98,7 +98,13 @@ local function window(clip: Clip, time: number): (number, number, number)
     return first, math.min(first + 1, count), position % 1
 end
 
-function Locomotion.bind(character: Model, humanoid: Humanoid, root: BasePart, library: Library)
+function Locomotion.bind(
+    character: Model,
+    humanoid: Humanoid,
+    root: BasePart,
+    library: Library,
+    idleLean: number?
+)
     local motors: { [string]: Motor6D } = {}
     for _, obj in character:GetDescendants() do
         if obj:IsA("Motor6D") then
@@ -173,6 +179,9 @@ function Locomotion.bind(character: Model, humanoid: Humanoid, root: BasePart, l
             local blended = before[index]:Lerp(sample, ease)
             joint.Transform = blended
             output[index] = blended
+        end
+        if idleLean and active == "Idle" then
+            motors.Waist.Transform *= CFrame.Angles(idleLean * ease, 0, 0)
         end
 
         local a, b = clip.contact[first], clip.contact[second]

@@ -6,11 +6,13 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
 local ClothPose = require(ReplicatedStorage.Shared.characters.ClothPose)
+local HunterDefinitions = require(ReplicatedStorage.Shared.characters.HunterDefinitions)
 local Locomotion = require(ReplicatedStorage.Shared.characters.Locomotion)
 local Viewmodel = require(ReplicatedStorage.Shared.characters.Viewmodel)
 local WeaponPose = require(ReplicatedStorage.Shared.characters.WeaponPose)
 local motionData = ReplicatedStorage:WaitForChild("VeteranMotion") :: Folder
 local props = ReplicatedStorage:WaitForChild("HunterProps") :: Folder
+local selectHunter = ReplicatedStorage:WaitForChild("HunterLabSelect") :: RemoteEvent
 local library = Locomotion.decode(motionData)
 local player = Players.LocalPlayer
 player.CameraMinZoomDistance = 7
@@ -40,6 +42,7 @@ local weapons: WeaponPose.Controller? = nil
 local running: RBXScriptConnection? = nil
 local clearView: (() -> ())? = nil
 local VIEW_BINDING = "HunterLabViewmodel"
+local HUNTER_KEYS = { Enum.KeyCode.One, Enum.KeyCode.Two, Enum.KeyCode.Three, Enum.KeyCode.Four }
 
 local function preferred(): Locomotion.Mode
     if crouched then
@@ -99,6 +102,16 @@ ContextActionService:BindAction(
 )
 ContextActionService:BindAction("HunterLabFire", action, false, Enum.KeyCode.F)
 ContextActionService:BindAction("HunterLabReload", action, false, Enum.KeyCode.R)
+ContextActionService:BindAction("HunterLabSelect", function(_, input, context)
+    if input == Enum.UserInputState.Begin then
+        local index = table.find(HUNTER_KEYS, context.KeyCode)
+        local hunter = if index then HunterDefinitions.roster[index] else nil
+        if hunter then
+            selectHunter:FireServer(hunter.id)
+        end
+    end
+    return Enum.ContextActionResult.Sink
+end, false, table.unpack(HUNTER_KEYS, 1, #HunterDefinitions.roster))
 
 local function mount(character: Model)
     if running then
@@ -110,7 +123,9 @@ local function mount(character: Model)
     local humanoid = character:WaitForChild("Humanoid") :: Humanoid
     local root = character:WaitForChild("HumanoidRootPart") :: BasePart
     crouched, jog, shift, mode = false, false, false, "Walk"
-    local animate = Locomotion.bind(character, humanoid, root, library)
+    local hunterId = character:GetAttribute("HunterId") :: string
+    local definition = HunterDefinitions.byId[hunterId] or HunterDefinitions.roster[1]
+    local animate = Locomotion.bind(character, humanoid, root, library, definition.idleLean)
     local mounted = WeaponPose.bind(character, root, props)
     local finishCloth = ClothPose.bind(character)
     local view = Viewmodel.bind(character, root)
@@ -125,7 +140,7 @@ local function mount(character: Model)
     end
     local current: string? = nil
     running = RunService.PreSimulation:Connect(function(delta)
-        local speed = Locomotion.speed[mode]
+        local speed = Locomotion.speed[mode] * definition.speedScale
         if humanoid.WalkSpeed ~= speed then
             humanoid.WalkSpeed = speed
         end
@@ -139,7 +154,9 @@ local function mount(character: Model)
             current = header
             prompt.Text = header
                 .. "  ·  WASD — движение  ·  J — бег  ·  Shift — спринт  ·  C — присесть  ·  V — камера\n"
-                .. "Space — прыжок  ·  B — реквизит  ·  Q — прицел  ·  F — отдача  ·  R — перехват"
+                .. ("Space — прыжок  ·  B — реквизит  ·  Q — прицел  ·  F — отдача  ·  R — перехват  ·  1–%d — охотник"):format(
+                    #HunterDefinitions.roster
+                )
         end
     end)
 end
