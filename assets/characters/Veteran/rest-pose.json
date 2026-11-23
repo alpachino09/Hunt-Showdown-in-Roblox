@@ -1,0 +1,20 @@
+{
+  "root": [0, 2.93, 0],
+  "joints": {
+    "Root": ["HumanoidRootPart", "LowerTorso", [0, 2.69, 0]],
+    "Waist": ["LowerTorso", "UpperTorso", [0, 3.09, 0]],
+    "Neck": ["UpperTorso", "Head", [0, 4.30, 0]],
+    "LeftShoulder": ["UpperTorso", "LeftUpperArm", [-0.92, 4.08, 0]],
+    "LeftElbow": ["LeftUpperArm", "LeftLowerArm", [-1.18, 3.44, 0.03]],
+    "LeftWrist": ["LeftLowerArm", "LeftHand", [-1.28, 2.92, 0]],
+    "RightShoulder": ["UpperTorso", "RightUpperArm", [0.92, 4.08, 0]],
+    "RightElbow": ["RightUpperArm", "RightLowerArm", [1.18, 3.44, 0.03]],
+    "RightWrist": ["RightLowerArm", "RightHand", [1.28, 2.92, 0]],
+    "LeftHip": ["LowerTorso", "LeftUpperLeg", [-0.46, 2.70, 0]],
+    "LeftKnee": ["LeftUpperLeg", "LeftLowerLeg", [-0.51, 1.60, -0.031]],
+    "LeftAnkle": ["LeftLowerLeg", "LeftFoot", [-0.53, 0.44, 0.015]],
+    "RightHip": ["LowerTorso", "RightUpperLeg", [0.46, 2.70, 0]],
+    "RightKnee": ["RightUpperLeg", "RightLowerLeg", [0.51, 1.60, -0.031]],
+    "RightAnkle": ["RightLowerLeg", "RightFoot", [0.53, 0.44, 0.015]]
+  }
+}

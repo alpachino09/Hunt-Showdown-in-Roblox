@@ -1,0 +1,251 @@
+{
+  "maps": {
+    "Fabric": {
+      "ColorMap": "rbxassetid://74632458659665",
+      "MetalnessMap": "rbxassetid://122591521385093",
+      "NormalMap": "rbxassetid://74929829428901",
+      "RoughnessMap": "rbxassetid://72357506424487"
+    },
+    "Leather": {
+      "ColorMap": "rbxassetid://132936976839452",
+      "MetalnessMap": "rbxassetid://114916965485066",
+      "NormalMap": "rbxassetid://133990473986744",
+      "RoughnessMap": "rbxassetid://111428566243337"
+    }
+  },
+  "parts": {
+    "Beard": {
+      "mesh": "rbxassetid://140693713089318"
+    },
+    "Brow": {
+      "mesh": "rbxassetid://77897045719308"
+    },
+    "CoatLapels": {
+      "mesh": "rbxassetid://116144505866476",
+      "textureSet": "Fabric"
+    },
+    "CrossBodyStrap": {
+      "mesh": "rbxassetid://70658455237844",
+      "textureSet": "Leather"
+    },
+    "DispatchPouch": {
+      "mesh": "rbxassetid://108740844959838",
+      "textureSet": "Leather"
+    },
+    "Ears": {
+      "mesh": "rbxassetid://83921848540063"
+    },
+    "EyeSockets": {
+      "mesh": "rbxassetid://79342349972006"
+    },
+    "Eyes": {
+      "mesh": "rbxassetid://87081126505599"
+    },
+    "HatBand": {
+      "mesh": "rbxassetid://82801466337926",
+      "textureSet": "Leather"
+    },
+    "HatBrim": {
+      "mesh": "rbxassetid://74772970125391",
+      "textureSet": "Fabric"
+    },
+    "HatClasp": {
+      "mesh": "rbxassetid://128741029414902"
+    },
+    "HatCrown": {
+      "mesh": "rbxassetid://99450517796154",
+      "textureSet": "Fabric"
+    },
+    "Head": {
+      "mesh": "rbxassetid://89099700929202"
+    },
+    "HipHolster": {
+      "mesh": "rbxassetid://103755249192075",
+      "textureSet": "Leather"
+    },
+    "HolsterEdge": {
+      "mesh": "rbxassetid://105674915748234",
+      "textureSet": "Leather"
+    },
+    "HolsterStud": {
+      "mesh": "rbxassetid://138485608897125"
+    },
+    "Irises": {
+      "mesh": "rbxassetid://91161439338881"
+    },
+    "LeftBootRim": {
+      "mesh": "rbxassetid://85949481556839",
+      "textureSet": "Leather"
+    },
+    "LeftBootUpper": {
+      "mesh": "rbxassetid://98388045188842",
+      "textureSet": "Leather"
+    },
+    "LeftCoatTail": {
+      "mesh": "rbxassetid://127621987924945",
+      "textureSet": "Fabric"
+    },
+    "LeftCoatTailStitch": {
+      "mesh": "rbxassetid://100650251985193"
+    },
+    "LeftCuff": {
+      "mesh": "rbxassetid://104972548881323",
+      "textureSet": "Fabric"
+    },
+    "LeftCuffButton": {
+      "mesh": "rbxassetid://73987931655243"
+    },
+    "LeftFoot": {
+      "mesh": "rbxassetid://106255372967591",
+      "textureSet": "Leather"
+    },
+    "LeftHand": {
+      "mesh": "rbxassetid://107370830122936",
+      "textureSet": "Leather"
+    },
+    "LeftLowerArm": {
+      "mesh": "rbxassetid://97792142396300",
+      "textureSet": "Fabric"
+    },
+    "LeftLowerLeg": {
+      "mesh": "rbxassetid://112066636220109",
+      "textureSet": "Fabric"
+    },
+    "LeftSole": {
+      "mesh": "rbxassetid://131908907632628"
+    },
+    "LeftThumb": {
+      "mesh": "rbxassetid://138757800730135",
+      "textureSet": "Leather"
+    },
+    "LeftUpperArm": {
+      "mesh": "rbxassetid://125187210542365",
+      "textureSet": "Fabric"
+    },
+    "LeftUpperLeg": {
+      "mesh": "rbxassetid://93539526253336",
+      "textureSet": "Fabric"
+    },
+    "LinenShirt": {
+      "mesh": "rbxassetid://116232873844789",
+      "textureSet": "Fabric"
+    },
+    "LowerTorso": {
+      "mesh": "rbxassetid://124543256380392",
+      "textureSet": "Fabric"
+    },
+    "Mouth": {
+      "mesh": "rbxassetid://138296026547324"
+    },
+    "Neckerchief": {
+      "mesh": "rbxassetid://104183434048213",
+      "textureSet": "Fabric"
+    },
+    "NeckerchiefKnot": {
+      "mesh": "rbxassetid://112291337449426",
+      "textureSet": "Fabric"
+    },
+    "Nose": {
+      "mesh": "rbxassetid://72540684370467"
+    },
+    "PouchClasp": {
+      "mesh": "rbxassetid://119938513862502"
+    },
+    "PouchFlap": {
+      "mesh": "rbxassetid://84169001991689",
+      "textureSet": "Leather"
+    },
+    "RightBootRim": {
+      "mesh": "rbxassetid://109326144224746",
+      "textureSet": "Leather"
+    },
+    "RightBootUpper": {
+      "mesh": "rbxassetid://76389438408427",
+      "textureSet": "Leather"
+    },
+    "RightCoatTail": {
+      "mesh": "rbxassetid://113894477352334",
+      "textureSet": "Fabric"
+    },
+    "RightCoatTailStitch": {
+      "mesh": "rbxassetid://107095375560097"
+    },
+    "RightCuff": {
+      "mesh": "rbxassetid://110688518645075",
+      "textureSet": "Fabric"
+    },
+    "RightCuffButton": {
+      "mesh": "rbxassetid://129696130543520"
+    },
+    "RightFoot": {
+      "mesh": "rbxassetid://123796531193665",
+      "textureSet": "Leather"
+    },
+    "RightHand": {
+      "mesh": "rbxassetid://101166692560990",
+      "textureSet": "Leather"
+    },
+    "RightLowerArm": {
+      "mesh": "rbxassetid://112895600293901",
+      "textureSet": "Fabric"
+    },
+    "RightLowerLeg": {
+      "mesh": "rbxassetid://88753609725810",
+      "textureSet": "Fabric"
+    },
+    "RightSole": {
+      "mesh": "rbxassetid://116760652773409"
+    },
+    "RightThumb": {
+      "mesh": "rbxassetid://118497221554732",
+      "textureSet": "Leather"
+    },
+    "RightUpperArm": {
+      "mesh": "rbxassetid://132617029816526",
+      "textureSet": "Fabric"
+    },
+    "RightUpperLeg": {
+      "mesh": "rbxassetid://98834469761426",
+      "textureSet": "Fabric"
+    },
+    "StrapKeepers": {
+      "mesh": "rbxassetid://110504841734599",
+      "textureSet": "Leather"
+    },
+    "StrapStitches": {
+      "mesh": "rbxassetid://78113650337859"
+    },
+    "TempleHair": {
+      "mesh": "rbxassetid://76121406626830"
+    },
+    "TorsoStitch": {
+      "mesh": "rbxassetid://130991282003183"
+    },
+    "UpperTorso": {
+      "mesh": "rbxassetid://100150387636831",
+      "textureSet": "Fabric"
+    },
+    "Vest": {
+      "mesh": "rbxassetid://94246993300280",
+      "textureSet": "Fabric"
+    },
+    "VestButtons": {
+      "mesh": "rbxassetid://135765992928430"
+    },
+    "VestPockets": {
+      "mesh": "rbxassetid://72429878705083",
+      "textureSet": "Fabric"
+    },
+    "WaistBelt": {
+      "mesh": "rbxassetid://78017894300253",
+      "textureSet": "Leather"
+    },
+    "WaistBuckle": {
+      "mesh": "rbxassetid://126130841523195"
+    },
+    "WaistBuckleCenter": {
+      "mesh": "rbxassetid://112126491005998",
+      "textureSet": "Leather"
+    }
+  }
+}

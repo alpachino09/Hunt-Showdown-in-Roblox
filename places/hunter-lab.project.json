@@ -1,0 +1,69 @@
+{
+  "name": "CharacterQualityLab",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": {
+        "$path": "../src/shared"
+      },
+      "VeteranMotion": {
+        "$path": "../build/generated/VeteranMotion.rbxmx"
+      },
+      "HunterProps": {
+        "$path": "../build/generated/HunterProps.rbxmx"
+      },
+      "HunterLabSelect": {
+        "$className": "RemoteEvent"
+      }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "HunterRoster": {
+        "$path": "../build/generated/HunterRoster.rbxmx"
+      }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "HunterLabServer": {
+        "$path": "../places/hunter-lab/server"
+      }
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "StreamingEnabled": false
+      },
+      "CharacterQualityLab": {
+        "$path": "../build/generated/HunterLab.rbxmx"
+      }
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "LightingStyle": "Realistic",
+        "Ambient": [
+          0.47,
+          0.46,
+          0.44
+        ],
+        "OutdoorAmbient": [
+          0.46,
+          0.47,
+          0.49
+        ],
+        "Brightness": 2.0,
+        "ClockTime": 14.8
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "HunterLabClient": {
+          "$path": "../places/hunter-lab/client"
+        }
+      }
+    }
+  }
+}

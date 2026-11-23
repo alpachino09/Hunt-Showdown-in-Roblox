@@ -1,0 +1,71 @@
+{
+  "ShawBadge": {
+    "mesh": "rbxassetid://83231382852846"
+  },
+  "ShawBadgeMark": {
+    "mesh": "rbxassetid://100246095441224"
+  },
+  "MarshalHair": {
+    "mesh": "rbxassetid://91126944354710"
+  },
+  "ShawBand": {
+    "mesh": "rbxassetid://116313403038109",
+    "textureSet": "Leather"
+  },
+  "WatchCape": {
+    "mesh": "rbxassetid://71726709621481",
+    "textureSet": "Fabric"
+  },
+  "ShawHat": {
+    "mesh": "rbxassetid://137176797177871",
+    "textureSet": "Fabric"
+  },
+  "Nose": {
+    "mesh": "rbxassetid://79104566878653"
+  },
+  "Mouth": {
+    "mesh": "rbxassetid://71144939959173"
+  },
+  "EyeSockets": {
+    "mesh": "rbxassetid://137154548978080"
+  },
+  "RightCoatTail": {
+    "mesh": "rbxassetid://135664481024932",
+    "textureSet": "Fabric"
+  },
+  "Head": {
+    "mesh": "rbxassetid://111659429810487"
+  },
+  "MarshalScar": {
+    "mesh": "rbxassetid://74782045809334"
+  },
+  "Brow": {
+    "mesh": "rbxassetid://129840658859321"
+  },
+  "Eyes": {
+    "mesh": "rbxassetid://131650830098756"
+  },
+  "Ears": {
+    "mesh": "rbxassetid://107436743324984"
+  },
+  "MarshalMoustache": {
+    "mesh": "rbxassetid://138909987275240"
+  },
+  "Irises": {
+    "mesh": "rbxassetid://75881432971530"
+  },
+  "ShawBrim": {
+    "mesh": "rbxassetid://88806319574973",
+    "textureSet": "Fabric"
+  },
+  "RightCoatTailStitch": {
+    "mesh": "rbxassetid://93624548658231"
+  },
+  "LeftCoatTail": {
+    "mesh": "rbxassetid://78528489640026",
+    "textureSet": "Fabric"
+  },
+  "LeftCoatTailStitch": {
+    "mesh": "rbxassetid://99630191138816"
+  }
+}

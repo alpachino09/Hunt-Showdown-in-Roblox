@@ -1,0 +1,344 @@
+{
+  "Vest": {
+    "position": [
+      0.0065,
+      3.6455,
+      -0.4045
+    ],
+    "size": [
+      0.997,
+      0.963,
+      0.199
+    ],
+    "surface": "Vest",
+    "color": [
+      121,
+      87,
+      55
+    ],
+    "triangles": 32
+  },
+  "LinenShirt": {
+    "position": [
+      -0.0065,
+      4.037,
+      -0.401
+    ],
+    "size": [
+      0.575,
+      0.482,
+      0.226
+    ],
+    "surface": "Canvas",
+    "color": [
+      157,
+      142,
+      114
+    ],
+    "triangles": 24
+  },
+  "VestButtons": {
+    "position": [
+      0.016,
+      3.523,
+      -0.52146
+    ],
+    "size": [
+      0.078,
+      0.558,
+      0.10617
+    ],
+    "surface": "BoneButton",
+    "color": [
+      163,
+      133,
+      98
+    ],
+    "triangles": 400
+  },
+  "CoatLapels": {
+    "position": [
+      0.0,
+      4.03,
+      -0.426
+    ],
+    "size": [
+      1.164,
+      0.598,
+      0.27
+    ],
+    "surface": "LapelCloth",
+    "color": [
+      73,
+      53,
+      42
+    ],
+    "triangles": 56
+  },
+  "VestPockets": {
+    "position": [
+      0.0,
+      3.434,
+      -0.477
+    ],
+    "size": [
+      0.984,
+      0.086,
+      0.078
+    ],
+    "surface": "VestLapel",
+    "color": [
+      113,
+      76,
+      47
+    ],
+    "triangles": 24
+  },
+  "TorsoStitch": {
+    "position": [
+      0.0,
+      3.91,
+      -0.5235
+    ],
+    "size": [
+      0.906,
+      0.276,
+      0.061
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 144
+  },
+  "LeftCuff": {
+    "position": [
+      -1.26311,
+      2.932,
+      0.01134
+    ],
+    "size": [
+      0.46968,
+      0.194,
+      0.44494
+    ],
+    "surface": "LapelCloth",
+    "color": [
+      73,
+      53,
+      42
+    ],
+    "triangles": 188
+  },
+  "LeftCuffButton": {
+    "position": [
+      -1.373,
+      2.8985,
+      -0.19498
+    ],
+    "size": [
+      0.068,
+      0.061,
+      0.05908
+    ],
+    "surface": "BoneButton",
+    "color": [
+      163,
+      133,
+      98
+    ],
+    "triangles": 80
+  },
+  "LeftBootRim": {
+    "position": [
+      -0.53,
+      1.0065,
+      0.031
+    ],
+    "size": [
+      0.672,
+      0.097,
+      0.64914
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 152
+  },
+  "LeftCoatTail": {
+    "position": [
+      -0.52637,
+      2.30976,
+      0.04371
+    ],
+    "size": [
+      1.05805,
+      1.53248,
+      1.19298
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "LeftCoatTailStitch": {
+    "position": [
+      -0.50199,
+      2.25021,
+      -0.54938
+    ],
+    "size": [
+      0.14463,
+      1.06558,
+      0.04281
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "RightCuff": {
+    "position": [
+      1.27103,
+      2.932,
+      0.01134
+    ],
+    "size": [
+      0.46661,
+      0.194,
+      0.44494
+    ],
+    "surface": "LapelCloth",
+    "color": [
+      73,
+      53,
+      42
+    ],
+    "triangles": 188
+  },
+  "RightCuffButton": {
+    "position": [
+      1.373,
+      2.8985,
+      -0.19498
+    ],
+    "size": [
+      0.068,
+      0.061,
+      0.05908
+    ],
+    "surface": "BoneButton",
+    "color": [
+      163,
+      133,
+      98
+    ],
+    "triangles": 80
+  },
+  "RightBootRim": {
+    "position": [
+      0.53,
+      1.0065,
+      0.031
+    ],
+    "size": [
+      0.672,
+      0.097,
+      0.64914
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 152
+  },
+  "RightCoatTail": {
+    "position": [
+      0.52637,
+      2.26476,
+      0.04371
+    ],
+    "size": [
+      1.05805,
+      1.62248,
+      1.19298
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "RightCoatTailStitch": {
+    "position": [
+      0.50199,
+      2.22021,
+      -0.54938
+    ],
+    "size": [
+      0.14463,
+      1.12558,
+      0.04281
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "Neckerchief": {
+    "position": [
+      0.01305,
+      4.311,
+      0.00285
+    ],
+    "size": [
+      0.73711,
+      0.228,
+      0.69497
+    ],
+    "surface": "Lining",
+    "color": [
+      94,
+      54,
+      45
+    ],
+    "triangles": 276
+  },
+  "NeckerchiefKnot": {
+    "position": [
+      0.0575,
+      4.1725,
+      -0.3165
+    ],
+    "size": [
+      0.301,
+      0.223,
+      0.147
+    ],
+    "surface": "Lining",
+    "color": [
+      94,
+      54,
+      45
+    ],
+    "triangles": 20
+  }
+}

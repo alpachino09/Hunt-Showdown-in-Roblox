@@ -8,3 +8,8 @@ Packages/
 .env.*
 .idea/
 .vscode/
+
+/.tools/
+/build/
+
+__pycache__/

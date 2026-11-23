@@ -1,0 +1,1 @@
+-- Intentionally empty. This replaces Roblox's passive regeneration script.

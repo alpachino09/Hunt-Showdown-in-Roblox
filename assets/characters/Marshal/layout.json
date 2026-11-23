@@ -1,0 +1,401 @@
+{
+  "Head": {
+    "position": [
+      0.0,
+      4.915,
+      0.014
+    ],
+    "size": [
+      1.30634,
+      1.25,
+      0.892
+    ],
+    "surface": "ShawSkin",
+    "color": [
+      190,
+      137,
+      105
+    ],
+    "triangles": 476
+  },
+  "Ears": {
+    "position": [
+      0.0,
+      4.865,
+      0.0425
+    ],
+    "size": [
+      1.52049,
+      0.27,
+      0.261
+    ],
+    "surface": "ShawSkin",
+    "color": [
+      190,
+      137,
+      105
+    ],
+    "triangles": 248
+  },
+  "EyeSockets": {
+    "position": [
+      -0.00188,
+      4.911,
+      -0.3695
+    ],
+    "size": [
+      0.74873,
+      0.106,
+      0.103
+    ],
+    "surface": "EyeShade",
+    "color": [
+      127,
+      84,
+      60
+    ],
+    "triangles": 40
+  },
+  "Eyes": {
+    "position": [
+      0.0,
+      4.914,
+      -0.429
+    ],
+    "size": [
+      0.71275,
+      0.048,
+      0.074
+    ],
+    "surface": "EyeWhite",
+    "color": [
+      203,
+      188,
+      159
+    ],
+    "triangles": 184
+  },
+  "Irises": {
+    "position": [
+      -0.01348,
+      4.9135,
+      -0.465
+    ],
+    "size": [
+      0.54109,
+      0.047,
+      0.02348
+    ],
+    "surface": "EyeDark",
+    "color": [
+      44,
+      57,
+      53
+    ],
+    "triangles": 160
+  },
+  "Brow": {
+    "position": [
+      -0.00253,
+      4.9935,
+      -0.3805
+    ],
+    "size": [
+      0.76141,
+      0.065,
+      0.069
+    ],
+    "surface": "GreyHair",
+    "color": [
+      93,
+      82,
+      73
+    ],
+    "triangles": 32
+  },
+  "Nose": {
+    "position": [
+      0.0,
+      4.853,
+      -0.44873
+    ],
+    "size": [
+      0.2295,
+      0.304,
+      0.20067
+    ],
+    "surface": "ShawSkin",
+    "color": [
+      190,
+      137,
+      105
+    ],
+    "triangles": 136
+  },
+  "Mouth": {
+    "position": [
+      0.00663,
+      4.6335,
+      -0.4555
+    ],
+    "size": [
+      0.29054,
+      0.035,
+      0.037
+    ],
+    "surface": "Lips",
+    "color": [
+      98,
+      59,
+      50
+    ],
+    "triangles": 16
+  },
+  "MarshalHair": {
+    "position": [
+      -0.0,
+      5.072,
+      0.21247
+    ],
+    "size": [
+      1.32688,
+      0.688,
+      0.57167
+    ],
+    "surface": "GreyHair",
+    "color": [
+      93,
+      82,
+      73
+    ],
+    "triangles": 1472
+  },
+  "MarshalMoustache": {
+    "position": [
+      0.0,
+      4.6515,
+      -0.42385
+    ],
+    "size": [
+      0.548,
+      0.117,
+      0.05671
+    ],
+    "surface": "GreyHair",
+    "color": [
+      93,
+      82,
+      73
+    ],
+    "triangles": 300
+  },
+  "MarshalScar": {
+    "position": [
+      0.436,
+      4.744,
+      -0.37986
+    ],
+    "size": [
+      0.088,
+      0.152,
+      0.03831
+    ],
+    "surface": "ShawScar",
+    "color": [
+      154,
+      98,
+      84
+    ],
+    "triangles": 56
+  },
+  "ShawHat": {
+    "position": [
+      0.00819,
+      5.641,
+      0.06517
+    ],
+    "size": [
+      1.21386,
+      0.662,
+      0.91841
+    ],
+    "surface": "ShawFelt",
+    "color": [
+      50,
+      50,
+      51
+    ],
+    "triangles": 524
+  },
+  "ShawBand": {
+    "position": [
+      -0.00678,
+      5.4765,
+      0.06715
+    ],
+    "size": [
+      1.23724,
+      0.173,
+      0.9376
+    ],
+    "surface": "MarshalLeather",
+    "color": [
+      54,
+      44,
+      39
+    ],
+    "triangles": 284
+  },
+  "ShawBrim": {
+    "position": [
+      0.0,
+      5.3661,
+      0.046
+    ],
+    "size": [
+      1.936,
+      0.0982,
+      1.49
+    ],
+    "surface": "ShawFelt",
+    "color": [
+      50,
+      50,
+      51
+    ],
+    "triangles": 384
+  },
+  "LeftCoatTail": {
+    "position": [
+      -0.57883,
+      2.06476,
+      0.08235
+    ],
+    "size": [
+      1.16355,
+      2.02248,
+      1.32624
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "LeftCoatTailStitch": {
+    "position": [
+      -0.53544,
+      1.97864,
+      -0.56809
+    ],
+    "size": [
+      0.19293,
+      1.416,
+      0.06647
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "RightCoatTail": {
+    "position": [
+      0.58234,
+      2.01976,
+      0.08291
+    ],
+    "size": [
+      1.17057,
+      2.11248,
+      1.32988
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "RightCoatTailStitch": {
+    "position": [
+      0.53662,
+      1.93878,
+      -0.56877
+    ],
+    "size": [
+      0.19473,
+      1.49574,
+      0.06782
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "WatchCape": {
+    "position": [
+      -0.00031,
+      3.93855,
+      0.06963
+    ],
+    "size": [
+      1.86877,
+      0.7329,
+      1.08871
+    ],
+    "surface": "Charcoal",
+    "color": [
+      58,
+      59,
+      61
+    ],
+    "triangles": 696
+  },
+  "ShawBadge": {
+    "position": [
+      0.3105,
+      3.815,
+      -0.502
+    ],
+    "size": [
+      0.197,
+      0.22,
+      0.076
+    ],
+    "surface": "WeatheredSilver",
+    "color": [
+      128,
+      127,
+      114
+    ],
+    "triangles": 28
+  },
+  "ShawBadgeMark": {
+    "position": [
+      0.313,
+      3.837,
+      -0.5165
+    ],
+    "size": [
+      0.132,
+      0.064,
+      0.041
+    ],
+    "surface": "DullIron",
+    "color": [
+      76,
+      79,
+      76
+    ],
+    "triangles": 16
+  }
+}

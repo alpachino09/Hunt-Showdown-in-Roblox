@@ -1,0 +1,19 @@
+{
+  "width": 0.95,
+  "leatherTint": [0.58, 93],
+  "omit": ["ReedBeard", "ReedHair", "Ears", "Nose", "Mouth", "HatCrown", "HatBand", "HatBrim", "HatClasp", "DispatchPouch", "PouchFlap", "PouchClasp", "StrapKeepers", "StrapStitches", "CrossBodyStrap"],
+  "palette": {
+    "Wool": [88, 53, 61], "Twill": [51, 51, 53],
+    "LapelCloth": [57, 52, 55], "Lining": [66, 58, 56],
+    "Vest": [72, 63, 61], "Canvas": [128, 111, 94],
+    "Skin": [153, 112, 90], "DarkLeather": [53, 45, 43],
+    "LeatherEdge": [83, 62, 50], "GloveLeather": [41, 38, 40],
+    "BootLeather": [55, 43, 46], "WornBrass": [128, 96, 67]
+  },
+  "anchors": {
+    "KeeperHood": "Head", "LeftHoodFacing": "Head", "RightHoodFacing": "Head",
+    "FieldMask": "Head", "MaskStraps": "Head", "MaskSeam": "Head",
+    "RitualStrap": "UpperTorso", "KeeperClasp": "UpperTorso", "ToolTokens": "UpperTorso",
+    "InstrumentSatchel": "LowerTorso", "SatchelFlap": "LowerTorso"
+  }
+}
