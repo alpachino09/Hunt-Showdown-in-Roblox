@@ -1,0 +1,19 @@
+{
+  "width": 1.04,
+  "leatherTint": [0.57, 105],
+  "omit": ["ReedBeard", "ReedHair", "HatCrown", "HatBand", "HatBrim", "HatClasp", "StrapKeepers", "StrapStitches", "CrossBodyStrap", "PouchClasp"],
+  "offsets": { "ShawBadge": [0.01, 0.02, -0.095], "ShawBadgeMark": [0.01, 0.02, -0.095] },
+  "palette": {
+    "Wool": [63, 64, 67], "Twill": [54, 54, 55],
+    "LapelCloth": [56, 56, 58], "Lining": [89, 69, 56],
+    "Vest": [110, 105, 92], "Canvas": [165, 148, 125],
+    "DarkLeather": [49, 39, 36], "LeatherEdge": [70, 50, 44],
+    "BootLeather": [59, 44, 41], "GloveLeather": [56, 44, 40],
+    "WornBrass": [124, 113, 99]
+  },
+  "anchors": {
+    "ShawHat": "Head", "ShawBrim": "Head", "ShawBand": "Head",
+    "MarshalHair": "Head", "MarshalMoustache": "Head", "MarshalScar": "Head",
+    "WatchCape": "UpperTorso", "ShawBadge": "UpperTorso", "ShawBadgeMark": "UpperTorso"
+  }
+}

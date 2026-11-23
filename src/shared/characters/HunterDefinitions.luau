@@ -12,6 +12,7 @@ local HunterDefinitions = {}
 local roster: { Definition } = {
     { id = "reed", template = "Veteran", speedScale = 1, idleLean = 0 },
     { id = "vale", template = "Tracker", speedScale = 1.08, idleLean = -0.045 },
+    { id = "shaw", template = "Marshal", speedScale = 0.94, idleLean = 0.024 },
 }
 local byId: { [string]: Definition } = {}
 for _, hunter in roster do

@@ -57,7 +57,8 @@ SOCKETS = {
 }
 
 MATERIAL_CODES = {
-    "DullIron": 1088, "WornBrass": 1088, "BoneButton": 272, "Skin": 272, "EyeWhite": 272,
+    "DullIron": 1088, "WornBrass": 1088, "WeatheredSilver": 1088, "BoneButton": 272,
+    "Skin": 272, "EyeWhite": 272,
     "BootLeather": 2309, "GloveLeather": 2309, "DarkLeather": 2309, "LeatherEdge": 2309,
 }
 
@@ -97,7 +98,11 @@ def rig(root, name="Veteran", profile=None):
     costume = item(model, "Folder", "Costume")
     body_names = {end for _,end,_ in REST["joints"].values()}
     items = {}
-    centers = {mesh_name: mesh["position"] for mesh_name, mesh in kit.items()}
+    offsets = profile.get("offsets", {})
+    centers = {
+        mesh_name: tuple(value + offset for value, offset in zip(mesh["position"], offsets.get(mesh_name, (0, 0, 0))))
+        for mesh_name, mesh in kit.items()
+    }
 
     root_name = "HumanoidRootPart"
     centers[root_name] = REST["root"]
@@ -125,7 +130,7 @@ def rig(root, name="Veteran", profile=None):
         elif reference.get("textureSet") == "Leather":
             gain, lift = profile.get("leatherTint", (.40, 158))
             tint = tuple(round(v*gain+lift) for v in tint)
-        node = mesh_part(model if is_body else costume, mesh_name, source, scaled(mesh["size"]), scaled(mesh["position"]),
+        node = mesh_part(model if is_body else costume, mesh_name, source, scaled(mesh["size"]), scaled(centers[mesh_name]),
                          tint, material=material, yaw=180)
         node.set("referent", name + "_" + mesh_name)
         items[mesh_name] = node
@@ -173,8 +178,8 @@ def rig(root, name="Veteran", profile=None):
         prop(weld, "CoordinateFrame", "C0", local_frame(parent, centers[child]))
         prop(weld, "CoordinateFrame", "C1", local_frame(child, centers[child]))
     for parent, sockets in SOCKETS.items():
-        for name, point in sockets.items():
-            socket(parent, name, point)
+        for attachment, point in sockets.items():
+            socket(parent, attachment, point)
 
     for side in ("Left", "Right"):
         for joint in ("Knee", "Elbow"):
@@ -220,6 +225,8 @@ def roster(root):
     for profile_path in sorted(CHARACTERS.glob("*/profile.json")):
         profile = json.loads(profile_path.read_text())
         rig(folder, profile_path.parent.name, profile)
+    refs = [obj.get("referent") for obj in folder.iter("Item") if "referent" in obj.attrib]
+    assert len(refs) == len(set(refs)), "Hunter roster contains repeated XML referents"
 
 
 def arena(root):
