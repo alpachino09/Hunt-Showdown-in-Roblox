@@ -105,8 +105,9 @@ def station(root):
     part(markers, "Eye", (1, 1, 1), (.45, 2.95, 8.95), iron, transparency=1)
     part(markers, "Focus", (1, 1, 1), (3.65, 2.36, -.38), iron, transparency=1)
 
-    from lobby_hunter import render_hunter
+    from lobby_hunter import POSITION, render_hunter
 
+    part(markers, "HunterOrigin", (1, 1, 1), POSITION, iron, transparency=1)
     render_hunter(stage, item, part, mesh_part)
 
 

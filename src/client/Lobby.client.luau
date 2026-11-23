@@ -5,7 +5,6 @@ local StarterGui = game:GetService("StarterGui")
 local GuiService = game:GetService("GuiService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Workspace = game:GetService("Workspace")
-local Catalog = require(ReplicatedStorage.Shared.Catalog)
 local player = Players.LocalPlayer
 local remote =
     ReplicatedStorage:WaitForChild("GreyOutpostRemotes"):WaitForChild("Lobby") :: RemoteEvent
@@ -129,36 +128,6 @@ player:GetAttributeChangedSignal("LobbyMessage"):Connect(function()
     footer.Text =
         tostring(player:GetAttribute("LobbyMessage") or "ЖЕЛЕЗНОДОРОЖНЫЙ ПОСТ")
 end)
-
-local coatColors = {
-    LongCoat = true,
-    CoatLapels = true,
-    LeftCoatTail = true,
-    RightCoatTail = true,
-    PocketFlaps = true,
-    LeftArm = true,
-    RightArm = true,
-}
-
-local function showHunter()
-    local hunter = Catalog.hunter(player:GetAttribute("HunterId"))
-    local upper =
-        Workspace:WaitForChild("Station"):WaitForChild("DisplayHunter"):WaitForChild("UpperBody")
-    if hunter then
-        for _, obj in upper:GetDescendants() do
-            if obj:IsA("BasePart") and coatColors[obj.Name] then
-                local material = obj:FindFirstChildWhichIsA("SurfaceAppearance")
-                if material then
-                    material.Color = Color3.fromRGB(127, 113, 94):Lerp(hunter.color, 0.52)
-                else
-                    obj.Color = hunter.color
-                end
-            end
-        end
-    end
-end
-player:GetAttributeChangedSignal("HunterId"):Connect(showHunter)
-showHunter()
 
 local function changePhase()
     local phase = player:GetAttribute("RaidPhase")

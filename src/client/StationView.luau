@@ -5,6 +5,7 @@ local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 
 local HunterIdle = require(script.Parent.HunterIdle)
+local HunterShowcase = require(script.Parent.HunterShowcase)
 local StationCamera = require(script.Parent.StationCamera)
 
 local StationView = {}
@@ -15,6 +16,7 @@ function StationView.start()
     local markers = station:WaitForChild("CameraMarkers")
     local eye = markers:WaitForChild("Eye") :: BasePart
     local focus = markers:WaitForChild("Focus") :: BasePart
+    local origin = markers:WaitForChild("HunterOrigin") :: BasePart
 
     local hunter = station:WaitForChild("DisplayHunter")
     local upper = hunter:WaitForChild("UpperBody") :: Model
@@ -29,6 +31,7 @@ function StationView.start()
 
     local animate = HunterIdle.create(upper, head, grip)
     local player = Players.LocalPlayer
+    local showcase = HunterShowcase.start(station, origin, eye, player)
     local movementEnabled = true
     local lampBrightness = lamp.Brightness
     local time = 0
@@ -76,12 +79,15 @@ function StationView.start()
                 camera.CFrame = home
                 lamp.Brightness = lampBrightness
             end
-            animate(deltaTime, movementEnabled)
+            if not showcase.ready() then
+                animate(deltaTime, movementEnabled)
+            end
         end
     )
 
     return function(enabled: boolean)
         movementEnabled = enabled
+        showcase.setMovement(enabled)
     end
 end
 

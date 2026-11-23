@@ -90,6 +90,7 @@ local function placeHand(
 end
 
 function WeaponPose.bind(character: Model, root: BasePart, assets: Folder): Controller
+    local scale = character:GetScale()
     local motors: { [string]: Motor6D } = {}
     for _, obj in character:GetDescendants() do
         if obj:IsA("Motor6D") then
@@ -120,6 +121,7 @@ function WeaponPose.bind(character: Model, root: BasePart, assets: Folder): Cont
             return
         end
         local prop = (assets:WaitForChild(value) :: Model):Clone()
+        prop:ScaleTo(scale)
         local mount = assert(prop.PrimaryPart, "Expected a prop mount")
         local hand = assert(right.wrist.Part1, "Expected right hand")
         local weld = Instance.new("Weld")
@@ -171,7 +173,8 @@ function WeaponPose.bind(character: Model, root: BasePart, assets: Folder): Cont
         local hold = HOLD[slot]:Lerp(AIM[slot], aim)
         local kick = CFrame.new(0, -0.18 * reload, 0.13 * recoil)
             * CFrame.Angles(0.29 * recoil - 0.30 * reload, 0, 0.34 * reload)
-        local target = body * hold * kick
+        local localTarget = hold * kick
+        local target = body * CFrame.new(localTarget.Position * scale) * localTarget.Rotation
         local rightHand = placeHand(
             right,
             chest,
@@ -182,8 +185,10 @@ function WeaponPose.bind(character: Model, root: BasePart, assets: Folder): Cont
         if support then
             local propFrame = rightHand * handToMount
             local grip = propFrame * support.CFrame
-            local handTarget =
-                grip.Position:Lerp(body:PointToWorldSpace(Vector3.new(-0.38, -0.57, -0.59)), reload)
+            local handTarget = grip.Position:Lerp(
+                body:PointToWorldSpace(Vector3.new(-0.38, -0.57, -0.59) * scale),
+                reload
+            )
             placeHand(
                 left,
                 chest,

@@ -20,6 +20,12 @@ Catalog.hunters = table.freeze({
         description = "Разведчик горной службы.",
         color = Color3.fromRGB(95, 65, 46),
     }),
+    table.freeze({
+        id = "warden",
+        name = "Смотритель обряда",
+        description = "Полевой хранитель журналов Кедровой заставы.",
+        color = Color3.fromRGB(80, 46, 53),
+    }),
 })
 
 Catalog.weapons = table.freeze({

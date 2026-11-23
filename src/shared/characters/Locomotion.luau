@@ -103,7 +103,8 @@ function Locomotion.bind(
     humanoid: Humanoid,
     root: BasePart,
     library: Library,
-    idleLean: number?
+    idleLean: number?,
+    fixedIdle: boolean?
 )
     local motors: { [string]: Motor6D } = {}
     for _, obj in character:GetDescendants() do
@@ -117,7 +118,8 @@ function Locomotion.bind(
         joints[index] = assert(motors[name], name)
     end
     local leftHem, rightHem = motors.LeftHem, motors.RightHem
-    local plant = FootPlant.bind(character, root, motors)
+    local plant = if fixedIdle then nil else FootPlant.bind(character, root, motors)
+    local scale = character:GetScale()
     local output = table.create(#joints, CFrame.identity) :: { CFrame }
     local before = table.clone(output)
     local active: ClipName = "Idle"
@@ -141,8 +143,8 @@ function Locomotion.bind(
 
     return function(delta: number, mode: Mode)
         local velocity = root.AssemblyLinearVelocity
-        local speed = Vector2.new(velocity.X, velocity.Z).Magnitude
-        local state = humanoid:GetState()
+        local speed = if fixedIdle then 0 else Vector2.new(velocity.X, velocity.Z).Magnitude
+        local state = if fixedIdle then nil else humanoid:GetState()
         local flying = state == Enum.HumanoidStateType.Jumping
             or state == Enum.HumanoidStateType.Freefall
         if flying then
@@ -176,6 +178,9 @@ function Locomotion.bind(
         local first, second, fraction = window(clip, clock)
         for index, joint in joints do
             local sample = clip.frames[first][index]:Lerp(clip.frames[second][index], fraction)
+            if index == 1 and scale ~= 1 then
+                sample = CFrame.new(sample.Position * scale) * sample.Rotation
+            end
             local blended = before[index]:Lerp(sample, ease)
             joint.Transform = blended
             output[index] = blended
@@ -185,12 +190,14 @@ function Locomotion.bind(
         end
 
         local a, b = clip.contact[first], clip.contact[second]
-        plant(
-            delta,
-            (a[1] + (b[1] - a[1]) * fraction) * ease,
-            (a[2] + (b[2] - a[2]) * fraction) * ease,
-            not flying
-        )
+        if plant then
+            plant(
+                delta,
+                (a[1] + (b[1] - a[1]) * fraction) * ease,
+                (a[2] + (b[2] - a[2]) * fraction) * ease,
+                not flying
+            )
+        end
 
         local leftHip = motors.LeftHip.Transform:ToOrientation()
         local rightHip = motors.RightHip.Transform:ToOrientation()

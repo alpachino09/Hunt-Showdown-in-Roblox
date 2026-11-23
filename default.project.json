@@ -6,6 +6,15 @@
       "$className": "ReplicatedStorage",
       "Shared": {
         "$path": "src/shared"
+      },
+      "HunterRoster": {
+        "$path": "build/generated/HunterRoster.rbxmx"
+      },
+      "VeteranMotion": {
+        "$path": "build/generated/VeteranMotion.rbxmx"
+      },
+      "HunterProps": {
+        "$path": "build/generated/HunterProps.rbxmx"
       }
     },
     "ServerScriptService": {
