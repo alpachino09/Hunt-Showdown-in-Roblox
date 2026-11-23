@@ -37,3 +37,5 @@
 Пакет движений [Universal Animation Library Standard](https://opengameart.org/content/universal-animation-library), Quaternius, CC0 1.0. Исходный GLB и адаптация девяти клипов сохранены в `assets/animations/Locomotion`. [Лицензия CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 Винтовка на стенде использует пять авторских мешей реквизита из комплекта витрины `HunterSet.glb`. Короткий реквизит собран из декоративных деталей Roblox в `scripts/generate_hunter_lab.py`. Всё используется как визуальные объекты.
+
+`VeteranSeams.glb` и `VeteranFace.glb` содержат авторские штанины и вставки с весами, а также бороду и волосы. Для ткани повторно использованы карты Fabric012. Карты, размеры и идентификаторы импортированных мешей указаны в `roblox-assets.json`, `seam-assets.json` и `face-assets.json`.

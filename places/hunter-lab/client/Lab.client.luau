@@ -5,12 +5,15 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
+local ClothPose = require(ReplicatedStorage.Shared.characters.ClothPose)
 local Locomotion = require(ReplicatedStorage.Shared.characters.Locomotion)
+local Viewmodel = require(ReplicatedStorage.Shared.characters.Viewmodel)
 local WeaponPose = require(ReplicatedStorage.Shared.characters.WeaponPose)
 local motionData = ReplicatedStorage:WaitForChild("VeteranMotion") :: Folder
 local props = ReplicatedStorage:WaitForChild("HunterProps") :: Folder
 local library = Locomotion.decode(motionData)
 local player = Players.LocalPlayer
+player.CameraMinZoomDistance = 7
 
 local gui = Instance.new("ScreenGui")
 gui.Name = "HunterLabControls"
@@ -35,6 +38,8 @@ local slot: WeaponPose.Slot = "None"
 local aiming = false
 local weapons: WeaponPose.Controller? = nil
 local running: RBXScriptConnection? = nil
+local clearView: (() -> ())? = nil
+local VIEW_BINDING = "HunterLabViewmodel"
 
 local function preferred(): Locomotion.Mode
     if crouched then
@@ -99,13 +104,25 @@ local function mount(character: Model)
     if running then
         running:Disconnect()
     end
+    if clearView then
+        clearView()
+    end
     local humanoid = character:WaitForChild("Humanoid") :: Humanoid
     local root = character:WaitForChild("HumanoidRootPart") :: BasePart
     crouched, jog, shift, mode = false, false, false, "Walk"
     local animate = Locomotion.bind(character, humanoid, root, library)
     local mounted = WeaponPose.bind(character, root, props)
+    local finishCloth = ClothPose.bind(character)
+    local view = Viewmodel.bind(character, root)
     weapons = mounted
     mounted.equip(slot)
+    RunService:BindToRenderStep(VIEW_BINDING, Enum.RenderPriority.Camera.Value + 2, function()
+        view.update(workspace.CurrentCamera, player.CameraMode == Enum.CameraMode.LockFirstPerson)
+    end)
+    clearView = function()
+        RunService:UnbindFromRenderStep(VIEW_BINDING)
+        view.destroy()
+    end
     local current: string? = nil
     running = RunService.PreSimulation:Connect(function(delta)
         local speed = Locomotion.speed[mode]
@@ -114,6 +131,7 @@ local function mount(character: Model)
         end
         animate(delta, mode)
         mounted.update(delta, aiming)
+        finishCloth()
         local clip = character:GetAttribute("MotionClip") :: string
         local pose = character:GetAttribute("WeaponPose") :: string?
         local header = if pose and pose ~= "None" then clip .. " / " .. pose else clip
@@ -130,6 +148,10 @@ player.CharacterAdded:Connect(mount)
 player.CharacterRemoving:Connect(function()
     weapons = nil
     aiming = false
+    if clearView then
+        clearView()
+        clearView = nil
+    end
     if running then
         running:Disconnect()
         running = nil

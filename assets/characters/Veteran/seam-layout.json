@@ -1,0 +1,32 @@
+{
+  "LeftKneeCloth": {
+    "triangles": 956,
+    "vertices": 480,
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ]
+  },
+  "RightKneeCloth": {
+    "triangles": 956,
+    "vertices": 480,
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ]
+  },
+  "ElbowCloth": {
+    "triangles": 444,
+    "vertices": 224,
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ]
+  }
+}

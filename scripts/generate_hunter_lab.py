@@ -9,11 +9,17 @@ ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets" / "characters" / "Veteran"
 KIT = json.loads((ASSETS / "kit-layout.json").read_text())
 STUDIO = json.loads((ASSETS / "roblox-assets.json").read_text())
+for removed in ("Beard", "TempleHair"):
+    del KIT[removed]
+KIT.update(json.loads((ASSETS / "face-layout.json").read_text()))
+STUDIO["parts"].update(json.loads((ASSETS / "face-assets.json").read_text()))
 REST = json.loads((ASSETS / "rest-pose.json").read_text())
+SEAMS = json.loads((ASSETS / "seam-assets.json").read_text())
+SEAM_LAYOUT = json.loads((ASSETS / "seam-layout.json").read_text())
 
 ACCESSORIES = {
-    **{name: "Head" for name in ("Ears", "Eyes", "Irises", "EyeSockets", "Nose", "Brow", "Beard",
-                                 "Mouth", "HatCrown", "HatBand", "HatBrim", "HatClasp", "TempleHair")},
+    **{name: "Head" for name in ("Ears", "Eyes", "Irises", "EyeSockets", "Nose", "Brow", "ReedBeard",
+                                 "Mouth", "HatCrown", "HatBand", "HatBrim", "HatClasp", "ReedHair")},
     **{name: "UpperTorso" for name in ("Vest", "LinenShirt", "VestButtons", "CoatLapels",
         "VestPockets", "TorsoStitch", "Neckerchief", "NeckerchiefKnot", "CrossBodyStrap",
         "StrapKeepers", "StrapStitches")},
@@ -108,6 +114,8 @@ def rig(root):
         set_bool(node, "Massless", True)
         if is_body:
             set_bool(node, "CanQuery", True)
+        if name.endswith(("UpperLeg", "LowerLeg")):
+            node.find("./Properties/float[@name='Transparency']").text = "1"
 
     def local_frame(name, point):
         delta = [a-b for a,b in zip(point, centers[name])]
@@ -145,6 +153,33 @@ def rig(root):
     for parent, sockets in SOCKETS.items():
         for name, point in sockets.items():
             socket(parent, name, point)
+
+    for side in ("Left", "Right"):
+        for joint in ("Knee", "Elbow"):
+            name = side + joint + "Cloth"
+            kind = name if joint == "Knee" else "ElbowCloth"
+            parent, _, pivot = REST["joints"][side + joint]
+            source = SEAMS[kind] | STUDIO["maps"]["Fabric"]
+            dx, dy, dz = source["center"]
+            center = (pivot[0]-dx, pivot[1]+dy, pivot[2]-dz)
+            tint = tuple(round(v*.81+38) for v in SEAM_LAYOUT[kind]["color"])
+            wrap = mesh_part(costume, name, source, source["size"], center, tint, material=272, yaw=180)
+            wrap.set("referent", "Veteran_" + name)
+            items[name] = wrap
+            set_bool(wrap, "Anchored", False)
+            set_bool(wrap, "Massless", True)
+            set_bool(wrap, "HasSkinnedMesh", True)
+            weld = item(wrap, "Weld", "ClothMount")
+            refs(weld, parent, name)
+            prop(weld, "CoordinateFrame", "C0", local_frame(parent, center))
+            prop(weld, "CoordinateFrame", "C1", cf((0,0,0), True))
+            anchor = item(wrap, "Bone", kind + "Parent")
+            prop(anchor, "CoordinateFrame", "CFrame", cf((-dx,-dy,-dz)))
+            for label in ("Bend", "Fold"):
+                bone = item(anchor, "Bone", kind + label)
+                x, y, z, *matrix = source[label.lower()]
+                basis = vec((x,y,z)) | {f"R{i//3}{i%3}": value for i,value in enumerate(matrix)}
+                prop(bone, "CoordinateFrame", "CFrame", basis)
 
     humanoid = item(model, "Humanoid", "Humanoid")
     prop(humanoid, "token", "RigType", 1)
