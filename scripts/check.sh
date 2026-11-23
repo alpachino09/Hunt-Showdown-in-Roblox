@@ -17,8 +17,11 @@ fi
 luau-lsp analyze --platform roblox --definitions @roblox=build/roblox.d.luau \
     --sourcemap build/sourcemap.json src places/lobby/server
 rojo sourcemap places/hunter-lab.project.json -o build/hunter-lab.sourcemap.json
-luau-lsp analyze --platform roblox --definitions @roblox=build/roblox.d.luau \
-    --sourcemap build/hunter-lab.sourcemap.json places/hunter-lab/server src/shared
+(
+    cd places
+    luau-lsp analyze --platform roblox --definitions @roblox=../build/roblox.d.luau \
+        --sourcemap ../build/hunter-lab.sourcemap.json hunter-lab/server hunter-lab/client ../src/shared
+)
 for mode in expedition rush; do
     rojo sourcemap "places/$mode.project.json" -o "build/$mode.sourcemap.json"
     (

@@ -177,6 +177,13 @@ def arena(root):
     part(model, "Spawn", (1,1,1), (0,REST["root"][1]+.04,11),(100,88,71), transparency=1)
 
 
+def motion(root):
+    value = item(root, "StringValue", "VeteranMotion")
+    path = ROOT / "assets" / "animations" / "Locomotion" / "veteran-motion.json"
+    prop(value, "string", "Value", path.read_text().strip())
+
+
 if __name__ == "__main__":
     build("Veteran", rig)
     build("HunterLab", arena)
+    build("VeteranMotion", motion)

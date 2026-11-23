@@ -4,29 +4,59 @@
     "$className": "DataModel",
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-      "Shared": { "$path": "../src/shared" }
+      "Shared": {
+        "$path": "../src/shared"
+      },
+      "VeteranMotion": {
+        "$path": "../build/generated/VeteranMotion.rbxmx"
+      }
     },
     "ServerStorage": {
       "$className": "ServerStorage",
-      "Veteran": { "$path": "../build/generated/Veteran.rbxmx" }
+      "Veteran": {
+        "$path": "../build/generated/Veteran.rbxmx"
+      }
     },
     "ServerScriptService": {
       "$className": "ServerScriptService",
-      "HunterLabServer": { "$path": "../places/hunter-lab/server" }
+      "HunterLabServer": {
+        "$path": "../places/hunter-lab/server"
+      }
     },
     "Workspace": {
       "$className": "Workspace",
-      "$properties": { "StreamingEnabled": false },
-      "HunterLab": { "$path": "../build/generated/HunterLab.rbxmx" }
+      "$properties": {
+        "StreamingEnabled": false
+      },
+      "HunterLab": {
+        "$path": "../build/generated/HunterLab.rbxmx"
+      }
     },
     "Lighting": {
       "$className": "Lighting",
       "$properties": {
         "LightingStyle": "Realistic",
-        "Ambient": [0.47, 0.46, 0.44],
-        "OutdoorAmbient": [0.46, 0.47, 0.49],
+        "Ambient": [
+          0.47,
+          0.46,
+          0.44
+        ],
+        "OutdoorAmbient": [
+          0.46,
+          0.47,
+          0.49
+        ],
         "Brightness": 2.0,
         "ClockTime": 14.8
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "HunterLabClient": {
+          "$path": "../places/hunter-lab/client"
+        }
       }
     }
   }
