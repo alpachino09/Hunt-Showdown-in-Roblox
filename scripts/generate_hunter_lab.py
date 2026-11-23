@@ -57,7 +57,7 @@ SOCKETS = {
 }
 
 MATERIAL_CODES = {
-    "DullIron": 1088, "WornBrass": 1088, "WeatheredSilver": 1088, "BoneButton": 272,
+    "DullIron": 1088, "WornBrass": 1088, "WeatheredSilver": 1088, "OldBronze": 1088, "BoneButton": 272,
     "Skin": 272, "EyeWhite": 272,
     "BootLeather": 2309, "GloveLeather": 2309, "DarkLeather": 2309, "LeatherEdge": 2309,
 }

@@ -1,0 +1,57 @@
+{
+  "KeeperClasp": {
+    "mesh": "rbxassetid://83012956325744"
+  },
+  "RightHoodFacing": {
+    "mesh": "rbxassetid://83416920859615",
+    "textureSet": "Fabric"
+  },
+  "RightCoatTail": {
+    "mesh": "rbxassetid://77500462414519",
+    "textureSet": "Fabric"
+  },
+  "InstrumentSatchel": {
+    "mesh": "rbxassetid://135825225027503",
+    "textureSet": "Leather"
+  },
+  "ToolTokens": {
+    "mesh": "rbxassetid://83633545283709"
+  },
+  "KeeperHood": {
+    "mesh": "rbxassetid://81805105122767",
+    "textureSet": "Fabric"
+  },
+  "LeftCoatTail": {
+    "mesh": "rbxassetid://94884691283632",
+    "textureSet": "Fabric"
+  },
+  "SatchelFlap": {
+    "mesh": "rbxassetid://76085873848583",
+    "textureSet": "Leather"
+  },
+  "MaskStraps": {
+    "mesh": "rbxassetid://118822480850495",
+    "textureSet": "Leather"
+  },
+  "MaskSeam": {
+    "mesh": "rbxassetid://80460037507883"
+  },
+  "FieldMask": {
+    "mesh": "rbxassetid://82521885329849",
+    "textureSet": "Leather"
+  },
+  "RitualStrap": {
+    "mesh": "rbxassetid://93887364197593",
+    "textureSet": "Leather"
+  },
+  "RightCoatTailStitch": {
+    "mesh": "rbxassetid://94993156045541"
+  },
+  "LeftHoodFacing": {
+    "mesh": "rbxassetid://89415567756678",
+    "textureSet": "Fabric"
+  },
+  "LeftCoatTailStitch": {
+    "mesh": "rbxassetid://75804549075617"
+  }
+}

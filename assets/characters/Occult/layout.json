@@ -1,0 +1,287 @@
+{
+  "KeeperHood": {
+    "position": [
+      -0.001,
+      5.05083,
+      0.10381
+    ],
+    "size": [
+      1.37387,
+      1.58621,
+      0.92778
+    ],
+    "surface": "RainCanvas",
+    "color": [
+      55,
+      52,
+      55
+    ],
+    "triangles": 1668
+  },
+  "LeftHoodFacing": {
+    "position": [
+      0.2471,
+      5.0676,
+      -0.16494
+    ],
+    "size": [
+      0.48989,
+      1.52216,
+      0.41599
+    ],
+    "surface": "VeilWool",
+    "color": [
+      91,
+      50,
+      55
+    ],
+    "triangles": 128
+  },
+  "RightHoodFacing": {
+    "position": [
+      -0.24706,
+      5.0387,
+      -0.16122
+    ],
+    "size": [
+      0.48987,
+      1.55817,
+      0.41278
+    ],
+    "surface": "VeilWool",
+    "color": [
+      91,
+      50,
+      55
+    ],
+    "triangles": 128
+  },
+  "FieldMask": {
+    "position": [
+      0.00746,
+      4.6855,
+      -0.38946
+    ],
+    "size": [
+      0.922,
+      0.449,
+      0.37329
+    ],
+    "surface": "OxideLeather",
+    "color": [
+      90,
+      71,
+      57
+    ],
+    "triangles": 476
+  },
+  "MaskStraps": {
+    "position": [
+      0.0,
+      4.79,
+      -0.348
+    ],
+    "size": [
+      1.132,
+      0.122,
+      0.222
+    ],
+    "surface": "Oilcloth",
+    "color": [
+      65,
+      59,
+      54
+    ],
+    "triangles": 24
+  },
+  "MaskSeam": {
+    "position": [
+      0.0,
+      4.5849,
+      -0.5331
+    ],
+    "size": [
+      0.578,
+      0.0618,
+      0.0418
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 132
+  },
+  "LeftCoatTail": {
+    "position": [
+      -0.58508,
+      2.05477,
+      0.05065
+    ],
+    "size": [
+      1.17614,
+      2.04246,
+      1.33615
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "LeftCoatTailStitch": {
+    "position": [
+      -0.53937,
+      2.00516,
+      -0.59085
+    ],
+    "size": [
+      0.19876,
+      1.37065,
+      0.09617
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "RightCoatTail": {
+    "position": [
+      0.58901,
+      2.00148,
+      0.05028
+    ],
+    "size": [
+      1.18399,
+      2.14903,
+      1.34126
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "RightCoatTailStitch": {
+    "position": [
+      0.5407,
+      1.96478,
+      -0.59236
+    ],
+    "size": [
+      0.20077,
+      1.45248,
+      0.09918
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "RitualStrap": {
+    "position": [
+      0.029,
+      3.691,
+      -0.48
+    ],
+    "size": [
+      1.018,
+      1.002,
+      0.27
+    ],
+    "surface": "Oilcloth",
+    "color": [
+      65,
+      59,
+      54
+    ],
+    "triangles": 40
+  },
+  "KeeperClasp": {
+    "position": [
+      -0.0115,
+      3.963,
+      -0.577
+    ],
+    "size": [
+      0.245,
+      0.162,
+      0.082
+    ],
+    "surface": "OldBronze",
+    "color": [
+      138,
+      108,
+      72
+    ],
+    "triangles": 24
+  },
+  "ToolTokens": {
+    "position": [
+      -0.04375,
+      3.6055,
+      -0.61075
+    ],
+    "size": [
+      0.36206,
+      0.229,
+      0.10822
+    ],
+    "surface": "OldBronze",
+    "color": [
+      138,
+      108,
+      72
+    ],
+    "triangles": 172
+  },
+  "InstrumentSatchel": {
+    "position": [
+      -0.67169,
+      2.752,
+      0.34189
+    ],
+    "size": [
+      0.47437,
+      0.504,
+      0.44566
+    ],
+    "surface": "Oilcloth",
+    "color": [
+      65,
+      59,
+      54
+    ],
+    "triangles": 256
+  },
+  "SatchelFlap": {
+    "position": [
+      -0.6715,
+      2.8545,
+      0.1765
+    ],
+    "size": [
+      0.373,
+      0.271,
+      0.115
+    ],
+    "surface": "OxideLeather",
+    "color": [
+      90,
+      71,
+      57
+    ],
+    "triangles": 16
+  }
+}
