@@ -16,6 +16,7 @@ type Leg = {
     normal: Vector3,
     heading: Vector3,
     strength: number,
+    planting: boolean,
 }
 
 local FootPlant = {}
@@ -56,6 +57,7 @@ local function bindLeg(character: Model, motors: { [string]: Motor6D }, side: st
         normal = UP,
         heading = Vector3.zAxis,
         strength = 0,
+        planting = false,
     }
 end
 
@@ -127,10 +129,13 @@ function FootPlant.bind(character: Model, root: BasePart, motors: { [string]: Mo
     local descent = 0
 
     return function(delta: number, left: number, right: number, grounded: boolean)
-        local pelvis = downstream(root.CFrame, rootJoint)
         local heading = root.CFrame.LookVector
         local velocity = root.AssemblyLinearVelocity
-        local prediction = Vector3.new(velocity.X, 0, velocity.Z) * math.min(delta, 0.065)
+        local horizontal = Vector3.new(velocity.X, 0, velocity.Z)
+        local prediction = horizontal * math.min(delta, 0.04)
+        local predictedRoot = root.CFrame
+            + (if math.abs(velocity.Y) > 0.20 then prediction else Vector3.zero)
+        local pelvis = downstream(predictedRoot, rootJoint)
         local requestedDrop = 0
         local alpha = 1 - math.exp(-math.max(delta, 0) * 24)
         for index, leg in legs do
@@ -147,7 +152,10 @@ function FootPlant.bind(character: Model, root: BasePart, motors: { [string]: Mo
                 local hit = Workspace:Raycast(rawSole + UP * 1.30, -UP * 2.85, filter)
                 if hit and hit.Normal.Y > 0.59 then
                     collision = hit
-                    lift = hit.Position.Y - rawSole.Y + 0.014
+                    local swingClearance = if horizontal.Magnitude > 0.6
+                        then 0.103 * (1 - confidence) ^ 2
+                        else 0
+                    lift = hit.Position.Y - rawSole.Y + 0.014 + swingClearance
                 end
             end
             if anchor then
@@ -158,14 +166,17 @@ function FootPlant.bind(character: Model, root: BasePart, motors: { [string]: Mo
                     and collision.Position.Y > anchor.Y + 0.12
                     and lift > 0
                 if
-                    not grounded
-                    or confidence < 0.12
+                    confidence < 0.12
                     or leg.heading:Dot(heading) < 0.71
                     or stride > 1.37
                     or changedStep
                 then
+                    leg.planting = false
+                end
+                if not grounded or changedStep or (not leg.planting and leg.strength < 0.028) then
                     leg.point = nil
                     leg.surface = nil
+                    leg.planting = false
                     anchor = nil
                 end
             end
@@ -175,14 +186,16 @@ function FootPlant.bind(character: Model, root: BasePart, motors: { [string]: Mo
                     leg.surface = collision.Instance
                     leg.normal = collision.Normal
                     leg.heading = heading
+                    leg.planting = true
                     anchor = leg.point
                 end
-                if lift > 0 then
-                    leg.clearanceY = ankle.Y + math.min(lift, 0.48)
-                end
             end
-            local intent = if anchor then confidence else 0
-            leg.strength += (intent - leg.strength) * alpha
+            if not leg.planting and lift > 0 then
+                leg.clearanceY = ankle.Y + math.min(lift, 0.48)
+            end
+            local intent = if leg.planting then math.clamp((confidence - 0.10) / 0.48, 0, 1) else 0
+            local blend = if leg.planting then alpha else 1 - math.exp(-math.max(delta, 0) * 35)
+            leg.strength += (intent - leg.strength) * blend
             if anchor then
                 local hipOffset = hip - ankleAbove(leg, anchor, floorFrame(leg))
                 local stride = Vector2.new(hipOffset.X, hipOffset.Z).Magnitude
@@ -195,9 +208,9 @@ function FootPlant.bind(character: Model, root: BasePart, motors: { [string]: Mo
         descent += (requestedDrop - descent) * alpha
         if descent > 0.001 then
             rootJoint.Transform = CFrame.new(0, -descent, 0) * rootJoint.Transform
-            pelvis = downstream(root.CFrame, rootJoint)
+            pelvis = downstream(predictedRoot, rootJoint)
         end
-        for _, leg in legs do
+        for index, leg in legs do
             solve(leg, pelvis, heading)
             if grounded then
                 local upper = downstream(pelvis, leg.hip)
@@ -214,8 +227,13 @@ function FootPlant.bind(character: Model, root: BasePart, motors: { [string]: Mo
                     floor = ahead
                 end
                 if floor and floor.Normal.Y > 0.59 then
-                    local lift = floor.Position.Y - correctedSole.Y
-                    if lift > 0.045 then
+                    local confidence = if index == 1 then left else right
+                    local swingClearance = if not leg.planting
+                            and horizontal.Magnitude > 0.6
+                        then 0.14 * (1 - confidence) ^ 2
+                        else 0
+                    local lift = floor.Position.Y + swingClearance - correctedSole.Y
+                    if lift > 0.030 then
                         local _, _, correctedAnkle = sample(leg, pelvis)
                         leg.clearanceY = correctedAnkle.Y + math.min(lift + 0.018, 0.48)
                         solve(leg, pelvis, heading)
@@ -223,6 +241,8 @@ function FootPlant.bind(character: Model, root: BasePart, motors: { [string]: Mo
                 end
             end
         end
+        return legs[1].planting and legs[1].strength >= 0.9,
+            legs[2].planting and legs[2].strength >= 0.9
     end
 end
 

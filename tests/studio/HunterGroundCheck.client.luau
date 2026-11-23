@@ -5,7 +5,10 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 
-assert(game.PlaceId == 0 and Workspace:FindFirstChild("HunterLab"), "Use the local HunterLab")
+assert(
+    game.PlaceId == 0 and Workspace:FindFirstChild("CharacterQualityLab"),
+    "Use the local HunterLab"
+)
 local player = Players.LocalPlayer
 local character = assert(player.Character, "The Veteran has not spawned")
 local humanoid = character:WaitForChild("Humanoid") :: Humanoid
@@ -40,7 +43,9 @@ local function route(position: Vector3, direction: Vector3, duration: number)
     local elapsed, samples, nearGround = 0, 0, 0
     local low = math.huge
     local speeds: { number } = {}
+    local supportedSpeeds: { number } = {}
     local contact: { [number]: Vector2 } = {}
+    local supports: { [number]: Vector2 } = {}
     local mats: { [string]: boolean } = {}
 
     while elapsed < duration do
@@ -67,8 +72,20 @@ local function route(position: Vector3, direction: Vector3, duration: number)
                     else
                         contact[index] = nil
                     end
+                    local name = if index == 1 then "LeftFootPlanted" else "RightFootPlanted"
+                    if character:GetAttribute(name) then
+                        local planar = Vector2.new(point.X, point.Z)
+                        local before = supports[index]
+                        if before and step > 0 then
+                            table.insert(supportedSpeeds, (planar - before).Magnitude / step)
+                        end
+                        supports[index] = planar
+                    else
+                        supports[index] = nil
+                    end
                 else
                     contact[index] = nil
+                    supports[index] = nil
                 end
             end
         end
@@ -76,12 +93,16 @@ local function route(position: Vector3, direction: Vector3, duration: number)
     RunService:UnbindFromRenderStep(binding)
     humanoid:Move(Vector3.zero, false)
     table.sort(speeds)
+    table.sort(supportedSpeeds)
     return {
         samples = samples,
         nearGround = nearGround,
         minClearance = low,
         medianSlip = quantile(speeds, 0.5),
         p90Slip = quantile(speeds, 0.9),
+        supportedSamples = #supportedSpeeds,
+        supportedMedian = quantile(supportedSpeeds, 0.5),
+        supportedP90 = quantile(supportedSpeeds, 0.9),
         destination = tostring(root.Position),
         surfaces = mats,
     }

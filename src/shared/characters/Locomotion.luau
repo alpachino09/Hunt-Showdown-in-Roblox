@@ -13,6 +13,9 @@ export type ClipName =
     | "Jump"
     | "Air"
     | "Land"
+    | "ReachInteract"
+    | "TablePickup"
+    | "KneelInspect"
 export type Mode = "Walk" | "Jog" | "Sprint" | "Crouch"
 
 type Clip = {
@@ -141,13 +144,15 @@ function Locomotion.bind(
         character:SetAttribute("MotionClip", active)
     end
 
-    return function(delta: number, mode: Mode)
+    return function(delta: number, mode: Mode, preview: ClipName?)
         local velocity = root.AssemblyLinearVelocity
         local speed = if fixedIdle then 0 else Vector2.new(velocity.X, velocity.Z).Magnitude
         local state = if fixedIdle then nil else humanoid:GetState()
         local flying = state == Enum.HumanoidStateType.Jumping
             or state == Enum.HumanoidStateType.Freefall
-        if flying then
+        if preview then
+            changeClip(preview)
+        elseif flying then
             if not inAir then
                 changeClip(if state == Enum.HumanoidStateType.Jumping then "Jump" else "Air")
             elseif active == "Jump" and clock >= 0.21 then
@@ -162,12 +167,13 @@ function Locomotion.bind(
                 changeClip(if speed > MIN_SPEED then mode else "Idle")
             end
         end
-        inAir = flying
+        inAir = not preview and flying
 
         local clip = library.clips[active]
         local movement = MOVE_CLIPS[active]
-        local rate = if movement
-            then math.clamp(speed / GAIT_PACE[movement], 0.45, 1.75)
+        local rate = if preview
+            then 1
+            elseif movement then math.clamp(speed / GAIT_PACE[movement], 0.45, 1.75)
             elseif active == "Land" then 1.45
             else 1
         clock += delta * rate
@@ -190,8 +196,9 @@ function Locomotion.bind(
         end
 
         local a, b = clip.contact[first], clip.contact[second]
-        if plant then
-            plant(
+        local supportedLeft, supportedRight = false, false
+        if plant and not preview then
+            supportedLeft, supportedRight = plant(
                 delta,
                 (a[1] + (b[1] - a[1]) * fraction) * ease,
                 (a[2] + (b[2] - a[2]) * fraction) * ease,
@@ -213,6 +220,7 @@ function Locomotion.bind(
             rightHem.Transform =
                 CFrame.Angles(math.clamp(rightHip * fold - sway, -0.55, 0.53), 0, math.rad(-4))
         end
+        return supportedLeft, supportedRight
     end
 end
 

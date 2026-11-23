@@ -34,6 +34,9 @@ CLIPS = {
     "Jump": ("Jump_Start", False),
     "Air": ("Jump_Loop", True),
     "Land": ("Jump_Land", False),
+    "ReachInteract": ("Interact", False),
+    "TablePickup": ("PickUp_Table", False),
+    "KneelInspect": ("Fixing_Kneeling", False),
 }
 
 
@@ -93,7 +96,7 @@ def frames():
                     delta = correction @ delta @ correction.inverted()
                 world[part] = delta.normalized()
             root_y = (bones[BODY["LowerTorso"]].head.z - neutral_hip) * height_scale
-            if name in {"CrouchIdle", "CrouchWalk"}:
+            if name in {"CrouchIdle", "CrouchWalk", "KneelInspect"}:
                 # The stylized torso needs shallower compression than the mocap body.
                 root_y *= .77
                 for part, amount in (("LowerTorso", .73), ("UpperTorso", .69), ("Head", .72)):

@@ -9,7 +9,7 @@ local HunterDefinitions = require(ReplicatedStorage.Shared.characters.HunterDefi
 Players.CharacterAutoLoads = false
 
 local roster = ServerStorage:WaitForChild("HunterRoster")
-local marker = Workspace:WaitForChild("HunterLab"):WaitForChild("Spawn") :: BasePart
+local marker = Workspace:WaitForChild("CharacterQualityLab"):WaitForChild("Spawn") :: BasePart
 local selectHunter = ReplicatedStorage:WaitForChild("HunterLabSelect") :: RemoteEvent
 local lastSelection: { [Player]: number } = {}
 

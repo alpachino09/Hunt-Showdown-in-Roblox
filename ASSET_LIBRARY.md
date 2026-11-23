@@ -7,7 +7,7 @@
 | Меню лобби | Исходник интерфейса в `scripts/generate_lobby.py`, встроенные шрифты Roblox | Лобби |
 | Перегон, шахтная контора, рельсы, лес | Оригинальная карта из `scripts/generate_lobby.py`, встроенные материалы Roblox | Игровой прототип |
 
-Сборка не требует сторонних Roblox Asset ID. Для будущих внешних материалов фиксировать источник, автора, права использования, идентификатор Roblox и путь к разрешённому исходнику.
+Импортированные модели используют ID, привязанные к перечисленным исходникам. Для внешних материалов фиксируются источник, автор, права использования, идентификатор Roblox и путь к разрешённому исходнику.
 
 ## Лесная застава
 
@@ -34,7 +34,7 @@
 
 В `assets/characters/Veteran` хранится оригинальная стилизованная геометрия, ремни и голова. Пакет `VeteranStudio.glb` объединяет 64 меша с шестью запечёнными текстурами до 1024 px. Ткань использует адаптированные карты [Fabric012, ambientCG, CC0](https://ambientcg.com/view?id=Fabric012). Перчатки, сапоги и ремни используют карты [Fabric Leather 01, Poly Haven, Rob Tuytel, CC0](https://polyhaven.com/a/fabric_leather_01).
 
-Пакет движений [Universal Animation Library Standard](https://opengameart.org/content/universal-animation-library), Quaternius, CC0 1.0. Исходный GLB и адаптация девяти клипов сохранены в `assets/animations/Locomotion`. [Лицензия CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+Пакет движений Quaternius, CC0 1.0. Исходный GLB и адаптация двенадцати клипов сохранены в `assets/animations/Locomotion`. В их числе три клипа взаимодействия для стенда. [Universal Animation Library Standard](https://opengameart.org/content/universal-animation-library) · [Лицензия CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 Винтовка на стенде использует пять авторских мешей реквизита из комплекта витрины `HunterSet.glb`. Короткий реквизит собран из декоративных деталей Roblox в `scripts/generate_hunter_lab.py`. Всё используется как визуальные объекты.
 

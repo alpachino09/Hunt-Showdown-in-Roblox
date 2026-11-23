@@ -11,7 +11,7 @@
         "$path": "build/generated/HunterRoster.rbxmx"
       },
       "VeteranMotion": {
-        "$path": "build/generated/VeteranMotion.rbxmx"
+        "$path": "build/generated/VeteranIdleMotion.rbxmx"
       },
       "HunterProps": {
         "$path": "build/generated/HunterProps.rbxmx"
@@ -28,6 +28,9 @@
     },
     "ServerStorage": {
       "$className": "ServerStorage",
+      "Lobby": {
+        "$path": "build/generated/Lobby.rbxmx"
+      },
       "ExpeditionMap": {
         "$path": "build/generated/ExpeditionMap.rbxmx"
       },
@@ -49,12 +52,6 @@
       "StarterCharacterScripts": {
         "$className": "StarterCharacterScripts",
         "$path": "src/characters"
-      }
-    },
-    "StarterGui": {
-      "$className": "StarterGui",
-      "Lobby": {
-        "$path": "build/generated/Lobby.rbxmx"
       }
     },
     "Workspace": {

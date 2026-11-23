@@ -230,7 +230,7 @@ def roster(root):
 
 
 def arena(root):
-    model = item(root, "Model", "HunterLab")
+    model = item(root, "Model", "CharacterQualityLab")
 
     def solid(name, size, position, color, material=800, tilt=0):
         obj = part(model, name, size, position, color, material, tilt=tilt)
@@ -246,19 +246,24 @@ def arena(root):
         solid(f"StairTread{index+1}",(4.5,height,1.4),(9,height*.5,-8-index*1.4),
               (95+index*3,93+index*3,85+index*2),528)
     solid("Landing",(4.5,2.66,5.6),(9,1.33,-19.9),(107,101,94),528)
+    solid("LowBeam", (3.5,.46,.54), (18,.23,7), (112,91,66), 528)
+    solid("CargoCrate", (2.1,1.3,1.2), (18,.65,2.9), (92,75,54), 528)
+    solid("CameraPlatform", (5,.18,5), (-19,.09,11), (86,82,74), 528)
     for i in range(10):
         part(model, "DistanceMarker", (3.1,.014,.042), (0, .009, 11-i*4),
              (154,136,101), 272)
     part(model, "Spawn", (1,1,1), (0,REST["root"][1]+.04,11),(100,88,71), transparency=1)
 
 
-def motion(root):
+def motion(root, names=None):
     folder = item(root, "Folder", "VeteranMotion")
     path = ROOT / "assets" / "animations" / "Locomotion" / "veteran-motion.json"
     data = json.loads(path.read_text())
     joint_list = item(folder, "StringValue", "Joints")
     prop(joint_list, "string", "Value", json.dumps(data["joints"], separators=(",", ":")))
     for name, clip in data["clips"].items():
+        if names is not None and name not in names:
+            continue
         encoded = json.dumps(clip, separators=(",", ":"))
         assert len(encoded) < 200_000, f"{name} exceeds the Studio StringValue limit"
         value = item(folder, "StringValue", name)
@@ -341,4 +346,5 @@ if __name__ == "__main__":
     build("HunterRoster", roster)
     build("HunterLab", arena)
     build("VeteranMotion", motion)
+    build("VeteranIdleMotion", lambda root: motion(root, {"Idle"}))
     build("HunterProps", props)

@@ -5,7 +5,10 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 
-assert(game.PlaceId == 0 and Workspace:FindFirstChild("HunterLab"), "Use the local HunterLab")
+assert(
+    game.PlaceId == 0 and Workspace:FindFirstChild("CharacterQualityLab"),
+    "Use the local HunterLab"
+)
 local player = Players.LocalPlayer
 local character = assert(player.Character, "The Veteran has not spawned")
 local prop = assert(

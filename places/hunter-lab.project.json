@@ -1,5 +1,5 @@
 {
-  "name": "GreyOutpost-HunterLab",
+  "name": "CharacterQualityLab",
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
@@ -34,7 +34,7 @@
       "$properties": {
         "StreamingEnabled": false
       },
-      "HunterLab": {
+      "CharacterQualityLab": {
         "$path": "../build/generated/HunterLab.rbxmx"
       }
     },

@@ -1,13 +1,13 @@
 --!strict
 
 local Players = game:GetService("Players")
-local StarterGui = game:GetService("StarterGui")
+local ServerStorage = game:GetService("ServerStorage")
 
 -- The station presents an authored hunter. Player characters spawn at the expedition place.
 Players.CharacterAutoLoads = false
 
--- Roblox copies StarterGui on character spawn. Mount this screen for a characterless lobby.
-local template = StarterGui:WaitForChild("Lobby")
+-- Mount one persistent screen for the characterless lobby and local expedition returns.
+local template = ServerStorage:WaitForChild("Lobby")
 local function mountMenu(player: Player)
     local playerGui = player:WaitForChild("PlayerGui")
     if player.Parent == Players and not playerGui:FindFirstChild(template.Name) then
