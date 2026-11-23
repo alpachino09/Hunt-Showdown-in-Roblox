@@ -1,0 +1,325 @@
+{
+  "HatCrown": {
+    "position": [
+      -0.00911,
+      5.547,
+      0.07979
+    ],
+    "size": [
+      1.23281,
+      0.438,
+      0.92489
+    ],
+    "surface": "HatFelt",
+    "color": [
+      50,
+      42,
+      37
+    ],
+    "triangles": 476
+  },
+  "HatBand": {
+    "position": [
+      -0.01534,
+      5.442,
+      0.07388
+    ],
+    "size": [
+      1.25085,
+      0.132,
+      0.94537
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 380
+  },
+  "HatBrim": {
+    "position": [
+      0.0,
+      5.40622,
+      0.056
+    ],
+    "size": [
+      2.052,
+      0.40645,
+      1.604
+    ],
+    "surface": "HatFelt",
+    "color": [
+      50,
+      42,
+      37
+    ],
+    "triangles": 384
+  },
+  "HatClasp": {
+    "position": [
+      0.4745,
+      5.4285,
+      -0.2685
+    ],
+    "size": [
+      0.125,
+      0.051,
+      0.091
+    ],
+    "surface": "WornBrass",
+    "color": [
+      143,
+      107,
+      64
+    ],
+    "triangles": 12
+  },
+  "TempleHair": {
+    "position": [
+      0.00209,
+      5.1815,
+      0.15237
+    ],
+    "size": [
+      1.29306,
+      0.333,
+      0.58313
+    ],
+    "surface": "Hair",
+    "color": [
+      62,
+      51,
+      43
+    ],
+    "triangles": 280
+  },
+  "WaistBelt": {
+    "position": [
+      0.00819,
+      3.012,
+      0.03074
+    ],
+    "size": [
+      1.51149,
+      0.194,
+      0.87214
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 252
+  },
+  "WaistBuckle": {
+    "position": [
+      0.0075,
+      3.0185,
+      -0.429
+    ],
+    "size": [
+      0.401,
+      0.161,
+      0.086
+    ],
+    "surface": "WornBrass",
+    "color": [
+      143,
+      107,
+      64
+    ],
+    "triangles": 20
+  },
+  "WaistBuckleCenter": {
+    "position": [
+      0.005,
+      3.017,
+      -0.4605
+    ],
+    "size": [
+      0.256,
+      0.088,
+      0.031
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 12
+  },
+  "CrossBodyStrap": {
+    "position": [
+      0.0245,
+      3.641,
+      -0.4645
+    ],
+    "size": [
+      1.155,
+      1.15,
+      0.267
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 96
+  },
+  "StrapKeepers": {
+    "position": [
+      0.0195,
+      3.708,
+      -0.55075
+    ],
+    "size": [
+      0.828,
+      0.816,
+      0.1175
+    ],
+    "surface": "LeatherEdge",
+    "color": [
+      111,
+      69,
+      45
+    ],
+    "triangles": 72
+  },
+  "StrapStitches": {
+    "position": [
+      0.085,
+      3.688,
+      -0.554
+    ],
+    "size": [
+      0.792,
+      0.862,
+      0.118
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 84
+  },
+  "DispatchPouch": {
+    "position": [
+      -0.78736,
+      2.5965,
+      0.31374
+    ],
+    "size": [
+      0.501,
+      0.565,
+      0.3637
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 256
+  },
+  "PouchFlap": {
+    "position": [
+      -0.788,
+      2.7125,
+      0.1485
+    ],
+    "size": [
+      0.45,
+      0.241,
+      0.059
+    ],
+    "surface": "LeatherEdge",
+    "color": [
+      111,
+      69,
+      45
+    ],
+    "triangles": 20
+  },
+  "PouchClasp": {
+    "position": [
+      -0.807,
+      2.6505,
+      0.092
+    ],
+    "size": [
+      0.108,
+      0.075,
+      0.042
+    ],
+    "surface": "WornBrass",
+    "color": [
+      143,
+      107,
+      64
+    ],
+    "triangles": 92
+  },
+  "HipHolster": {
+    "position": [
+      0.84831,
+      2.405,
+      -0.18904
+    ],
+    "size": [
+      0.4343,
+      0.73,
+      0.3662
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 260
+  },
+  "HolsterEdge": {
+    "position": [
+      0.823,
+      2.664,
+      -0.3
+    ],
+    "size": [
+      0.334,
+      0.098,
+      0.056
+    ],
+    "surface": "LeatherEdge",
+    "color": [
+      111,
+      69,
+      45
+    ],
+    "triangles": 12
+  },
+  "HolsterStud": {
+    "position": [
+      0.821,
+      2.654,
+      -0.3415
+    ],
+    "size": [
+      0.072,
+      0.042,
+      0.037
+    ],
+    "surface": "DullIron",
+    "color": [
+      76,
+      79,
+      76
+    ],
+    "triangles": 92
+  }
+}
