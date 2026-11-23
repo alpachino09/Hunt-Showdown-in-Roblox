@@ -157,7 +157,7 @@ def body():
              (1.00,sx(.527),.031,.321,.316)], .63, 24, .025)
 
 
-def export(stem="VeteranBody", layout="body-layout.json"):
+def export(stem="VeteranBody", layout="body-layout.json", finish=None, prefix=""):
     for obj in list(bpy.context.scene.objects):
         bpy.data.objects.remove(obj, do_unlink=True)
     materials = {}
@@ -174,7 +174,8 @@ def export(stem="VeteranBody", layout="body-layout.json"):
     triangle_count = 0
     for name, (vertices, faces) in PARTS.items():
         assert all(isfinite(c) for v in vertices for c in v)
-        mesh = bpy.data.meshes.new(name)
+        exported_name = prefix + name
+        mesh = bpy.data.meshes.new(exported_name)
         mesh.from_pydata([(x, -z, y) for x, y, z in vertices], [], faces)
         assert not mesh.validate(verbose=True), name
         mesh.update()
@@ -187,7 +188,9 @@ def export(stem="VeteranBody", layout="body-layout.json"):
         mesh.materials.append(materials[MATERIAL[name]])
         for polygon in mesh.polygons:
             polygon.use_smooth = len(polygon.vertices) == 4 and len(faces) >= 20
-        obj = bpy.data.objects.new(name, mesh)
+        if finish:
+            finish(name, mesh, materials[MATERIAL[name]], MATERIAL[name])
+        obj = bpy.data.objects.new(exported_name, mesh)
         bpy.context.collection.objects.link(obj)
         mesh.calc_loop_triangles()
         low = [min(v[i] for v in vertices) for i in range(3)]

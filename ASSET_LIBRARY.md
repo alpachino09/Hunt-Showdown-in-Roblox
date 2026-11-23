@@ -29,3 +29,7 @@
 ## Витрина Элиаса Рида
 
 Анатомическая сетка лица адаптирована из [MakeHuman HM08](https://github.com/makehumancommunity/makehuman/blob/master/makehuman/data/3dobjs/base.obj), [CC0](https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md). Пальто, жилет, ремни, сапоги, головной убор и сценический реквизит смоделированы для «Серой заставы». В `HunterSet.glb` 32 меша, 13 440 треугольников. Отдельные Roblox ID хранятся в `hunter-assets.json`. Для лица использована CC0-карта [Old Caucasian Male из MakeHuman System Assets](https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html). Из атласа оставлены только участки, используемые сеткой головы. Ткань адаптирована из [Fabric012, ambientCG](https://ambientcg.com/view?id=Fabric012), CC0, Lennart Demes. Карты ткани и лица встроены в GLB и заведены в `SurfaceAppearance`. Кожа сапог, дерево и металл реквизита используют встроенные материалы Roblox.
+
+## Игровой R15-ветеран
+
+В `assets/characters/Veteran` хранится оригинальная стилизованная геометрия, ремни и голова. Пакет `VeteranStudio.glb` объединяет 64 меша с шестью запечёнными текстурами до 1024 px. Ткань использует адаптированные карты [Fabric012, ambientCG, CC0](https://ambientcg.com/view?id=Fabric012). Перчатки, сапоги и ремни используют карты [Fabric Leather 01, Poly Haven, Rob Tuytel, CC0](https://polyhaven.com/a/fabric_leather_01).

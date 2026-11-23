@@ -1,0 +1,1218 @@
+{
+  "Head": {
+    "position": [
+      0.0,
+      4.915,
+      0.014
+    ],
+    "size": [
+      1.24,
+      1.25,
+      0.892
+    ],
+    "surface": "Skin",
+    "color": [
+      173,
+      121,
+      84
+    ],
+    "triangles": 476
+  },
+  "Ears": {
+    "position": [
+      0.0,
+      4.865,
+      0.0425
+    ],
+    "size": [
+      1.42,
+      0.27,
+      0.261
+    ],
+    "surface": "Skin",
+    "color": [
+      173,
+      121,
+      84
+    ],
+    "triangles": 248
+  },
+  "EyeSockets": {
+    "position": [
+      -0.0035,
+      4.911,
+      -0.3695
+    ],
+    "size": [
+      0.729,
+      0.106,
+      0.103
+    ],
+    "surface": "EyeShade",
+    "color": [
+      127,
+      84,
+      60
+    ],
+    "triangles": 40
+  },
+  "Eyes": {
+    "position": [
+      0.0,
+      4.914,
+      -0.429
+    ],
+    "size": [
+      0.688,
+      0.048,
+      0.074
+    ],
+    "surface": "EyeWhite",
+    "color": [
+      203,
+      188,
+      159
+    ],
+    "triangles": 184
+  },
+  "Irises": {
+    "position": [
+      -0.013,
+      4.9135,
+      -0.465
+    ],
+    "size": [
+      0.522,
+      0.047,
+      0.02348
+    ],
+    "surface": "EyeDark",
+    "color": [
+      44,
+      57,
+      53
+    ],
+    "triangles": 160
+  },
+  "Brow": {
+    "position": [
+      -0.0025,
+      4.9935,
+      -0.3805
+    ],
+    "size": [
+      0.751,
+      0.065,
+      0.069
+    ],
+    "surface": "Brow",
+    "color": [
+      57,
+      42,
+      33
+    ],
+    "triangles": 32
+  },
+  "Nose": {
+    "position": [
+      0.0,
+      4.853,
+      -0.44873
+    ],
+    "size": [
+      0.212,
+      0.304,
+      0.20067
+    ],
+    "surface": "Skin",
+    "color": [
+      173,
+      121,
+      84
+    ],
+    "triangles": 136
+  },
+  "Beard": {
+    "position": [
+      0.0065,
+      4.593,
+      -0.3195
+    ],
+    "size": [
+      0.903,
+      0.306,
+      0.295
+    ],
+    "surface": "Beard",
+    "color": [
+      69,
+      53,
+      43
+    ],
+    "triangles": 44
+  },
+  "Mouth": {
+    "position": [
+      0.007,
+      4.6335,
+      -0.4555
+    ],
+    "size": [
+      0.304,
+      0.035,
+      0.037
+    ],
+    "surface": "Lips",
+    "color": [
+      98,
+      59,
+      50
+    ],
+    "triangles": 16
+  },
+  "UpperTorso": {
+    "position": [
+      -0.00898,
+      3.6975,
+      0.00804
+    ],
+    "size": [
+      1.73764,
+      1.365,
+      0.8864
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "LowerTorso": {
+    "position": [
+      0.01051,
+      2.83,
+      0.03856
+    ],
+    "size": [
+      1.55057,
+      0.7,
+      0.7556
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 276
+  },
+  "LeftUpperArm": {
+    "position": [
+      -1.08663,
+      3.77,
+      0.01698
+    ],
+    "size": [
+      0.78897,
+      0.84,
+      0.59349
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 284
+  },
+  "LeftLowerArm": {
+    "position": [
+      -1.2205,
+      3.1745,
+      0.02508
+    ],
+    "size": [
+      0.55102,
+      0.671,
+      0.45232
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 284
+  },
+  "LeftHand": {
+    "position": [
+      -1.30082,
+      2.715,
+      -0.02216
+    ],
+    "size": [
+      0.398,
+      0.45,
+      0.34261
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 216
+  },
+  "LeftThumb": {
+    "position": [
+      -1.1645,
+      2.75,
+      -0.084
+    ],
+    "size": [
+      0.251,
+      0.22,
+      0.216
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 124
+  },
+  "LeftUpperLeg": {
+    "position": [
+      -0.46158,
+      2.125,
+      -3e-05
+    ],
+    "size": [
+      0.74162,
+      1.29,
+      0.74608
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 388
+  },
+  "LeftLowerLeg": {
+    "position": [
+      -0.51481,
+      1.03,
+      0.00583
+    ],
+    "size": [
+      0.58661,
+      1.28,
+      0.63748
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 332
+  },
+  "LeftFoot": {
+    "position": [
+      -0.52846,
+      0.3075,
+      -0.13407
+    ],
+    "size": [
+      0.57504,
+      0.545,
+      0.8901
+    ],
+    "surface": "BootLeather",
+    "color": [
+      71,
+      51,
+      39
+    ],
+    "triangles": 332
+  },
+  "LeftSole": {
+    "position": [
+      -0.535,
+      0.054,
+      -0.1375
+    ],
+    "size": [
+      0.584,
+      0.096,
+      0.893
+    ],
+    "surface": "Rubber",
+    "color": [
+      43,
+      36,
+      30
+    ],
+    "triangles": 164
+  },
+  "LeftBootUpper": {
+    "position": [
+      -0.52599,
+      0.69,
+      0.02819
+    ],
+    "size": [
+      0.64457,
+      0.62,
+      0.64017
+    ],
+    "surface": "BootLeather",
+    "color": [
+      71,
+      51,
+      39
+    ],
+    "triangles": 188
+  },
+  "RightUpperArm": {
+    "position": [
+      1.08508,
+      3.77,
+      0.01698
+    ],
+    "size": [
+      0.77961,
+      0.84,
+      0.59349
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 284
+  },
+  "RightLowerArm": {
+    "position": [
+      1.21893,
+      3.1745,
+      0.02508
+    ],
+    "size": [
+      0.54493,
+      0.671,
+      0.45232
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 284
+  },
+  "RightHand": {
+    "position": [
+      1.3073,
+      2.715,
+      -0.02216
+    ],
+    "size": [
+      0.40176,
+      0.45,
+      0.34261
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 216
+  },
+  "RightThumb": {
+    "position": [
+      1.1645,
+      2.75,
+      -0.084
+    ],
+    "size": [
+      0.251,
+      0.22,
+      0.216
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 124
+  },
+  "RightUpperLeg": {
+    "position": [
+      0.45723,
+      2.125,
+      -3e-05
+    ],
+    "size": [
+      0.76648,
+      1.29,
+      0.74608
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 388
+  },
+  "RightLowerLeg": {
+    "position": [
+      0.52249,
+      1.03,
+      0.00583
+    ],
+    "size": [
+      0.60521,
+      1.28,
+      0.63748
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 332
+  },
+  "RightFoot": {
+    "position": [
+      0.53554,
+      0.3075,
+      -0.13407
+    ],
+    "size": [
+      0.57504,
+      0.545,
+      0.8901
+    ],
+    "surface": "BootLeather",
+    "color": [
+      71,
+      51,
+      39
+    ],
+    "triangles": 332
+  },
+  "RightSole": {
+    "position": [
+      0.535,
+      0.054,
+      -0.1375
+    ],
+    "size": [
+      0.584,
+      0.096,
+      0.893
+    ],
+    "surface": "Rubber",
+    "color": [
+      43,
+      36,
+      30
+    ],
+    "triangles": 164
+  },
+  "RightBootUpper": {
+    "position": [
+      0.53423,
+      0.69,
+      0.02819
+    ],
+    "size": [
+      0.65497,
+      0.62,
+      0.64017
+    ],
+    "surface": "BootLeather",
+    "color": [
+      71,
+      51,
+      39
+    ],
+    "triangles": 188
+  },
+  "Vest": {
+    "position": [
+      0.0065,
+      3.6455,
+      -0.4045
+    ],
+    "size": [
+      0.997,
+      0.963,
+      0.199
+    ],
+    "surface": "Vest",
+    "color": [
+      121,
+      87,
+      55
+    ],
+    "triangles": 32
+  },
+  "LinenShirt": {
+    "position": [
+      -0.0065,
+      4.037,
+      -0.401
+    ],
+    "size": [
+      0.575,
+      0.482,
+      0.226
+    ],
+    "surface": "Canvas",
+    "color": [
+      157,
+      142,
+      114
+    ],
+    "triangles": 24
+  },
+  "VestButtons": {
+    "position": [
+      0.016,
+      3.523,
+      -0.52146
+    ],
+    "size": [
+      0.078,
+      0.558,
+      0.10617
+    ],
+    "surface": "BoneButton",
+    "color": [
+      163,
+      133,
+      98
+    ],
+    "triangles": 400
+  },
+  "CoatLapels": {
+    "position": [
+      0.0,
+      4.03,
+      -0.426
+    ],
+    "size": [
+      1.164,
+      0.598,
+      0.27
+    ],
+    "surface": "LapelCloth",
+    "color": [
+      73,
+      53,
+      42
+    ],
+    "triangles": 56
+  },
+  "VestPockets": {
+    "position": [
+      0.0,
+      3.434,
+      -0.477
+    ],
+    "size": [
+      0.984,
+      0.086,
+      0.078
+    ],
+    "surface": "VestLapel",
+    "color": [
+      113,
+      76,
+      47
+    ],
+    "triangles": 24
+  },
+  "TorsoStitch": {
+    "position": [
+      0.0,
+      3.91,
+      -0.5235
+    ],
+    "size": [
+      0.906,
+      0.276,
+      0.061
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 144
+  },
+  "LeftCuff": {
+    "position": [
+      -1.26311,
+      2.932,
+      0.01134
+    ],
+    "size": [
+      0.46968,
+      0.194,
+      0.44494
+    ],
+    "surface": "LapelCloth",
+    "color": [
+      73,
+      53,
+      42
+    ],
+    "triangles": 188
+  },
+  "LeftCuffButton": {
+    "position": [
+      -1.373,
+      2.8985,
+      -0.19498
+    ],
+    "size": [
+      0.068,
+      0.061,
+      0.05908
+    ],
+    "surface": "BoneButton",
+    "color": [
+      163,
+      133,
+      98
+    ],
+    "triangles": 80
+  },
+  "LeftBootRim": {
+    "position": [
+      -0.53,
+      1.0065,
+      0.031
+    ],
+    "size": [
+      0.672,
+      0.097,
+      0.64914
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 152
+  },
+  "LeftCoatTail": {
+    "position": [
+      -0.52637,
+      2.30976,
+      0.04371
+    ],
+    "size": [
+      1.05805,
+      1.53248,
+      1.19298
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "LeftCoatTailStitch": {
+    "position": [
+      -0.50199,
+      2.25021,
+      -0.54938
+    ],
+    "size": [
+      0.14463,
+      1.06558,
+      0.04281
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "RightCuff": {
+    "position": [
+      1.27103,
+      2.932,
+      0.01134
+    ],
+    "size": [
+      0.46661,
+      0.194,
+      0.44494
+    ],
+    "surface": "LapelCloth",
+    "color": [
+      73,
+      53,
+      42
+    ],
+    "triangles": 188
+  },
+  "RightCuffButton": {
+    "position": [
+      1.373,
+      2.8985,
+      -0.19498
+    ],
+    "size": [
+      0.068,
+      0.061,
+      0.05908
+    ],
+    "surface": "BoneButton",
+    "color": [
+      163,
+      133,
+      98
+    ],
+    "triangles": 80
+  },
+  "RightBootRim": {
+    "position": [
+      0.53,
+      1.0065,
+      0.031
+    ],
+    "size": [
+      0.672,
+      0.097,
+      0.64914
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 152
+  },
+  "RightCoatTail": {
+    "position": [
+      0.52637,
+      2.26476,
+      0.04371
+    ],
+    "size": [
+      1.05805,
+      1.62248,
+      1.19298
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "RightCoatTailStitch": {
+    "position": [
+      0.50199,
+      2.22021,
+      -0.54938
+    ],
+    "size": [
+      0.14463,
+      1.12558,
+      0.04281
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 48
+  },
+  "Neckerchief": {
+    "position": [
+      0.01305,
+      4.311,
+      0.00285
+    ],
+    "size": [
+      0.73711,
+      0.228,
+      0.69497
+    ],
+    "surface": "Lining",
+    "color": [
+      94,
+      54,
+      45
+    ],
+    "triangles": 276
+  },
+  "NeckerchiefKnot": {
+    "position": [
+      0.0575,
+      4.1725,
+      -0.3165
+    ],
+    "size": [
+      0.301,
+      0.223,
+      0.147
+    ],
+    "surface": "Lining",
+    "color": [
+      94,
+      54,
+      45
+    ],
+    "triangles": 20
+  },
+  "HatCrown": {
+    "position": [
+      -0.00911,
+      5.547,
+      0.07979
+    ],
+    "size": [
+      1.23281,
+      0.438,
+      0.92489
+    ],
+    "surface": "HatFelt",
+    "color": [
+      50,
+      42,
+      37
+    ],
+    "triangles": 476
+  },
+  "HatBand": {
+    "position": [
+      -0.01534,
+      5.442,
+      0.07388
+    ],
+    "size": [
+      1.25085,
+      0.132,
+      0.94537
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 380
+  },
+  "HatBrim": {
+    "position": [
+      0.0,
+      5.40622,
+      0.056
+    ],
+    "size": [
+      2.052,
+      0.40645,
+      1.604
+    ],
+    "surface": "HatFelt",
+    "color": [
+      50,
+      42,
+      37
+    ],
+    "triangles": 384
+  },
+  "HatClasp": {
+    "position": [
+      0.4745,
+      5.4285,
+      -0.2685
+    ],
+    "size": [
+      0.125,
+      0.051,
+      0.091
+    ],
+    "surface": "WornBrass",
+    "color": [
+      143,
+      107,
+      64
+    ],
+    "triangles": 12
+  },
+  "TempleHair": {
+    "position": [
+      0.00209,
+      5.1815,
+      0.15237
+    ],
+    "size": [
+      1.29306,
+      0.333,
+      0.58313
+    ],
+    "surface": "Hair",
+    "color": [
+      62,
+      51,
+      43
+    ],
+    "triangles": 280
+  },
+  "WaistBelt": {
+    "position": [
+      0.00819,
+      3.012,
+      0.03074
+    ],
+    "size": [
+      1.51149,
+      0.194,
+      0.87214
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 252
+  },
+  "WaistBuckle": {
+    "position": [
+      0.0075,
+      3.0185,
+      -0.429
+    ],
+    "size": [
+      0.401,
+      0.161,
+      0.086
+    ],
+    "surface": "WornBrass",
+    "color": [
+      143,
+      107,
+      64
+    ],
+    "triangles": 20
+  },
+  "WaistBuckleCenter": {
+    "position": [
+      0.005,
+      3.017,
+      -0.4605
+    ],
+    "size": [
+      0.256,
+      0.088,
+      0.031
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 12
+  },
+  "CrossBodyStrap": {
+    "position": [
+      0.0245,
+      3.641,
+      -0.4645
+    ],
+    "size": [
+      1.155,
+      1.15,
+      0.267
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 96
+  },
+  "StrapKeepers": {
+    "position": [
+      0.0195,
+      3.708,
+      -0.55075
+    ],
+    "size": [
+      0.828,
+      0.816,
+      0.1175
+    ],
+    "surface": "LeatherEdge",
+    "color": [
+      111,
+      69,
+      45
+    ],
+    "triangles": 72
+  },
+  "StrapStitches": {
+    "position": [
+      0.085,
+      3.688,
+      -0.554
+    ],
+    "size": [
+      0.792,
+      0.862,
+      0.118
+    ],
+    "surface": "Stitch",
+    "color": [
+      154,
+      111,
+      69
+    ],
+    "triangles": 84
+  },
+  "DispatchPouch": {
+    "position": [
+      -0.78736,
+      2.5965,
+      0.31374
+    ],
+    "size": [
+      0.501,
+      0.565,
+      0.3637
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 256
+  },
+  "PouchFlap": {
+    "position": [
+      -0.788,
+      2.7125,
+      0.1485
+    ],
+    "size": [
+      0.45,
+      0.241,
+      0.059
+    ],
+    "surface": "LeatherEdge",
+    "color": [
+      111,
+      69,
+      45
+    ],
+    "triangles": 20
+  },
+  "PouchClasp": {
+    "position": [
+      -0.807,
+      2.6505,
+      0.092
+    ],
+    "size": [
+      0.108,
+      0.075,
+      0.042
+    ],
+    "surface": "WornBrass",
+    "color": [
+      143,
+      107,
+      64
+    ],
+    "triangles": 92
+  },
+  "HipHolster": {
+    "position": [
+      0.84831,
+      2.405,
+      -0.18904
+    ],
+    "size": [
+      0.4343,
+      0.73,
+      0.3662
+    ],
+    "surface": "DarkLeather",
+    "color": [
+      83,
+      48,
+      33
+    ],
+    "triangles": 260
+  },
+  "HolsterEdge": {
+    "position": [
+      0.823,
+      2.664,
+      -0.3
+    ],
+    "size": [
+      0.334,
+      0.098,
+      0.056
+    ],
+    "surface": "LeatherEdge",
+    "color": [
+      111,
+      69,
+      45
+    ],
+    "triangles": 12
+  },
+  "HolsterStud": {
+    "position": [
+      0.821,
+      2.654,
+      -0.3415
+    ],
+    "size": [
+      0.072,
+      0.042,
+      0.037
+    ],
+    "surface": "DullIron",
+    "color": [
+      76,
+      79,
+      76
+    ],
+    "triangles": 92
+  }
+}
