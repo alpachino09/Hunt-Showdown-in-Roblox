@@ -10,6 +10,7 @@
 
 Полная локальная проверка запускается командой `./scripts/check.sh`.
 
+- [Кадр лобби из Studio Play](docs/images/lobby-studio-play.jpg)
 - [План разработки](PROJECT_PLAN.md)
 - [Дизайн](GAME_DESIGN.md)
 - [Архитектура](ARCHITECTURE.md)
