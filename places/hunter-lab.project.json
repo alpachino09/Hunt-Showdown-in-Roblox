@@ -1,0 +1,33 @@
+{
+  "name": "GreyOutpost-HunterLab",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": { "$path": "../src/shared" }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "Veteran": { "$path": "../build/generated/Veteran.rbxmx" }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "HunterLabServer": { "$path": "../places/hunter-lab/server" }
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": { "StreamingEnabled": false },
+      "HunterLab": { "$path": "../build/generated/HunterLab.rbxmx" }
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "LightingStyle": "Realistic",
+        "Ambient": [0.47, 0.46, 0.44],
+        "OutdoorAmbient": [0.46, 0.47, 0.49],
+        "Brightness": 2.0,
+        "ClockTime": 14.8
+      }
+    }
+  }
+}

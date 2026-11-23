@@ -187,7 +187,7 @@ def build(name, author):
     root = xml.Element("roblox", version="4")
     author(root)
     for index, element in enumerate(root.iter("Item")):
-        element.set("referent", f"RBX{index}")
+        element.attrib.setdefault("referent", f"RBX{index}")
     xml.indent(root, "  ")
     xml.ElementTree(root).write(OUTPUT / f"{name}.rbxmx", encoding="utf-8", xml_declaration=True)
 
