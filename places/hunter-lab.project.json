@@ -9,6 +9,9 @@
       },
       "VeteranMotion": {
         "$path": "../build/generated/VeteranMotion.rbxmx"
+      },
+      "HunterProps": {
+        "$path": "../build/generated/HunterProps.rbxmx"
       }
     },
     "ServerStorage": {

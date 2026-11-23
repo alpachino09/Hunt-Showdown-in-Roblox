@@ -6,7 +6,9 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
 local Locomotion = require(ReplicatedStorage.Shared.characters.Locomotion)
+local WeaponPose = require(ReplicatedStorage.Shared.characters.WeaponPose)
 local motionData = ReplicatedStorage:WaitForChild("VeteranMotion") :: Folder
+local props = ReplicatedStorage:WaitForChild("HunterProps") :: Folder
 local library = Locomotion.decode(motionData)
 local player = Players.LocalPlayer
 
@@ -29,6 +31,9 @@ local crouched = false
 local jog = false
 local shift = false
 local mode: Locomotion.Mode = "Walk"
+local slot: WeaponPose.Slot = "None"
+local aiming = false
+local weapons: WeaponPose.Controller? = nil
 local running: RBXScriptConnection? = nil
 
 local function preferred(): Locomotion.Mode
@@ -46,6 +51,8 @@ end
 local function action(name: string, input: Enum.UserInputState)
     if name == "HunterLabSprint" then
         shift = input == Enum.UserInputState.Begin
+    elseif name == "HunterLabAim" then
+        aiming = input == Enum.UserInputState.Begin
     elseif input == Enum.UserInputState.Begin then
         if name == "HunterLabCrouch" then
             crouched = not crouched
@@ -55,6 +62,18 @@ local function action(name: string, input: Enum.UserInputState)
             player.CameraMode = if player.CameraMode == Enum.CameraMode.Classic
                 then Enum.CameraMode.LockFirstPerson
                 else Enum.CameraMode.Classic
+        elseif weapons then
+            if name == "HunterLabEquip" then
+                slot = if slot == "None"
+                    then "Rifle"
+                    elseif slot == "Rifle" then "Pistol"
+                    else "None"
+                weapons.equip(slot)
+            elseif name == "HunterLabFire" then
+                weapons.play("Fire")
+            elseif name == "HunterLabReload" then
+                weapons.play("Reload")
+            end
         end
     end
     mode = preferred()
@@ -65,6 +84,16 @@ ContextActionService:BindAction("HunterLabSprint", action, false, Enum.KeyCode.L
 ContextActionService:BindAction("HunterLabCrouch", action, false, Enum.KeyCode.C)
 ContextActionService:BindAction("HunterLabJog", action, false, Enum.KeyCode.J)
 ContextActionService:BindAction("HunterLabCamera", action, false, Enum.KeyCode.V)
+ContextActionService:BindAction("HunterLabEquip", action, false, Enum.KeyCode.B)
+ContextActionService:BindAction(
+    "HunterLabAim",
+    action,
+    false,
+    Enum.KeyCode.Q,
+    Enum.UserInputType.MouseButton2
+)
+ContextActionService:BindAction("HunterLabFire", action, false, Enum.KeyCode.F)
+ContextActionService:BindAction("HunterLabReload", action, false, Enum.KeyCode.R)
 
 local function mount(character: Model)
     if running then
@@ -74,6 +103,9 @@ local function mount(character: Model)
     local root = character:WaitForChild("HumanoidRootPart") :: BasePart
     crouched, jog, shift, mode = false, false, false, "Walk"
     local animate = Locomotion.bind(character, humanoid, root, library)
+    local mounted = WeaponPose.bind(character, root, props)
+    weapons = mounted
+    mounted.equip(slot)
     local current: string? = nil
     running = RunService.PreSimulation:Connect(function(delta)
         local speed = Locomotion.speed[mode]
@@ -81,18 +113,23 @@ local function mount(character: Model)
             humanoid.WalkSpeed = speed
         end
         animate(delta, mode)
-        local clip = character:GetAttribute("MotionClip") :: string?
-        if clip ~= current then
-            current = clip
-            prompt.Text = ("%s  ·  WASD — движение  ·  J — бег  ·  Shift — спринт  ·  C — присесть  ·  Space — прыжок  ·  V — камера"):format(
-                clip or "Idle"
-            )
+        mounted.update(delta, aiming)
+        local clip = character:GetAttribute("MotionClip") :: string
+        local pose = character:GetAttribute("WeaponPose") :: string?
+        local header = if pose and pose ~= "None" then clip .. " / " .. pose else clip
+        if header ~= current then
+            current = header
+            prompt.Text = header
+                .. "  ·  WASD — движение  ·  J — бег  ·  Shift — спринт  ·  C — присесть  ·  V — камера\n"
+                .. "Space — прыжок  ·  B — реквизит  ·  Q — прицел  ·  F — отдача  ·  R — перехват"
         end
     end)
 end
 
 player.CharacterAdded:Connect(mount)
 player.CharacterRemoving:Connect(function()
+    weapons = nil
+    aiming = false
     if running then
         running:Disconnect()
         running = nil

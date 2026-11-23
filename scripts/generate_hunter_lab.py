@@ -1,5 +1,6 @@
 """Build the original R15 character and isolated animation test environment."""
 import json
+from math import sqrt
 from pathlib import Path
 
 from generate_lobby import build, item, mesh_part, part, prop, rgb, vec
@@ -190,7 +191,80 @@ def motion(root):
         prop(value, "string", "Value", encoded)
 
 
+def props(root):
+    folder = item(root, "Folder", "HunterProps")
+
+    def mount(name):
+        model = item(folder, "Model", name)
+        anchor = part(model, "Mount", (.15, .15, .15), (0, 0, 0), (0, 0, 0), transparency=1)
+        anchor.set("referent", name + "Mount")
+        prop(model, "Ref", "PrimaryPart", anchor.get("referent"))
+        prop(anchor, "bool", "CastShadow", "false")
+        set_bool(anchor, "Anchored", False)
+        set_bool(anchor, "Massless", True)
+        return model, anchor
+
+    def link(node, anchor):
+        set_bool(node, "Anchored", False)
+        set_bool(node, "Massless", True)
+        node.set("referent", anchor.get("referent") + node.find("./Properties/string[@name='Name']").text)
+        weld = item(node, "Weld", "PropMount")
+        prop(weld, "Ref", "Part0", anchor.get("referent"))
+        prop(weld, "Ref", "Part1", node.get("referent"))
+        pose = node.find("./Properties/CoordinateFrame[@name='CFrame']")
+        prop(weld, "CoordinateFrame", "C0", {c.tag: c.text for c in pose})
+
+    def normalize(vector):
+        length = sqrt(sum(v*v for v in vector))
+        return tuple(v/length for v in vector)
+
+    def dot(a, b):
+        return sum(x*y for x, y in zip(a,b))
+
+    def cross(a, b):
+        return (a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0])
+
+    def point(world):
+        offset = tuple((v-o)*.88 for v, o in zip(world, grip))
+        return tuple(dot(offset, axis) for axis in axes)
+
+    longarm, anchor = mount("Rifle")
+    source = json.loads((ROOT / "assets" / "lobby" / "hunter-assets.json").read_text())
+    grip = (.388, 2.242, .641)
+    forward = normalize((-1.206, 1.099, .119))
+    right = normalize(cross(forward, (.67, .74, 0)))
+    axes = (right, cross(right, forward), tuple(-v for v in forward))
+    for name, tint, surface in [
+        ("Stock", (87, 46, 28), 512), ("DarkSpine", (59, 63, 64), 1088),
+        ("Forewood", (73, 42, 29), 512), ("Binding", (120, 100, 67), 1088),
+        ("HeelCap", (53, 56, 57), 1088),
+    ]:
+        ref = source[name]
+        x, y, z = ref["offset"]
+        node = mesh_part(longarm, name, ref, tuple(v*.88 for v in ref["size"]), point((-x,y,-z)),
+                         tint, material=surface)
+        pose = node.find("./Properties/CoordinateFrame[@name='CFrame']")
+        for row, axis in enumerate(axes):
+            for col, value in enumerate(axis):
+                pose.find(f"R{row}{col}").text = str(value * (-1 if col != 1 else 1))
+        link(node, anchor)
+    support = item(anchor, "Attachment", "Support")
+    prop(support, "CoordinateFrame", "CFrame", cf(point((-.19, 2.72, .67))))
+
+    sidearm, anchor = mount("Pistol")
+    for name, size, pos, tint, surf, tilt in [
+        ("Handle", (.134,.265,.15), (0,-.018,.028), (75,38,25), 512, -14),
+        ("Frame", (.141,.154,.28), (0,.115,-.081), (57,59,63), 1088, 0),
+        ("Breech", (.18,.17,.159), (0,.126,-.105), (77,78,76), 1088, 0),
+        ("Spine", (.101,.093,.34), (0,.173,-.31), (58,61,63), 1088, 0),
+        ("Cap", (.13,.065,.105), (0,.161,-.49), (45,48,51), 1088, 0),
+        ("Sight", (.034,.030,.037), (0,.223,-.431), (125,111,80), 1088, 0),
+    ]:
+        link(part(sidearm, name, size, pos, tint, material=surf, tilt=tilt), anchor)
+
+
 if __name__ == "__main__":
     build("Veteran", rig)
     build("HunterLab", arena)
     build("VeteranMotion", motion)
+    build("HunterProps", props)

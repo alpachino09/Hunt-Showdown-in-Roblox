@@ -1,6 +1,7 @@
 --!strict
 
 local Workspace = game:GetService("Workspace")
+local JointPose = require(script.Parent.JointPose)
 
 type Leg = {
     hip: Motor6D,
@@ -21,30 +22,9 @@ local FootPlant = {}
 local UP = Vector3.yAxis
 local EPSILON = 1e-5
 
-local function downstream(frame: CFrame, joint: Motor6D): CFrame
-    return frame * joint.C0 * joint.Transform * joint.C1:Inverse()
-end
-
-local function swing(original: Vector3, target: Vector3): CFrame
-    local a, b = original.Unit, target.Unit
-    local axis = a:Cross(b)
-    local length = axis.Magnitude
-    if length > EPSILON then
-        return CFrame.fromAxisAngle(axis / length, math.atan2(length, a:Dot(b)))
-    end
-    if a:Dot(b) < 0 then
-        local perpendicular = if math.abs(a.Y) < 0.9 then a:Cross(UP) else a:Cross(Vector3.xAxis)
-        return CFrame.fromAxisAngle(perpendicular.Unit, math.pi)
-    end
-    return CFrame.identity
-end
-
-local function aimJoint(joint: Motor6D, parent: CFrame, angle: CFrame)
-    local pivot = (parent * joint.C0).Rotation
-    local original = joint.Transform
-    joint.Transform = CFrame.new(original.Position)
-        * pivot:ToObjectSpace(angle * pivot * original.Rotation)
-end
+local downstream = JointPose.child
+local swing = JointPose.swing
+local aimJoint = JointPose.rotate
 
 local function sample(leg: Leg, pelvis: CFrame): (Vector3, Vector3, Vector3)
     local upper = downstream(pelvis, leg.hip)
