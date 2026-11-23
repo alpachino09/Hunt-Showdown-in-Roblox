@@ -1,0 +1,553 @@
+{
+  "Head": {
+    "position": [
+      0.0,
+      4.915,
+      0.014
+    ],
+    "size": [
+      1.24,
+      1.25,
+      0.892
+    ],
+    "surface": "Skin",
+    "color": [
+      173,
+      121,
+      84
+    ],
+    "triangles": 476
+  },
+  "Ears": {
+    "position": [
+      0.0,
+      4.865,
+      0.0425
+    ],
+    "size": [
+      1.42,
+      0.27,
+      0.261
+    ],
+    "surface": "Skin",
+    "color": [
+      173,
+      121,
+      84
+    ],
+    "triangles": 248
+  },
+  "EyeSockets": {
+    "position": [
+      -0.0035,
+      4.911,
+      -0.3695
+    ],
+    "size": [
+      0.729,
+      0.106,
+      0.103
+    ],
+    "surface": "EyeShade",
+    "color": [
+      127,
+      84,
+      60
+    ],
+    "triangles": 40
+  },
+  "Eyes": {
+    "position": [
+      0.0,
+      4.914,
+      -0.429
+    ],
+    "size": [
+      0.688,
+      0.048,
+      0.074
+    ],
+    "surface": "EyeWhite",
+    "color": [
+      203,
+      188,
+      159
+    ],
+    "triangles": 184
+  },
+  "Irises": {
+    "position": [
+      -0.013,
+      4.9135,
+      -0.465
+    ],
+    "size": [
+      0.522,
+      0.047,
+      0.02348
+    ],
+    "surface": "EyeDark",
+    "color": [
+      44,
+      57,
+      53
+    ],
+    "triangles": 160
+  },
+  "Brow": {
+    "position": [
+      -0.0025,
+      4.9935,
+      -0.3805
+    ],
+    "size": [
+      0.751,
+      0.065,
+      0.069
+    ],
+    "surface": "Brow",
+    "color": [
+      57,
+      42,
+      33
+    ],
+    "triangles": 32
+  },
+  "Nose": {
+    "position": [
+      0.0,
+      4.853,
+      -0.44873
+    ],
+    "size": [
+      0.212,
+      0.304,
+      0.20067
+    ],
+    "surface": "Skin",
+    "color": [
+      173,
+      121,
+      84
+    ],
+    "triangles": 136
+  },
+  "Beard": {
+    "position": [
+      0.0065,
+      4.593,
+      -0.3195
+    ],
+    "size": [
+      0.903,
+      0.306,
+      0.295
+    ],
+    "surface": "Beard",
+    "color": [
+      69,
+      53,
+      43
+    ],
+    "triangles": 44
+  },
+  "Mouth": {
+    "position": [
+      0.007,
+      4.6335,
+      -0.4555
+    ],
+    "size": [
+      0.304,
+      0.035,
+      0.037
+    ],
+    "surface": "Lips",
+    "color": [
+      98,
+      59,
+      50
+    ],
+    "triangles": 16
+  },
+  "UpperTorso": {
+    "position": [
+      -0.00898,
+      3.6975,
+      0.00804
+    ],
+    "size": [
+      1.73764,
+      1.365,
+      0.8864
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 572
+  },
+  "LowerTorso": {
+    "position": [
+      0.01051,
+      2.83,
+      0.03856
+    ],
+    "size": [
+      1.55057,
+      0.7,
+      0.7556
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 276
+  },
+  "LeftUpperArm": {
+    "position": [
+      -1.08663,
+      3.77,
+      0.01698
+    ],
+    "size": [
+      0.78897,
+      0.84,
+      0.59349
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 284
+  },
+  "LeftLowerArm": {
+    "position": [
+      -1.2205,
+      3.1745,
+      0.02508
+    ],
+    "size": [
+      0.55102,
+      0.671,
+      0.45232
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 284
+  },
+  "LeftHand": {
+    "position": [
+      -1.30082,
+      2.715,
+      -0.02216
+    ],
+    "size": [
+      0.398,
+      0.45,
+      0.34261
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 216
+  },
+  "LeftThumb": {
+    "position": [
+      -1.1645,
+      2.75,
+      -0.084
+    ],
+    "size": [
+      0.251,
+      0.22,
+      0.216
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 124
+  },
+  "LeftUpperLeg": {
+    "position": [
+      -0.46158,
+      2.125,
+      -3e-05
+    ],
+    "size": [
+      0.74162,
+      1.29,
+      0.74608
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 388
+  },
+  "LeftLowerLeg": {
+    "position": [
+      -0.51481,
+      1.03,
+      0.00583
+    ],
+    "size": [
+      0.58661,
+      1.28,
+      0.63748
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 332
+  },
+  "LeftFoot": {
+    "position": [
+      -0.52846,
+      0.3075,
+      -0.13407
+    ],
+    "size": [
+      0.57504,
+      0.545,
+      0.8901
+    ],
+    "surface": "BootLeather",
+    "color": [
+      71,
+      51,
+      39
+    ],
+    "triangles": 332
+  },
+  "LeftSole": {
+    "position": [
+      -0.535,
+      0.054,
+      -0.1375
+    ],
+    "size": [
+      0.584,
+      0.096,
+      0.893
+    ],
+    "surface": "Rubber",
+    "color": [
+      43,
+      36,
+      30
+    ],
+    "triangles": 164
+  },
+  "LeftBootUpper": {
+    "position": [
+      -0.52599,
+      0.69,
+      0.02819
+    ],
+    "size": [
+      0.64457,
+      0.62,
+      0.64017
+    ],
+    "surface": "BootLeather",
+    "color": [
+      71,
+      51,
+      39
+    ],
+    "triangles": 188
+  },
+  "RightUpperArm": {
+    "position": [
+      1.08508,
+      3.77,
+      0.01698
+    ],
+    "size": [
+      0.77961,
+      0.84,
+      0.59349
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 284
+  },
+  "RightLowerArm": {
+    "position": [
+      1.21893,
+      3.1745,
+      0.02508
+    ],
+    "size": [
+      0.54493,
+      0.671,
+      0.45232
+    ],
+    "surface": "Wool",
+    "color": [
+      89,
+      68,
+      52
+    ],
+    "triangles": 284
+  },
+  "RightHand": {
+    "position": [
+      1.3073,
+      2.715,
+      -0.02216
+    ],
+    "size": [
+      0.40176,
+      0.45,
+      0.34261
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 216
+  },
+  "RightThumb": {
+    "position": [
+      1.1645,
+      2.75,
+      -0.084
+    ],
+    "size": [
+      0.251,
+      0.22,
+      0.216
+    ],
+    "surface": "GloveLeather",
+    "color": [
+      68,
+      50,
+      39
+    ],
+    "triangles": 124
+  },
+  "RightUpperLeg": {
+    "position": [
+      0.45723,
+      2.125,
+      -3e-05
+    ],
+    "size": [
+      0.76648,
+      1.29,
+      0.74608
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 388
+  },
+  "RightLowerLeg": {
+    "position": [
+      0.52249,
+      1.03,
+      0.00583
+    ],
+    "size": [
+      0.60521,
+      1.28,
+      0.63748
+    ],
+    "surface": "Twill",
+    "color": [
+      66,
+      64,
+      58
+    ],
+    "triangles": 332
+  },
+  "RightFoot": {
+    "position": [
+      0.53554,
+      0.3075,
+      -0.13407
+    ],
+    "size": [
+      0.57504,
+      0.545,
+      0.8901
+    ],
+    "surface": "BootLeather",
+    "color": [
+      71,
+      51,
+      39
+    ],
+    "triangles": 332
+  },
+  "RightSole": {
+    "position": [
+      0.535,
+      0.054,
+      -0.1375
+    ],
+    "size": [
+      0.584,
+      0.096,
+      0.893
+    ],
+    "surface": "Rubber",
+    "color": [
+      43,
+      36,
+      30
+    ],
+    "triangles": 164
+  },
+  "RightBootUpper": {
+    "position": [
+      0.53423,
+      0.69,
+      0.02819
+    ],
+    "size": [
+      0.65497,
+      0.62,
+      0.64017
+    ],
+    "surface": "BootLeather",
+    "color": [
+      71,
+      51,
+      39
+    ],
+    "triangles": 188
+  }
+}
