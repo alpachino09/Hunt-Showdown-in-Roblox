@@ -157,7 +157,7 @@ def body():
              (1.00,sx(.527),.031,.321,.316)], .63, 24, .025)
 
 
-def export():
+def export(stem="VeteranBody", layout="body-layout.json"):
     for obj in list(bpy.context.scene.objects):
         bpy.data.objects.remove(obj, do_unlink=True)
     materials = {}
@@ -203,8 +203,8 @@ def export():
         }
     print(f"{len(manifest)} meshes, {triangle_count} triangles")
     DEST.mkdir(parents=True, exist_ok=True)
-    bpy.ops.export_scene.gltf(filepath=str(DEST/"VeteranBody.glb"),export_format="GLB",export_yup=True)
-    (DEST/"body-layout.json").write_text(json.dumps(manifest,indent=2)+"\n")
+    bpy.ops.export_scene.gltf(filepath=str(DEST/f"{stem}.glb"),export_format="GLB",export_yup=True)
+    (DEST/layout).write_text(json.dumps(manifest,indent=2)+"\n")
 
 
 if __name__ == "__main__":
