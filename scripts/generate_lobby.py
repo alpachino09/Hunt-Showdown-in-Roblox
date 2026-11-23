@@ -107,7 +107,7 @@ def station(root):
 
     from lobby_hunter import render_hunter
 
-    render_hunter(stage, item, mesh_part)
+    render_hunter(stage, item, part, mesh_part)
 
 
 def dim2(x_scale, x_offset, y_scale, y_offset):

@@ -149,7 +149,7 @@ local function showHunter()
             if obj:IsA("BasePart") and coatColors[obj.Name] then
                 local material = obj:FindFirstChildWhichIsA("SurfaceAppearance")
                 if material then
-                    material.Color = Color3.fromRGB(245, 238, 225):Lerp(hunter.color, 0.71)
+                    material.Color = Color3.fromRGB(127, 113, 94):Lerp(hunter.color, 0.52)
                 else
                     obj.Color = hunter.color
                 end

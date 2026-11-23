@@ -58,7 +58,7 @@ def render_forest(stage, item, part, prop, lantern, rgb, mesh_part):
                   (100, 107, 106), transparency=1)
     reflection = item(bounce, "PointLight", "SoftFill")
     prop(reflection, "Color3", "Color", rgb((186, 199, 209)))
-    prop(reflection, "float", "Brightness", .79)
+    prop(reflection, "float", "Brightness", .54)
     prop(reflection, "float", "Range", 13)
     prop(reflection, "bool", "Shadows", "false")
     for _ in range(47):
