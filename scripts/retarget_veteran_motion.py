@@ -9,7 +9,7 @@ from pathlib import Path
 from statistics import median
 
 import bpy
-from mathutils import Matrix, Vector
+from mathutils import Matrix, Quaternion, Vector
 
 ROOT = Path(__file__).resolve().parents[1]
 MOTIONS = ROOT / "assets" / "animations" / "Locomotion"
@@ -70,6 +70,7 @@ def frames():
             standard = reference[part] @ Vector((0,1,0))
             directions[part] = standard.rotation_difference((next_joints[part] - Vector(start)).normalized())
 
+    identity = Quaternion()
     outputs = {}
     for name, (source_name, repeat) in CLIPS.items():
         act = actions[source_name]
@@ -92,6 +93,11 @@ def frames():
                     delta = correction @ delta @ correction.inverted()
                 world[part] = delta.normalized()
             root_y = (bones[BODY["LowerTorso"]].head.z - neutral_hip) * height_scale
+            if name in {"CrouchIdle", "CrouchWalk"}:
+                # The stylized torso needs shallower compression than the mocap body.
+                root_y *= .77
+                for part, amount in (("LowerTorso", .73), ("UpperTorso", .69), ("Head", .72)):
+                    world[part] = identity.slerp(world[part], amount)
             record = [round(max(-1.22, min(.27 if name == "Air" else .52, root_y)), 5)]
             for joint, (parent, child, _) in REST["joints"].items():
                 rotation = world[parent].inverted() @ world[child] if parent in world else world[child]

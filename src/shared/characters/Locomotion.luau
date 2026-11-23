@@ -1,6 +1,7 @@
 --!strict
 
 local HttpService = game:GetService("HttpService")
+local FootPlant = require(script.Parent.FootPlant)
 
 export type ClipName =
     "Idle"
@@ -33,11 +34,6 @@ type RawClip = {
     contact: { { number } },
 }
 
-type RawLibrary = {
-    joints: { string },
-    clips: { [ClipName]: RawClip },
-}
-
 local Locomotion = {}
 local FADE = 0.17
 local MIN_SPEED = 0.45
@@ -49,6 +45,8 @@ Locomotion.speed = table.freeze({
     Crouch = 2.55,
 })
 
+local GAIT_PACE = table.freeze({ Walk = 3.4, Jog = 7.1, Sprint = 9.8, Crouch = 2.15 })
+
 local MOVE_CLIPS: { [ClipName]: Mode } = {
     Walk = "Walk",
     Jog = "Jog",
@@ -56,14 +54,19 @@ local MOVE_CLIPS: { [ClipName]: Mode } = {
     CrouchWalk = "Crouch",
 }
 
-function Locomotion.decode(data: string): Library
-    local raw = HttpService:JSONDecode(data) :: RawLibrary
+function Locomotion.decode(data: Folder): Library
+    local jointList = data:WaitForChild("Joints") :: StringValue
+    local joints = HttpService:JSONDecode(jointList.Value) :: { string }
     local clips = {} :: { [ClipName]: Clip }
-    for name, spec in raw.clips do
+    for _, value in data:GetChildren() do
+        if value == jointList or not value:IsA("StringValue") then
+            continue
+        end
+        local spec = HttpService:JSONDecode(value.Value) :: RawClip
         local frames: { { CFrame } } = {}
         for index, encoded in spec.frames do
             local frame: { CFrame } = {}
-            for joint = 1, #raw.joints do
+            for joint = 1, #joints do
                 local offset = (joint - 1) * 4 + 2
                 local y = if joint == 1 then encoded[1] else 0
                 frame[joint] = CFrame.new(
@@ -78,14 +81,14 @@ function Locomotion.decode(data: string): Library
             end
             frames[index] = frame
         end
-        clips[name :: ClipName] = {
+        clips[value.Name :: ClipName] = {
             duration = spec.duration,
             loop = spec.loop,
             frames = frames,
             contact = spec.contact,
         }
     end
-    return { joints = raw.joints, clips = clips }
+    return { joints = joints, clips = clips }
 end
 
 local function window(clip: Clip, time: number): (number, number, number)
@@ -108,6 +111,7 @@ function Locomotion.bind(character: Model, humanoid: Humanoid, root: BasePart, l
         joints[index] = assert(motors[name], name)
     end
     local leftHem, rightHem = motors.LeftHem, motors.RightHem
+    local plant = FootPlant.bind(character, root, motors)
     local output = table.create(#joints, CFrame.identity) :: { CFrame }
     local before = table.clone(output)
     local active: ClipName = "Idle"
@@ -155,7 +159,7 @@ function Locomotion.bind(character: Model, humanoid: Humanoid, root: BasePart, l
         local clip = library.clips[active]
         local movement = MOVE_CLIPS[active]
         local rate = if movement
-            then math.clamp(speed / Locomotion.speed[movement], 0.45, 1.7)
+            then math.clamp(speed / GAIT_PACE[movement], 0.45, 1.75)
             elseif active == "Land" then 1.45
             else 1
         clock += delta * rate
@@ -171,15 +175,27 @@ function Locomotion.bind(character: Model, humanoid: Humanoid, root: BasePart, l
             output[index] = blended
         end
 
-        local kneeFold = if mode == "Crouch" then math.rad(-13) else 0
+        local a, b = clip.contact[first], clip.contact[second]
+        plant(
+            delta,
+            (a[1] + (b[1] - a[1]) * fraction) * ease,
+            (a[2] + (b[2] - a[2]) * fraction) * ease,
+            not flying
+        )
+
+        local leftHip = motors.LeftHip.Transform:ToOrientation()
+        local rightHip = motors.RightHip.Transform:ToOrientation()
         local sway = movement
                 and math.sin(clock / clip.duration * math.pi * 2) * math.rad(
                     math.min(speed * 0.68, 9)
                 )
             or 0
         if leftHem and rightHem then
-            leftHem.Transform = CFrame.Angles(kneeFold + sway, 0, math.rad(3))
-            rightHem.Transform = CFrame.Angles(kneeFold - sway, 0, math.rad(-3))
+            local fold = if mode == "Crouch" then 0.58 else 0.30
+            leftHem.Transform =
+                CFrame.Angles(math.clamp(leftHip * fold + sway, -0.55, 0.53), 0, math.rad(4))
+            rightHem.Transform =
+                CFrame.Angles(math.clamp(rightHip * fold - sway, -0.55, 0.53), 0, math.rad(-4))
         end
     end
 end

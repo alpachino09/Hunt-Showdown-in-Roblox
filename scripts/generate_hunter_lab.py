@@ -178,9 +178,16 @@ def arena(root):
 
 
 def motion(root):
-    value = item(root, "StringValue", "VeteranMotion")
+    folder = item(root, "Folder", "VeteranMotion")
     path = ROOT / "assets" / "animations" / "Locomotion" / "veteran-motion.json"
-    prop(value, "string", "Value", path.read_text().strip())
+    data = json.loads(path.read_text())
+    joint_list = item(folder, "StringValue", "Joints")
+    prop(joint_list, "string", "Value", json.dumps(data["joints"], separators=(",", ":")))
+    for name, clip in data["clips"].items():
+        encoded = json.dumps(clip, separators=(",", ":"))
+        assert len(encoded) < 200_000, f"{name} exceeds the Studio StringValue limit"
+        value = item(folder, "StringValue", name)
+        prop(value, "string", "Value", encoded)
 
 
 if __name__ == "__main__":

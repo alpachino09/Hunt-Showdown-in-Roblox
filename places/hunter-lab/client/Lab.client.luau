@@ -6,8 +6,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
 local Locomotion = require(ReplicatedStorage.Shared.characters.Locomotion)
-local motionData = ReplicatedStorage:WaitForChild("VeteranMotion") :: StringValue
-local library = Locomotion.decode(motionData.Value)
+local motionData = ReplicatedStorage:WaitForChild("VeteranMotion") :: Folder
+local library = Locomotion.decode(motionData)
 local player = Players.LocalPlayer
 
 local gui = Instance.new("ScreenGui")
