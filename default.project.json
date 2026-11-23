@@ -1,20 +1,143 @@
 {
-  "name": "HuntShowdownRoblox",
+  "name": "GreyOutpost-Lobby",
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-      "Shared": { "$path": "src/shared" }
+      "Shared": {
+        "$path": "src/shared"
+      }
     },
     "ServerScriptService": {
       "$className": "ServerScriptService",
-      "GameServer": { "$path": "src/server" }
+      "SharedServer": {
+        "$path": "src/server"
+      },
+      "LobbyServer": {
+        "$path": "places/lobby/server"
+      }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "ExpeditionMap": {
+        "$path": "build/generated/ExpeditionMap.rbxmx"
+      },
+      "RushMap": {
+        "$path": "build/generated/RushMap.rbxmx"
+      }
     },
     "StarterPlayer": {
       "$className": "StarterPlayer",
       "StarterPlayerScripts": {
         "$className": "StarterPlayerScripts",
-        "GameClient": { "$path": "src/client" }
+        "LobbyClient": {
+          "$path": "src/client"
+        },
+        "ExpeditionClient": {
+          "$path": "src/expedition-client"
+        }
+      },
+      "StarterCharacterScripts": {
+        "$className": "StarterCharacterScripts",
+        "$path": "src/characters"
+      }
+    },
+    "StarterGui": {
+      "$className": "StarterGui",
+      "Lobby": {
+        "$path": "build/generated/Lobby.rbxmx"
+      }
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "StreamingEnabled": false
+      },
+      "Station": {
+        "$path": "build/generated/Station.rbxmx"
+      },
+      "Terrain": {
+        "$className": "Terrain",
+        "OutpostClouds": {
+          "$className": "Clouds",
+          "$properties": {
+            "Color": [
+              0.59608,
+              0.59608,
+              0.56863
+            ],
+            "Cover": 0.96,
+            "Density": 0.65
+          }
+        }
+      }
+    },
+    "SoundService": {
+      "$className": "SoundService"
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "Ambient": [
+          0.4549,
+          0.42353,
+          0.41569
+        ],
+        "OutdoorAmbient": [
+          0.42745,
+          0.46667,
+          0.47451
+        ],
+        "Brightness": 1.75,
+        "ClockTime": 16.55,
+        "GlobalShadows": true,
+        "LightingStyle": "Realistic",
+        "PrioritizeLightingQuality": true,
+        "GeographicLatitude": 27,
+        "EnvironmentDiffuseScale": 0.35,
+        "EnvironmentSpecularScale": 0.45,
+        "ShadowSoftness": 0.4,
+        "ExposureCompensation": -0.31
+      },
+      "OutpostHaze": {
+        "$className": "Atmosphere",
+        "$properties": {
+          "Color": [
+            0.68627,
+            0.70196,
+            0.67059
+          ],
+          "Decay": [
+            0.38824,
+            0.41176,
+            0.42745
+          ],
+          "Density": 0.37,
+          "Offset": 0.08,
+          "Haze": 2.8,
+          "Glare": 0
+        }
+      },
+      "OutpostGrade": {
+        "$className": "ColorCorrectionEffect",
+        "$properties": {
+          "Brightness": -0.007,
+          "Contrast": 0.065,
+          "Saturation": -0.4,
+          "TintColor": [
+            0.96863,
+            0.95294,
+            0.92549
+          ]
+        }
+      },
+      "LanternHalation": {
+        "$className": "BloomEffect",
+        "$properties": {
+          "Intensity": 0.13,
+          "Size": 19,
+          "Threshold": 1.48
+        }
       }
     }
   }

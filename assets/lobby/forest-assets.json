@@ -1,0 +1,98 @@
+{
+  "MuddyTrail": {
+    "mesh": "rbxassetid://108815206347889",
+    "size": [
+      118.00002,
+      2.02282,
+      142.00002
+    ],
+    "ColorMap": "rbxassetid://87822352324303",
+    "NormalMap": "rbxassetid://82902045423115",
+    "MetalnessMap": "rbxassetid://114528941560949",
+    "RoughnessMap": "rbxassetid://79223022914774"
+  },
+  "SnagBranches": {
+    "mesh": "rbxassetid://128331858293884",
+    "size": [
+      0.25382,
+      0.43774,
+      0.22601
+    ],
+    "ColorMap": "rbxassetid://76320024793756",
+    "NormalMap": "rbxassetid://132196662392663",
+    "MetalnessMap": "rbxassetid://91063400242557",
+    "RoughnessMap": "rbxassetid://102366184717595"
+  },
+  "MossRockA": {
+    "mesh": "rbxassetid://106389693926671",
+    "size": [
+      2.26709,
+      1.47724,
+      3.39036
+    ],
+    "ColorMap": "rbxassetid://127789176419115",
+    "NormalMap": "rbxassetid://109458950681615",
+    "MetalnessMap": "rbxassetid://127946270234420",
+    "RoughnessMap": "rbxassetid://109900732274806"
+  },
+  "SplitStump": {
+    "mesh": "rbxassetid://120405835808830",
+    "size": [
+      1.4246,
+      0.57101,
+      1.58992
+    ],
+    "ColorMap": "rbxassetid://120462815857477",
+    "NormalMap": "rbxassetid://110683461623996",
+    "MetalnessMap": "rbxassetid://97858507832497",
+    "RoughnessMap": "rbxassetid://139323540084259"
+  },
+  "FreightCrate": {
+    "mesh": "rbxassetid://134385982172897",
+    "size": [
+      0.82466,
+      0.3487,
+      0.40879
+    ],
+    "ColorMap": "rbxassetid://139547431614324",
+    "NormalMap": "rbxassetid://127536944089366",
+    "MetalnessMap": "rbxassetid://93529323411570",
+    "RoughnessMap": "rbxassetid://135742695142156"
+  },
+  "FallenTrunk": {
+    "mesh": "rbxassetid://99655196699797",
+    "size": [
+      3.04839,
+      0.28981,
+      0.27499
+    ],
+    "ColorMap": "rbxassetid://100590420909290",
+    "NormalMap": "rbxassetid://118486505153352",
+    "MetalnessMap": "rbxassetid://104597413716080",
+    "RoughnessMap": "rbxassetid://117292016630273"
+  },
+  "MossRockB": {
+    "mesh": "rbxassetid://76474362749012",
+    "size": [
+      2.13917,
+      1.76174,
+      1.97305
+    ],
+    "ColorMap": "rbxassetid://127789176419115",
+    "NormalMap": "rbxassetid://109458950681615",
+    "MetalnessMap": "rbxassetid://127946270234420",
+    "RoughnessMap": "rbxassetid://109900732274806"
+  },
+  "DryBrush": {
+    "mesh": "rbxassetid://101130717860473",
+    "size": [
+      0.32396,
+      0.34005,
+      1.29658
+    ],
+    "ColorMap": "rbxassetid://94918486351673",
+    "NormalMap": "rbxassetid://105186791059690",
+    "MetalnessMap": "rbxassetid://85294211532883",
+    "RoughnessMap": "rbxassetid://110763254547203"
+  }
+}

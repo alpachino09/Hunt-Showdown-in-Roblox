@@ -1,0 +1,263 @@
+"""Build the original station and editable Roblox GUI from deterministic source."""
+
+from math import cos, radians, sin
+from pathlib import Path
+from random import Random
+from xml.etree import ElementTree as xml
+
+OUTPUT = Path(__file__).resolve().parents[1] / "build" / "generated"
+
+
+def prop(obj, kind, name, value):
+    properties = obj.find("Properties")
+    node = xml.SubElement(properties, kind, name=name)
+    if isinstance(value, dict):
+        for key, val in value.items():
+            xml.SubElement(node, key).text = str(val)
+    else:
+        node.text = str(value)
+
+
+def item(parent, kind, name):
+    obj = xml.SubElement(parent, "Item", {"class": kind})
+    xml.SubElement(obj, "Properties")
+    prop(obj, "string", "Name", name)
+    return obj
+
+
+def vec(xyz):
+    return dict(zip(("X", "Y", "Z"), xyz))
+
+
+def rgb(color):
+    return dict(zip(("R", "G", "B"), (v / 255 for v in color)))
+
+
+def part(parent, name, size, pos, color, material=512, yaw=0, tilt=0,
+         shape=1, transparency=0):
+    obj = item(parent, "Part", name)
+    a, b = radians(yaw), radians(tilt)
+    c, s, d, t = cos(a), sin(a), cos(b), sin(b)
+    rotation = (c*d, -c*t, s, t, d, 0, -s*d, s*t, c)
+    prop(obj, "CoordinateFrame", "CFrame", vec(pos) | {
+        f"R{i // 3}{i % 3}": round(n, 8) for i, n in enumerate(rotation)
+    })
+    prop(obj, "Vector3", "size", vec((1, 1, 1) if shape == 0 else size))
+    prop(obj, "Color3uint8", "Color3uint8", (255 << 24) | (color[0] << 16) | (color[1] << 8) | color[2])
+    prop(obj, "token", "Material", material)
+    prop(obj, "token", "shape", 1 if shape == 0 else shape)
+    if shape == 0:
+        mesh = item(obj, "SpecialMesh", "Contour")
+        prop(mesh, "token", "MeshType", 3)
+        prop(mesh, "Vector3", "Scale", vec(size))
+    prop(obj, "bool", "Anchored", "true")
+    for field in ("CanCollide", "CanTouch", "CanQuery"):
+        prop(obj, "bool", field, "false")
+    prop(obj, "float", "Transparency", transparency)
+    return obj
+
+
+def mesh_part(group, name, source, size, pos, tint, material=512, yaw=0, lean=0, double_sided=False):
+    obj = part(group, name, size, pos, tint, material, yaw=yaw, tilt=lean)
+    obj.set("class", "MeshPart")
+    prop(obj, "ContentId", "MeshId", {"url": source["mesh"]})
+    prop(obj, "Vector3", "InitialSize", vec(source["size"]))
+    prop(obj, "token", "CollisionFidelity", 2)
+    if double_sided:
+        prop(obj, "bool", "DoubleSided", "true")
+    if "ColorMap" in source:
+        surface = item(obj, "SurfaceAppearance", "ScannedMaterial")
+        for map_name in ("ColorMap", "NormalMap", "RoughnessMap", "MetalnessMap"):
+            if map_name in source:
+                prop(surface, "ContentId", map_name, {"url": source[map_name]})
+        prop(surface, "Color3", "Color", rgb(tint))
+    return obj
+
+
+def light(parent, color, brightness, reach, shadows=True):
+    lamp = item(parent, "PointLight", "Light")
+    prop(lamp, "Color3", "Color", rgb(color))
+    prop(lamp, "float", "Brightness", brightness)
+    prop(lamp, "float", "Range", reach)
+    prop(lamp, "bool", "Shadows", str(shadows).lower())
+
+
+def lantern(parent, name, x, y, z, reach):
+    metal = (62, 46, 30)
+    lamp = item(parent, "Model", name)
+    for dy in (0, 0.81):
+        part(lamp, "Cap", (.14, .55, .55), (x, y+dy, z), metal, 1088, tilt=90, shape=2)
+    for dx in (-.20, .20):
+        for dz in (-.20, .20):
+            part(lamp, "Cage", (.045, .8, .045), (x+dx, y+.40, z+dz), metal, 1088)
+    flame = part(lamp, "Mantle", (.31, .51, .31), (x, y+.39, z), (255, 169, 78), 288, shape=0)
+    prop(flame, "bool", "CastShadow", "false")
+    light(flame, (255, 167, 89), 1.65, reach)
+
+
+def station(root):
+    stage = item(root, "Model", "Station")
+    from lobby_environment import render_forest
+
+    render_forest(stage, item, part, prop, lantern, rgb, mesh_part)
+    markers = item(stage, "Folder", "CameraMarkers")
+    iron = (38, 43, 46)
+    part(markers, "Eye", (1, 1, 1), (.45, 2.95, 8.95), iron, transparency=1)
+    part(markers, "Focus", (1, 1, 1), (3.65, 2.36, -.38), iron, transparency=1)
+
+    from lobby_hunter import render_hunter
+
+    render_hunter(stage, item, part, mesh_part)
+
+
+def dim2(x_scale, x_offset, y_scale, y_offset):
+    return dict(zip(("XS", "XO", "YS", "YO"), (x_scale, x_offset, y_scale, y_offset)))
+
+
+def frame(parent, kind, name, size, pos, color=(16, 15, 14), alpha=1):
+    obj = item(parent, kind, name)
+    prop(obj, "UDim2", "Size", dim2(*size))
+    prop(obj, "UDim2", "Position", dim2(*pos))
+    prop(obj, "Color3", "BackgroundColor3", rgb(color))
+    prop(obj, "float", "BackgroundTransparency", alpha)
+    prop(obj, "int", "BorderSizePixel", 0)
+    return obj
+
+
+def label(parent, name, value, x, y, w, h, size, color, font=3, wrap=False, button=False):
+    obj = frame(parent, "TextButton" if button else "TextLabel", name,
+                (0, w, 0, h), (0, x, 0, y))
+    prop(obj, "string", "Text", value)
+    prop(obj, "float", "TextSize", size)
+    prop(obj, "Color3", "TextColor3", rgb(color))
+    prop(obj, "token", "Font", font)
+    prop(obj, "token", "TextXAlignment", 0)
+    if wrap:
+        prop(obj, "bool", "TextWrapped", "true")
+        prop(obj, "token", "TextYAlignment", 0)
+    if button:
+        prop(obj, "bool", "AutoButtonColor", "false")
+    return obj
+
+
+def lobby(root):
+    ui = item(root, "ScreenGui", "Lobby")
+    prop(ui, "bool", "ResetOnSpawn", "false")
+    prop(ui, "bool", "IgnoreGuiInset", "true")
+    prop(ui, "int", "DisplayOrder", 1)
+    shade = frame(ui, "Frame", "Shade", (.7, 0, 1, 0), (0, 0, 0, 0), (13, 12, 11), .06)
+    gradient = item(shade, "UIGradient", "Fade")
+    prop(gradient, "NumberSequence", "Transparency", "0 0 0 0.50 0.08 0 1 1 0 ")
+    body = frame(ui, "Frame", "Menu", (0, 420, 0, 568), (0, 56, .5, 0))
+    prop(body, "Vector2", "AnchorPoint", {"X": 0, "Y": .5})
+    scale = item(body, "UIScale", "ResponsiveScale")
+    prop(scale, "float", "Scale", 1)
+
+    gold, pale, muted = (211, 160, 91), (240, 226, 201), (177, 158, 134)
+    label(body, "Kicker", "КЕДРОВЫЙ ОКРУГ     /     1896", 0, 0, 420, 24, 16, gold, 4)
+    label(body, "Title", "Серая застава", 0, 28, 420, 65, 55, pale, 15)
+    frame(body, "Frame", "Rule", (0, 402, 0, 1), (0, 0, 0, 113), (112, 85, 53), 0)
+    tabs = frame(body, "Frame", "Tabs", (0, 410, 0, 160), (0, 0, 0, 130))
+    for i, (key, title) in enumerate([
+        ("Briefing", "Экспедиция"), ("Hunter", "Охотник"),
+        ("Recruitment", "Набор"), ("Equipment", "Экипировка"),
+        ("Roster", "Отряд"), ("Progression", "Прогресс"),
+        ("Store", "Снабжение"), ("Settings", "Настройки"),
+    ]):
+        tab = label(tabs, key, "   " + title, (i % 2)*207, (i//2)*38, 195, 32, 20, muted,
+                    button=True)
+        prop(tab, "float", "BackgroundTransparency", .16)
+    frame(body, "Frame", "DetailsRule", (0, 402, 0, 1), (0, 0, 0, 295), (112, 85, 53), 0)
+    details = frame(body, "Frame", "Details", (0, 405, 0, 230), (0, 0, 0, 312))
+    label(details, "Heading", "", 0, 0, 400, 48, 37, pale, 15)
+    label(details, "Summary", "", 0, 61, 375, 90, 21, pale, wrap=True)
+    toggle = label(details, "ToggleIdle", "", 0, 173, 293, 34, 20, pale, button=True)
+    prop(toggle, "Color3", "BackgroundColor3", rgb((72, 51, 32)))
+    prop(toggle, "float", "BackgroundTransparency", .08)
+    prop(toggle, "bool", "Visible", "false")
+    for name, y in (("Primary", 144), ("Secondary", 181)):
+        action = label(details, name, "", 0, y, 375, 33, 19, pale, button=True)
+        prop(action, "Color3", "BackgroundColor3", rgb((72, 51, 32)))
+        prop(action, "float", "BackgroundTransparency", .08)
+        prop(action, "bool", "Visible", "false")
+    label(body, "Footer", "ЖЕЛЕЗНОДОРОЖНЫЙ ПОСТ", 0, 539, 411, 38, 15, gold, wrap=True)
+
+
+def build(name, author):
+    root = xml.Element("roblox", version="4")
+    author(root)
+    for index, element in enumerate(root.iter("Item")):
+        element.set("referent", f"RBX{index}")
+    xml.indent(root, "  ")
+    xml.ElementTree(root).write(OUTPUT / f"{name}.rbxmx", encoding="utf-8", xml_declaration=True)
+
+
+def expedition(root, fast=False):
+    world = item(root, "Model", "RushMap" if fast else "ExpeditionMap")
+    x = 220
+    rng = Random(1896)
+    earth, wood, rock = (65, 66, 50), (73, 53, 40), (53, 57, 59)
+
+    def solid(parent, name, size, pos, shade, material=512, yaw=0):
+        node = part(parent, name, size, (x + pos[0], pos[1], pos[2]), shade, material, yaw)
+        for key in ("CanQuery", "CanCollide"):
+            node.find(f"./Properties/bool[@name='{key}']").text = "true"
+        return node
+
+    half_x, half_z = (36, 57) if fast else (64, 82)
+    solid(world, "Ground", (2*half_x, 2, 2*half_z), (0, -1, 0), earth, 1280)
+    for px in (-half_x-1, half_x+1):
+        solid(world, "Ridge", (5, 10, 2*half_z+5), (px, 4, 0), rock, 896)
+    for pz in (-half_z-2, half_z+2):
+        solid(world, "Ridge", (2*half_x+7, 10, 5), (0, 4, pz), rock, 896)
+
+    for i in range(17 if fast else 34):
+        px = rng.choice((-1, 1)) * rng.uniform(15, half_x-5)
+        pz = rng.uniform(-half_z+4, half_z-5)
+        height = rng.uniform(6.5, 11.5)
+        solid(world, "PineTrunk", (.52, height, .54), (px, height / 2, pz), wood, 528)
+        for j in range(3):
+            crown = item(world, "WedgePart", "PineCrown")
+            spread = 4.7 - j * .8
+            prop(crown, "Vector3", "Size", vec((spread, 4.6, spread)))
+            prop(crown, "Vector3", "Position", vec((x + px, height - 1 + j * 1.55, pz)))
+            prop(crown, "Color3uint8", "Color3uint8", 4281155635)
+            prop(crown, "bool", "Anchored", "true")
+            prop(crown, "bool", "CanCollide", "false")
+            prop(crown, "bool", "CanQuery", "false")
+
+    for i in range(11 if fast else 20):
+        z = 15 + i * 3.5
+        solid(world, "Sleeper", (5, .18, .64), (-2, .08, z), wood, 528)
+    for px in (-3.2, -.8):
+        solid(world, "Track", (.16, .22, 42 if fast else 75), (px, .24, 33 if fast else 48), (70, 73, 70), 1088)
+
+    shed = item(world, "Model", "MineOffice")
+    solid(shed, "Back", (28, 8, .6), (0, 4, -52), wood, 528)
+    solid(shed, "Roof", (30, .55, 21), (0, 8.3, -42), rock, 1088)
+    for px in (-14, 14):
+        solid(shed, "Side", (.6, 8, 20), (px, 4, -42), wood, 528)
+    for px in (-9, 9):
+        solid(shed, "Front", (10, 8, .6), (px, 4, -32), wood, 528)
+    for px, pz, angle in ((-11, 23, 19), (8, 9, -24), (-5, -18, 6), (17, -22, 35), (5, -48, 21)):
+        solid(world, "Cover", (3.8, 2.4, 2.3), (px, 1.2, pz), wood, 528, angle)
+    lantern(world, "OfficeLamp", x - 8, 1.6, -36, 19)
+    escape_z = 39 if fast else 68
+    lantern(world, "ExitLamp", x - 3, 1.6, escape_z, 20)
+
+    markers = item(world, "Folder", "Markers")
+    fields = {
+        "Spawn": (0, 3.5, 27 if fast else 53), "Clue1": (-8, 1.1, 24), "Clue2": (11, 1.1, 9),
+        "Clue3": (-3, 1.1, -16), "Warden": (0, 2, -44),
+        "Drifter": (9, 2, -11), "Escape": (-3, 1.25, escape_z),
+    }
+    for name, (px, py, pz) in fields.items():
+        part(markers, name, (.4, .4, .4), (x+px, py, pz), rock, transparency=1)
+
+
+if __name__ == "__main__":
+    OUTPUT.mkdir(parents=True, exist_ok=True)
+    build("Station", station)
+    build("Lobby", lobby)
+    build("ExpeditionMap", expedition)
+    build("RushMap", lambda root: expedition(root, fast=True))
