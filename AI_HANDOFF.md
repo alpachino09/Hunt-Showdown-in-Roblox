@@ -1,6 +1,6 @@
 # Передача разработки «Серой заставы»
 
-Обновлено 24.11.2026 (МСК). [Репозиторий](https://github.com/alpachino09/Hunt-Showdown-in-Roblox). Активная ветка `feature/04-premium-weapon-system`. Этап 4, фаза A, первичная инвентаризация. Передача подготовлена при остатке 11% в недельном окне и 98% в пятичасовом по телеметрии Codex. PR создаётся после приёмки этапа.
+Обновлено 24.11.2026 (МСК). [Репозиторий](https://github.com/alpachino09/Hunt-Showdown-in-Roblox). Активная ветка `feature/04-premium-weapon-system`. Этап 4, фаза A, первичная инвентаризация. Исходная контрольная точка подтверждена на GitHub: `80db256e76d967345081df7a42caab9723003044`. Последующий коммит с инвентаризацией указан в истории этой ветки. Передача обновлена при остатке 10% в недельном окне и 91% в пятичасовом по телеметрии Codex; достигнут порог завершения текущих операций. PR создаётся после приёмки этапа.
 
 ## Поручение и порядок
 
@@ -14,7 +14,8 @@
 
 - **COMPLETED** — исходная ревизия премиальных охотников зафиксирована как `e58f0b258b42eb3cd1c96263ae78247ec8a6280b`, SHA совпал с `origin/feature/02-premium-hunters`. На этой базе создано отдельное рабочее дерево этапа 4.
 - **COMPLETED** — `./scripts/check.sh` прошёл на исходной ревизии: StyLua, Selene, численный тест опоры, четыре сборки Rojo и анализ Luau. Luau LSP вывел предупреждение о регистрации наблюдения за файлами. Проверок игрового поведения этим прогоном не выполнялось.
-- **PARTIAL** — проведена инвентаризация файлов в таблице ниже. MCP перечислил два подключения со статусом `Place is not open`. Содержимое места, вывод и Play в этой контрольной точке ещё не проверены.
+- **COMPLETED** — в локальном HunterLab через MCP Edit подтверждены четыре R15 с корнем и 17 Motor6D каждый, а также `Rifle.Mount.Support` и `Pistol` без Attachment. В Edit журнал был пуст. Факты и границы прогона записаны в [результатах](docs/WEAPON_TEST_RESULTS.md).
+- **PARTIAL** — собраны [первичные художественные ориентиры](docs/WEAPON_REFERENCE_ANALYSIS.md) и [две карточки кандидатов](docs/WEAPON_ASSET_RESEARCH.md). Expedition ещё требует подтверждённого открытия в Studio, покадровый разбор и выбор подходящей модели продолжаются.
 - **NOT STARTED** — новый боевой код, оружейные модели, риги, клипы, звуки, FX и стенд этапа 4.
 
 ## Владельцы текущих компонентов
@@ -28,7 +29,7 @@
 | Охотники | Элиас Рид, Марта Вейл, Дэниел Шоу и Смотритель обряда. Данные и происхождение существующих ассетов указаны в ASSET_LIBRARY.md; анимационные проверки в docs/ANIMATION_TEST_RESULTS.md. |
 | Карта | `scripts/generate_lobby.py` генерирует исходные ExpeditionMap и RushMap. Их подключают `default.project.json` и отдельные Rojo-конфигурации в `places/`. Изменения карты идут в отдельной ветке. |
 
-В этой контрольной точке изменены `AGENTS.md`, `AI_HANDOFF.md`, `CONTINUE_PROMPT.md`, `SESSION_LOG.md`, `DEVELOPMENT_PROGRESS.md`, `NEXT_STEPS.md` и `CHANGELOG.md`. Новых ассетов и Roblox Asset ID нет.
+На этапе обновлены `AGENTS.md`, `AI_HANDOFF.md`, `CONTINUE_PROMPT.md`, `SESSION_LOG.md`, `DEVELOPMENT_PROGRESS.md`, `NEXT_STEPS.md` и `CHANGELOG.md`. Рабочие результаты находятся в `docs/WEAPON_TEST_RESULTS.md`, `docs/WEAPON_REFERENCE_ANALYSIS.md` и `docs/WEAPON_ASSET_RESEARCH.md`. Новых ассетов и Roblox Asset ID нет.
 
 ## Известные ограничения
 
@@ -54,4 +55,4 @@ git ls-remote origin refs/heads/feature/04-premium-weapon-system
 
 ## Первое действие
 
-Открыть свежий `build/GreyOutpost-HunterLab.rbxl` в Studio, выбрать его по имени через `list_roblox_studios` и проверить в Edit наличие `ServerStorage.HunterRoster`, корневых R15 и точек хвата у реквизита. Сохранить реальные пути, число моделей и диагностический вывод. Затем выполнить ту же сверку для Expedition и зафиксировать требования к одному эталонному образцу до начала общего слоя.
+Через **File → Open from File** открыть свежий `build/GreyOutpost-Expedition.rbxl` в Studio. В MCP выбрать его по имени и сверить три узла из [результатов](docs/WEAPON_TEST_RESULTS.md) с `places/expedition.project.json`. После проверки существующего контроллера и карты продолжить фазу A: выбрать модель или собственный дизайн и зафиксировать серверные переходы первого образца.
