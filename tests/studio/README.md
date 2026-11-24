@@ -17,3 +17,14 @@ print(result)
 # Проверка оружейного стенда
 
 Откройте свежий `build/GreyOutpost-WeaponLab.rbxl`, запустите Solo и выполните `WeaponLabCheck.client.luau` в клиентском Command Bar. Проверка переключает четырёх охотников, измеряет хват в готовой позе и через обычный WeaponLabInput проверяет Fire, Reload и Cancel. Для проверки клавиш и камер используйте ПКМ и V. Файл теста не входит в карту.
+
+# Проверка WeaponLab с двумя клиентами
+
+В отдельной локальной копии свежей сборки добавьте `WeaponLabNetworkCheck.server.luau` в ServerScriptService и `WeaponLabNetworkCheck.client.luau` в StarterPlayerScripts. Запустите из контекста плагина в Edit:
+
+```luau
+local result = game:GetService("StudioTestService"):ExecuteMultiplayerTestAsync(2, "GreyOutpostWeaponLabNetwork")
+print(result)
+```
+
+Скрипты ждут обоих участников, проводят раннюю отмену и полный цикл через действующий WeaponLabInput, проверяют обе пары боезапаса и фактическое положение чужого ствола и заряда. При сбое фазы журнал показывает таблицы сервера и наблюдателя. После теста удалите временные скрипты из локальной копии. [StudioTestService](https://create.roblox.com/docs/reference/engine/classes/StudioTestService)
