@@ -40,6 +40,14 @@
 - `MammonsGulchRouteCheck.client.luau` в Solo Play завершился `passed=true`: `western_spine.Segment_07`, `main_north_south_rail.Segment_01`, `kingfisher_trestle.Deck_01`, `VisArea-22.Floor` и hole cell Air. Streaming-зависимые обращения используют teleport + WaitForChild, поэтому прежний ложный `Air` из незагруженной зоны не принимается за доказательство.
 - [Кадр транспортного каркаса](docs/images/map/mammons-gulch-routes-overview.jpg). Проверка двух клиентов и полная пешеходная приёмка маршрутов остаются следующим пакетом.
 
+## Этап 03 — debug tools и multiplayer · 24.11.2026
+
+- `tests/unit/MammonsGulchDebug.luau`: вне Studio remote не создаётся, валидный compound ID телепортирует, неизвестные ID и table payload отклоняются, второй запрос внутри cooldown отклоняется, другой игрок не перемещается, мёртвый персонаж не телепортируется.
+- Solo Play подтвердил валидный teleport и cooldown. Настоящие клики через `user_mouse_input` подтвердили Sightline, Clear, 16 height labels, 4 collision boxes и очистку. [Кадр debug UI](docs/images/map/mammons-gulch-debug-tools.jpg).
+- `StudioTestService:ExecuteMultiplayerTestAsync(2, "MammonsGulchPartyCheck")`: **PASS**, два клиента продвинулись навстречу в одном тоннеле на 19,20 и 15,41 studs. Первые запуски остановились до спавна и при `Humanoid:Move`; `MoveTo` завершился корректно.
+- Замер Solo Play, M1 Pro, 180 кадров: 60,07 FPS, медиана 16,72 мс, p95 18,25 мс, Render CPU 3,37 мс, Render GPU 4,71 мс, 20 draw calls, 12 109 треугольников, 4 100 МБ. В текущем клиентском наборе 2 374 BasePart, 19 MeshPart, 0 lights и 0 ParticleEmitter. Холодный запуск, 1% low и 12 игроков не проверялись. [Подробности](docs/MAP_OPTIMIZATION.md).
+- Двери, игровая карта-интерфейс, компас, интерьеры и полный матч Bounty Hunt в этом пакете не реализованы и не заявляются как проверенные.
+
 ## Локальный прототип лобби · 22.11.2026
 
 - На macOS успешно собраны Lobby, Expedition и Rush через Rojo 7.7.1.

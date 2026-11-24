@@ -43,6 +43,7 @@ rojo build places/mammons-gulch.project.json -o build/MammonsGulch-Development.r
 - 42 кандидата спавна не активируются одновременно. `SpawnPoints/DevelopmentSpawn` — единственный SpawnLocation для development Place; `Host.server.luau` назначает его игрокам.
 - Настоящий `Workspace.Terrain` создаётся отдельным Studio-инструментом из `terrain.u16` и `build/generated/MammonsGulchTerrainData.luau`, а не XML-файлом. `places/mammons-gulch/studio/TerrainBuilder.luau` вызывается через MCP только в development Place. Подробности в `docs/MAP_TERRAIN.md`.
 - `Roads` и `Bridges` создаются из `reference/routes.json` модулем `routes.py`; `Railways` — модулем `railway.py`. Confidence каждой centerline сохраняется в модели. `Underground` создаётся из visareas модулем `underground.py`; маска `reference/holes.bin` добавляется в TerrainData и применяется повторно через TerrainBuilder. Подземные ограничения описаны в `docs/MAP_UNDERGROUND.md`.
+- `DebugService` создаёт `MammonsGulchDebugTeleport` только при `RunService:IsStudio()`. Принимается только allowlisted compound ID, cooldown 0,5 с, живая текущая модель персонажа. Произвольные координаты и другие игроки недоступны. `Debug.client.luau` строит локальные overlays и удаляет их при очистке/уничтожении.
 - Текущие Lobby, ExpeditionMap, RushMap, охотники и их файлы остаются собственностью прежних генераторов и не перезаписываются.
 
 ## Детерминизм и восстановление

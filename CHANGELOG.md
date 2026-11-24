@@ -10,6 +10,7 @@
 - Добавлены server-only TerrainData, Studio TerrainBuilder и воксельные рельеф/вода по измеренным высотам и полигонам. Добавлены raycast-проверки наземных точек и Water с учётом потоковой загрузки.
 - Добавлены проверка повторного восстановления Terrain и отдельный water self-test на внутренней ячейке реки.
 - Добавлены дорожные centerlines, рельсовое полотно, мостовые decks/piers и подземные visareas. Исправлены именование Kingfisher bridge и физическое вырезание 1445 hole cells с Air.
+- Добавлены Studio-only DebugService, UI и overlays с серверным allowlist teleport и cooldown. Добавлены Lune и Studio проверки UI, двухклиентный tunnel test и измерения производительности.
 
 ## Начальная версия
 
