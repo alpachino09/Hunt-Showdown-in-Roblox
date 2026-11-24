@@ -13,3 +13,9 @@
 - HunterLab открыт локально и проверен через MCP Edit. Подтверждены четыре R15, 12 клипов в StringValue и точка `Rifle.Mount.Support`. Output в Edit пуст. Expedition в Studio, Play и сеть ещё предстоят.
 - Добавлены `docs/WEAPON_TEST_RESULTS.md`, `docs/WEAPON_REFERENCE_ANALYSIS.md`, `docs/WEAPON_ASSET_RESEARCH.md`. Обновлены AI_HANDOFF.md, CONTINUE_PROMPT.md, DEVELOPMENT_PROGRESS.md, NEXT_STEPS.md, CHANGELOG.md и этот журнал. Оружейный код и ассеты отсутствуют в изменениях.
 - Поддерживаемая телеметрия показала 91% пятичасового и 10% недельного остатка. Достигнут порог сохранения. SHA этой записи определяется коммитом, добавившим раздел (`git log --follow -- SESSION_LOG.md`).
+
+## 24.11.2026 — исходный прогон Expedition и выбор первого образца
+
+- Studio Edit и Solo, один клиент. В экспедиции подтверждены карта, FPP и путь 6/24 → 5/24 → 6/23 по фактическим запросам Combat. Play остановлен.
+- Обновлены результаты, художественные референсы и поиск ассетов. Добавлены WEAPON_LICENSES.md, WEAPON_ART_DIRECTION.md и WEAPON_NETWORKING.md. Первый образец получил самостоятельный дизайн «Фонарь». Ссылки на три видеоролика не загрузились.
+- Изменены только документы; SHA этой записи доступен через `git log --follow -- SESSION_LOG.md`.
