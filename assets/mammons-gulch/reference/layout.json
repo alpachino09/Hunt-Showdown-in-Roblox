@@ -1,0 +1,8298 @@
+{
+  "compounds": [
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        119.1,
+        5.1,
+        236.9,
+        143.9
+      ],
+      "buildingBoundsSource": [
+        633.9584,
+        1388.6464,
+        754.5856,
+        1530.7776
+      ],
+      "clueMarkersRaw": 23,
+      "clueSpots": 23,
+      "creatureGroups": [
+        [
+          "Grunt",
+          14,
+          58,
+          25.8
+        ],
+        [
+          "Armored",
+          0,
+          7,
+          1.3
+        ],
+        [
+          "Hive",
+          0,
+          6,
+          1.3
+        ],
+        [
+          "Hellhound",
+          0,
+          12,
+          1.0
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          6,
+          0.2
+        ],
+        [
+          "Immolator",
+          0,
+          6,
+          0.7
+        ],
+        [
+          "Meathead",
+          0,
+          1,
+          0.5
+        ],
+        [
+          "Water Devil",
+          0,
+          1,
+          0.5
+        ]
+      ],
+      "id": "com_a",
+      "labelAnchor": {
+        "map": [
+          162.6,
+          106.2
+        ],
+        "source": [
+          678.5024,
+          1427.2512
+        ],
+        "world": [
+          -1036.4928,
+          32.113226,
+          -1209.7536
+        ]
+      },
+      "lairFloor": "Ground floor",
+      "lairPosition": [
+        678.52,
+        1427.21,
+        43.65
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 44.44,
+          "floor": 43.24,
+          "floorAboveGround": -0.29,
+          "ground": 43.53,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 48.48,
+          "floor": 47.28,
+          "floorAboveGround": 3.75,
+          "ground": 43.53,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          7,
+          7
+        ],
+        [
+          "Oil barrels",
+          5,
+          5
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Blackthorn Stockyard",
+      "pointOfInterest": false,
+      "publishedSummary": "blackthorn stockyard 2 storeys · lair on the ground floor · 23 clue spots mammon’s gulch even ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/blackthorn-stockyard/"
+      ],
+      "regionPolygon": [
+        [
+          0.0,
+          210.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          298.8,
+          0.0
+        ],
+        [
+          338.9,
+          146.5
+        ],
+        [
+          304.7,
+          214.8
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          512.0,
+          1320.96
+        ],
+        [
+          512.0,
+          1536.0
+        ],
+        [
+          817.9712,
+          1536.0
+        ],
+        [
+          859.0336,
+          1385.984
+        ],
+        [
+          824.0128,
+          1316.0448
+        ]
+      ],
+      "slug": "blackthorn-stockyard",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          1
+        ],
+        [
+          "Ducks",
+          0,
+          2
+        ],
+        [
+          "Dying cows",
+          2,
+          4
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 2,
+      "tacticalAssessment": [
+        2,
+        "Even",
+        26,
+        64,
+        [
+          [
+            "+",
+            "the lair is open to the ground outside"
+          ],
+          [
+            "-",
+            "no hunting tower sees into it"
+          ],
+          [
+            "-",
+            "45 noise traps"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        483.7,
+        252.2,
+        538.7,
+        306.5
+      ],
+      "buildingBoundsSource": [
+        1007.3088,
+        1222.144,
+        1063.6288,
+        1277.7472
+      ],
+      "clueMarkersRaw": 11,
+      "clueSpots": 7,
+      "creatureGroups": [
+        [
+          "Grunt",
+          10,
+          66,
+          21.4
+        ],
+        [
+          "Armored",
+          0,
+          10,
+          2.9
+        ],
+        [
+          "Hive",
+          0,
+          10,
+          2.4
+        ],
+        [
+          "Hellhound",
+          0,
+          12,
+          1.0
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          6,
+          0.2
+        ],
+        [
+          "Immolator",
+          0,
+          9,
+          0.9
+        ],
+        [
+          "Meathead",
+          0,
+          1,
+          0.5
+        ],
+        [
+          "Water Devil",
+          0,
+          1,
+          0.5
+        ]
+      ],
+      "id": "com_b",
+      "labelAnchor": {
+        "map": [
+          517.4,
+          276.4
+        ],
+        "source": [
+          1041.8176,
+          1252.9664
+        ],
+        "world": [
+          53.4528,
+          12.683597,
+          -686.8992
+        ]
+      },
+      "lairFloor": "Upper floor",
+      "lairPosition": [
+        1041.86,
+        1253.01,
+        41.33
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 38.19,
+          "floor": 36.99,
+          "floorAboveGround": -0.01,
+          "ground": 37.0,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 42.44,
+          "floor": 41.24,
+          "floorAboveGround": 4.24,
+          "ground": 37.0,
+          "label": "Upper floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 46.66,
+          "floor": 45.46,
+          "floorAboveGround": 8.45,
+          "ground": 37.01,
+          "label": "Upper floor 2"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          5,
+          5
+        ],
+        [
+          "Oil barrels",
+          2,
+          2
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Monteros Malt",
+      "pointOfInterest": false,
+      "publishedSummary": "monteros malt 3 storeys · lair on the upper floor · 7 clue spots mammon’s gulch favours the attackers ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/monteros-malt/"
+      ],
+      "regionPolygon": [
+        [
+          395.5,
+          188.5
+        ],
+        [
+          617.2,
+          179.7
+        ],
+        [
+          648.4,
+          210.9
+        ],
+        [
+          604.5,
+          358.4
+        ],
+        [
+          500.0,
+          375.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          916.992,
+          1342.976
+        ],
+        [
+          1144.0128,
+          1351.9872
+        ],
+        [
+          1175.9616,
+          1320.0384
+        ],
+        [
+          1131.008,
+          1168.9984
+        ],
+        [
+          1024.0,
+          1152.0
+        ]
+      ],
+      "slug": "monteros-malt",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          1
+        ],
+        [
+          "Ducks",
+          1,
+          1
+        ],
+        [
+          "Dying cows",
+          1,
+          2
+        ],
+        [
+          "Dying horses",
+          0,
+          2
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 3,
+      "tacticalAssessment": [
+        0,
+        "Favours the attackers",
+        7,
+        64,
+        [
+          [
+            "+",
+            "cover on the way in: 73% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "+",
+            "4 hunting towers see into its doorways"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        675.4,
+        69.7,
+        908.8,
+        165.2
+      ],
+      "buildingBoundsSource": [
+        1203.6096,
+        1366.8352,
+        1442.6112,
+        1464.6272
+      ],
+      "clueMarkersRaw": 19,
+      "clueSpots": 18,
+      "creatureGroups": [
+        [
+          "Grunt",
+          6,
+          72,
+          33.6
+        ],
+        [
+          "Armored",
+          0,
+          20,
+          4.1
+        ],
+        [
+          "Hive",
+          0,
+          15,
+          4.2
+        ],
+        [
+          "Hellhound",
+          0,
+          28,
+          3.1
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          7,
+          0.4
+        ],
+        [
+          "Immolator",
+          0,
+          8,
+          1.4
+        ],
+        [
+          "Meathead",
+          0,
+          2,
+          0.1
+        ]
+      ],
+      "id": "com_c",
+      "labelAnchor": {
+        "map": [
+          871.7,
+          104.2
+        ],
+        "source": [
+          1404.6208,
+          1429.2992
+        ],
+        "world": [
+          1141.8624,
+          39.621717,
+          -1215.8976
+        ]
+      },
+      "lairFloor": "Ground floor",
+      "lairPosition": [
+        1404.59,
+        1429.3,
+        48.15
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 49.3,
+          "floor": 48.1,
+          "floorAboveGround": -0.18,
+          "ground": 48.28,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 53.34,
+          "floor": 52.14,
+          "floorAboveGround": 3.94,
+          "ground": 48.2,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          4,
+          4
+        ],
+        [
+          "Oil barrels",
+          5,
+          5
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Terminus Railyard",
+      "pointOfInterest": false,
+      "publishedSummary": "terminus railyard 2 storeys · lair on the ground floor · 18 clue spots mammon’s gulch favours the attackers ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/terminus-railyard/"
+      ],
+      "regionPolygon": [
+        [
+          1000.0,
+          218.8
+        ],
+        [
+          648.4,
+          210.9
+        ],
+        [
+          617.2,
+          179.7
+        ],
+        [
+          625.0,
+          0.0
+        ],
+        [
+          1000.0,
+          0.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          1536.0,
+          1311.9488
+        ],
+        [
+          1175.9616,
+          1320.0384
+        ],
+        [
+          1144.0128,
+          1351.9872
+        ],
+        [
+          1152.0,
+          1536.0
+        ],
+        [
+          1536.0,
+          1536.0
+        ]
+      ],
+      "slug": "terminus-railyard",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          1
+        ],
+        [
+          "Dying cows",
+          1,
+          2
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          3,
+          3
+        ]
+      ],
+      "storeys": 2,
+      "tacticalAssessment": [
+        0,
+        "Favours the attackers",
+        6,
+        64,
+        [
+          [
+            "+",
+            "37 ways in, too many to hold"
+          ],
+          [
+            "-",
+            "open ground round it: only 28% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "-",
+            "55 noise traps"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        37.8,
+        267.3,
+        132.3,
+        378.2
+      ],
+      "buildingBoundsSource": [
+        550.7072,
+        1148.7232,
+        647.4752,
+        1262.2848
+      ],
+      "clueMarkersRaw": 14,
+      "clueSpots": 14,
+      "creatureGroups": [
+        [
+          "Grunt",
+          14,
+          72,
+          32.5
+        ],
+        [
+          "Armored",
+          0,
+          6,
+          1.1
+        ],
+        [
+          "Hive",
+          0,
+          8,
+          2.8
+        ],
+        [
+          "Hellhound",
+          0,
+          12,
+          1.4
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          5,
+          0.3
+        ],
+        [
+          "Immolator",
+          0,
+          6,
+          1.0
+        ],
+        [
+          "Meathead",
+          0,
+          1,
+          0.2
+        ],
+        [
+          "Water Devil",
+          0,
+          1,
+          0.5
+        ]
+      ],
+      "id": "com_d",
+      "labelAnchor": {
+        "map": [
+          78.9,
+          329.4
+        ],
+        "source": [
+          592.7936,
+          1198.6944
+        ],
+        "world": [
+          -1293.6192,
+          60.366915,
+          -524.0832
+        ]
+      },
+      "lairFloor": "Upper floor",
+      "lairPosition": [
+        592.8,
+        1198.69,
+        61.19
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 53.53,
+          "floor": 52.33,
+          "floorAboveGround": -0.64,
+          "ground": 52.97,
+          "label": "Lower ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 55.21,
+          "floor": 54.01,
+          "floorAboveGround": 0.87,
+          "ground": 53.14,
+          "label": "Upper ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 62.39,
+          "floor": 61.19,
+          "floorAboveGround": 8.05,
+          "ground": 53.14,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          8,
+          8
+        ],
+        [
+          "Oil barrels",
+          5,
+          5
+        ],
+        [
+          "Dry twigs, outside",
+          40,
+          40
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Grizzly Lodge",
+      "pointOfInterest": false,
+      "publishedSummary": "grizzly lodge 3 storeys · lair on the upper floor · 14 clue spots mammon’s gulch even ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/grizzly-lodge/"
+      ],
+      "regionPolygon": [
+        [
+          0.0,
+          210.0
+        ],
+        [
+          304.7,
+          214.8
+        ],
+        [
+          231.4,
+          409.2
+        ],
+        [
+          0.0,
+          500.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          512.0,
+          1320.96
+        ],
+        [
+          824.0128,
+          1316.0448
+        ],
+        [
+          748.9536,
+          1116.9792
+        ],
+        [
+          512.0,
+          1024.0
+        ]
+      ],
+      "slug": "grizzly-lodge",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          1
+        ],
+        [
+          "Ducks",
+          0,
+          1
+        ],
+        [
+          "Dying cows",
+          2,
+          3
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 3,
+      "tacticalAssessment": [
+        2,
+        "Even",
+        42,
+        64,
+        [
+          [
+            "-",
+            "only 9 ways in, easy to hold"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        357.2,
+        365.6,
+        425.8,
+        423.4
+      ],
+      "buildingBoundsSource": [
+        877.7728,
+        1102.4384,
+        948.0192,
+        1161.6256
+      ],
+      "clueMarkersRaw": 18,
+      "clueSpots": 13,
+      "creatureGroups": [
+        [
+          "Grunt",
+          10,
+          58,
+          24.2
+        ],
+        [
+          "Armored",
+          0,
+          11,
+          1.9
+        ],
+        [
+          "Hive",
+          0,
+          6,
+          2.0
+        ],
+        [
+          "Hellhound",
+          0,
+          12,
+          1.1
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          6,
+          0.2
+        ],
+        [
+          "Immolator",
+          0,
+          6,
+          0.9
+        ],
+        [
+          "Meathead",
+          0,
+          2,
+          0.1
+        ],
+        [
+          "Water Devil",
+          0,
+          2,
+          0.9
+        ]
+      ],
+      "id": "com_e",
+      "labelAnchor": {
+        "map": [
+          376.4,
+          408.7
+        ],
+        "source": [
+          897.4336,
+          1117.4912
+        ],
+        "world": [
+          -379.6992,
+          54.638843,
+          -280.4736
+        ]
+      },
+      "lairFloor": "Upper ground floor",
+      "lairPosition": [
+        897.4,
+        1117.51,
+        55.26
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 52.75,
+          "floor": 51.55,
+          "floorAboveGround": -0.42,
+          "ground": 51.97,
+          "label": "Lower ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 56.46,
+          "floor": 55.26,
+          "floorAboveGround": 1.33,
+          "ground": 53.93,
+          "label": "Upper ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 60.58,
+          "floor": 59.38,
+          "floorAboveGround": 3.53,
+          "ground": 55.85,
+          "label": "Upper floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 68.29,
+          "floor": 67.09,
+          "floorAboveGround": 10.32,
+          "ground": 56.77,
+          "label": "Upper floor 2"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          6,
+          6
+        ],
+        [
+          "Oil barrels",
+          4,
+          4
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "O'Donovan Stone",
+      "pointOfInterest": false,
+      "publishedSummary": "o'donovan stone 4 storeys · lair on the upper ground floor · 13 clue spots mammon’s gulch favours the attackers ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/odonovan-stone/"
+      ],
+      "regionPolygon": [
+        [
+          231.4,
+          409.2
+        ],
+        [
+          263.7,
+          506.8
+        ],
+        [
+          476.6,
+          460.0
+        ],
+        [
+          500.0,
+          375.0
+        ],
+        [
+          395.5,
+          188.5
+        ],
+        [
+          338.9,
+          146.5
+        ],
+        [
+          304.7,
+          214.8
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          748.9536,
+          1116.9792
+        ],
+        [
+          782.0288,
+          1017.0368
+        ],
+        [
+          1000.0384,
+          1064.96
+        ],
+        [
+          1024.0,
+          1152.0
+        ],
+        [
+          916.992,
+          1342.976
+        ],
+        [
+          859.0336,
+          1385.984
+        ],
+        [
+          824.0128,
+          1316.0448
+        ]
+      ],
+      "slug": "odonovan-stone",
+      "soundTraps": [
+        [
+          "Bats",
+          1,
+          3
+        ],
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          2
+        ],
+        [
+          "Dying cows",
+          1,
+          1
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          3,
+          3
+        ]
+      ],
+      "storeys": 4,
+      "tacticalAssessment": [
+        0,
+        "Favours the attackers",
+        5,
+        64,
+        [
+          [
+            "+",
+            "4 hunting towers see into its doorways"
+          ],
+          [
+            "+",
+            "cover on the way in: 67% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "-",
+            "about 10 groups of alarm animals round it"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        583.4,
+        432.6,
+        626.4,
+        497.2
+      ],
+      "buildingBoundsSource": [
+        1109.4016,
+        1026.8672,
+        1153.4336,
+        1093.0176
+      ],
+      "clueMarkersRaw": 13,
+      "clueSpots": 11,
+      "creatureGroups": [
+        [
+          "Grunt",
+          10,
+          74,
+          29.6
+        ],
+        [
+          "Armored",
+          0,
+          12,
+          3.4
+        ],
+        [
+          "Hive",
+          0,
+          9,
+          2.0
+        ],
+        [
+          "Hellhound",
+          0,
+          8,
+          1.2
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          4,
+          0.2
+        ],
+        [
+          "Immolator",
+          0,
+          7,
+          1.0
+        ],
+        [
+          "Meathead",
+          0,
+          2,
+          0.8
+        ],
+        [
+          "Water Devil",
+          0,
+          2,
+          1.0
+        ]
+      ],
+      "id": "com_f",
+      "labelAnchor": {
+        "map": [
+          592.0,
+          465.2
+        ],
+        "source": [
+          1118.208,
+          1059.6352
+        ],
+        "world": [
+          282.624,
+          29.507819,
+          -106.9056
+        ]
+      },
+      "lairFloor": "Upper floor",
+      "lairPosition": [
+        1118.19,
+        1059.66,
+        46.12
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 43.7,
+          "floor": 42.5,
+          "floorAboveGround": -0.13,
+          "ground": 42.63,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 47.25,
+          "floor": 46.05,
+          "floorAboveGround": 3.42,
+          "ground": 42.63,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          6,
+          6
+        ],
+        [
+          "Oil barrels",
+          4,
+          4
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Split River Mill",
+      "pointOfInterest": false,
+      "publishedSummary": "split river mill 2 storeys · lair on the upper floor · 11 clue spots mammon’s gulch favours the attackers ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/split-river-mill/"
+      ],
+      "regionPolygon": [
+        [
+          500.0,
+          375.0
+        ],
+        [
+          476.6,
+          460.0
+        ],
+        [
+          533.2,
+          583.0
+        ],
+        [
+          728.5,
+          562.5
+        ],
+        [
+          732.4,
+          457.0
+        ],
+        [
+          604.5,
+          358.4
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          1024.0,
+          1152.0
+        ],
+        [
+          1000.0384,
+          1064.96
+        ],
+        [
+          1057.9968,
+          939.008
+        ],
+        [
+          1257.984,
+          960.0
+        ],
+        [
+          1261.9776,
+          1068.032
+        ],
+        [
+          1131.008,
+          1168.9984
+        ]
+      ],
+      "slug": "split-river-mill",
+      "soundTraps": [
+        [
+          "Bats",
+          0,
+          2
+        ],
+        [
+          "Caged dogs & chickens",
+          0,
+          1
+        ],
+        [
+          "Ducks",
+          0,
+          1
+        ],
+        [
+          "Dying cows",
+          1,
+          2
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          2,
+          4
+        ]
+      ],
+      "storeys": 2,
+      "tacticalAssessment": [
+        0,
+        "Favours the attackers",
+        4,
+        64,
+        [
+          [
+            "+",
+            "high ground 51 m out sees 8 of its doorways"
+          ],
+          [
+            "+",
+            "cover on the way in: 73% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "+",
+            "few noise traps"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        681.3,
+        328.0,
+        771.0,
+        402.9
+      ],
+      "buildingBoundsSource": [
+        1209.6512,
+        1123.4304,
+        1301.504,
+        1200.128
+      ],
+      "clueMarkersRaw": 19,
+      "clueSpots": 6,
+      "creatureGroups": [
+        [
+          "Grunt",
+          16,
+          70,
+          32.9
+        ],
+        [
+          "Armored",
+          0,
+          9,
+          2.0
+        ],
+        [
+          "Hive",
+          0,
+          10,
+          2.8
+        ],
+        [
+          "Hellhound",
+          0,
+          16,
+          1.8
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          7,
+          0.3
+        ],
+        [
+          "Immolator",
+          0,
+          7,
+          1.3
+        ],
+        [
+          "Water Devil",
+          0,
+          1,
+          0.5
+        ]
+      ],
+      "id": "com_g",
+      "labelAnchor": {
+        "map": [
+          766.0,
+          345.1
+        ],
+        "source": [
+          1296.384,
+          1182.6176
+        ],
+        "world": [
+          817.152,
+          17.566986,
+          -475.8528
+        ]
+      },
+      "lairFloor": "Ground floor",
+      "lairPosition": [
+        1296.37,
+        1182.65,
+        42.52
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 41.58,
+          "floor": 40.38,
+          "floorAboveGround": 1.31,
+          "ground": 39.07,
+          "label": "Ground floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          5,
+          5
+        ],
+        [
+          "Oil barrels",
+          3,
+          3
+        ],
+        [
+          "Dry twigs, outside",
+          40,
+          40
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "East Mountain Corn",
+      "pointOfInterest": false,
+      "publishedSummary": "east mountain corn 1 storey · lair on the ground floor · 6 clue spots mammon’s gulch favours the defenders ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/east-mountain-corn/"
+      ],
+      "regionPolygon": [
+        [
+          648.4,
+          210.9
+        ],
+        [
+          1000.0,
+          218.8
+        ],
+        [
+          1000.0,
+          437.5
+        ],
+        [
+          732.4,
+          457.0
+        ],
+        [
+          604.5,
+          358.4
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          1175.9616,
+          1320.0384
+        ],
+        [
+          1536.0,
+          1311.9488
+        ],
+        [
+          1536.0,
+          1088.0
+        ],
+        [
+          1261.9776,
+          1068.032
+        ],
+        [
+          1131.008,
+          1168.9984
+        ]
+      ],
+      "slug": "east-mountain-corn",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          2
+        ],
+        [
+          "Dying cows",
+          1,
+          3
+        ],
+        [
+          "Dying horses",
+          1,
+          3
+        ],
+        [
+          "Ravens",
+          3,
+          4
+        ]
+      ],
+      "storeys": 1,
+      "tacticalAssessment": [
+        4,
+        "Favours the defenders",
+        56,
+        64,
+        [
+          [
+            "-",
+            "only 8 ways in, easy to hold"
+          ],
+          [
+            "-",
+            "no high ground overlooks its doorways"
+          ],
+          [
+            "-",
+            "about 10 groups of alarm animals round it"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        77.0,
+        562.7,
+        154.1,
+        660.6
+      ],
+      "buildingBoundsSource": [
+        590.848,
+        859.5456,
+        669.7984,
+        959.7952
+      ],
+      "clueMarkersRaw": 17,
+      "clueSpots": 12,
+      "creatureGroups": [
+        [
+          "Grunt",
+          8,
+          88,
+          33.1
+        ],
+        [
+          "Armored",
+          0,
+          17,
+          3.2
+        ],
+        [
+          "Hive",
+          0,
+          11,
+          2.9
+        ],
+        [
+          "Hellhound",
+          0,
+          10,
+          0.6
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          5,
+          0.1
+        ],
+        [
+          "Immolator",
+          0,
+          9,
+          1.2
+        ],
+        [
+          "Meathead",
+          0,
+          2,
+          0.4
+        ],
+        [
+          "Water Devil",
+          0,
+          1,
+          0.5
+        ]
+      ],
+      "id": "com_h",
+      "labelAnchor": {
+        "map": [
+          108.6,
+          644.3
+        ],
+        "source": [
+          623.2064,
+          876.2368
+        ],
+        "world": [
+          -1202.3808,
+          77.221901,
+          443.2896
+        ]
+      },
+      "lairFloor": "Ground floor",
+      "lairPosition": [
+        623.2,
+        876.26,
+        58.81
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 58.37,
+          "floor": 57.17,
+          "floorAboveGround": -0.58,
+          "ground": 57.75,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 63.44,
+          "floor": 62.24,
+          "floorAboveGround": 3.56,
+          "ground": 58.68,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          6,
+          6
+        ],
+        [
+          "Oil barrels",
+          3,
+          3
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Deadfall Timber",
+      "pointOfInterest": false,
+      "publishedSummary": "deadfall timber 2 storeys · lair on the ground floor · 12 clue spots mammon’s gulch leans to the defenders ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/deadfall-timber/"
+      ],
+      "regionPolygon": [
+        [
+          0.0,
+          752.0
+        ],
+        [
+          296.9,
+          686.5
+        ],
+        [
+          263.7,
+          506.8
+        ],
+        [
+          231.4,
+          409.2
+        ],
+        [
+          0.0,
+          500.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          512.0,
+          765.952
+        ],
+        [
+          816.0256,
+          833.024
+        ],
+        [
+          782.0288,
+          1017.0368
+        ],
+        [
+          748.9536,
+          1116.9792
+        ],
+        [
+          512.0,
+          1024.0
+        ]
+      ],
+      "slug": "deadfall-timber",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Dying cows",
+          1,
+          2
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 2,
+      "tacticalAssessment": [
+        3,
+        "Leans to the defenders",
+        49,
+        64,
+        [
+          [
+            "+",
+            "cover on the way in: 65% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "-",
+            "no high ground overlooks its doorways"
+          ],
+          [
+            "-",
+            "only 10 ways in, easy to hold"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        396.3,
+        534.2,
+        484.9,
+        612.2
+      ],
+      "buildingBoundsSource": [
+        917.8112,
+        909.1072,
+        1008.5376,
+        988.9792
+      ],
+      "clueMarkersRaw": 12,
+      "clueSpots": 10,
+      "creatureGroups": [
+        [
+          "Grunt",
+          12,
+          78,
+          31.9
+        ],
+        [
+          "Armored",
+          0,
+          14,
+          2.3
+        ],
+        [
+          "Hive",
+          0,
+          8,
+          2.0
+        ],
+        [
+          "Hellhound",
+          0,
+          8,
+          0.5
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          3,
+          0.1
+        ],
+        [
+          "Immolator",
+          0,
+          8,
+          1.2
+        ],
+        [
+          "Meathead",
+          0,
+          2,
+          0.2
+        ],
+        [
+          "Water Devil",
+          0,
+          2,
+          1.1
+        ]
+      ],
+      "id": "com_i",
+      "labelAnchor": {
+        "map": [
+          446.5,
+          588.8
+        ],
+        "source": [
+          969.216,
+          933.0688
+        ],
+        "world": [
+          -164.352,
+          74.246159,
+          272.7936
+        ]
+      },
+      "lairFloor": "Upper floor",
+      "lairPosition": [
+        969.26,
+        933.06,
+        58.39
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 53.57,
+          "floor": 52.37,
+          "floorAboveGround": 0.61,
+          "ground": 51.76,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 58.59,
+          "floor": 57.39,
+          "floorAboveGround": 4.41,
+          "ground": 52.98,
+          "label": "Upper floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 60.5,
+          "floor": 59.3,
+          "floorAboveGround": 6.09,
+          "ground": 53.21,
+          "label": "Upper floor 2"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 67.02,
+          "floor": 65.82,
+          "floorAboveGround": 8.03,
+          "ground": 57.79,
+          "label": "Upper floor 3"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          6,
+          6
+        ],
+        [
+          "Oil barrels",
+          5,
+          5
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "La Plata Mine",
+      "pointOfInterest": false,
+      "publishedSummary": "la plata mine 4 storeys · lair on the upper floor · 10 clue spots mammon’s gulch leans to the defenders ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/la-plata-mine/"
+      ],
+      "regionPolygon": [
+        [
+          348.6,
+          710.9
+        ],
+        [
+          296.9,
+          686.5
+        ],
+        [
+          263.7,
+          506.8
+        ],
+        [
+          476.6,
+          460.0
+        ],
+        [
+          533.2,
+          583.0
+        ],
+        [
+          470.7,
+          711.9
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          868.9664,
+          808.0384
+        ],
+        [
+          816.0256,
+          833.024
+        ],
+        [
+          782.0288,
+          1017.0368
+        ],
+        [
+          1000.0384,
+          1064.96
+        ],
+        [
+          1057.9968,
+          939.008
+        ],
+        [
+          993.9968,
+          807.0144
+        ]
+      ],
+      "slug": "la-plata-mine",
+      "soundTraps": [
+        [
+          "Bats",
+          1,
+          3
+        ],
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          2,
+          2
+        ],
+        [
+          "Dying cows",
+          0,
+          1
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 4,
+      "tacticalAssessment": [
+        3,
+        "Leans to the defenders",
+        55,
+        64,
+        [
+          [
+            "+",
+            "cover on the way in: 80% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "-",
+            "about 11 groups of alarm animals round it"
+          ],
+          [
+            "-",
+            "only 6 ways in, easy to hold"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        546.6,
+        599.6,
+        640.7,
+        673.2
+      ],
+      "buildingBoundsSource": [
+        1071.7184,
+        846.6432,
+        1168.0768,
+        922.0096
+      ],
+      "clueMarkersRaw": 22,
+      "clueSpots": 18,
+      "creatureGroups": [
+        [
+          "Grunt",
+          10,
+          70,
+          28.3
+        ],
+        [
+          "Armored",
+          0,
+          14,
+          3.5
+        ],
+        [
+          "Hive",
+          1,
+          8,
+          2.4
+        ],
+        [
+          "Hellhound",
+          0,
+          10,
+          1.3
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          4,
+          0.2
+        ],
+        [
+          "Immolator",
+          0,
+          5,
+          1.1
+        ],
+        [
+          "Meathead",
+          0,
+          2,
+          0.6
+        ]
+      ],
+      "id": "com_j",
+      "labelAnchor": {
+        "map": [
+          564.5,
+          644.3
+        ],
+        "source": [
+          1090.048,
+          876.2368
+        ],
+        "world": [
+          198.144,
+          98.956736,
+          443.2896
+        ]
+      },
+      "lairFloor": "Lower tunnels",
+      "lairPosition": [
+        1090.02,
+        876.29,
+        64.81
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 53.67,
+          "floor": 52.47,
+          "floorAboveGround": -0.1,
+          "ground": 52.57,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 62.21,
+          "floor": 61.01,
+          "floorAboveGround": -18.61,
+          "ground": 79.62,
+          "label": "Lower tunnels"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 67.99,
+          "floor": 66.79,
+          "floorAboveGround": -26.21,
+          "ground": 93.0,
+          "label": "Tunnels"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 70.0,
+          "floor": 68.8,
+          "floorAboveGround": -26.06,
+          "ground": 94.86,
+          "label": "Upper tunnels"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          4,
+          4
+        ],
+        [
+          "Oil barrels",
+          5,
+          5
+        ],
+        [
+          "Dry twigs, outside",
+          40,
+          40
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Oro Gordo Mine",
+      "pointOfInterest": false,
+      "publishedSummary": "oro gordo mine 4 storeys · lair in the lower tunnels · 18 clue spots mammon’s gulch leans to the defenders ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/oro-gordo-mine/"
+      ],
+      "regionPolygon": [
+        [
+          470.7,
+          711.9
+        ],
+        [
+          533.2,
+          583.0
+        ],
+        [
+          728.5,
+          562.5
+        ],
+        [
+          759.8,
+          666.5
+        ],
+        [
+          734.4,
+          750.0
+        ],
+        [
+          531.2,
+          795.9
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          993.9968,
+          807.0144
+        ],
+        [
+          1057.9968,
+          939.008
+        ],
+        [
+          1257.984,
+          960.0
+        ],
+        [
+          1290.0352,
+          853.504
+        ],
+        [
+          1264.0256,
+          768.0
+        ],
+        [
+          1055.9488,
+          720.9984
+        ]
+      ],
+      "slug": "oro-gordo-mine",
+      "soundTraps": [
+        [
+          "Bats",
+          2,
+          4
+        ],
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 4,
+      "tacticalAssessment": [
+        3,
+        "Leans to the defenders",
+        47,
+        64,
+        [
+          [
+            "+",
+            "cover on the way in: 83% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "-",
+            "55 noise traps"
+          ],
+          [
+            "-",
+            "only 10 ways in, easy to hold"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        876.6,
+        468.1,
+        984.4,
+        581.6
+      ],
+      "buildingBoundsSource": [
+        1409.6384,
+        940.4416,
+        1520.0256,
+        1056.6656
+      ],
+      "clueMarkersRaw": 20,
+      "clueSpots": 19,
+      "creatureGroups": [
+        [
+          "Grunt",
+          22,
+          72,
+          35.6
+        ],
+        [
+          "Armored",
+          0,
+          8,
+          1.5
+        ],
+        [
+          "Hive",
+          1,
+          10,
+          3.0
+        ],
+        [
+          "Hellhound",
+          0,
+          6,
+          1.1
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          3,
+          0.2
+        ],
+        [
+          "Immolator",
+          0,
+          9,
+          1.8
+        ],
+        [
+          "Meathead",
+          0,
+          1,
+          0.5
+        ]
+      ],
+      "id": "com_k",
+      "labelAnchor": {
+        "map": [
+          922.9,
+          575.2
+        ],
+        "source": [
+          1457.0496,
+          946.9952
+        ],
+        "world": [
+          1299.1488,
+          15.458901,
+          231.0144
+        ]
+      },
+      "lairFloor": "Upper floor",
+      "lairPosition": [
+        1457.09,
+        947.05,
+        45.15
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 39.31,
+          "floor": 38.11,
+          "floorAboveGround": -0.77,
+          "ground": 38.88,
+          "label": "Lower ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 41.1,
+          "floor": 39.9,
+          "floorAboveGround": 1.34,
+          "ground": 38.56,
+          "label": "Upper ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 45.31,
+          "floor": 44.11,
+          "floorAboveGround": 5.55,
+          "ground": 38.56,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          5,
+          5
+        ],
+        [
+          "Oil barrels",
+          6,
+          6
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Machine Gorge",
+      "pointOfInterest": false,
+      "publishedSummary": "machine gorge 3 storeys · lair on the upper floor · 19 clue spots mammon’s gulch even ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/machine-gorge/"
+      ],
+      "regionPolygon": [
+        [
+          759.8,
+          666.5
+        ],
+        [
+          728.5,
+          562.5
+        ],
+        [
+          732.4,
+          457.0
+        ],
+        [
+          1000.0,
+          437.5
+        ],
+        [
+          1000.0,
+          686.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          1290.0352,
+          853.504
+        ],
+        [
+          1257.984,
+          960.0
+        ],
+        [
+          1261.9776,
+          1068.032
+        ],
+        [
+          1536.0,
+          1088.0
+        ],
+        [
+          1536.0,
+          833.536
+        ]
+      ],
+      "slug": "machine-gorge",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          2
+        ],
+        [
+          "Dying horses",
+          2,
+          3
+        ],
+        [
+          "Ravens",
+          3,
+          4
+        ]
+      ],
+      "storeys": 3,
+      "tacticalAssessment": [
+        2,
+        "Even",
+        32,
+        64,
+        [
+          [
+            "+",
+            "cover on the way in: 80% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "-",
+            "only 6 ways in, easy to hold"
+          ],
+          [
+            "-",
+            "the lair is 35 m inside, through a door and a stair"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        368.9,
+        780.5,
+        455.2,
+        892.3
+      ],
+      "buildingBoundsSource": [
+        889.7536,
+        622.2848,
+        978.1248,
+        736.768
+      ],
+      "clueMarkersRaw": 21,
+      "clueSpots": 20,
+      "creatureGroups": [
+        [
+          "Grunt",
+          14,
+          90,
+          35.4
+        ],
+        [
+          "Armored",
+          0,
+          14,
+          2.4
+        ],
+        [
+          "Hive",
+          0,
+          11,
+          3.2
+        ],
+        [
+          "Hellhound",
+          0,
+          18,
+          1.4
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          6,
+          0.2
+        ],
+        [
+          "Immolator",
+          0,
+          10,
+          1.3
+        ],
+        [
+          "Meathead",
+          0,
+          2,
+          0.2
+        ],
+        [
+          "Water Devil",
+          0,
+          2,
+          1.0
+        ]
+      ],
+      "id": "com_l",
+      "labelAnchor": {
+        "map": [
+          411.2,
+          859.2
+        ],
+        "source": [
+          933.0688,
+          656.1792
+        ],
+        "world": [
+          -272.7936,
+          56.599025,
+          1103.4624
+        ]
+      },
+      "lairFloor": "Ground floor",
+      "lairPosition": [
+        933.12,
+        656.17,
+        51.9
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 53.07,
+          "floor": 51.87,
+          "floorAboveGround": -0.18,
+          "ground": 52.05,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 58.1,
+          "floor": 56.9,
+          "floorAboveGround": 4.89,
+          "ground": 52.01,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          5,
+          5
+        ],
+        [
+          "Oil barrels",
+          4,
+          4
+        ],
+        [
+          "Dry twigs, outside",
+          40,
+          40
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Kingfisher Foundry",
+      "pointOfInterest": false,
+      "publishedSummary": "kingfisher foundry 2 storeys · lair on the ground floor · 20 clue spots mammon’s gulch leans to the attackers ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/kingfisher-foundry/"
+      ],
+      "regionPolygon": [
+        [
+          319.3,
+          1000.0
+        ],
+        [
+          348.6,
+          710.9
+        ],
+        [
+          470.7,
+          711.9
+        ],
+        [
+          531.2,
+          795.9
+        ],
+        [
+          531.2,
+          1000.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          838.9632,
+          512.0
+        ],
+        [
+          868.9664,
+          808.0384
+        ],
+        [
+          993.9968,
+          807.0144
+        ],
+        [
+          1055.9488,
+          720.9984
+        ],
+        [
+          1055.9488,
+          512.0
+        ]
+      ],
+      "slug": "kingfisher-foundry",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          2
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 2,
+      "tacticalAssessment": [
+        1,
+        "Leans to the attackers",
+        23,
+        64,
+        [
+          [
+            "-",
+            "55 noise traps"
+          ],
+          [
+            "-",
+            "no hunting tower sees into it"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        630.6,
+        808.3,
+        718.1,
+        960.4
+      ],
+      "buildingBoundsSource": [
+        1157.7344,
+        552.5504,
+        1247.3344,
+        708.3008
+      ],
+      "clueMarkersRaw": 12,
+      "clueSpots": 9,
+      "creatureGroups": [
+        [
+          "Grunt",
+          14,
+          44,
+          22.6
+        ],
+        [
+          "Armored",
+          0,
+          4,
+          0.6
+        ],
+        [
+          "Hive",
+          1,
+          6,
+          1.8
+        ],
+        [
+          "Hellhound",
+          0,
+          4,
+          0.2
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          2,
+          0.0
+        ],
+        [
+          "Immolator",
+          0,
+          4,
+          0.7
+        ],
+        [
+          "Meathead",
+          0,
+          4,
+          0.5
+        ]
+      ],
+      "id": "com_m",
+      "labelAnchor": {
+        "map": [
+          680.0,
+          873.5
+        ],
+        "source": [
+          1208.32,
+          641.536
+        ],
+        "world": [
+          552.96,
+          69.0784,
+          1147.392
+        ]
+      },
+      "lairFloor": "Ground floor",
+      "lairPosition": [
+        1208.29,
+        641.5,
+        45.73
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 46.52,
+          "floor": 45.32,
+          "floorAboveGround": 0.3,
+          "ground": 45.02,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 56.94,
+          "floor": 55.74,
+          "floorAboveGround": 2.6,
+          "ground": 53.14,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          15,
+          25
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          5,
+          5
+        ],
+        [
+          "Oil barrels",
+          5,
+          5
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          1,
+          1
+        ]
+      ],
+      "name": "Graystone Pit",
+      "pointOfInterest": false,
+      "publishedSummary": "graystone pit 2 storeys · lair on the ground floor · 9 clue spots mammon’s gulch leans to the defenders ",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/graystone-pit/"
+      ],
+      "regionPolygon": [
+        [
+          531.2,
+          1000.0
+        ],
+        [
+          531.2,
+          795.9
+        ],
+        [
+          734.4,
+          750.0
+        ],
+        [
+          812.5,
+          1000.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          1055.9488,
+          512.0
+        ],
+        [
+          1055.9488,
+          720.9984
+        ],
+        [
+          1264.0256,
+          768.0
+        ],
+        [
+          1344.0,
+          512.0
+        ]
+      ],
+      "slug": "graystone-pit",
+      "soundTraps": [
+        [
+          "Bats",
+          1,
+          2
+        ],
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          1
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 2,
+      "tacticalAssessment": [
+        3,
+        "Leans to the defenders",
+        45,
+        64,
+        [
+          [
+            "+",
+            "cover on the way in: 98% of the ground 60–200 m out is out of sight of its doors and windows"
+          ],
+          [
+            "-",
+            "no high ground overlooks its doorways"
+          ],
+          [
+            "-",
+            "only 1 way in, easy to hold"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        461.1,
+        27.3,
+        515.4,
+        106.7
+      ],
+      "buildingBoundsSource": [
+        984.1664,
+        1426.7392,
+        1039.7696,
+        1508.0448
+      ],
+      "clueMarkersRaw": 26,
+      "clueSpots": 17,
+      "creatureGroups": [
+        [
+          "Grunt",
+          14,
+          66,
+          31.9
+        ],
+        [
+          "Armored",
+          0,
+          10,
+          3.4
+        ],
+        [
+          "Hive",
+          0,
+          9,
+          2.8
+        ],
+        [
+          "Hellhound",
+          0,
+          8,
+          1.8
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          2,
+          0.2
+        ],
+        [
+          "Immolator",
+          0,
+          5,
+          0.9
+        ],
+        [
+          "Meathead",
+          0,
+          1,
+          0.1
+        ],
+        [
+          "Water Devil",
+          0,
+          1,
+          0.5
+        ]
+      ],
+      "id": "poi_a",
+      "labelAnchor": {
+        "map": [
+          490.4,
+          39.0
+        ],
+        "source": [
+          1014.1696,
+          1496.064
+        ],
+        "world": [
+          -29.4912,
+          14.156629,
+          -1416.192
+        ]
+      },
+      "lairFloor": "Ground floor",
+      "lairPosition": [
+        1014.21,
+        1496.06,
+        41.46
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 41.22,
+          "floor": 40.02,
+          "floorAboveGround": -1.36,
+          "ground": 41.38,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 47.15,
+          "floor": 45.95,
+          "floorAboveGround": 4.48,
+          "ground": 41.47,
+          "label": "Upper floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 49.61,
+          "floor": 48.41,
+          "floorAboveGround": 7.03,
+          "ground": 41.38,
+          "label": "Upper floor 2"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          20,
+          30
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          6,
+          6
+        ],
+        [
+          "Oil barrels",
+          7,
+          7
+        ],
+        [
+          "Dry twigs, outside",
+          40,
+          40
+        ],
+        [
+          "Clue guards",
+          2,
+          2
+        ]
+      ],
+      "name": "The Gasworks",
+      "pointOfInterest": true,
+      "publishedSummary": "the gasworks 3 storeys · lair on the ground floor · 17 clue spots mammon’s gulch even point of interest",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/the-gasworks/"
+      ],
+      "regionPolygon": [
+        [
+          395.5,
+          188.5
+        ],
+        [
+          338.9,
+          146.5
+        ],
+        [
+          298.8,
+          0.0
+        ],
+        [
+          625.0,
+          0.0
+        ],
+        [
+          617.2,
+          179.7
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          916.992,
+          1342.976
+        ],
+        [
+          859.0336,
+          1385.984
+        ],
+        [
+          817.9712,
+          1536.0
+        ],
+        [
+          1152.0,
+          1536.0
+        ],
+        [
+          1144.0128,
+          1351.9872
+        ]
+      ],
+      "slug": "the-gasworks",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          2
+        ],
+        [
+          "Dying cows",
+          0,
+          1
+        ],
+        [
+          "Dying horses",
+          3,
+          3
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 3,
+      "tacticalAssessment": [
+        2,
+        "Even",
+        31,
+        64,
+        [
+          [
+            "-",
+            "68 noise traps"
+          ],
+          [
+            "+",
+            "high ground 342 m out sees 6 of its doorways"
+          ],
+          [
+            "-",
+            "about 10 groups of alarm animals round it"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        42.3,
+        804.3,
+        221.4,
+        985.2
+      ],
+      "buildingBoundsSource": [
+        555.3152,
+        527.1552,
+        738.7136,
+        712.3968
+      ],
+      "clueMarkersRaw": 18,
+      "clueSpots": 15,
+      "creatureGroups": [
+        [
+          "Grunt",
+          12,
+          62,
+          30.3
+        ],
+        [
+          "Armored",
+          0,
+          8,
+          1.6
+        ],
+        [
+          "Hive",
+          0,
+          6,
+          1.6
+        ],
+        [
+          "Hellhound",
+          0,
+          8,
+          0.4
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          2,
+          0.1
+        ],
+        [
+          "Immolator",
+          0,
+          2,
+          0.1
+        ],
+        [
+          "Meathead",
+          0,
+          2,
+          0.2
+        ],
+        [
+          "Water Devil",
+          0,
+          2,
+          0.9
+        ]
+      ],
+      "id": "poi_b",
+      "labelAnchor": {
+        "map": [
+          137.3,
+          891.3
+        ],
+        "source": [
+          652.5952,
+          623.3088
+        ],
+        "world": [
+          -1114.2144,
+          61.787741,
+          1202.0736
+        ]
+      },
+      "lairFloor": "Upper floor",
+      "lairPosition": [
+        652.6,
+        623.32,
+        57.61
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 52.65,
+          "floor": 51.45,
+          "floorAboveGround": -0.7,
+          "ground": 52.15,
+          "label": "Ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 58.15,
+          "floor": 56.95,
+          "floorAboveGround": 3.37,
+          "ground": 53.58,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          20,
+          30
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          5,
+          5
+        ],
+        [
+          "Oil barrels",
+          6,
+          6
+        ],
+        [
+          "Dry twigs, outside",
+          40,
+          40
+        ],
+        [
+          "Clue guards",
+          2,
+          2
+        ]
+      ],
+      "name": "Preston Oil",
+      "pointOfInterest": true,
+      "publishedSummary": "preston oil 2 storeys · lair on the upper floor · 15 clue spots mammon’s gulch favours the defenders point of interest",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/preston-oil/"
+      ],
+      "regionPolygon": [
+        [
+          0.0,
+          1000.0
+        ],
+        [
+          0.0,
+          752.0
+        ],
+        [
+          296.9,
+          686.5
+        ],
+        [
+          348.6,
+          710.9
+        ],
+        [
+          319.3,
+          1000.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          512.0,
+          512.0
+        ],
+        [
+          512.0,
+          765.952
+        ],
+        [
+          816.0256,
+          833.024
+        ],
+        [
+          868.9664,
+          808.0384
+        ],
+        [
+          838.9632,
+          512.0
+        ]
+      ],
+      "slug": "preston-oil",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          2
+        ],
+        [
+          "Dying cows",
+          0,
+          1
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 2,
+      "tacticalAssessment": [
+        4,
+        "Favours the defenders",
+        57,
+        64,
+        [
+          [
+            "-",
+            "no hunting tower sees into it"
+          ],
+          [
+            "-",
+            "48 noise traps"
+          ],
+          [
+            "-",
+            "only 13 ways in, easy to hold"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    },
+    {
+      "bossCandidates": [
+        "Assassin",
+        "Bloodskin",
+        "Butcher",
+        "Scrapbeak",
+        "Spider"
+      ],
+      "buildingBoundsNormalized": [
+        797.8,
+        692.9,
+        938.1,
+        875.9
+      ],
+      "buildingBoundsSource": [
+        1328.9472,
+        639.0784,
+        1472.6144,
+        826.4704
+      ],
+      "clueMarkersRaw": 20,
+      "clueSpots": 19,
+      "creatureGroups": [
+        [
+          "Grunt",
+          16,
+          58,
+          29.4
+        ],
+        [
+          "Armored",
+          0,
+          7,
+          1.8
+        ],
+        [
+          "Hive",
+          0,
+          4,
+          1.4
+        ],
+        [
+          "Hellhound",
+          0,
+          2,
+          0.2
+        ],
+        [
+          "Muzzled Hellhound",
+          0,
+          1,
+          0.1
+        ],
+        [
+          "Immolator",
+          0,
+          4,
+          1.4
+        ],
+        [
+          "Meathead",
+          0,
+          4,
+          1.1
+        ],
+        [
+          "Water Devil",
+          0,
+          1,
+          0.5
+        ]
+      ],
+      "id": "poi_c",
+      "labelAnchor": {
+        "map": [
+          890.2,
+          788.4
+        ],
+        "source": [
+          1423.5648,
+          728.6784
+        ],
+        "world": [
+          1198.6944,
+          52.45284,
+          885.9648
+        ]
+      },
+      "lairFloor": "Upper floor",
+      "lairPosition": [
+        1423.59,
+        728.72,
+        53.55
+      ],
+      "levels": [
+        {
+          "confidence": "CONFIRMED",
+          "cut": 47.35,
+          "floor": 46.15,
+          "floorAboveGround": -0.82,
+          "ground": 46.97,
+          "label": "Lower ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 49.34,
+          "floor": 48.14,
+          "floorAboveGround": 0.21,
+          "ground": 47.93,
+          "label": "Upper ground floor"
+        },
+        {
+          "confidence": "CONFIRMED",
+          "cut": 54.51,
+          "floor": 53.31,
+          "floorAboveGround": 2.97,
+          "ground": 50.34,
+          "label": "Upper floor"
+        }
+      ],
+      "lootRanges": [
+        [
+          "Ammo boxes",
+          5,
+          7
+        ],
+        [
+          "Ammo boxes in the lair",
+          2,
+          3
+        ],
+        [
+          "Tool boxes",
+          0,
+          2
+        ],
+        [
+          "Mixed supply pickups",
+          20,
+          30
+        ],
+        [
+          "Tool pickups",
+          5,
+          15
+        ],
+        [
+          "Lanterns",
+          8,
+          8
+        ],
+        [
+          "Money pickups (Hunt Dollars or Blood Bonds)",
+          3,
+          6
+        ],
+        [
+          "Cash register",
+          0,
+          1
+        ],
+        [
+          "XP posters",
+          0,
+          2
+        ],
+        [
+          "Trait charms",
+          0,
+          1
+        ],
+        [
+          "Loose guns",
+          0,
+          1
+        ],
+        [
+          "Two-handed weapons",
+          0,
+          2
+        ],
+        [
+          "Weapon workbench",
+          0,
+          1
+        ],
+        [
+          "Upgrade workbench",
+          0,
+          1
+        ],
+        [
+          "Bear traps",
+          3,
+          5
+        ],
+        [
+          "Explosive barrels",
+          5,
+          5
+        ],
+        [
+          "Oil barrels",
+          4,
+          4
+        ],
+        [
+          "Dry twigs, outside",
+          30,
+          30
+        ],
+        [
+          "Clue guards",
+          2,
+          2
+        ]
+      ],
+      "name": "Miner's Folly",
+      "pointOfInterest": true,
+      "publishedSummary": "miner's folly 3 storeys · lair on the upper floor · 19 clue spots mammon’s gulch even point of interest",
+      "referenceLinks": [
+        "https://hunt.innerpulse.net/maps/#mammons-gulch",
+        "https://hunt.innerpulse.net/maps/3d/mammons-gulch/miners-folly/"
+      ],
+      "regionPolygon": [
+        [
+          759.8,
+          666.5
+        ],
+        [
+          1000.0,
+          686.0
+        ],
+        [
+          1000.0,
+          1000.0
+        ],
+        [
+          812.5,
+          1000.0
+        ],
+        [
+          734.4,
+          750.0
+        ]
+      ],
+      "regionPolygonSource": [
+        [
+          1290.0352,
+          853.504
+        ],
+        [
+          1536.0,
+          833.536
+        ],
+        [
+          1536.0,
+          512.0
+        ],
+        [
+          1344.0,
+          512.0
+        ],
+        [
+          1264.0256,
+          768.0
+        ]
+      ],
+      "slug": "miners-folly",
+      "soundTraps": [
+        [
+          "Caged dogs & chickens",
+          0,
+          2
+        ],
+        [
+          "Ducks",
+          0,
+          2
+        ],
+        [
+          "Dying horses",
+          1,
+          2
+        ],
+        [
+          "Ravens",
+          4,
+          4
+        ]
+      ],
+      "storeys": 3,
+      "tacticalAssessment": [
+        2,
+        "Even",
+        35,
+        64,
+        [
+          [
+            "+",
+            "the lair is open to the ground outside"
+          ],
+          [
+            "-",
+            "only 10 ways in, easy to hold"
+          ],
+          [
+            "-",
+            "open ground round it: only 40% of the ground 60–200 m out is out of sight of its doors and windows"
+          ]
+        ]
+      ],
+      "verificationStatus": "REFERENCE_CONFIRMED__GEOMETRY_PENDING"
+    }
+  ],
+  "heightOffsetMetres": 32.79,
+  "id": "colorado",
+  "mapUnits": 1000,
+  "matchRules": {
+    "central": 1,
+    "ex": [
+      3,
+      400.0
+    ],
+    "rs": [
+      4,
+      350.0
+    ],
+    "themed": [
+      "military or medical",
+      "clockmaker or postal",
+      "a crashed balloon",
+      "a firefighter"
+    ]
+  },
+  "name": "Mammon’s Gulch",
+  "north": "source Y decreases; Roblox Z decreases",
+  "origin": [
+    512,
+    512
+  ],
+  "posts": {
+    "extraction": [
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_01",
+        "mapPosition": [
+          714.9,
+          991.0
+        ],
+        "position": [
+          1244.0576,
+          521.216,
+          40.634972
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          660.1728,
+          23.534917,
+          1508.352
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_02",
+        "mapPosition": [
+          889.5,
+          931.6
+        ],
+        "position": [
+          1422.848,
+          582.0416,
+          59.292712
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1196.544,
+          79.508135,
+          1325.8752
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_03",
+        "mapPosition": [
+          22.3,
+          405.7
+        ],
+        "position": [
+          534.8352,
+          1120.5632,
+          58.759034
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1467.4944,
+          77.907103,
+          -289.6896
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_04",
+        "mapPosition": [
+          11.8,
+          858.1
+        ],
+        "position": [
+          524.0832,
+          657.3056,
+          53.610196
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1499.7504,
+          62.460589,
+          1100.0832
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_05",
+        "mapPosition": [
+          245.7,
+          969.8
+        ],
+        "position": [
+          763.5968,
+          542.9248,
+          67.624212
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -781.2096,
+          104.502635,
+          1443.2256
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_06",
+        "mapPosition": [
+          11.1,
+          556.8
+        ],
+        "position": [
+          523.3664,
+          965.8368,
+          65.44251
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1501.9008,
+          97.95753,
+          174.4896
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_07",
+        "mapPosition": [
+          11.4,
+          215.4
+        ],
+        "position": [
+          523.6736,
+          1315.4304,
+          67.750363
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1500.9792,
+          104.881089,
+          -874.2912
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_08",
+        "mapPosition": [
+          347.0,
+          15.5
+        ],
+        "position": [
+          867.328,
+          1520.128,
+          42.06768
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -470.016,
+          27.833041,
+          -1488.384
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_09",
+        "mapPosition": [
+          628.9,
+          17.9
+        ],
+        "position": [
+          1155.9936,
+          1517.6704,
+          44.474587
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          395.9808,
+          35.053761,
+          -1481.0112
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_10",
+        "mapPosition": [
+          785.2,
+          15.4
+        ],
+        "position": [
+          1316.0448,
+          1520.2304,
+          48.282341
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          876.1344,
+          46.477024,
+          -1488.6912
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_11",
+        "mapPosition": [
+          975.0,
+          87.6
+        ],
+        "position": [
+          1510.4,
+          1446.2976,
+          49.248822
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1459.2,
+          49.376466,
+          -1266.8928
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_12",
+        "mapPosition": [
+          960.3,
+          304.2
+        ],
+        "position": [
+          1495.3472,
+          1224.4992,
+          34.510286
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1414.0416,
+          5.160857,
+          -601.4976
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_13",
+        "mapPosition": [
+          44.3,
+          983.5
+        ],
+        "position": [
+          557.3632,
+          528.896,
+          49.281892
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1399.9104,
+          49.475677,
+          1485.312
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_14",
+        "mapPosition": [
+          977.6,
+          801.6
+        ],
+        "position": [
+          1513.0624,
+          715.1616,
+          62.632924
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1467.1872,
+          89.528771,
+          926.5152
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_15",
+        "mapPosition": [
+          373.6,
+          982.1
+        ],
+        "position": [
+          894.5664,
+          530.3296,
+          47.853952
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -388.3008,
+          45.191856,
+          1481.0112
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_16",
+        "mapPosition": [
+          26.9,
+          27.1
+        ],
+        "position": [
+          539.5456,
+          1508.2496,
+          52.095769
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1453.3632,
+          57.917307,
+          -1452.7488
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_17",
+        "mapPosition": [
+          8.1,
+          711.6
+        ],
+        "position": [
+          520.2944,
+          807.3216,
+          67.915246
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1511.1168,
+          105.375739,
+          650.0352
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_18",
+        "mapPosition": [
+          986.0,
+          498.6
+        ],
+        "position": [
+          1521.664,
+          1025.4336,
+          38.226732
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1492.992,
+          16.310196,
+          -4.3008
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_19",
+        "mapPosition": [
+          974.9,
+          681.2
+        ],
+        "position": [
+          1510.2976,
+          838.4512,
+          49.143345
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1458.8928,
+          49.060035,
+          556.6464
+        ]
+      },
+      {
+        "category": "central",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_20",
+        "mapPosition": [
+          360.0,
+          619.3
+        ],
+        "position": [
+          880.64,
+          901.8368,
+          49.559059
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -430.08,
+          50.307176,
+          366.4896
+        ]
+      },
+      {
+        "category": "central",
+        "heightConfidence": "APPROXIMATED",
+        "id": "extraction_21",
+        "mapPosition": [
+          332.6,
+          540.4
+        ],
+        "position": [
+          852.5824,
+          982.6304,
+          45.81057
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -514.2528,
+          39.061711,
+          124.1088
+        ]
+      }
+    ],
+    "resupply": [
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_01",
+        "mapPosition": [
+          339.6,
+          310.8
+        ],
+        "position": [
+          859.7504,
+          1217.7408,
+          38.625794
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -492.7488,
+          17.507383,
+          -581.2224
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_02",
+        "mapPosition": [
+          219.7,
+          519.3
+        ],
+        "position": [
+          736.9728,
+          1004.2368,
+          50.508067
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -861.0816,
+          53.154202,
+          59.2896
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_03",
+        "mapPosition": [
+          388.6,
+          228.3
+        ],
+        "position": [
+          909.9264,
+          1302.2208,
+          40.521327
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -342.2208,
+          23.19398,
+          -834.6624
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_04",
+        "mapPosition": [
+          616.5,
+          195.5
+        ],
+        "position": [
+          1143.296,
+          1335.808,
+          39.840727
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          357.888,
+          21.15218,
+          -935.424
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_05",
+        "mapPosition": [
+          522.7,
+          342.0
+        ],
+        "position": [
+          1047.2448,
+          1185.792,
+          34.214542
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          69.7344,
+          4.273626,
+          -485.376
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_06",
+        "mapPosition": [
+          417.3,
+          185.7
+        ],
+        "position": [
+          939.3152,
+          1345.8432,
+          35.94335
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -254.0544,
+          9.46005,
+          -965.5296
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_07",
+        "mapPosition": [
+          453.7,
+          754.0
+        ],
+        "position": [
+          976.5888,
+          763.904,
+          51.973538
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -142.2336,
+          57.550614,
+          780.288
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_08",
+        "mapPosition": [
+          783.2,
+          595.5
+        ],
+        "position": [
+          1313.9968,
+          926.208,
+          46.190954
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          869.9904,
+          40.202862,
+          293.376
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_09",
+        "mapPosition": [
+          668.5,
+          575.3
+        ],
+        "position": [
+          1196.544,
+          946.8928,
+          58.35709
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          517.632,
+          76.701269,
+          231.3216
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_10",
+        "mapPosition": [
+          233.4,
+          735.6
+        ],
+        "position": [
+          751.0016,
+          782.7456,
+          52.257606
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -818.9952,
+          58.402819,
+          723.7632
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_11",
+        "mapPosition": [
+          185.0,
+          567.0
+        ],
+        "position": [
+          701.44,
+          955.392,
+          46.641004
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -967.68,
+          41.553011,
+          205.824
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_12",
+        "mapPosition": [
+          614.1,
+          823.4
+        ],
+        "position": [
+          1140.8384,
+          692.8384,
+          56.340658
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          350.5152,
+          70.651975,
+          993.4848
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_13",
+        "mapPosition": [
+          211.3,
+          423.3
+        ],
+        "position": [
+          728.3712,
+          1102.5408,
+          45.260875
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -886.8864,
+          37.412624,
+          -235.6224
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_14",
+        "mapPosition": [
+          522.9,
+          800.8
+        ],
+        "position": [
+          1047.4496,
+          715.9808,
+          52.618595
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          70.3488,
+          59.485785,
+          924.0576
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_15",
+        "mapPosition": [
+          309.1,
+          344.1
+        ],
+        "position": [
+          828.5184,
+          1183.6416,
+          42.672725
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -586.4448,
+          29.648175,
+          -478.9248
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_16",
+        "mapPosition": [
+          614.3,
+          709.9
+        ],
+        "position": [
+          1141.0432,
+          809.0624,
+          48.987117
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          351.1296,
+          48.591351,
+          644.8128
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_17",
+        "mapPosition": [
+          779.4,
+          478.6
+        ],
+        "position": [
+          1310.1056,
+          1045.9136,
+          46.630153
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          858.3168,
+          41.520459,
+          -65.7408
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_18",
+        "mapPosition": [
+          675.5,
+          655.2
+        ],
+        "position": [
+          1203.712,
+          865.0752,
+          47.629515
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          539.136,
+          44.518544,
+          476.7744
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_19",
+        "mapPosition": [
+          258.8,
+          485.2
+        ],
+        "position": [
+          777.0112,
+          1039.1552,
+          37.424124
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -740.9664,
+          13.902372,
+          -45.4656
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_20",
+        "mapPosition": [
+          694.3,
+          484.5
+        ],
+        "position": [
+          1222.9632,
+          1039.872,
+          43.990731
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          596.8896,
+          33.602193,
+          -47.616
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_21",
+        "mapPosition": [
+          219.7,
+          612.6
+        ],
+        "position": [
+          736.9728,
+          908.6976,
+          47.772676
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -861.0816,
+          44.948028,
+          345.9072
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_22",
+        "mapPosition": [
+          652.9,
+          777.4
+        ],
+        "position": [
+          1180.5696,
+          739.9424,
+          64.709882
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          469.7088,
+          95.759645,
+          852.1728
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_23",
+        "mapPosition": [
+          763.2,
+          165.8
+        ],
+        "position": [
+          1293.5168,
+          1366.2208,
+          46.041688
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          808.5504,
+          39.755065,
+          -1026.6624
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_24",
+        "mapPosition": [
+          293.8,
+          267.5
+        ],
+        "position": [
+          812.8512,
+          1262.08,
+          34.936204
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -633.4464,
+          6.438612,
+          -714.24
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_25",
+        "mapPosition": [
+          182.4,
+          466.2
+        ],
+        "position": [
+          698.7776,
+          1058.6112,
+          53.905042
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -975.6672,
+          63.345125,
+          -103.8336
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_26",
+        "mapPosition": [
+          273.7,
+          794.8
+        ],
+        "position": [
+          792.2688,
+          722.1248,
+          53.439649
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -695.1936,
+          61.948948,
+          905.6256
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_27",
+        "mapPosition": [
+          791.4,
+          443.9
+        ],
+        "position": [
+          1322.3936,
+          1081.4464,
+          49.123921
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          895.1808,
+          49.001763,
+          -172.3392
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_28",
+        "mapPosition": [
+          595.5,
+          794.0
+        ],
+        "position": [
+          1121.792,
+          722.944,
+          64.29642
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          293.376,
+          94.519261,
+          903.168
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_29",
+        "mapPosition": [
+          492.5,
+          391.9
+        ],
+        "position": [
+          1016.32,
+          1134.6944,
+          44.802733
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -23.04,
+          36.0382,
+          -332.0832
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_30",
+        "mapPosition": [
+          365.1,
+          712.3
+        ],
+        "position": [
+          885.8624,
+          806.6048,
+          54.343036
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -414.4128,
+          64.659107,
+          652.1856
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_31",
+        "mapPosition": [
+          688.5,
+          745.9
+        ],
+        "position": [
+          1217.024,
+          772.1984,
+          55.093738
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          579.072,
+          66.911213,
+          755.4048
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_32",
+        "mapPosition": [
+          440.6,
+          648.4
+        ],
+        "position": [
+          963.1744,
+          872.0384,
+          49.225449
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -182.4768,
+          49.306346,
+          455.8848
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_33",
+        "mapPosition": [
+          729.1,
+          583.2
+        ],
+        "position": [
+          1258.5984,
+          938.8032,
+          45.264366
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          703.7952,
+          37.423099,
+          255.5904
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_34",
+        "mapPosition": [
+          590.0,
+          300.3
+        ],
+        "position": [
+          1116.16,
+          1228.4928,
+          41.245793
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          276.48,
+          25.367379,
+          -613.4784
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_35",
+        "mapPosition": [
+          315.0,
+          431.7
+        ],
+        "position": [
+          834.56,
+          1093.9392,
+          56.28237
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -568.32,
+          70.47711,
+          -209.8176
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_36",
+        "mapPosition": [
+          501.1,
+          175.5
+        ],
+        "position": [
+          1025.1264,
+          1356.288,
+          45.43485
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          3.3792,
+          37.934551,
+          -996.864
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_37",
+        "mapPosition": [
+          512.6,
+          707.0
+        ],
+        "position": [
+          1036.9024,
+          812.032,
+          63.565839
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          38.7072,
+          92.327518,
+          635.904
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_38",
+        "mapPosition": [
+          316.7,
+          432.4
+        ],
+        "position": [
+          836.3008,
+          1093.2224,
+          56.262757
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -563.0976,
+          70.41827,
+          -207.6672
+        ]
+      },
+      {
+        "category": "themed/clock",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_39",
+        "mapPosition": [
+          499.4,
+          180.0
+        ],
+        "position": [
+          1023.3856,
+          1351.68,
+          45.549467
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1.8432,
+          38.278402,
+          -983.04
+        ]
+      },
+      {
+        "category": "themed/clock",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_40",
+        "mapPosition": [
+          515.5,
+          707.7
+        ],
+        "position": [
+          1039.872,
+          811.3152,
+          63.524572
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          47.616,
+          92.203716,
+          638.0544
+        ]
+      }
+    ],
+    "resupplyRaw": [
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_01",
+        "mapPosition": [
+          340.0,
+          310.59999999999997
+        ],
+        "position": [
+          860.16,
+          1217.9456,
+          38.614983
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -491.52,
+          17.474948,
+          -581.8368
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_02",
+        "mapPosition": [
+          219.70000000000002,
+          519.2
+        ],
+        "position": [
+          736.9728,
+          1004.3392,
+          50.499049
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -861.0816,
+          53.127146,
+          58.9824
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_03",
+        "mapPosition": [
+          388.7,
+          228.3
+        ],
+        "position": [
+          910.0288,
+          1302.2208,
+          40.521887
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -341.9136,
+          23.195661,
+          -834.6624
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_04",
+        "mapPosition": [
+          617.7,
+          261.2
+        ],
+        "position": [
+          1144.5248,
+          1268.5312,
+          41.482334
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          361.5744,
+          26.077003,
+          -733.5936
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_05",
+        "mapPosition": [
+          584.0999999999999,
+          417.5
+        ],
+        "position": [
+          1110.1184,
+          1108.48,
+          42.651239
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          258.3552,
+          29.583716,
+          -253.44
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_06",
+        "mapPosition": [
+          443.0,
+          211.2
+        ],
+        "position": [
+          965.632,
+          1319.7312,
+          36.651415
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -175.104,
+          11.584244,
+          -887.1936
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_07",
+        "mapPosition": [
+          443.2,
+          720.6
+        ],
+        "position": [
+          965.8368,
+          798.1056,
+          51.660398
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -174.4896,
+          56.611195,
+          677.6832
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_08",
+        "mapPosition": [
+          783.3,
+          594.9
+        ],
+        "position": [
+          1314.0992,
+          926.8224,
+          46.172564
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          870.2976,
+          40.147692,
+          291.5328
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_09",
+        "mapPosition": [
+          671.6,
+          576.3000000000001
+        ],
+        "position": [
+          1199.7184,
+          945.8688,
+          58.540606
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          527.1552,
+          77.251819,
+          234.3936
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_10",
+        "mapPosition": [
+          379.3,
+          735.1
+        ],
+        "position": [
+          900.4032,
+          783.2576,
+          50.287014
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -370.7904,
+          52.491041,
+          722.2272
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_11",
+        "mapPosition": [
+          330.90000000000003,
+          635.3
+        ],
+        "position": [
+          850.8416,
+          885.4528,
+          56.821606
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -519.4752,
+          72.094819,
+          415.6416
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_12",
+        "mapPosition": [
+          709.0,
+          781.0
+        ],
+        "position": [
+          1238.016,
+          736.256,
+          54.820484
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          642.048,
+          66.091451,
+          863.232
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_13",
+        "mapPosition": [
+          210.60000000000002,
+          423.4
+        ],
+        "position": [
+          727.6544,
+          1102.4384,
+          45.248728
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -889.0368,
+          37.376185,
+          -235.3152
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_14",
+        "mapPosition": [
+          522.9,
+          801.3000000000001
+        ],
+        "position": [
+          1047.4496,
+          715.4688,
+          52.66961
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          70.3488,
+          59.638831,
+          925.5936
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_15",
+        "mapPosition": [
+          285.5,
+          422.9
+        ],
+        "position": [
+          804.352,
+          1102.9504,
+          46.24815
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -658.944,
+          40.374449,
+          -236.8512
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_16",
+        "mapPosition": [
+          643.0,
+          716.5
+        ],
+        "position": [
+          1170.432,
+          802.304,
+          51.402829
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          439.296,
+          55.838486,
+          665.088
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_17",
+        "mapPosition": [
+          697.6,
+          428.3
+        ],
+        "position": [
+          1226.3424,
+          1097.4208,
+          45.239845
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          607.0272,
+          37.349536,
+          -220.2624
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_18",
+        "mapPosition": [
+          691.5,
+          669.2
+        ],
+        "position": [
+          1220.096,
+          850.7392,
+          46.304522
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          588.288,
+          40.543567,
+          519.7824
+        ]
+      },
+      {
+        "category": "event",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_19",
+        "mapPosition": [
+          341.0,
+          535.5
+        ],
+        "position": [
+          861.184,
+          987.648,
+          47.750435
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -488.448,
+          44.881306,
+          109.056
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_20",
+        "mapPosition": [
+          339.6,
+          310.8
+        ],
+        "position": [
+          859.7504,
+          1217.7408,
+          38.625794
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -492.7488,
+          17.507383,
+          -581.2224
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_21",
+        "mapPosition": [
+          219.70000000000002,
+          519.3
+        ],
+        "position": [
+          736.9728,
+          1004.2368,
+          50.508067
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -861.0816,
+          53.154202,
+          59.2896
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_22",
+        "mapPosition": [
+          388.6,
+          228.3
+        ],
+        "position": [
+          909.9264,
+          1302.2208,
+          40.521327
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -342.2208,
+          23.19398,
+          -834.6624
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_23",
+        "mapPosition": [
+          616.5,
+          195.5
+        ],
+        "position": [
+          1143.296,
+          1335.808,
+          39.840727
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          357.888,
+          21.15218,
+          -935.424
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_24",
+        "mapPosition": [
+          522.7,
+          342.0
+        ],
+        "position": [
+          1047.2448,
+          1185.792,
+          34.214542
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          69.7344,
+          4.273626,
+          -485.376
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_25",
+        "mapPosition": [
+          417.3,
+          185.70000000000002
+        ],
+        "position": [
+          939.3152,
+          1345.8432,
+          35.94335
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -254.0544,
+          9.46005,
+          -965.5296
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_26",
+        "mapPosition": [
+          453.7,
+          754.0
+        ],
+        "position": [
+          976.5888,
+          763.904,
+          51.973538
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -142.2336,
+          57.550614,
+          780.288
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_27",
+        "mapPosition": [
+          783.2,
+          595.5
+        ],
+        "position": [
+          1313.9968,
+          926.208,
+          46.190954
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          869.9904,
+          40.202862,
+          293.376
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_28",
+        "mapPosition": [
+          668.5,
+          575.3000000000001
+        ],
+        "position": [
+          1196.544,
+          946.8928,
+          58.35709
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          517.632,
+          76.701269,
+          231.3216
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_29",
+        "mapPosition": [
+          233.4,
+          735.6
+        ],
+        "position": [
+          751.0016,
+          782.7456,
+          52.257606
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -818.9952,
+          58.402819,
+          723.7632
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_30",
+        "mapPosition": [
+          185.0,
+          567.0
+        ],
+        "position": [
+          701.44,
+          955.392,
+          46.641004
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -967.68,
+          41.553011,
+          205.824
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_31",
+        "mapPosition": [
+          614.1,
+          823.4
+        ],
+        "position": [
+          1140.8384,
+          692.8384,
+          56.340658
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          350.5152,
+          70.651975,
+          993.4848
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_32",
+        "mapPosition": [
+          211.29999999999998,
+          423.3
+        ],
+        "position": [
+          728.3712,
+          1102.5408,
+          45.260875
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -886.8864,
+          37.412624,
+          -235.6224
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_33",
+        "mapPosition": [
+          522.9,
+          800.8
+        ],
+        "position": [
+          1047.4496,
+          715.9808,
+          52.618595
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          70.3488,
+          59.485785,
+          924.0576
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_34",
+        "mapPosition": [
+          309.09999999999997,
+          344.1
+        ],
+        "position": [
+          828.5184,
+          1183.6416,
+          42.672725
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -586.4448,
+          29.648175,
+          -478.9248
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_35",
+        "mapPosition": [
+          614.3,
+          709.9
+        ],
+        "position": [
+          1141.0432,
+          809.0624,
+          48.987117
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          351.1296,
+          48.591351,
+          644.8128
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_36",
+        "mapPosition": [
+          779.4,
+          478.6
+        ],
+        "position": [
+          1310.1056,
+          1045.9136,
+          46.630153
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          858.3168,
+          41.520459,
+          -65.7408
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_37",
+        "mapPosition": [
+          675.5,
+          655.2
+        ],
+        "position": [
+          1203.712,
+          865.0752,
+          47.629515
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          539.136,
+          44.518544,
+          476.7744
+        ]
+      },
+      {
+        "category": "standard",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_38",
+        "mapPosition": [
+          258.79999999999995,
+          485.20000000000005
+        ],
+        "position": [
+          777.0112,
+          1039.1552,
+          37.424124
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -740.9664,
+          13.902372,
+          -45.4656
+        ]
+      },
+      {
+        "category": "themed/clock",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_39",
+        "mapPosition": [
+          694.3000000000001,
+          484.5
+        ],
+        "position": [
+          1222.9632,
+          1039.872,
+          43.990731
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          596.8896,
+          33.602193,
+          -47.616
+        ]
+      },
+      {
+        "category": "themed/clock",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_40",
+        "mapPosition": [
+          219.70000000000002,
+          612.6
+        ],
+        "position": [
+          736.9728,
+          908.6976,
+          47.772676
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -861.0816,
+          44.948028,
+          345.9072
+        ]
+      },
+      {
+        "category": "themed/clock",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_41",
+        "mapPosition": [
+          652.9000000000001,
+          777.4
+        ],
+        "position": [
+          1180.5696,
+          739.9424,
+          64.709882
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          469.7088,
+          95.759645,
+          852.1728
+        ]
+      },
+      {
+        "category": "themed/crashed_balloon",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_42",
+        "mapPosition": [
+          763.2,
+          165.8
+        ],
+        "position": [
+          1293.5168,
+          1366.2208,
+          46.041688
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          808.5504,
+          39.755065,
+          -1026.6624
+        ]
+      },
+      {
+        "category": "themed/crashed_balloon",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_43",
+        "mapPosition": [
+          293.8,
+          267.5
+        ],
+        "position": [
+          812.8512,
+          1262.08,
+          34.936204
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -633.4464,
+          6.438612,
+          -714.24
+        ]
+      },
+      {
+        "category": "themed/crashed_balloon",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_44",
+        "mapPosition": [
+          182.4,
+          466.2
+        ],
+        "position": [
+          698.7776,
+          1058.6112,
+          53.905042
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -975.6672,
+          63.345125,
+          -103.8336
+        ]
+      },
+      {
+        "category": "themed/crashed_balloon",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_45",
+        "mapPosition": [
+          273.7,
+          794.8
+        ],
+        "position": [
+          792.2688,
+          722.1248,
+          53.439649
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -695.1936,
+          61.948948,
+          905.6256
+        ]
+      },
+      {
+        "category": "themed/crashed_balloon",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_46",
+        "mapPosition": [
+          791.4,
+          443.90000000000003
+        ],
+        "position": [
+          1322.3936,
+          1081.4464,
+          49.123921
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          895.1808,
+          49.001763,
+          -172.3392
+        ]
+      },
+      {
+        "category": "themed/crashed_balloon",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_47",
+        "mapPosition": [
+          595.5,
+          794.0
+        ],
+        "position": [
+          1121.792,
+          722.944,
+          64.29642
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          293.376,
+          94.519261,
+          903.168
+        ]
+      },
+      {
+        "category": "themed/firefighter",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_48",
+        "mapPosition": [
+          492.5,
+          391.90000000000003
+        ],
+        "position": [
+          1016.32,
+          1134.6944,
+          44.802733
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -23.04,
+          36.0382,
+          -332.0832
+        ]
+      },
+      {
+        "category": "themed/firefighter",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_49",
+        "mapPosition": [
+          365.09999999999997,
+          712.3000000000001
+        ],
+        "position": [
+          885.8624,
+          806.6048,
+          54.343036
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -414.4128,
+          64.659107,
+          652.1856
+        ]
+      },
+      {
+        "category": "themed/firefighter",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_50",
+        "mapPosition": [
+          688.5,
+          745.9
+        ],
+        "position": [
+          1217.024,
+          772.1984,
+          55.093738
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          579.072,
+          66.911213,
+          755.4048
+        ]
+      },
+      {
+        "category": "themed/mail",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_51",
+        "mapPosition": [
+          440.59999999999997,
+          648.4
+        ],
+        "position": [
+          963.1744,
+          872.0384,
+          49.225449
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -182.4768,
+          49.306346,
+          455.8848
+        ]
+      },
+      {
+        "category": "themed/mail",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_52",
+        "mapPosition": [
+          729.1,
+          583.2
+        ],
+        "position": [
+          1258.5984,
+          938.8032,
+          45.264366
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          703.7952,
+          37.423099,
+          255.5904
+        ]
+      },
+      {
+        "category": "themed/mail",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_53",
+        "mapPosition": [
+          590.0,
+          300.3
+        ],
+        "position": [
+          1116.16,
+          1228.4928,
+          41.245793
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          276.48,
+          25.367379,
+          -613.4784
+        ]
+      },
+      {
+        "category": "themed/medic",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_54",
+        "mapPosition": [
+          315.0,
+          431.7
+        ],
+        "position": [
+          834.56,
+          1093.9392,
+          56.28237
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -568.32,
+          70.47711,
+          -209.8176
+        ]
+      },
+      {
+        "category": "themed/medic",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_55",
+        "mapPosition": [
+          501.09999999999997,
+          175.5
+        ],
+        "position": [
+          1025.1264,
+          1356.288,
+          45.43485
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          3.3792,
+          37.934551,
+          -996.864
+        ]
+      },
+      {
+        "category": "themed/medic",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_56",
+        "mapPosition": [
+          512.5999999999999,
+          707.0
+        ],
+        "position": [
+          1036.9024,
+          812.032,
+          63.565839
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          38.7072,
+          92.327518,
+          635.904
+        ]
+      },
+      {
+        "category": "themed/military",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_57",
+        "mapPosition": [
+          316.7,
+          432.40000000000003
+        ],
+        "position": [
+          836.3008,
+          1093.2224,
+          56.262757
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -563.0976,
+          70.41827,
+          -207.6672
+        ]
+      },
+      {
+        "category": "themed/military",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_58",
+        "mapPosition": [
+          499.40000000000003,
+          180.0
+        ],
+        "position": [
+          1023.3856,
+          1351.68,
+          45.549467
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1.8432,
+          38.278402,
+          -983.04
+        ]
+      },
+      {
+        "category": "themed/military",
+        "heightConfidence": "APPROXIMATED",
+        "id": "resupply_raw_59",
+        "mapPosition": [
+          515.5,
+          707.7
+        ],
+        "position": [
+          1039.872,
+          811.3152,
+          63.524572
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          47.616,
+          92.203716,
+          638.0544
+        ]
+      }
+    ],
+    "spawn": [
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_01",
+        "mapPosition": [
+          23.7,
+          433.8
+        ],
+        "position": [
+          536.2688,
+          1091.7888,
+          62.767795
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1463.1936,
+          89.933385,
+          -203.3664
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_02",
+        "mapPosition": [
+          918.8,
+          205.0
+        ],
+        "position": [
+          1452.8512,
+          1326.08,
+          45.79322
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1286.5536,
+          39.009661,
+          -906.24
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_03",
+        "mapPosition": [
+          356.2,
+          33.8
+        ],
+        "position": [
+          876.7488,
+          1501.3888,
+          42.716681
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -441.7536,
+          29.780043,
+          -1432.1664
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_04",
+        "mapPosition": [
+          700.9,
+          973.6
+        ],
+        "position": [
+          1229.7216,
+          539.0336,
+          40.982052
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          617.1648,
+          24.576155,
+          1454.8992
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_05",
+        "mapPosition": [
+          451.4,
+          956.1
+        ],
+        "position": [
+          974.2336,
+          556.9536,
+          53.256469
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -149.2992,
+          61.399407,
+          1401.1392
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_06",
+        "mapPosition": [
+          31.0,
+          713.2
+        ],
+        "position": [
+          543.744,
+          805.6832,
+          63.654865
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1440.768,
+          92.594595,
+          654.9504
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_07",
+        "mapPosition": [
+          962.5,
+          470.1
+        ],
+        "position": [
+          1497.6,
+          1054.6176,
+          43.345692
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1420.8,
+          31.667077,
+          -91.8528
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_08",
+        "mapPosition": [
+          358.3,
+          948.0
+        ],
+        "position": [
+          878.8992,
+          565.248,
+          50.242535
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -435.3024,
+          52.357604,
+          1376.256
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_09",
+        "mapPosition": [
+          301.1,
+          953.4
+        ],
+        "position": [
+          820.3264,
+          559.7184,
+          61.54776
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -611.0208,
+          86.273281,
+          1392.8448
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_10",
+        "mapPosition": [
+          734.6,
+          16.3
+        ],
+        "position": [
+          1264.2304,
+          1519.3088,
+          46.868153
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          720.6912,
+          42.234459,
+          -1485.9264
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_11",
+        "mapPosition": [
+          915.5,
+          382.1
+        ],
+        "position": [
+          1449.472,
+          1144.7296,
+          43.827697
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1276.416,
+          33.11309,
+          -362.1888
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_12",
+        "mapPosition": [
+          102.2,
+          14.0
+        ],
+        "position": [
+          616.6528,
+          1521.664,
+          43.665614
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1222.0416,
+          32.626843,
+          -1492.992
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_13",
+        "mapPosition": [
+          942.3,
+          672.4
+        ],
+        "position": [
+          1476.9152,
+          847.4624,
+          46.614255
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1358.7456,
+          41.472766,
+          529.6128
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_14",
+        "mapPosition": [
+          43.8,
+          498.9
+        ],
+        "position": [
+          556.8512,
+          1025.1264,
+          70.314182
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1401.4464,
+          112.572547,
+          -3.3792
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_15",
+        "mapPosition": [
+          904.8,
+          302.4
+        ],
+        "position": [
+          1438.5152,
+          1226.3424,
+          34.873723
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1243.5456,
+          6.251169,
+          -607.0272
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_16",
+        "mapPosition": [
+          272.1,
+          952.9
+        ],
+        "position": [
+          790.6304,
+          560.2304,
+          65.201068
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -700.1088,
+          97.233203,
+          1391.3088
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_17",
+        "mapPosition": [
+          577.3,
+          22.3
+        ],
+        "position": [
+          1103.1552,
+          1513.1648,
+          41.38257
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          237.4656,
+          25.77771,
+          -1467.4944
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_18",
+        "mapPosition": [
+          30.5,
+          759.0
+        ],
+        "position": [
+          543.232,
+          758.784,
+          58.57179
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1442.304,
+          77.345371,
+          795.648
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_19",
+        "mapPosition": [
+          947.4,
+          85.4
+        ],
+        "position": [
+          1482.1376,
+          1448.5504,
+          49.023842
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1374.4128,
+          48.701526,
+          -1273.6512
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_20",
+        "mapPosition": [
+          35.1,
+          372.6
+        ],
+        "position": [
+          547.9424,
+          1154.4576,
+          61.08569
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1428.1728,
+          84.887069,
+          -391.3728
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_21",
+        "mapPosition": [
+          30.1,
+          220.2
+        ],
+        "position": [
+          542.8224,
+          1310.5152,
+          66.288886
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1443.5328,
+          100.496657,
+          -859.5456
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_22",
+        "mapPosition": [
+          22.7,
+          591.9
+        ],
+        "position": [
+          535.2448,
+          929.8944,
+          67.536543
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1466.2656,
+          104.23963,
+          282.3168
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_23",
+        "mapPosition": [
+          658.2,
+          28.1
+        ],
+        "position": [
+          1185.9968,
+          1507.2256,
+          47.667955
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          485.9904,
+          44.633866,
+          -1449.6768
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_24",
+        "mapPosition": [
+          64.3,
+          940.0
+        ],
+        "position": [
+          577.8432,
+          573.44,
+          51.930803
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1338.4704,
+          57.42241,
+          1351.68
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_25",
+        "mapPosition": [
+          29.3,
+          852.5
+        ],
+        "position": [
+          542.0032,
+          663.04,
+          53.873731
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1445.9904,
+          63.251192,
+          1082.88
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_26",
+        "mapPosition": [
+          133.9,
+          985.9
+        ],
+        "position": [
+          649.1136,
+          526.4384,
+          52.227156
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1124.6592,
+          58.311467,
+          1492.6848
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_27",
+        "mapPosition": [
+          918.2,
+          34.0
+        ],
+        "position": [
+          1452.2368,
+          1501.184,
+          49.259413
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1284.7104,
+          49.40824,
+          -1431.552
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_28",
+        "mapPosition": [
+          987.6,
+          584.5
+        ],
+        "position": [
+          1523.3024,
+          937.472,
+          43.149635
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1497.9072,
+          31.078904,
+          259.584
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_29",
+        "mapPosition": [
+          420.0,
+          4.4
+        ],
+        "position": [
+          942.08,
+          1531.4944,
+          41.379482
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -245.76,
+          25.768445,
+          -1522.4832
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_30",
+        "mapPosition": [
+          406.6,
+          959.8
+        ],
+        "position": [
+          928.3584,
+          553.1648,
+          49.508994
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -286.9248,
+          50.156981,
+          1412.5056
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_31",
+        "mapPosition": [
+          946.0,
+          735.0
+        ],
+        "position": [
+          1480.704,
+          783.36,
+          56.917852
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1370.112,
+          72.383557,
+          721.92
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_32",
+        "mapPosition": [
+          22.7,
+          669.4
+        ],
+        "position": [
+          535.2448,
+          850.5344,
+          70.727796
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1466.2656,
+          113.813388,
+          520.3968
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_33",
+        "mapPosition": [
+          874.6,
+          914.8
+        ],
+        "position": [
+          1407.5904,
+          599.2448,
+          54.40024
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1150.7712,
+          64.830719,
+          1274.2656
+        ]
+      },
+      {
+        "category": "West",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_34",
+        "mapPosition": [
+          8.5,
+          294.0
+        ],
+        "position": [
+          520.704,
+          1234.944,
+          61.992818
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1509.888,
+          87.608453,
+          -632.832
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_35",
+        "mapPosition": [
+          667.8,
+          976.2
+        ],
+        "position": [
+          1195.8272,
+          536.3712,
+          41.157162
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          515.4816,
+          25.101486,
+          1462.8864
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_36",
+        "mapPosition": [
+          956.5,
+          799.9
+        ],
+        "position": [
+          1491.456,
+          716.9024,
+          60.612558
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1402.368,
+          83.467675,
+          921.2928
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_37",
+        "mapPosition": [
+          42.8,
+          62.3
+        ],
+        "position": [
+          555.8272,
+          1472.2048,
+          50.806508
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -1404.5184,
+          54.049524,
+          -1344.6144
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_38",
+        "mapPosition": [
+          931.9,
+          161.2
+        ],
+        "position": [
+          1466.2656,
+          1370.9312,
+          49.933708
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1326.7968,
+          51.431125,
+          -1040.7936
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_39",
+        "mapPosition": [
+          204.0,
+          6.5
+        ],
+        "position": [
+          720.896,
+          1529.344,
+          43.676427
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          -909.312,
+          32.65928,
+          -1516.032
+        ]
+      },
+      {
+        "category": "East",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_40",
+        "mapPosition": [
+          934.2,
+          885.4
+        ],
+        "position": [
+          1468.6208,
+          629.3504,
+          54.205144
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          1333.8624,
+          64.245432,
+          1183.9488
+        ]
+      },
+      {
+        "category": "North",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_41",
+        "mapPosition": [
+          820.6,
+          12.8
+        ],
+        "position": [
+          1352.2944,
+          1522.8928,
+          48.282341
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          984.8832,
+          46.477024,
+          -1496.6784
+        ]
+      },
+      {
+        "category": "South",
+        "heightConfidence": "APPROXIMATED",
+        "id": "spawn_42",
+        "mapPosition": [
+          787.9,
+          930.6
+        ],
+        "position": [
+          1318.8096,
+          583.0656,
+          56.383488
+        ],
+        "positionConfidence": "CONFIRMED",
+        "worldPosition": [
+          884.4288,
+          70.780463,
+          1322.8032
+        ]
+      }
+    ]
+  },
+  "scaleConfidence": "ADAPTED",
+  "scaleStudsPerMetre": 3.0,
+  "sizeMetres": 1024,
+  "slug": "mammons-gulch"
+}

@@ -64,9 +64,9 @@
 **Interfaces:**
 - Produces: `load_layout()`, `decode_heightfield()`, `source_to_world(x, y, z)`; 16 stable IDs (`com_a`…`poi_c`), source polygons/bboxes/centres, 21 extraction, 42 spawn, 40 named resupply candidates (59 raw records разделить по типам, не смешивать), точки дверей/окон/лестниц/улик/логов по фактическим группам.
 
-- [ ] Написать failing tests: 16 уникальных комплексов; размер 1024; grid 513; min/max высот; отсутствие NaN; преобразование NW `(512,1536)` → Roblox `(-1536,-1536)` X/Z и SE `(1536,512)` → `(1536,1536)`; label anchor La Plata из `c=[446.5,588.8]` → `X=-164.352`, `Z=274.0224` studs (не путать label anchor с центром bbox); round-trip ошибка < 0.001.
+- [ ] Написать failing tests: 16 уникальных комплексов; размер 1024; grid 513; min/max высот; отсутствие NaN; преобразование NW `(512,1536)` → Roblox `(-1536,-1536)` X/Z и SE `(1536,512)` → `(1536,1536)`; label anchor La Plata из `c=[446.5,588.8]` → `X=-164.352`, `Z=272.7936` studs (не путать label anchor с центром bbox); round-trip ошибка < 0.001.
 - [ ] Запустить tests и подтвердить FAIL до реализации.
-- [ ] Получать публичные `mapdata`, `meta.json`, `terrain.d16` не чаще одного запроса/с, фиксировать URL, game build, дату, SHA-256. Декодировать `height = zmin + uint16 * (zmax-zmin)/65535`; не сохранять веб-изображения, meshes или текстуры.
+- [ ] Получать публичные `mapdata`, `meta.json`, `terrain.d16` не чаще одного запроса/с, фиксировать URL, game build, дату, SHA-256. Декодировать row-delta `value = cumulative_uint16 & 65535`, затем `height = zmin + value * (zmax-zmin)/65535`; не сохранять веб-изображения, meshes или текстуры.
 - [ ] Нормализовать только фактические координаты, высоты, границы, water polygons и gameplay markers. Источник Hunt Almanac указать рядом с данными и во всех производных документах.
 - [ ] Создать индекс и 16 отдельных Compound Specification со всеми полями ТЗ; заполнить только подтверждённые этажи, clue counts, lair level и тактические наблюдения. Остальное явно `PENDING_RESEARCH`, не выдумывать.
 - [ ] Прогнать `python3 -m unittest tests/unit/test_mammons_gulch_reference.py` и `./scripts/check.sh`; commit `docs(map): analyze original Mammon's Gulch layout`, push и сверить SHA.
