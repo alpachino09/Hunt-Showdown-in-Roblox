@@ -51,3 +51,7 @@
 `assets/mammons-gulch/reference` содержит измерения положения, высот, границ и игровых точек из [Hunt Almanac](https://hunt.innerpulse.net/maps/mammons-gulch/) для игровой сборки 2.9.1.39. Условия использования данных и требование указания источника: [Developer terms](https://hunt.innerpulse.net/developers/). URL и SHA-256 ответов зафиксированы в `source.json`.
 
 Это числовые референсные данные, а не готовые модели или текстуры. Оригинальные изображения, меши, UV, карты материалов и исходники Crytek в репозиторий не включены. Права на Hunt: Showdown и его игровые ассеты принадлежат Crytek; Hunt Almanac является неофициальным справочником.
+
+## Кандидаты окружения Mammon's Gulch
+
+`assets/mammons-gulch/asset-manifest.json` содержит 29 записей с происхождением, правами, статусом и десятью критериями качества. [Исследование](docs/MAP_ASSET_RESEARCH.md) связывает кандидатов со всеми комплексами; [лицензионный реестр](docs/MAP_ASSET_LICENSES.md) фиксирует ограничения. CC0-файлы Poly Haven/ambientCG могут храниться в репозитории после QA. Fab Standard License допускает встроенный Roblox-результат, но не публикацию standalone raw source в GitHub. Непроверенные Creator Store модели не интегрируются.

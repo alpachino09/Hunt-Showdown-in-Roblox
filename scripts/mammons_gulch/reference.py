@@ -15,6 +15,24 @@ DOCS = ROOT / "docs"
 BASE_URL = "https://hunt.innerpulse.net"
 SCALE = 3.0
 HEIGHT_OFFSET = 32.79
+COMPOUND_ASSETS = {
+    "com_a": ["ph-wooden-crate-01", "ph-wooden-barrels-01", "ph-brown-mud-02"],
+    "com_b": ["ph-wooden-barrels-01", "ph-wood-peeling-paint-weathered"],
+    "com_c": ["ph-modular-wooden-pier", "ph-wooden-crate-01", "ph-rocky-gravel"],
+    "com_d": ["ph-pine-tree-01", "ph-fir-tree-01", "ph-wood-planks-grey"],
+    "com_e": ["ph-rock-face-01", "ph-coastal-cliff-01", "ph-rocky-gravel"],
+    "com_f": ["ph-modular-wooden-pier", "ph-wooden-lantern-01", "ph-brown-mud-02"],
+    "com_g": ["ph-wood-planks-grey", "ph-brown-mud-02"],
+    "com_h": ["ph-dead-tree-trunk", "ph-tree-small-02-existing", "ph-wood-planks-grey"],
+    "com_i": ["fab-old-mine", "ph-rock-face-01", "ph-wooden-lantern-01", "ph-wooden-ladder"],
+    "com_j": ["fab-old-mine", "ph-rock-face-01", "ph-wooden-lantern-01"],
+    "com_k": ["fab-old-mine", "ph-metal-grate-rusty", "ph-rusty-corrugated-iron"],
+    "com_l": ["fab-old-mine", "ph-rusty-metal-02", "ph-wooden-crate-01"],
+    "com_m": ["ph-coastal-cliff-02", "ph-rock-face-01", "ph-rocky-gravel"],
+    "poi_a": ["fab-old-mine", "ph-rusty-metal-02", "ph-metal-grate-rusty"],
+    "poi_b": ["ph-rusty-metal-02", "ph-metal-grate-rusty"],
+    "poi_c": ["fab-old-mine", "ph-pine-tree-01", "ph-wood-planks-grey"],
+}
 
 
 def decode_heightfield(payload, metadata):
@@ -299,6 +317,7 @@ def generate_compound_doc(compound, points):
     )
     alarms = "\n".join(f"| {item[0]} | {item[1]}–{item[2]} |" for item in compound["soundTraps"])
     tactics = "\n".join(f"- {item[1]}" for item in compound["tacticalAssessment"][4])
+    asset_list = ", ".join(f"`{asset}`" for asset in COMPOUND_ASSETS[compound["id"]])
     refs = "\n".join(f"- {link}" for link in compound["referenceLinks"])
     anchor = compound["labelAnchor"]
     bounds = compound["buildingBoundsSource"]
@@ -377,7 +396,7 @@ def generate_compound_doc(compound, points):
 
 ## Необходимые ассеты
 
-`PENDING_ASSET_RESEARCH`: архитектура, интерьеры, интерактивные объекты, VFX, audio и UI вносятся только после проверки прав и качества.
+Кандидаты: {asset_list}. Их статус и оценки находятся в `assets/mammons-gulch/asset-manifest.json`; назначение не равно одобрению или интеграции. Авторская архитектура, интерьеры, интерактивные объекты, VFX, audio и UI по-прежнему требуют референсов и Studio QA.
 
 ## Проверка
 

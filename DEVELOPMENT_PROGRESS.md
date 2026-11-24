@@ -6,6 +6,7 @@
 - Выполнен baseline `./scripts/check.sh`: форматирование, Selene, Lune, сборки четырёх мест и Luau LSP прошли. Предупреждения LSP касаются только `didChangeWatchedFiles`.
 - Roblox Studio 0.748 открыт на свежей локальной сборке Lobby. Подключение Studio MCP проверено через новый `scripts/studio_mcp.py`; доступны чтение дерева, состояние, Output, выполнение Luau и захват кадра. План географического пакета: [план](docs/superpowers/plans/2026-11-24-mammons-gulch-geography.md).
 - Создан восстановимый числовой срез Mammon's Gulch: 16 комплексов с отдельными спецификациями, 1024 × 1024 м, 513² высот, вода, подземные области, 21 выход, 42 спавна и игровые точки. Подтверждены координаты и row-delta декодирование; Studio-геометрия ещё не построена. [Анализ](docs/MAP_REFERENCE_ANALYSIS.md) · [Координаты](docs/MAP_WORLD_LAYOUT.md) · [Комплексы](docs/MAP_COMPOUNDS.md)
+- Проведён asset research: 29 кандидатов, отдельные записи прав и назначение по 16 комплексам. Old Mine допущен только как candidate при Fab Standard License без raw source в GitHub; Wild West Bank отклонён по цене и стилю. Новые ассеты пока не скачаны и не интегрированы. [Исследование](docs/MAP_ASSET_RESEARCH.md) · [Лицензии](docs/MAP_ASSET_LICENSES.md)
 
 ## Этап 01 — архитектура и локальный прототип лобби
 

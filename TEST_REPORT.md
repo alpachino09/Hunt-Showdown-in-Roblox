@@ -13,6 +13,11 @@
 - Тест до исправления поймал неверное чтение terrain.d16: источник использует row-delta uint16 с переносом по модулю 65536. После декодирования контрольные высоты Blackthorn 43,4936 м и Monteros Malt 37,0179 м совпали с эталонными значениями окружающей земли в допустимой погрешности интерполяции.
 - Сетевой импорт выполнен последовательно с ограничением частоты; сохранены URL, версия 2.9.1.39 и SHA-256. Тесты работают с локальными данными без сети. Это проверка данных, не Studio Play или визуальная приёмка карты.
 
+## Этап 03 — asset manifest · 24.11.2026
+
+- `python3 -m unittest tests/unit/test_mammons_gulch_assets.py -v`: 5 тестов прошли. Проверены обязательные provenance fields, десять bounded score fields, локальные файлы и security status approved assets, отсутствие build integration у pending/rejected и явные решения Fab.
+- Манифест содержит 29 уникальных кандидатов. La Plata и остальные Compound Specification ссылаются на реальные candidate IDs. В Studio выполнен только read-only Creator Store search; insert_asset, скачивание Fab, Play и визуальное тестирование новых ассетов не выполнялись.
+
 ## Локальный прототип лобби · 22.11.2026
 
 - На macOS успешно собраны Lobby, Expedition и Rush через Rojo 7.7.1.
