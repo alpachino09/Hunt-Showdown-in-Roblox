@@ -10,15 +10,13 @@ local Catalog = require(ReplicatedStorage.Shared.Catalog)
 local Remotes = require(script.Parent.Remotes)
 local Profiles = require(script.Parent.Profiles)
 local Policy = require(script.Parent.routes.MatchPolicy)
+local WeaponStateService = require(script.Parent.weapons.WeaponStateService)
 local allow, drop = require(script.Parent.RateLimit).new(0.08)
 
 type Hunter = {
     team: string,
     weapon: string,
-    ammo: number,
-    reserve: number,
-    lastFire: number,
-    reloadingUntil: number,
+    weaponState: WeaponStateService.State,
     life: number,
     phase: string,
     downedUntil: number,
@@ -91,8 +89,10 @@ local function message(player: Player, value: string)
 end
 
 local function updateAmmo(player: Player, hunter: Hunter)
-    player:SetAttribute("RaidAmmo", hunter.ammo)
-    player:SetAttribute("RaidReserve", hunter.reserve)
+    local state = hunter.weaponState
+    player:SetAttribute("RaidAmmo", state.loaded)
+    player:SetAttribute("RaidReserve", state.reserve)
+    player:SetAttribute("RaidReloading", state.reload ~= nil)
 end
 
 local function near(player: Player, part: BasePart, radius: number): boolean
@@ -216,6 +216,8 @@ local function settle(session: Session, player: Player, name: string, escaped: b
         end
     end
     session.players[player] = nil
+    WeaponStateService.abort(stats.weaponState)
+    player:SetAttribute("RaidReloading", false)
     player:SetAttribute("RaidProof", nil)
     player:SetAttribute("RaidExitAt", nil)
     player:SetAttribute("RaidPhase", "Debrief")
@@ -311,6 +313,8 @@ local function hurt(session: Session, player: Player, damage: number)
         return
     end
     hunter.phase = "Downed"
+    WeaponStateService.abort(hunter.weaponState)
+    updateAmmo(player, hunter)
     hunter.downedUntil = os.clock() + 20
     hunter.exitAt = nil
     humanoid.Health = 1
@@ -598,11 +602,8 @@ function Raid.start(
                 local hunter: Hunter = {
                     team = entry.team,
                     weapon = weapon.id,
-                    ammo = weapon.capacity,
-                    reserve = weapon.reserve,
+                    weaponState = WeaponStateService.new(weapon),
                     life = 2,
-                    lastFire = -math.huge,
-                    reloadingUntil = 0,
                     phase = "Alive",
                     downedUntil = 0,
                     resonanceUntil = 0,
@@ -680,6 +681,40 @@ local function endCreature(session: Session, creature: Creature)
             "Смотритель повержен. Опечатайте останки."
         )
     end
+end
+
+local function scheduleReload(
+    session: Session,
+    player: Player,
+    hunter: Hunter,
+    character: Model,
+    scheduled: WeaponStateService.Reload
+)
+    task.delay(math.max(0, scheduled.nextAt - os.clock()), function()
+        local state = hunter.weaponState
+        if current ~= session or session.players[player] ~= hunter or state.reload ~= scheduled then
+            return
+        end
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if
+            not player.Parent
+            or player.Character ~= character
+            or hunter.phase ~= "Alive"
+            or not humanoid
+            or humanoid.Health <= 0
+        then
+            WeaponStateService.abort(state)
+            if player.Parent then
+                updateAmmo(player, hunter)
+            end
+            return
+        end
+        WeaponStateService.advance(state, scheduled.revision, os.clock())
+        updateAmmo(player, hunter)
+        if state.reload then
+            scheduleReload(session, player, hunter, character, state.reload)
+        end
+    end)
 end
 
 Remotes.combat.OnServerEvent:Connect(function(player: Player, action: unknown, direction: unknown)
@@ -762,39 +797,23 @@ Remotes.combat.OnServerEvent:Connect(function(player: Player, action: unknown, d
         return
     end
     if action == "Reload" then
-        if hunter.ammo >= weapon.capacity or hunter.reserve <= 0 or now < hunter.reloadingUntil then
-            return
-        end
-        hunter.reloadingUntil = now + weapon.reload
-        player:SetAttribute("RaidReloading", true)
-        task.delay(weapon.reload, function()
-            if session.players[player] ~= hunter or hunter.phase ~= "Alive" then
-                if player.Parent then
-                    player:SetAttribute("RaidReloading", false)
-                end
-                return
-            end
-            local fill = math.min(weapon.capacity - hunter.ammo, hunter.reserve)
-            hunter.ammo += fill
-            hunter.reserve -= fill
-            player:SetAttribute("RaidReloading", false)
+        local reload = WeaponStateService.beginReload(hunter.weaponState, now)
+        local character = player.Character
+        if reload and character then
             updateAmmo(player, hunter)
-        end)
+            scheduleReload(session, player, hunter, character, reload)
+        end
         return
     end
     if
         action ~= "Fire"
         or typeof(direction) ~= "Vector3"
         or not (direction.Magnitude >= 0.98 and direction.Magnitude <= 1.02)
-        or hunter.ammo <= 0
-        or now - hunter.lastFire < weapon.delay
-        or now < hunter.reloadingUntil
         or now < hunter.healUntil
+        or not WeaponStateService.fire(hunter.weaponState, now)
     then
         return
     end
-    hunter.ammo -= 1
-    hunter.lastFire = now
     updateAmmo(player, hunter)
     local head = player.Character and player.Character:FindFirstChild("Head")
     local origin = if head and head:IsA("BasePart") then head.Position else root.Position

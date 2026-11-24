@@ -1,4 +1,5 @@
 --!strict
+local WeaponDefinitions = require(script.Parent.weapons.WeaponDefinitions)
 local Catalog = {}
 
 Catalog.hunters = table.freeze({
@@ -28,28 +29,7 @@ Catalog.hunters = table.freeze({
     }),
 })
 
-Catalog.weapons = table.freeze({
-    table.freeze({
-        id = "service",
-        name = "Служебный револьвер",
-        capacity = 6,
-        reserve = 24,
-        delay = 0.49,
-        reload = 1.7,
-        damage = 31,
-        price = 0,
-    }),
-    table.freeze({
-        id = "ridge",
-        name = "Карабин «Перегон»",
-        capacity = 4,
-        reserve = 16,
-        delay = 0.73,
-        reload = 2.1,
-        damage = 48,
-        price = 100,
-    }),
-})
+Catalog.weapons = WeaponDefinitions.expedition
 
 function Catalog.hunter(id: unknown): typeof(Catalog.hunters[1])?
     for _, entry in Catalog.hunters do
