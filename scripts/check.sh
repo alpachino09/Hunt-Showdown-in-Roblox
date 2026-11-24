@@ -39,5 +39,5 @@ done
     cd places
     luau-lsp analyze --platform roblox --definitions @roblox=../build/roblox.d.luau \
         --sourcemap ../build/mammons-gulch.sourcemap.json ../src/shared \
-        mammons-gulch/server mammons-gulch/client
+        mammons-gulch/server mammons-gulch/client mammons-gulch/studio
 )

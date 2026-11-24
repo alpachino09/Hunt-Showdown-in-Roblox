@@ -36,8 +36,11 @@ def generate(map_path=MAP_OUTPUT, definitions_path=DEFINITIONS_OUTPUT):
 
 
 def main():
+    from .terrain import generate_terrain_data
+
     map_path, definitions_path = generate()
-    print(f"Generated {map_path.relative_to(ROOT)} and {definitions_path.relative_to(ROOT)}")
+    terrain_path = generate_terrain_data()
+    print(f"Generated {map_path.relative_to(ROOT)}, {definitions_path.relative_to(ROOT)} and {terrain_path.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

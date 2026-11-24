@@ -41,7 +41,7 @@ rojo build places/mammons-gulch.project.json -o build/MammonsGulch-Development.r
 - `Compounds` содержит измеренные region boundaries и `ReferenceMassing` с `Confidence=APPROXIMATED`. Это greybox, не финальные здания.
 - Глобальные Spawn/Extraction/Supply/Clue/Boss/Interactive markers создаются один раз в корневых папках. Внутри compounds нет дублирующих gameplay-папок.
 - 42 кандидата спавна не активируются одновременно. `SpawnPoints/DevelopmentSpawn` — единственный SpawnLocation для development Place; `Host.server.luau` назначает его игрокам.
-- Настоящий `Workspace.Terrain` создаётся отдельным Studio-инструментом из `terrain.u16`, а не XML-файлом. Следующий подэтап должен документировать применение и повторное восстановление рельефа.
+- Настоящий `Workspace.Terrain` создаётся отдельным Studio-инструментом из `terrain.u16` и `build/generated/MammonsGulchTerrainData.luau`, а не XML-файлом. `places/mammons-gulch/studio/TerrainBuilder.luau` вызывается через MCP только в development Place. Подробности в `docs/MAP_TERRAIN.md`.
 - Текущие Lobby, ExpeditionMap, RushMap, охотники и их файлы остаются собственностью прежних генераторов и не перезаписываются.
 
 ## Детерминизм и восстановление

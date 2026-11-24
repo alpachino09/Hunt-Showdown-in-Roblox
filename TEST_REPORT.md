@@ -25,6 +25,14 @@
 - Roblox Studio 0.748, Edit: Place открыт напрямую через `-localPlaceFile`. Дерево `Compounds` содержит все 16 моделей, `SpawnPoints/Candidates` — 42 маркера и один `DevelopmentSpawn`. Output пуст.
 - Получен [реальный кадр Studio](docs/images/map/mammons-gulch-blockout-overview.jpg). На нём виден только greybox на пустом Terrain; визуальная готовность, проходимость и Play/multiplayer в этом подэтапе не проверялись.
 
+## Этап 03 — измеренный Terrain · 24.11.2026
+
+- `./scripts/check.sh` прошёл: StyLua, Selene, 30 Python tests, оба Lune-теста, сборки пяти мест и Luau LSP. Payload генерируется как `MammonsGulchTerrainData.luau`, поэтому require проходит статический анализ.
+- Studio self-test подтвердил Base64 и контрольные высоты. Первая попытка выявила обязательный `resolution` в `Terrain:WriteVoxels`; после исправления актуальный Source создал 338 регионов за 40,84 с. Повторный вызов `require` использовал устаревший кеш Studio, поэтому применение проверялось через актуальный Source.
+- Solo Play `MammonsGulchTerrainCheck.client.luau` завершился `passed=true`: Blackthorn 36,159 (ожидалось 32,111), Monteros 16,661 (12,684), La Plata 78,559 (74,246). Допуск 5 studs. Water подтверждена материалом `Water`, 8 (4,89). Первая версия теста без ожидания StreamingEnabled корректно выявила необходимость телепортации в контрольную зону.
+- Повторное восстановление из Git-данных завершилось `ok=true`: 338 регионов за 41,08 с, локальный Place сохранён. Это подтверждает восстановимость Terrain, а не только изменение открытой Studio-сессии.
+- [Кадр Terrain](docs/images/map/mammons-gulch-terrain-overview.jpg). Пешеходные маршруты пока отдельные проверки; полноценная визуальная приёмка рельефа не заявляется.
+
 ## Локальный прототип лобби · 22.11.2026
 
 - На macOS успешно собраны Lobby, Expedition и Rush через Rojo 7.7.1.

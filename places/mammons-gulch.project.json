@@ -8,6 +8,18 @@
         "$path": "../src/shared"
       }
     },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "MammonsGulchStudio": {
+        "$className": "Folder",
+        "TerrainBuilder": {
+          "$path": "mammons-gulch/studio/TerrainBuilder.luau"
+        },
+        "MammonsGulchTerrainData": {
+          "$path": "../build/generated/MammonsGulchTerrainData.luau"
+        }
+      }
+    },
     "ServerScriptService": {
       "$className": "ServerScriptService",
       "MapServer": {
