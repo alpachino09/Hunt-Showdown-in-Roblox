@@ -49,3 +49,5 @@
 ## Учебный «Фонарь»
 
 Геометрия создана для «Серой заставы» в `scripts/generate_weapon_lab.py`. Дерево и металл — встроенные материалы Roblox. Подвижные группы хранятся в генерируемом `Lantern.rbxmx`. Новых загруженных Asset ID нет.
+
+Модель следующей итерации создана в Blender для «Серой заставы». Исходник и экспорт — `assets/weapons/Lantern/LanternVisual.blend` и `LanternVisual.glb`, воспроизводимый генератор — `scripts/prepare_lantern_visual.py`. Карта ореха процедурно сгенерирована в этом скрипте. Внешних ресурсов и Roblox Asset ID нет. Экспорт пока находится вне сборки WeaponLab.
