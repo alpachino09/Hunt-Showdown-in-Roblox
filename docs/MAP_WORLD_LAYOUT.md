@@ -42,3 +42,9 @@
 | Terrain voxel | 4 studs = 1,333 м | ADAPTED; берега и склоны требуют Studio QA |
 
 Дороги, железная дорога, мосты и высотные связи фиксируются отдельными centerlines с confidence; до этого они не считаются готовыми.
+
+## Текущий файловый макет
+
+`places/mammons-gulch.project.json` создаёт отдельный development Place. Все 16 compounds находятся в `Workspace/Maps/MammonsGulch/Compounds` на координатах из таблицы. Region boundaries повторяют исходные полигоны; `ReferenceMassing` использует измеренные bbox и число этажей, но не подтверждённые фасады. Его статус — `APPROXIMATED`, не финальная архитектура.
+
+Глобальные gameplay markers находятся в корневых папках и не дублируются внутри compounds. Из 42 спавнов только один `DevelopmentSpawn` активен для QA. Восстановление и владельцы описаны в `docs/MAP_RECONSTRUCTION.md`.

@@ -1,0 +1,68 @@
+{
+  "name": "MammonsGulch-Development",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": {
+        "$path": "../src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "MapServer": {
+        "$path": "mammons-gulch/server"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "MapClient": {
+          "$path": "mammons-gulch/client"
+        }
+      }
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "StreamingEnabled": true
+      },
+      "Maps": {
+        "$className": "Folder",
+        "MammonsGulch": {
+          "$path": "../build/generated/MammonsGulch.rbxmx"
+        }
+      },
+      "Terrain": {
+        "$className": "Terrain"
+      }
+    },
+    "SoundService": {
+      "$className": "SoundService"
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "Brightness": 1.5,
+        "ClockTime": 15.2,
+        "GlobalShadows": true,
+        "LightingStyle": "Realistic",
+        "EnvironmentDiffuseScale": 0.35,
+        "EnvironmentSpecularScale": 0.4,
+        "ExposureCompensation": -0.15
+      },
+      "Daylight": {
+        "$className": "Atmosphere",
+        "$properties": {
+          "Color": [0.69, 0.72, 0.75],
+          "Decay": [0.42, 0.46, 0.5],
+          "Density": 0.22,
+          "Offset": 0.08,
+          "Haze": 1.6,
+          "Glare": 0
+        }
+      }
+    }
+  }
+}

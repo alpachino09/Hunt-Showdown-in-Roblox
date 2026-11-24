@@ -5,7 +5,9 @@ export PATH="$HOME/.rokit/bin:$PATH"
 
 stylua --check src places tests
 selene src places tests
+python3 -m unittest discover -s tests/unit -p 'test_*.py'
 lune run tests/unit/FootPlantContact.luau
+lune run tests/unit/MammonsGulchLayout.luau
 ./scripts/build.sh
 
 if [ ! -s build/roblox.d.luau ]; then
@@ -32,3 +34,10 @@ for mode in expedition rush; do
             ../src/expedition-client "$mode/server"
     )
 done
+
+(
+    cd places
+    luau-lsp analyze --platform roblox --definitions @roblox=../build/roblox.d.luau \
+        --sourcemap ../build/mammons-gulch.sourcemap.json ../src/shared \
+        mammons-gulch/server mammons-gulch/client
+)

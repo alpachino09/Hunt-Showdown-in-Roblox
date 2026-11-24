@@ -18,6 +18,13 @@
 - `python3 -m unittest tests/unit/test_mammons_gulch_assets.py -v`: 5 тестов прошли. Проверены обязательные provenance fields, десять bounded score fields, локальные файлы и security status approved assets, отсутствие build integration у pending/rejected и явные решения Fab.
 - Манифест содержит 29 уникальных кандидатов. La Plata и остальные Compound Specification ссылаются на реальные candidate IDs. В Studio выполнен только read-only Creator Store search; insert_asset, скачивание Fab, Play и визуальное тестирование новых ассетов не выполнялись.
 
+## Этап 03 — development Place · 24.11.2026
+
+- `./scripts/check.sh` прошёл: StyLua, Selene, 26 Python tests, Lune FootPlant и MammonsGulchLayout, сборки пяти мест и Luau LSP. Rojo успешно создал `build/MammonsGulch-Development.rbxl`.
+- `tests/unit/test_mammons_gulch_generation.py`: 4 теста подтвердили структуру и 16 compounds, отсутствие Scripts/Remotes в геометрии, 42 candidate markers при одном SpawnLocation и байт-идентичную повторную генерацию.
+- Roblox Studio 0.748, Edit: Place открыт напрямую через `-localPlaceFile`. Дерево `Compounds` содержит все 16 моделей, `SpawnPoints/Candidates` — 42 маркера и один `DevelopmentSpawn`. Output пуст.
+- Получен [реальный кадр Studio](docs/images/map/mammons-gulch-blockout-overview.jpg). На нём виден только greybox на пустом Terrain; визуальная готовность, проходимость и Play/multiplayer в этом подэтапе не проверялись.
+
 ## Локальный прототип лобби · 22.11.2026
 
 - На macOS успешно собраны Lobby, Expedition и Rush через Rojo 7.7.1.
