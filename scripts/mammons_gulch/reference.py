@@ -467,6 +467,12 @@ def generate_docs(layout, points, terrain):
 `places/mammons-gulch.project.json` создаёт отдельный development Place. Все 16 compounds находятся в `Workspace/Maps/MammonsGulch/Compounds` на координатах из таблицы. Region boundaries повторяют исходные полигоны; `ReferenceMassing` использует измеренные bbox и число этажей, но не подтверждённые фасады. Его статус — `APPROXIMATED`, не финальная архитектура.
 
 Глобальные gameplay markers находятся в корневых папках и не дублируются внутри compounds. Из 42 спавнов только один `DevelopmentSpawn` активен для QA. Восстановление и владельцы описаны в `docs/MAP_RECONSTRUCTION.md`.
+
+## Транспортный каркас
+
+`reference/routes.json` содержит `western_spine`, `central_spine`, `eastern_spine`, `west_east_links`, `northern_links`, `main_north_south_rail`, `kingfisher_trestle` и `northern_river_bridge`. Все centerlines имеют `APPROXIMATED`, а не выдуманный `CONFIRMED`. Сегмент `kingfisher_trestle` дополнительно опирается на измеренные metal boxes; его идентификатор исправлен после визуальной проверки.
+
+Solo Play подтвердил collision дороги, railbed, deck и underground floor. [Кадр](images/map/mammons-gulch-routes-overview.jpg). Точная геометрия троп, вагонов и полная оригинальная топология шахт остаются последующей детализацией.
 """, encoding="utf-8")
     (DOCS / "MAP_REFERENCE_ANALYSIS.md").write_text(f"""# Исследование Mammon's Gulch
 
@@ -517,15 +523,18 @@ def refresh():
     version = map3d_entry["v"]
     urls["meta"] = f"{BASE_URL}/map3d/colorado/meta.json?v={version}"
     urls["terrain"] = f"{BASE_URL}/map3d/colorado/terrain.d16?v={version}"
+    urls["holes"] = f"{BASE_URL}/map3d/colorado/holes.bin"
     urls["apiIndex"] = f"{BASE_URL}/api/v1/index.json"
     meta_payload = fetcher.get(urls["meta"])
     terrain_payload = fetcher.get(urls["terrain"])
+    holes_payload = fetcher.get(urls["holes"])
     api_payload = fetcher.get(urls["apiIndex"])
     meta = json.loads(meta_payload)
     api = json.loads(api_payload)
     layout, points, terrain = normalize(map_entry, map3d_entry, meta, terrain_payload, summaries)
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / "terrain.u16").write_bytes(terrain_payload)
+    (DATA / "holes.bin").write_bytes(holes_payload)
     write_json(DATA / "layout.json", layout)
     write_json(DATA / "points.json", points)
     write_json(DATA / "terrain.json", terrain)
@@ -535,6 +544,7 @@ def refresh():
         "compoundsPage": compounds_payload,
         "meta": meta_payload,
         "terrain": terrain_payload,
+        "holes": holes_payload,
         "apiIndex": api_payload,
     }
     write_json(DATA / "source.json", {

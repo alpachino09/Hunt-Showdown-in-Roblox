@@ -79,6 +79,14 @@ end
 
 local HEIGHTS = decodeHeights()
 local WATER = decodeWater()
+local HOLES_PAYLOAD = decodeBase64(Data.holesData)
+assert(#HOLES_PAYLOAD * 8 >= Data.grid * Data.grid, "hole payload size")
+local HOLES = {}
+for index = 1, Data.grid * Data.grid do
+    local byte = string.byte(HOLES_PAYLOAD, math.floor((index - 1) / 8) + 1)
+    local mask = 2 ^ (7 - (index - 1) % 8)
+    HOLES[index] = byte % (mask * 2) >= mask
+end
 
 local function sampleHeight(x: number, z: number): number
     local sourceX = x / Data.studsPerMetre + 1024
@@ -114,6 +122,19 @@ local function sampleWater(x: number, z: number): number?
     return (level - Data.heightOffsetMetres) * Data.studsPerMetre
 end
 
+local function sampleHole(x: number, z: number): boolean
+    local sourceX = x / Data.studsPerMetre + 1024
+    local sourceY = 1024 - z / Data.studsPerMetre
+    local column =
+        math.clamp(math.floor((sourceX - Data.origin[1]) / Data.stepMetres + 0.5), 0, Data.grid - 1)
+    local row = math.clamp(
+        math.floor((Data.origin[2] + Data.sizeMetres - sourceY) / Data.stepMetres + 0.5),
+        0,
+        Data.grid - 1
+    )
+    return HOLES[row * Data.grid + column + 1] == true
+end
+
 local function solidMaterial(x: number, z: number, height: number): Enum.Material
     local dx = sampleHeight(x + 4, z) - height
     local dz = sampleHeight(x, z + 4) - height
@@ -142,10 +163,34 @@ local function selfTest()
     assert(math.abs(sampleHeight(-164.352, 272.7936) - 74.24616) < 0.01, "La Plata height")
     local river = sampleWater(-600, -1398)
     assert(river ~= nil and math.abs(river - 4.89) < 0.01, "river water level")
+    assert(sampleHole(-108, 54), "mine opening")
     return true
 end
 
+local function carveHoles()
+    local count = 0
+    local terrain = Workspace.Terrain
+    for index = 1, Data.grid * Data.grid do
+        if HOLES[index] then
+            local row = math.floor((index - 1) / Data.grid)
+            local column = (index - 1) % Data.grid
+            local sourceX = Data.origin[1] + column * Data.stepMetres
+            local sourceY = Data.origin[2] + Data.sizeMetres - row * Data.stepMetres
+            local x = (sourceX - 1024) * Data.studsPerMetre
+            local z = (1024 - sourceY) * Data.studsPerMetre
+            terrain:FillBlock(CFrame.new(x, 122, z), Vector3.new(12, 276, 12), Enum.Material.Air)
+            count += 1
+            if count % 50 == 0 then
+                task.wait()
+            end
+        end
+    end
+    return count
+end
+
+TerrainBuilder.carveHoles = carveHoles
 TerrainBuilder.selfTest = selfTest
+TerrainBuilder.sampleHole = sampleHole
 
 function TerrainBuilder.apply()
     assert(RunService:IsStudio(), "TerrainBuilder is Studio-only")
@@ -189,6 +234,10 @@ function TerrainBuilder.apply()
                             local ground = sampleHeight(x, z)
                             local fill = math.clamp((ground - (y - 2)) / 4, 0, 1)
                             local material = Enum.Material.Grass
+                            if sampleHole(x, z) then
+                                fill = 0
+                                material = Enum.Material.Air
+                            end
                             if fill > 0 then
                                 material = solidMaterial(x, z, ground)
                                 local water = sampleWater(x, z)
@@ -229,8 +278,10 @@ function TerrainBuilder.apply()
             end
         end
     end
+    local holes = carveHoles()
     return {
         chunks = chunks,
+        holes = holes,
         seconds = os.clock() - started,
         minHeight = sampleHeight(-1536, -1536),
         maxHeight = sampleHeight(1536, 1536),

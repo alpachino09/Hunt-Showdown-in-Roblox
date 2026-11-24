@@ -28,6 +28,10 @@
     "terrain": {
       "sha256": "cd42103e419b70355350029f40daf108656dd363134f7f473afe9a34f36ac9dd",
       "url": "https://hunt.innerpulse.net/map3d/colorado/terrain.d16?v=ca38fe1f"
+    },
+    "holes": {
+      "sha256": "384c779056a391244c694b0938f5dfd1410e96dd286d241e2a8ee8acf741ed64",
+      "url": "https://hunt.innerpulse.net/map3d/colorado/holes.bin"
     }
   },
   "usageReference": "https://hunt.innerpulse.net/developers/"

@@ -33,6 +33,13 @@
 - Повторное восстановление из Git-данных завершилось `ok=true`: 338 регионов за 41,08 с, локальный Place сохранён. Это подтверждает восстановимость Terrain, а не только изменение открытой Studio-сессии. Дополнительный `selfTest()` речного уровня также вернул `true`.
 - [Кадр Terrain](docs/images/map/mammons-gulch-terrain-overview.jpg). Пешеходные маршруты пока отдельные проверки; полноценная визуальная приёмка рельефа не заявляется.
 
+## Этап 03 — дороги, рельсы и underground · 24.11.2026
+
+- `./scripts/check.sh` прошёл: StyLua, Selene, 34 Python tests, оба Lune-теста, сборки пяти мест и Luau LSP. Генератор создал пять дорог, главную линию, два моста и 21 underground region; исполняемого кода в геометрии нет.
+- Terrain с hole mask создан за 77,83 с. `carveHoles()` обработал 1445 ячеек; размер 12 studs выбран после фактического обнаружения остаточного Rock при меньшем carve. Повторный raycast вернул `air`.
+- `MammonsGulchRouteCheck.client.luau` в Solo Play завершился `passed=true`: `western_spine.Segment_07`, `main_north_south_rail.Segment_01`, `kingfisher_trestle.Deck_01`, `VisArea-22.Floor` и hole cell Air. Streaming-зависимые обращения используют teleport + WaitForChild, поэтому прежний ложный `Air` из незагруженной зоны не принимается за доказательство.
+- [Кадр транспортного каркаса](docs/images/map/mammons-gulch-routes-overview.jpg). Проверка двух клиентов и полная пешеходная приёмка маршрутов остаются следующим пакетом.
+
 ## Локальный прототип лобби · 22.11.2026
 
 - На macOS успешно собраны Lobby, Expedition и Rush через Rojo 7.7.1.

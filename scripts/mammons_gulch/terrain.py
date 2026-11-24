@@ -78,6 +78,7 @@ def generate_terrain_data(output=OUTPUT):
     heightOffsetMetres = 32.79,
     heightData = \"{base64.b64encode(raw_heights).decode('ascii')}\",
     waterData = \"{base64.b64encode(water_payload).decode('ascii')}\",
+    holesData = \"{base64.b64encode((DATA / 'holes.bin').read_bytes()).decode('ascii')}\",
     undergroundJson = {json.dumps(json.dumps(metadata['undergroundRegions'], ensure_ascii=False))},
 }}
 """

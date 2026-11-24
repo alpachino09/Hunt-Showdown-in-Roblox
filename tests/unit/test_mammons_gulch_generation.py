@@ -39,7 +39,11 @@ class GenerationTest(unittest.TestCase):
     def test_generated_geometry_contains_no_third_party_code(self):
         executable = {"Script", "LocalScript", "ModuleScript", "RemoteEvent", "RemoteFunction"}
         self.assertEqual([node for node in self.root.iter("Item") if node.attrib["class"] in executable], [])
-        confidence = [node for node in self.root.iter("Item") if node.attrib["class"] == "StringValue" and node.find("Properties/string[@name='Name']").text == "Confidence"]
+        massing = [
+            model for model in self.root.iter("Item")
+            if model.attrib["class"] == "Model" and model.find("Properties/string[@name='Name']").text == "ReferenceMassing"
+        ]
+        confidence = [node for model in massing for node in model if node.tag == "Item" and node.attrib["class"] == "StringValue" and node.find("Properties/string[@name='Name']").text == "Confidence"]
         self.assertEqual(len(confidence), 16)
         self.assertTrue(all(node.find("Properties/string[@name='Value']").text == "APPROXIMATED" for node in confidence))
 
