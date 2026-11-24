@@ -140,6 +140,8 @@ local function selfTest()
     assert(math.abs(sampleHeight(-1036.44, -1209.63) - 32.110875) < 0.01, "Blackthorn height")
     assert(math.abs(sampleHeight(53.58, -686.97) - 12.6837) < 0.01, "Monteros height")
     assert(math.abs(sampleHeight(-164.352, 272.7936) - 74.24616) < 0.01, "La Plata height")
+    local river = sampleWater(-600, -1398)
+    assert(river ~= nil and math.abs(river - 4.89) < 0.01, "river water level")
     return true
 end
 
