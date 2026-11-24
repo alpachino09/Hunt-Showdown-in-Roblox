@@ -11,6 +11,7 @@
 - `TerrainBuilder` создал 338 регионов измеренного рельефа и воды за 40,84 с. Self-test и Solo Play подтвердили три наземные контрольные высоты и Water; StreamingEnabled учитывается при raycast. Финальные склоны и берега ещё требуют пешеходной проверки. [Рельеф](docs/MAP_TERRAIN.md) · [Кадр](docs/images/map/mammons-gulch-terrain-overview.jpg)
 - Добавлены пять дорожных коридоров, главная железнодорожная линия, два моста и 21 underground region. Solo Play подтвердил road, railbed, bridge deck, underground floor и воздух в hole cell. Исправлены идентификатор `kingfisher_trestle` и carve 1445 отверстий шириной 12 studs. [Подземные системы](docs/MAP_UNDERGROUND.md) · [Кадр](docs/images/map/mammons-gulch-routes-overview.jpg)
 - Добавлены Studio-only DebugService/UI: allowlist teleport, bounds/spawn/clue/exit/height/sightline/collision overlays. Lune подтвердил запрет вне Studio, валидацию, cooldown и изоляцию игроков. Solo Play подтвердил UI, а два Studio-клиента прошли встречный маршрут в тоннеле. Замер 60,07 FPS при p95 18,25 мс на M1 Pro. [Оптимизация](docs/MAP_OPTIMIZATION.md) · [Кадр](docs/images/map/mammons-gulch-debug-tools.jpg)
+- Географический макет визуально проверен и оценён **40/100**, без присвоения финальных баллов. `GEOGRAPHY_BLOCKOUT_ACCEPTED_FOR_LA_PLATA`; следующий пакет — полная реконструкция La Plata Mine. [Оценка](docs/MAP_QUALITY_REPORT.md)
 
 ## Этап 01 — архитектура и локальный прототип лобби
 

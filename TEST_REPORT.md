@@ -48,6 +48,12 @@
 - Замер Solo Play, M1 Pro, 180 кадров: 60,07 FPS, медиана 16,72 мс, p95 18,25 мс, Render CPU 3,37 мс, Render GPU 4,71 мс, 20 draw calls, 12 109 треугольников, 4 100 МБ. В текущем клиентском наборе 2 374 BasePart, 19 MeshPart, 0 lights и 0 ParticleEmitter. Холодный запуск, 1% low и 12 игроков не проверялись. [Подробности](docs/MAP_OPTIMIZATION.md).
 - Двери, игровая карта-интерфейс, компас, интерьеры и полный матч Bounty Hunt в этом пакете не реализованы и не заявляются как проверенные.
 
+## Этап 03 — визуальная приёмка макета · 25.11.2026
+
+- Получены реальные north-up, Terrain, routes, La Plata и underground captures. `MAP_QUALITY_REPORT.md` присваивает макету 40/100 и статус `GEOGRAPHY_BLOCKOUT_ACCEPTED_FOR_LA_PLATA`; это не завершение карты.
+- Не заявляются пустые интерьеры как готовые, неподтверждённые centerlines как CONFIRMED или тёмный underground как визуально одобренный. Следующий пакет — La Plata Mine Phase C.
+- Полный `./scripts/check.sh` повторно проходит; существующие места и охотники не изменены.
+
 ## Локальный прототип лобби · 22.11.2026
 
 - На macOS успешно собраны Lobby, Expedition и Rush через Rojo 7.7.1.

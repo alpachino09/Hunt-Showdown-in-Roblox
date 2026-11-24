@@ -11,6 +11,7 @@
 - Добавлены проверка повторного восстановления Terrain и отдельный water self-test на внутренней ячейке реки.
 - Добавлены дорожные centerlines, рельсовое полотно, мостовые decks/piers и подземные visareas. Исправлены именование Kingfisher bridge и физическое вырезание 1445 hole cells с Air.
 - Добавлены Studio-only DebugService, UI и overlays с серверным allowlist teleport и cooldown. Добавлены Lune и Studio проверки UI, двухклиентный tunnel test и измерения производительности.
+- Завершена визуальная приёмка географического макета с реальными Studio captures и оценкой 40/100. Зафиксирован переход к La Plata Mine без объявления этапа 3 завершённым.
 
 ## Начальная версия
 
