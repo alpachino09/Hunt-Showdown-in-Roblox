@@ -1,5 +1,11 @@
 # Прогресс
 
+## Этап 03 — Mammon's Gulch
+
+- Создана ветка `feature/03-mammons-gulch-map` от `e58f0b258b42eb3cd1c96263ae78247ec8a6280b` после безопасного fetch и проверки удалённых веток. Существующие Lobby, Expedition, Rush и модели охотников не изменялись.
+- Выполнен baseline `./scripts/check.sh`: форматирование, Selene, Lune, сборки четырёх мест и Luau LSP прошли. Предупреждения LSP касаются только `didChangeWatchedFiles`.
+- Roblox Studio 0.748 открыт на свежей локальной сборке Lobby. Подключение Studio MCP проверено через новый `scripts/studio_mcp.py`; доступны чтение дерева, состояние, Output, выполнение Luau и захват кадра. План географического пакета: [план](docs/superpowers/plans/2026-11-24-mammons-gulch-geography.md).
+
 ## Этап 01 — архитектура и локальный прототип лобби
 
 - Зафиксированы дизайн и порядок работ в GAME_DESIGN.md и PROJECT_PLAN.md.

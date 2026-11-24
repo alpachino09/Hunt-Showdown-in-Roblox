@@ -1,5 +1,12 @@
 # Отчёт о тестировании
 
+## Этап 03 — baseline и Studio MCP · 24.11.2026
+
+- До изменений `./scripts/check.sh` прошёл на SHA `e58f0b258b42eb3cd1c96263ae78247ec8a6280b`: StyLua, Selene (0 ошибок и 0 предупреждений), Lune, Rojo-сборки Lobby/Expedition/Rush/HunterLab и Luau LSP для всех существующих мест. Сообщения LSP о `didChangeWatchedFiles` являются предупреждениями клиента, не диагностикой кода.
+- `python3 -m unittest tests/unit/test_studio_mcp.py -v`: 4 теста прошли, включая реальное newline-JSON-RPC взаимодействие с тестовым процессом, инициализацию перед вызовом, обработку ошибки инструмента и закрытие потоков без ResourceWarning.
+- Studio 0.748, Edit: открыта свежая `build/GreyOutpost-Lobby.rbxl`. В Workspace находятся Station, Terrain и Camera; ServerStorage содержит прежние ExpeditionMap (172 потомка), RushMap (95 потомков) и Lobby; четыре модели в HunterRoster сохранены. Output свежей сборки пуст.
+- Также обнаружены ранее открытые HunterLab и Hunters-Final; они не изменялись. У HunterLab Output пуст, у Hunters-Final остаются старые сообщения о генерируемых представлениях ассетов. В этом подэтапе Play и многопользовательские тесты не запускались.
+
 ## Локальный прототип лобби · 22.11.2026
 
 - На macOS успешно собраны Lobby, Expedition и Rush через Rojo 7.7.1.
