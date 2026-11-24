@@ -135,7 +135,5 @@ def render_routes(root, data, heights, terrain):
     validate_routes(data)
     for route in data["roads"]:
         render_road(route, ensure(root, "Folder", "Roads"), heights, terrain)
-    for route in data["railways"]:
-        render_road(route, ensure(root, "Folder", "Railways"), heights, terrain, railway=True)
     for route in data["bridges"]:
         render_bridge(route, ensure(root, "Folder", "Bridges"), heights, terrain)

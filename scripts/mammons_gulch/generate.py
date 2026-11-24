@@ -5,6 +5,7 @@ import xml.etree.ElementTree as xml
 from .compounds import render_compounds, render_definitions
 from .markers import render_markers
 from .reference import DATA, decode_heightfield, load_layout
+from .railway import render_railway
 from .routes import load_routes, render_routes
 from .underground import load_hole_mask, render_underground
 from .xml import ensure, item, build
@@ -31,6 +32,8 @@ def generate(map_path=MAP_OUTPUT, definitions_path=DEFINITIONS_OUTPUT):
     render_compounds(world, layout, heights, terrain, ensure(world, "Folder", "DebugMarkers"))
     render_markers(world, layout, json.loads((DATA / "points.json").read_text(encoding="utf-8")))
     render_routes(world, load_routes(), heights, terrain)
+    for route in load_routes()["railways"]:
+        render_railway(route, ensure(world, "Folder", "Railways"), heights, terrain)
     render_underground(ensure(world, "Folder", "Underground"), terrain["undergroundRegions"], heights, terrain, load_hole_mask())
     build(document, map_path)
     definitions_path = Path(definitions_path)
