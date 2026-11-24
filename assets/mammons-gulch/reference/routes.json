@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-24",
+  "coordinateSpace": "source metres; origin 512,512; north decreases Y",
+  "sources": [
+    "https://hunt.innerpulse.net/survey/colorado/overview.webp",
+    "https://hunt.innerpulse.net/img/maps/colorado.webp",
+    "https://hunt.innerpulse.net/map3d/colorado/bldg.q16",
+    "https://hunt.innerpulse.net/map3d/colorado/bldg.mat"
+  ],
+  "roads": [
+    {
+      "id": "western_spine",
+      "kind": "road",
+      "confidence": "APPROXIMATED",
+      "widthMetres": 4,
+      "points": [[700, 1520], [680, 1450], [690, 1360], [720, 1260], [700, 1180], [760, 1110], [830, 1060], [900, 1020], [930, 940], [930, 850], [910, 760], [900, 680], [850, 640], [760, 620], [650, 610]],
+      "referenceLinks": ["https://hunt.innerpulse.net/survey/colorado/overview.webp"]
+    },
+    {
+      "id": "central_spine",
+      "kind": "road",
+      "confidence": "APPROXIMATED",
+      "widthMetres": 4,
+      "points": [[1000, 1510], [1010, 1410], [1020, 1300], [1050, 1200], [1080, 1100], [1100, 1000], [1090, 900], [1120, 800], [1160, 720], [1210, 650]],
+      "referenceLinks": ["https://hunt.innerpulse.net/survey/colorado/overview.webp"]
+    },
+    {
+      "id": "eastern_spine",
+      "kind": "road",
+      "confidence": "APPROXIMATED",
+      "widthMetres": 4,
+      "points": [[1390, 1500], [1360, 1400], [1320, 1300], [1290, 1180], [1320, 1080], [1400, 1000], [1450, 950], [1460, 850], [1430, 760]],
+      "referenceLinks": ["https://hunt.innerpulse.net/survey/colorado/overview.webp"]
+    },
+    {
+      "id": "west_east_links",
+      "kind": "road",
+      "confidence": "APPROXIMATED",
+      "widthMetres": 4,
+      "points": [[650, 640], [700, 720], [780, 800], [880, 860], [970, 930], [1050, 930], [1150, 900], [1260, 880], [1370, 800], [1430, 760]],
+      "referenceLinks": ["https://hunt.innerpulse.net/survey/colorado/overview.webp"]
+    },
+    {
+      "id": "northern_links",
+      "kind": "road",
+      "confidence": "APPROXIMATED",
+      "widthMetres": 4,
+      "points": [[680, 1450], [800, 1460], [900, 1440], [1000, 1420], [1100, 1430], [1220, 1450], [1360, 1460]],
+      "referenceLinks": ["https://hunt.innerpulse.net/survey/colorado/overview.webp"]
+    }
+  ],
+  "railways": [
+    {
+      "id": "main_north_south_rail",
+      "kind": "railway",
+      "confidence": "APPROXIMATED",
+      "widthMetres": 4,
+      "points": [[940, 512], [950, 600], [960, 700], [970, 800], [970, 900], [950, 1000], [900, 1100], [800, 1210], [710, 1290], [650, 1330], [700, 1380], [800, 1430], [900, 1470], [970, 1500], [1050, 1450], [1180, 1440], [1360, 1410]],
+      "referenceLinks": ["https://hunt.innerpulse.net/img/maps/colorado.webp"]
+    }
+  ],
+  "bridges": [
+    {
+      "id": "kingfisher_trestle",
+      "kind": "bridge",
+      "confidence": "APPROXIMATED",
+      "widthMetres": 5,
+      "points": [[899.689861, 681.973697], [950.762521, 645.436581]],
+      "evidenceSegmentIds": [17637, 17638, 17639, 17640, 17641, 17642, 17643, 17644, 17645, 17646, 17647, 17648, 17649, 17650, 17651, 17652, 17653, 17654, 17655, 17656, 17657, 17658, 17659, 17660, 17661, 17662],
+      "referenceLinks": ["https://hunt.innerpulse.net/map3d/colorado/bldg.q16", "https://hunt.innerpulse.net/map3d/colorado/bldg.mat"]
+    },
+    {
+      "id": "northern_river_bridge",
+      "kind": "bridge",
+      "confidence": "APPROXIMATED",
+      "widthMetres": 5,
+      "points": [[770, 1498], [850, 1498]],
+      "referenceLinks": ["https://hunt.innerpulse.net/survey/colorado/overview.webp"]
+    }
+  ]
+}

@@ -48,3 +48,9 @@
 `places/mammons-gulch.project.json` создаёт отдельный development Place. Все 16 compounds находятся в `Workspace/Maps/MammonsGulch/Compounds` на координатах из таблицы. Region boundaries повторяют исходные полигоны; `ReferenceMassing` использует измеренные bbox и число этажей, но не подтверждённые фасады. Его статус — `APPROXIMATED`, не финальная архитектура.
 
 Глобальные gameplay markers находятся в корневых папках и не дублируются внутри compounds. Из 42 спавнов только один `DevelopmentSpawn` активен для QA. Восстановление и владельцы описаны в `docs/MAP_RECONSTRUCTION.md`.
+
+## Транспортный каркас
+
+`reference/routes.json` содержит `western_spine`, `central_spine`, `eastern_spine`, `west_east_links`, `northern_links`, `main_north_south_rail`, `kingfisher_trestle` и `northern_river_bridge`. Все centerlines имеют `APPROXIMATED`, а не выдуманный `CONFIRMED`. Сегмент `kingfisher_trestle` дополнительно опирается на измеренные metal boxes; его идентификатор исправлен после визуальной проверки.
+
+Solo Play подтвердил collision дороги, railbed, deck и underground floor. [Кадр](images/map/mammons-gulch-routes-overview.jpg). Точная геометрия троп, вагонов и полная оригинальная топология шахт остаются последующей детализацией.

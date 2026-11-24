@@ -9,6 +9,7 @@
 - Проведён asset research: 29 кандидатов, отдельные записи прав и назначение по 16 комплексам. Old Mine допущен только как candidate при Fab Standard License без raw source в GitHub; Wild West Bank отклонён по цене и стилю. Новые ассеты пока не скачаны и не интегрированы. [Исследование](docs/MAP_ASSET_RESEARCH.md) · [Лицензии](docs/MAP_ASSET_LICENSES.md)
 - Создан отдельный `MammonsGulch-Development` Place. Генератор размещает 16 compounds по измеренным координатам, region boundaries, greybox massing и глобальные gameplay markers; исполняемого кода в геометрии нет. Из 42 спавнов активен только development spawn. Rojo-сборка и открытие в Studio подтверждены, Output пуст. Следующий владелец — TerrainBuilder и настоящий рельеф. [Восстановление](docs/MAP_RECONSTRUCTION.md)
 - `TerrainBuilder` создал 338 регионов измеренного рельефа и воды за 40,84 с. Self-test и Solo Play подтвердили три наземные контрольные высоты и Water; StreamingEnabled учитывается при raycast. Финальные склоны и берега ещё требуют пешеходной проверки. [Рельеф](docs/MAP_TERRAIN.md) · [Кадр](docs/images/map/mammons-gulch-terrain-overview.jpg)
+- Добавлены пять дорожных коридоров, главная железнодорожная линия, два моста и 21 underground region. Solo Play подтвердил road, railbed, bridge deck, underground floor и воздух в hole cell. Исправлены идентификатор `kingfisher_trestle` и carve 1445 отверстий шириной 12 studs. [Подземные системы](docs/MAP_UNDERGROUND.md) · [Кадр](docs/images/map/mammons-gulch-routes-overview.jpg)
 
 ## Этап 01 — архитектура и локальный прототип лобби
 
