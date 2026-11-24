@@ -7,6 +7,7 @@ local Workspace = game:GetService("Workspace")
 
 local DebugConfig = require(ReplicatedStorage.Shared["mammons-gulch"].DebugConfig)
 local Definitions = require(ReplicatedStorage.Shared["mammons-gulch"].CompoundDefinitions)
+local DebugVisibility = require(ReplicatedStorage.Shared["mammons-gulch"].DebugVisibility)
 if not DebugConfig.enabled then
     return
 end
@@ -111,7 +112,7 @@ local function clearSightline()
 end
 
 local function clearOverlays()
-    markerVisibility(map.Compounds, 1)
+    DebugVisibility.applyBounds(map.Compounds, 1)
     markerVisibility(map.SpawnPoints.Candidates, 1)
     markerVisibility(map.ClueLocations, 1)
     markerVisibility(map.ExtractionPoints, 1)
@@ -234,7 +235,7 @@ local function updateSightline()
 end
 
 local function updateOverlays()
-    markerVisibility(map.Compounds, if states.bounds then 0.35 else 1)
+    DebugVisibility.applyBounds(map.Compounds, if states.bounds then 0.35 else 1)
     markerVisibility(map.SpawnPoints.Candidates, if states.spawns then 0.35 else 1)
     markerVisibility(map.ClueLocations, if states.clues then 0.35 else 1)
     markerVisibility(map.ExtractionPoints, if states.exits then 0.35 else 1)
