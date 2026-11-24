@@ -33,3 +33,11 @@ for mode in expedition rush; do
             ../src/expedition-client "$mode/server"
     )
 done
+
+rojo sourcemap places/weapon-lab.project.json -o build/weapon-lab.sourcemap.json
+(
+    cd places
+    luau-lsp analyze --platform roblox --definitions @roblox=../build/roblox.d.luau \
+        --sourcemap ../build/weapon-lab.sourcemap.json weapon-lab/server weapon-lab/client \
+        hunter-lab/server ../src/shared
+)

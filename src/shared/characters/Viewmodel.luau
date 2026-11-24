@@ -58,7 +58,12 @@ local function copy(source: BasePart, model: Model): Pair
     return { source = source, part = part, bones = bones }
 end
 
-function Viewmodel.bind(character: Model, root: BasePart)
+function Viewmodel.bind(character: Model, root: BasePart, resolveHeld: (() -> Model?)?)
+    local function defaultHeld(): Model?
+        local candidate = character:FindFirstChild("Rifle") or character:FindFirstChild("Pistol")
+        return if candidate and candidate:IsA("Model") then candidate else nil
+    end
+    local getHeld: () -> Model? = resolveHeld or defaultHeld
     local model = Instance.new("Model")
     model.Name = "HunterViewmodel"
     local sleeves: { Pair } = {}
@@ -82,7 +87,7 @@ function Viewmodel.bind(character: Model, root: BasePart)
         table.clear(hidden)
     end
 
-    local function update(camera: Camera?, enabled: boolean)
+    local function update(camera: Camera?, enabled: boolean, projection: CFrame?)
         if not enabled or not camera then
             if model.Parent then
                 model.Parent = nil
@@ -90,15 +95,18 @@ function Viewmodel.bind(character: Model, root: BasePart)
             end
             return
         end
-        local held = character:FindFirstChild("Rifle") or character:FindFirstChild("Pistol")
+        local held = getHeld()
         if held ~= current then
             for _, pair in prop do
                 pair.part:Destroy()
             end
             table.clear(prop)
-            current = if held and held:IsA("Model") then held else nil
+            current = held
             if current then
-                for _, obj in current:GetChildren() do
+                local parts: { Instance } = if resolveHeld
+                    then current:GetDescendants()
+                    else current:GetChildren()
+                for _, obj in parts do
                     if obj:IsA("BasePart") and obj ~= current.PrimaryPart then
                         table.insert(prop, copy(obj, model))
                     end
@@ -108,7 +116,7 @@ function Viewmodel.bind(character: Model, root: BasePart)
 
         local motion = if rootJoint and rootJoint:IsA("Motor6D") then rootJoint.Transform.Y else 0
         local localSpace = (root.CFrame * CFrame.new(0, VIEW_HEIGHT + motion, 0)):Inverse()
-        local view = camera.CFrame * CAMERA_OFFSET * localSpace
+        local view = projection or camera.CFrame * CAMERA_OFFSET * localSpace
         for _, pair in sleeves do
             pair.part.CFrame = view * pair.source.CFrame
             for _, bone in pair.bones do
@@ -117,11 +125,18 @@ function Viewmodel.bind(character: Model, root: BasePart)
         end
         for _, pair in prop do
             pair.part.CFrame = view * pair.source.CFrame
+            pair.part.Transparency = pair.source.Transparency
         end
         for _, obj in character:GetDescendants() do
             if obj:IsA("BasePart") then
                 hidden[obj] = true
                 obj.LocalTransparencyModifier = 1
+            end
+        end
+        if current and not current:IsDescendantOf(character) then
+            for _, pair in prop do
+                hidden[pair.source] = true
+                pair.source.LocalTransparencyModifier = 1
             end
         end
         if model.Parent ~= camera then

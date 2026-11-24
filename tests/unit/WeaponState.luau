@@ -59,6 +59,9 @@ assert(lantern.chamber == "Spent" and lantern.loaded == 0, "A shot leaves a spen
 assert(not WeaponState.fire(lantern, 1), "A spent chamber cannot fire")
 local opening = assert(WeaponState.beginReload(lantern, 1), "Open first reload")
 assert(WeaponState.cancel(lantern, 1.1), "Allow early cancellation")
+local closing = assert(lantern.reload, "Canceled mechanism must close")
+local previouslyOpen = (1.1 - opening.startedAt) / (opening.nextAt - opening.startedAt)
+assert(closing.closeFrom == previouslyOpen, "Close begins at the current hinge progress")
 assert(
     lantern.chamber == "Spent" and lantern.reserve == Definitions.lantern.reserve,
     "Early cancellation preserves spent chamber and reserve"

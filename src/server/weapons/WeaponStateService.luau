@@ -15,6 +15,7 @@ export type Reload = {
     stage: Stage,
     startedAt: number,
     nextAt: number,
+    closeFrom: number?,
 }
 
 export type State = {
@@ -36,11 +37,12 @@ local duration = table.freeze({
     Close = 0.20,
 })
 
-local function setStage(state: State, stage: Stage, startedAt: number)
+local function setStage(state: State, stage: Stage, startedAt: number, closeFrom: number?)
     state.reload = {
         revision = state.revision,
         stage = stage,
         startedAt = startedAt,
+        closeFrom = closeFrom,
         nextAt = startedAt + state.rules.reload * duration[stage],
     }
 end
@@ -115,8 +117,11 @@ function WeaponStateService.cancel(state: State, now: number): boolean
     WeaponStateService.advance(state, reload.revision, now)
     reload = state.reload
     if reload and reload.stage ~= "Close" then
+        local closeFrom = if reload.stage == "Open"
+            then math.clamp((now - reload.startedAt) / (reload.nextAt - reload.startedAt), 0, 1)
+            else 1
         state.revision += 1
-        setStage(state, "Close", now)
+        setStage(state, "Close", now, closeFrom)
     end
     return true
 end

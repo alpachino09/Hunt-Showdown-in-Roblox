@@ -1,5 +1,6 @@
 --!strict
 
+local ArmIK = require(script.Parent.ArmIK)
 local JointPose = require(script.Parent.JointPose)
 
 export type Slot = "None" | "Rifle" | "Pistol"
@@ -8,15 +9,6 @@ export type Controller = {
     equip: (Slot) -> (),
     play: (Gesture) -> (),
     update: (number, boolean) -> (),
-}
-
-type Arm = {
-    shoulder: Motor6D,
-    elbow: Motor6D,
-    wrist: Motor6D,
-    grip: Attachment,
-    upper: number,
-    lower: number,
 }
 
 local WeaponPose = {}
@@ -33,62 +25,6 @@ local AIM = {
 local RIGHT_HAND = CFrame.Angles(math.rad(75), 0, math.rad(-23)) * TURNED_MESH
 local LEFT_HAND = CFrame.Angles(math.rad(102), math.rad(-20), math.rad(20)) * TURNED_MESH
 
-local function arm(motors: { [string]: Motor6D }, side: string, marker: string): Arm
-    local shoulder, elbow, wrist =
-        motors[side .. "Shoulder"], motors[side .. "Elbow"], motors[side .. "Wrist"]
-    local hand = assert(wrist.Part1, "Expected hand mesh")
-    return {
-        shoulder = shoulder,
-        elbow = elbow,
-        wrist = wrist,
-        grip = hand:WaitForChild(marker) :: Attachment,
-        upper = (shoulder.C1.Position - elbow.C0.Position).Magnitude,
-        lower = (elbow.C1.Position - wrist.C0.Position).Magnitude,
-    }
-end
-
-local function placeHand(
-    armRig: Arm,
-    chest: CFrame,
-    palm: Vector3,
-    orientation: CFrame,
-    elbowHint: Vector3
-): CFrame
-    local shoulder, elbow, wrist = armRig.shoulder, armRig.elbow, armRig.wrist
-    local upper = JointPose.child(chest, shoulder)
-    local lower = JointPose.child(upper, elbow)
-    local shoulderPoint = (chest * shoulder.C0).Position
-    local elbowPoint = (upper * elbow.C0).Position
-    local target = palm - orientation:VectorToWorldSpace(armRig.grip.Position - wrist.C1.Position)
-    local toward = target - shoulderPoint
-    local ray = toward.Unit
-    local length = math.clamp(
-        toward.Magnitude,
-        math.abs(armRig.upper - armRig.lower) + 0.03,
-        armRig.upper + armRig.lower - 0.018
-    )
-    local plane = (elbowHint - ray * elbowHint:Dot(ray)).Unit
-    local along = (length * length + armRig.upper * armRig.upper - armRig.lower * armRig.lower)
-        / (2 * length)
-    local height = math.sqrt(math.max(0, armRig.upper * armRig.upper - along * along))
-    local toElbow = ray * along + plane * height
-    JointPose.rotate(shoulder, chest, JointPose.swing(elbowPoint - shoulderPoint, toElbow))
-
-    upper = JointPose.child(chest, shoulder)
-    lower = JointPose.child(upper, elbow)
-    elbowPoint = (upper * elbow.C0).Position
-    local currentWrist = (lower * wrist.C0).Position
-    local desiredWrist = shoulderPoint + ray * length
-    JointPose.rotate(
-        elbow,
-        upper,
-        JointPose.swing(currentWrist - elbowPoint, desiredWrist - elbowPoint)
-    )
-    lower = JointPose.child(upper, elbow)
-    wrist.Transform = (lower * wrist.C0).Rotation:ToObjectSpace(orientation * wrist.C1.Rotation)
-    return JointPose.child(lower, wrist)
-end
-
 function WeaponPose.bind(character: Model, root: BasePart, assets: Folder): Controller
     local scale = character:GetScale()
     local motors: { [string]: Motor6D } = {}
@@ -97,8 +33,8 @@ function WeaponPose.bind(character: Model, root: BasePart, assets: Folder): Cont
             motors[obj.Name] = obj
         end
     end
-    local left = arm(motors, "Left", "SupportHand")
-    local right = arm(motors, "Right", "TriggerHand")
+    local left = ArmIK.bind(motors, "Left", "SupportHand")
+    local right = ArmIK.bind(motors, "Right", "TriggerHand")
     local weapon: Model? = nil
     local support: Attachment? = nil
     local handToMount = CFrame.new(right.grip.Position) * RIGHT_HAND:Inverse()
@@ -175,7 +111,7 @@ function WeaponPose.bind(character: Model, root: BasePart, assets: Folder): Cont
             * CFrame.Angles(0.29 * recoil - 0.30 * reload, 0, 0.34 * reload)
         local localTarget = hold * kick
         local target = body * CFrame.new(localTarget.Position * scale) * localTarget.Rotation
-        local rightHand = placeHand(
+        local rightHand = ArmIK.place(
             right,
             chest,
             target.Position,
@@ -189,7 +125,7 @@ function WeaponPose.bind(character: Model, root: BasePart, assets: Folder): Cont
                 body:PointToWorldSpace(Vector3.new(-0.38, -0.57, -0.59) * scale),
                 reload
             )
-            placeHand(
+            ArmIK.place(
                 left,
                 chest,
                 handTarget,
