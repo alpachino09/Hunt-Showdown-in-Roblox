@@ -54,6 +54,15 @@
 - Не заявляются пустые интерьеры как готовые, неподтверждённые centerlines как CONFIRMED или тёмный underground как визуально одобренный. Следующий пакет — La Plata Mine Phase C.
 - Полный `./scripts/check.sh` повторно проходит; существующие места и охотники не изменены.
 
+## Этап 03 — La Plata reference capture · 25.11.2026
+
+- `tests/unit/test_la_plata_reference.py`: golden RLE, signed deltas, раздельные `fo/fn`, обрезанные данные, материалы, этажные маркеры и полный dataset. Четыре теста проходят; полный Python suite включает их и проверку ссылки на исследование при повторной генерации документа.
+- Dataset содержит 4 уровня с floor heights 52,37 / 57,39 / 59,30 / 65,82 м, 50 stair records, 10 doors, 18 windows, 3 ladders, 1 elevator, 12 raw / 10 published clues и логово Upper floor. URL и SHA-256 сохранены. Внешние images/models/JS не добавлены в репозиторий.
+- Все четыре north-up плана и общий 3D-вид просмотрены в браузере. Это визуальное исследование референса, а не сравнение с готовой Roblox-архитектурой.
+- Studio 0.748, Edit: MCP подключён к `MammonsGulch-Development.rbxl`; найдены 16 compounds, в La Plata нет `BaseScript`, Output текущего Edit пуст. `TerrainBuilder.selfTest()` вернул `true` до переподключения. Получен [реальный greybox capture](docs/images/map/la-plata-reference-baseline.jpg). Solo Play, двери, лестницы, collisions и multiplayer новой архитектуры ещё не проверялись.
+- Studio MCP после длительной паузы потерял подключение; Place заново открыт через приложение без закрытия чужих документов. Это ограничение не засчитано как Studio Play или функциональная проверка.
+- Полный `./scripts/check.sh` завершился успешно: StyLua, Selene без ошибок/предупреждений, **39 Python tests**, Lune, сборки пяти Places и Luau LSP. Сообщения `didChangeWatchedFiles` — ограничение клиента LSP, не диагностика кода.
+
 ## Локальный прототип лобби · 22.11.2026
 
 - На macOS успешно собраны Lobby, Expedition и Rush через Rojo 7.7.1.

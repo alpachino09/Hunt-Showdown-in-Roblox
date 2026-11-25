@@ -52,6 +52,20 @@ rojo build places/mammons-gulch.project.json -o build/MammonsGulch-Development.r
 
 Для обновления числового среза используется `python3 scripts/mammons_gulch/reference.py`. Он выполняет сетевые запросы последовательно, обновляет данные и генерируемую референсную документацию. Для локальной регенерации документов без сети можно вызвать `generate_docs` с сохранёнными JSON.
 
+Детальный числовой план La Plata хранится в `assets/mammons-gulch/reference/la-plata-plan.json`. Его формат, маркеры и ограничения описаны в `docs/map-compounds/la-plata-mine-plan.md`. Просмотр сохранённого snapshot:
+
+```sh
+python3 -m scripts.mammons_gulch.la_plata_reference
+```
+
+Обновление с последовательными сетевыми запросами и записью URL/SHA-256:
+
+```sh
+python3 -m scripts.mammons_gulch.la_plata_reference --refresh
+```
+
+JSON — вход для последующих модульных генераторов, а не готовая Studio-геометрия. Исходный RLE и JavaScript внешнего сайта не коммитятся. Авторская ссылка на исследование La Plata сохраняется генератором общих документов.
+
 ## Ограничения текущего результата
 
 Rojo-сборка подтверждает только корректность упаковки. Проходимость, визуальное качество, рельеф, маршруты, StreamingEnabled и multiplayer проверяются отдельно в Studio. До этих проверок не допускается утверждение о готовой или идентичной карте.

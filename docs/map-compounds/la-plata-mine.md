@@ -10,6 +10,7 @@
 
 - https://hunt.innerpulse.net/maps/#mammons-gulch
 - https://hunt.innerpulse.net/maps/3d/mammons-gulch/la-plata-mine/
+- [Измеренные планы La Plata](la-plata-mine-plan.md)
 
 Координаты, этажи и игровые точки: `CONFIRMED` по числовым данным Hunt Almanac. Перевод в studs: `ADAPTED` (1 м = 3 studs до Studio-калибровки). Архитектурные детали без отдельного просмотра: `PENDING_RESEARCH`.
 

@@ -12,6 +12,7 @@
 - Добавлены пять дорожных коридоров, главная железнодорожная линия, два моста и 21 underground region. Solo Play подтвердил road, railbed, bridge deck, underground floor и воздух в hole cell. Исправлены идентификатор `kingfisher_trestle` и carve 1445 отверстий шириной 12 studs. [Подземные системы](docs/MAP_UNDERGROUND.md) · [Кадр](docs/images/map/mammons-gulch-routes-overview.jpg)
 - Добавлены Studio-only DebugService/UI: allowlist teleport, bounds/spawn/clue/exit/height/sightline/collision overlays. Lune подтвердил запрет вне Studio, валидацию, cooldown и изоляцию игроков. Solo Play подтвердил UI, а два Studio-клиента прошли встречный маршрут в тоннеле. Замер 60,07 FPS при p95 18,25 мс на M1 Pro. [Оптимизация](docs/MAP_OPTIMIZATION.md) · [Кадр](docs/images/map/mammons-gulch-debug-tools.jpg)
 - Географический макет визуально проверен и оценён **40/100**, без присвоения финальных баллов. `GEOGRAPHY_BLOCKOUT_ACCEPTED_FOR_LA_PLATA`; следующий пакет — полная реконструкция La Plata Mine. [Оценка](docs/MAP_QUALITY_REPORT.md)
+- Phase C начат с [выполняемого плана](docs/superpowers/plans/2026-11-25-la-plata-mine.md). Получен и проверен измеренный план La Plata: 4 уровня, RLE-контуры стен/полов, 50 stair records, 10 дверей, 18 окон, 3 ladders, elevator, crankgate и 12 исходных/10 опубликованных улик. Просмотрены все north-up планы и 3D без крыш. Это `REFERENCE_PLAN_CONFIRMED__ARCHITECTURE_PENDING`, не готовые здания. [Исследование](docs/map-compounds/la-plata-mine-plan.md)
 
 ## Этап 01 — архитектура и локальный прототип лобби
 

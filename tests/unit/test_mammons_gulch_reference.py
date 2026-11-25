@@ -109,12 +109,23 @@ class ReferenceDatasetTest(unittest.TestCase):
         self.assertEqual(la_plata_clue["position"], [982.62, 933.82, 57.95])
 
     def test_each_compound_spec_separates_evidence_from_pending_work(self):
-        specifications = list((ROOT / "docs" / "map-compounds").glob("*.md"))
+        specifications = [
+            path for path in (ROOT / "docs" / "map-compounds").glob("*.md")
+            if path.name != "la-plata-mine-plan.md"
+        ]
         self.assertEqual(len(specifications), 16)
         la_plata = (ROOT / "docs" / "map-compounds" / "la-plata-mine.md").read_text(encoding="utf-8")
         self.assertIn("CONFIRMED", la_plata)
         self.assertIn("PENDING_RESEARCH", la_plata)
         self.assertIn("0.6", la_plata)
+
+    def test_la_plata_research_link_survives_doc_regeneration(self):
+        from scripts.mammons_gulch.reference import generate_compound_doc
+
+        compound = next(item for item in load_layout()["compounds"] if item["id"] == "com_i")
+        points = json.loads((DATA / "points.json").read_text(encoding="utf-8"))
+        document = generate_compound_doc(compound, points)
+        self.assertIn("[Измеренные планы La Plata](la-plata-mine-plan.md)", document)
 
     def test_compound_summary_accepts_singular_storey(self):
         from scripts.mammons_gulch.reference import parse_compound_summaries

@@ -319,6 +319,8 @@ def generate_compound_doc(compound, points):
     tactics = "\n".join(f"- {item[1]}" for item in compound["tacticalAssessment"][4])
     asset_list = ", ".join(f"`{asset}`" for asset in COMPOUND_ASSETS[compound["id"]])
     refs = "\n".join(f"- {link}" for link in compound["referenceLinks"])
+    if compound["id"] == "com_i":
+        refs += "\n- [Измеренные планы La Plata](la-plata-mine-plan.md)"
     anchor = compound["labelAnchor"]
     bounds = compound["buildingBoundsSource"]
     return f"""# {name}
